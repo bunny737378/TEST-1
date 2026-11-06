@@ -895,7 +895,9 @@
     .locals 14
 
     .line 1
-    if-eqz p3, :cond_0
+    move-object/from16 v1, p3
+
+    if-eqz v1, :cond_0
 
     new-instance v0, Lcom/transsion/memberapi/MemberCheckResult;
 
@@ -937,12 +939,14 @@
 
     invoke-virtual {v0, v1}, Lcom/transsion/memberapi/MemberCheckResult;->setPassed(Ljava/lang/Boolean;)V
 
-    invoke-interface {p3, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v1, p3
+
+    invoke-interface {v1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
-    sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+    sget-object v1, Lkotlin/Unit;->a:Lkotlin/Unit;
 
-    return-object p1
+    return-object v1
 .end method
 
 .method public d()Z
