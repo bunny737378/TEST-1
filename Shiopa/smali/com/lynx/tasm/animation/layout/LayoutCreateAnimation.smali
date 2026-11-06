@@ -1,0 +1,27 @@
+.class public Lcom/lynx/tasm/animation/layout/LayoutCreateAnimation;
+.super Lcom/lynx/tasm/animation/layout/BaseLayoutAnimation;
+.source "SourceFile"
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Lcom/lynx/tasm/animation/layout/BaseLayoutAnimation;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public isReverse()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method

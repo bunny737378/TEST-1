@@ -1,0 +1,7 @@
+LiquidGlass for Android
+Copyright 2025 Abdullajon Abdufattoyev
+
+Source: https://github.com/Abdullajon1881/LiquidGlass
+Vendored from the liquidglass-core and liquidglass-view modules because the
+documented Maven Central coordinate was not available at integration time.
+Licensed under the Apache License, Version 2.0; see LiquidGlass-LICENSE.txt.
