@@ -357,3 +357,83 @@
 
     return-object v0
 .end method
+
+.method public static getVersionCode()I
+    .locals 3
+
+    invoke-static {}, Lcom/mod/VersionHelper;->getClientInfoJson()Ljava/lang/String;
+
+    move-result-object v0
+
+    :try_start_0
+    new-instance v1, Lorg/json/JSONObject;
+
+    invoke-direct {v1, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    const-string v0, "version_code"
+
+    invoke-virtual {v1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v0
+
+    :cond_0
+    const-string v0, "version_code"
+
+    invoke-virtual {v1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    return v0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    const v0, 0x2fb3f24
+
+    return v0
+.end method
+
+.method public static getVersionName()Ljava/lang/String;
+    .locals 2
+
+    invoke-static {}, Lcom/mod/VersionHelper;->getClientInfoJson()Ljava/lang/String;
+
+    move-result-object v0
+
+    :try_start_0
+    new-instance v1, Lorg/json/JSONObject;
+
+    invoke-direct {v1, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    const-string v0, "version_name"
+
+    invoke-virtual {v1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return-object v0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :catch_0
+    const-string v0, "4.0.03.1013.indus"
+
+    return-object v0
+.end method
