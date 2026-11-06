@@ -28,11 +28,9 @@
 .end method
 
 .method private final a(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
-    .locals 2
+    .locals 3
 
     .line 1
-    sget-object p2, Lkg/b;->a:Lkg/b$a;
-
     invoke-static {}, Lcom/mod/VersionHelper;->getClientInfoJson()Ljava/lang/String;
 
     move-result-object v0
@@ -40,7 +38,6 @@
     .line 7
     invoke-virtual {p1}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
 
-    .line 10
     move-result-object p1
 
     .line 11
@@ -50,42 +47,21 @@
     invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 16
-    invoke-virtual {p2}, Lkg/b$a;->d()Ljava/lang/Boolean;
+    const-string v0, "1"
 
-    .line 19
-    move-result-object p2
+    .line 18
+    const-string v1, "X-Client-Status"
 
     .line 20
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    .line 22
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    .line 25
-    move-result p2
-
-    .line 26
-    xor-int/lit8 p2, p2, 0x1
-
-    .line 28
-    invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    .line 31
-    move-result-object p2
-
-    .line 32
-    const-string v0, "X-Client-Status"
-
-    .line 34
-    invoke-virtual {p1, v0, p2}, Lokhttp3/Request$Builder;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    .line 37
+    .line 23
     invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
-    .line 40
+    .line 26
     move-result-object p1
 
-    .line 41
+    .line 27
     return-object p1
 .end method
 

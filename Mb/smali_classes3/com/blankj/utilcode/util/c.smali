@@ -132,92 +132,84 @@
     .locals 1
 
     .line 1
-    invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
+    invoke-static {}, Lcom/mod/VersionHelper;->getVersionCode()I
 
-    .line 4
-    move-result-object v0
-
-    .line 5
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    .line 8
-    move-result-object v0
-
-    .line 9
-    invoke-static {v0}, Lcom/blankj/utilcode/util/c;->e(Ljava/lang/String;)I
-
-    .line 12
     move-result v0
 
-    .line 13
     return v0
 .end method
 
 .method public static e(Ljava/lang/String;)I
-    .locals 3
+    .locals 1
 
     .line 1
-    invoke-static {p0}, Lcom/blankj/utilcode/util/e0;->D(Ljava/lang/String;)Z
+    const-string v0, "com.community.mb"
 
-    .line 4
+    invoke-static {p0, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
     move-result v0
 
-    .line 5
+    if-nez v0, :cond_0
+
+    const-string v0, "com.community.oneroom"
+
+    invoke-static {p0, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    invoke-static {}, Lcom/mod/VersionHelper;->getVersionCode()I
+
+    move-result v0
+
+    return v0
+
+    :cond_1
+    invoke-static {p0}, Lcom/blankj/utilcode/util/e0;->D(Ljava/lang/String;)Z
+
+    move-result v0
+
     const/4 v1, -0x1
 
-    .line 6
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
-    .line 8
     return v1
 
-    .line 9
-    :cond_0
+    :cond_2
     :try_start_0
     invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
 
-    .line 12
     move-result-object v0
 
-    .line 13
     invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    .line 16
     move-result-object v0
 
-    .line 17
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    .line 18
-    invoke-virtual {v0, p0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v0, p0, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    .line 21
     move-result-object p0
 
-    .line 22
-    if-nez p0, :cond_1
+    if-nez p0, :cond_3
 
-    .line 24
     goto :goto_0
 
-    .line 25
-    :cond_1
+    :cond_3
     iget v1, p0, Landroid/content/pm/PackageInfo;->versionCode:I
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 27
     :goto_0
     return v1
 
-    .line 28
     :catch_0
     move-exception p0
 
-    .line 29
     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
 
-    .line 32
     return v1
 .end method
 
@@ -225,92 +217,84 @@
     .locals 1
 
     .line 1
-    invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
+    invoke-static {}, Lcom/mod/VersionHelper;->getVersionName()Ljava/lang/String;
 
-    .line 4
     move-result-object v0
 
-    .line 5
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    .line 8
-    move-result-object v0
-
-    .line 9
-    invoke-static {v0}, Lcom/blankj/utilcode/util/c;->g(Ljava/lang/String;)Ljava/lang/String;
-
-    .line 12
-    move-result-object v0
-
-    .line 13
     return-object v0
 .end method
 
 .method public static g(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .locals 1
 
     .line 1
-    invoke-static {p0}, Lcom/blankj/utilcode/util/e0;->D(Ljava/lang/String;)Z
+    const-string v0, "com.community.mb"
 
-    .line 4
+    invoke-static {p0, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
     move-result v0
 
-    .line 5
+    if-nez v0, :cond_0
+
+    const-string v0, "com.community.oneroom"
+
+    invoke-static {p0, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    invoke-static {}, Lcom/mod/VersionHelper;->getVersionName()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_1
+    invoke-static {p0}, Lcom/blankj/utilcode/util/e0;->D(Ljava/lang/String;)Z
+
+    move-result v0
+
     const-string v1, ""
 
-    .line 7
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
-    .line 9
     return-object v1
 
-    .line 10
-    :cond_0
+    :cond_2
     :try_start_0
     invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
 
-    .line 13
     move-result-object v0
 
-    .line 14
     invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    .line 17
     move-result-object v0
 
-    .line 18
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    .line 19
-    invoke-virtual {v0, p0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v0, p0, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    .line 22
     move-result-object p0
 
-    .line 23
-    if-nez p0, :cond_1
+    if-nez p0, :cond_3
 
-    .line 25
     goto :goto_0
 
-    .line 26
-    :cond_1
+    :cond_3
     iget-object v1, p0, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 28
     :goto_0
     return-object v1
 
-    .line 29
     :catch_0
     move-exception p0
 
-    .line 30
     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
 
-    .line 33
     return-object v1
 .end method
 
