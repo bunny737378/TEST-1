@@ -1,0 +1,254 @@
+name: Decompile APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      apk_url:
+        description: Direct HTTP(S) URL of the APK
+        required: true
+        type: string
+      folder_name:
+        description: Optional folder name (leave blank to use the app name)
+        required: false
+        type: string
+  workflow_call:
+    inputs:
+      apk_url:
+        required: true
+        type: string
+      folder_name:
+        required: false
+        type: string
+        default: ''
+    outputs:
+      folder_name:
+        description: Name of the committed Apktool project folder
+        value: ${{ jobs.decompile.outputs.folder_name }}
+
+permissions:
+  contents: write
+
+# Two decompiles must not try to update the same branch at the same time.
+concurrency:
+  group: decompile-apk-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  decompile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    outputs:
+      folder_name: ${{ steps.folder.outputs.name }}
+    steps:
+      - name: Check out the selected branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Download the latest stable Apktool
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          asset="$(gh api repos/iBotPeaches/Apktool/releases/latest \
+            --jq '[.assets[] | select(.name | test("^apktool_[0-9].*\\.jar$"))][0] // empty')"
+          if [[ -z "$asset" ]]; then
+            echo "::error::Could not find the Apktool JAR in the latest release."
+            exit 1
+          fi
+          url="$(jq -r '.browser_download_url' <<< "$asset")"
+          digest="$(jq -r '.digest // empty' <<< "$asset")"
+          curl --fail --location --retry 3 --silent --show-error \
+            "$url" --output "$RUNNER_TEMP/apktool.jar"
+          if [[ -n "$digest" ]]; then
+            if [[ ! "$digest" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+              echo "::error::Unexpected Apktool release checksum."
+              exit 1
+            fi
+            printf '%s  %s\n' "${digest#sha256:}" "$RUNNER_TEMP/apktool.jar" | sha256sum --check
+          else
+            echo "::warning::The Apktool release did not provide a checksum."
+          fi
+          java -jar "$RUNNER_TEMP/apktool.jar" --version
+
+      - name: Download and validate the APK
+        env:
+          APK_URL: ${{ inputs.apk_url }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os
+          from urllib.parse import urlsplit
+
+          url = os.environ['APK_URL']
+          try:
+              parsed = urlsplit(url)
+              valid = (parsed.scheme in ('http', 'https') and parsed.hostname
+                       and all(c.isprintable() and not c.isspace() for c in url))
+          except ValueError:
+              valid = False
+          if not valid:
+              raise SystemExit('APK URL must be a valid HTTP(S) URL without whitespace.')
+          PY
+          # Avoid printing a URL that might contain a private download token.
+          echo "::add-mask::$APK_URL"
+          curl --fail --location --retry 3 --silent --show-error \
+            --proto '=http,https' --proto-redir '=http,https' \
+            --connect-timeout 30 --max-time 1800 \
+            "$APK_URL" --output "$RUNNER_TEMP/input.apk"
+          python3 - <<'PY'
+          import os
+          import stat
+          import zipfile
+          from pathlib import PurePosixPath
+
+          path = os.path.join(os.environ['RUNNER_TEMP'], 'input.apk')
+          try:
+              with zipfile.ZipFile(path) as apk:
+                  if 'AndroidManifest.xml' not in apk.namelist():
+                      raise ValueError('AndroidManifest.xml is missing')
+                  for entry in apk.infolist():
+                      parts = PurePosixPath(entry.filename.replace('\\', '/'))
+                      if (parts.is_absolute() or '..' in parts.parts
+                              or any(part.lower() == '.git' for part in parts.parts)
+                              or stat.S_ISLNK(entry.external_attr >> 16)):
+                          raise ValueError('the archive contains an unsafe file path')
+          except (OSError, zipfile.BadZipFile, ValueError) as exc:
+              raise SystemExit(f'Download is not a safe APK: {exc}')
+          PY
+
+      - name: Decode all APK sources and resources
+        run: |
+          set -euo pipefail
+          java -jar "$RUNNER_TEMP/apktool.jar" decode --all-src \
+            --output "$RUNNER_TEMP/decoded-apk" "$RUNNER_TEMP/input.apk"
+
+      - name: Choose the app folder
+        id: folder
+        env:
+          REQUESTED_FOLDER: ${{ inputs.folder_name }}
+        run: |
+          set -euo pipefail
+          # aapt can resolve labels that use Android resources. The manifest and
+          # package name remain fallbacks if aapt is unavailable or cannot read it.
+          aapt="$(command -v aapt || true)"
+          if [[ -z "$aapt" && -d "${ANDROID_HOME:-}/build-tools" ]]; then
+            aapt="$(find "$ANDROID_HOME/build-tools" -mindepth 2 -maxdepth 2 \
+              -type f -name aapt -print | sort -V | tail -n 1)"
+          fi
+          : > "$RUNNER_TEMP/apk-badging.txt"
+          if [[ -n "$aapt" && -x "$aapt" ]]; then
+            "$aapt" dump badging "$RUNNER_TEMP/input.apk" \
+              > "$RUNNER_TEMP/apk-badging.txt" 2>/dev/null || true
+          fi
+          python3 - <<'PY'
+          import os
+          import re
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          temp = Path(os.environ['RUNNER_TEMP'])
+          decoded = temp / 'decoded-apk'
+          forbidden = set('/\\:*?"<>|')
+          reserved = {'CON', 'PRN', 'AUX', 'NUL'} | {
+              f'{prefix}{number}' for prefix in ('COM', 'LPT') for number in range(1, 10)
+          }
+
+          def valid(name):
+              return (bool(name) and not name.startswith(('.', '-'))
+                      and not name.endswith(('.', ' '))
+                      and len(name.encode('utf-8')) <= 200
+                      and all(c.isprintable() and c not in forbidden for c in name)
+                      and name.split('.', 1)[0].upper() not in reserved)
+
+          def app_label():
+              badging = (temp / 'apk-badging.txt').read_text(encoding='utf-8', errors='replace')
+              match = re.search(r"^application-label:'(.*)'$", badging, re.MULTILINE)
+              if match and match.group(1).strip():
+                  return match.group(1)
+              try:
+                  manifest = ET.parse(decoded / 'AndroidManifest.xml').getroot()
+                  application = manifest.find('application')
+                  label = (application.get('{http://schemas.android.com/apk/res/android}label', '')
+                           if application is not None else '')
+                  reference = re.fullmatch(r'@(?:[^:]+:)?string/(.+)', label)
+                  if reference:
+                      strings = decoded / 'res' / 'values' / 'strings.xml'
+                      if strings.exists():
+                          for item in ET.parse(strings).getroot():
+                              if (item.get('name') == reference.group(1)
+                                      and (item.tag == 'string' or item.get('type') == 'string')):
+                                  label = ''.join(item.itertext())
+                                  break
+                  if label and not label.startswith(('@', '?')):
+                      return label
+                  return manifest.get('package', '')
+              except (OSError, ET.ParseError):
+                  return ''
+
+          name = os.environ['REQUESTED_FOLDER'].strip()
+          if name:
+              if not valid(name):
+                  raise SystemExit('Folder name must be a safe single folder name (not a path).')
+          else:
+              label = app_label()
+              name = ''.join(c if c.isprintable() and c not in forbidden else ' ' for c in label)
+              name = re.sub(r'\s+', ' ', name).strip(' .-')
+              while len(name.encode('utf-8')) > 200:
+                  name = name[:-1].rstrip(' .')
+              if name and name.split('.', 1)[0].upper() in reserved:
+                  name += '-app'
+              if not valid(name):
+                  name = 'app'
+
+          target = Path(os.environ['GITHUB_WORKSPACE']) / name
+          if target.is_symlink() or (target.exists() and
+                  (not target.is_dir() or not (target / 'apktool.yml').is_file())):
+              raise SystemExit(f'Refusing to overwrite {name!r}: it is not an Apktool project folder.')
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write(f'name={name}\n')
+          print(f'App folder: {name}')
+          PY
+
+      - name: Commit the decompiled files
+        env:
+          APP_FOLDER: ${{ steps.folder.outputs.name }}
+        run: |
+          set -euo pipefail
+          if [[ "$GITHUB_REF_TYPE" != branch ]]; then
+            echo "::error::Select a branch, not a tag, when running this workflow."
+            exit 1
+          fi
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+
+          decoded = Path(os.environ['RUNNER_TEMP']) / 'decoded-apk'
+          limit = 100 * 1024 * 1024
+          for root, _, files in os.walk(decoded):
+              for filename in files:
+                  path = Path(root) / filename
+                  if path.stat().st_size > limit:
+                      raise SystemExit(f'{path.relative_to(decoded)} exceeds GitHub\'s 100 MiB file limit.')
+          PY
+          if [[ -d "$APP_FOLDER" ]]; then
+            rm -rf -- "$APP_FOLDER"
+          fi
+          mv -- "$RUNNER_TEMP/decoded-apk" "$APP_FOLDER"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          # Include even files matched by a .gitignore inside the APK.
+          git add --all --force -- ":(literal)$APP_FOLDER"
+          if git diff --cached --quiet; then
+            echo 'The decompiled files are already up to date.'
+          else
+            git commit -m "Decompile $APP_FOLDER with Apktool"
+            git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
+          fi
+          printf 'Decompiled folder: `%s`\n' "$APP_FOLDER" >> "$GITHUB_STEP_SUMMARY"

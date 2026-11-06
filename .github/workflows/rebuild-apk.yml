@@ -1,0 +1,106 @@
+name: Rebuild APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      folder_name:
+        description: Name of the decompiled app folder in this repository
+        required: true
+        type: string
+  workflow_call:
+    inputs:
+      folder_name:
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out the selected branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Validate the app folder
+        id: folder
+        env:
+          APP_FOLDER: ${{ inputs.folder_name }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+
+          name = os.environ['APP_FOLDER'].strip()
+          forbidden = set('/\\:*?"<>|')
+          reserved = {'CON', 'PRN', 'AUX', 'NUL'} | {
+              f'{prefix}{number}' for prefix in ('COM', 'LPT') for number in range(1, 10)
+          }
+          if (not name or name.startswith(('.', '-')) or name.endswith(('.', ' '))
+                  or len(name.encode('utf-8')) > 200
+                  or not all(c.isprintable() and c not in forbidden for c in name)
+                  or name.split('.', 1)[0].upper() in reserved):
+              raise SystemExit('Enter a safe folder name, not a path.')
+          folder = Path(os.environ['GITHUB_WORKSPACE']) / name
+          if folder.is_symlink() or not folder.is_dir() or not (folder / 'apktool.yml').is_file():
+              raise SystemExit(f'{name!r} is not a decompiled Apktool project in this branch.')
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write(f'name={name}\n')
+          print(f'Building app folder: {name}')
+          PY
+
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Download the latest stable Apktool
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          asset="$(gh api repos/iBotPeaches/Apktool/releases/latest \
+            --jq '[.assets[] | select(.name | test("^apktool_[0-9].*\\.jar$"))][0] // empty')"
+          if [[ -z "$asset" ]]; then
+            echo "::error::Could not find the Apktool JAR in the latest release."
+            exit 1
+          fi
+          url="$(jq -r '.browser_download_url' <<< "$asset")"
+          digest="$(jq -r '.digest // empty' <<< "$asset")"
+          curl --fail --location --retry 3 --silent --show-error \
+            "$url" --output "$RUNNER_TEMP/apktool.jar"
+          if [[ -n "$digest" ]]; then
+            if [[ ! "$digest" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+              echo "::error::Unexpected Apktool release checksum."
+              exit 1
+            fi
+            printf '%s  %s\n' "${digest#sha256:}" "$RUNNER_TEMP/apktool.jar" | sha256sum --check
+          else
+            echo "::warning::The Apktool release did not provide a checksum."
+          fi
+          java -jar "$RUNNER_TEMP/apktool.jar" --version
+
+      - name: Rebuild the APK
+        env:
+          APP_FOLDER: ${{ steps.folder.outputs.name }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/apk-output"
+          java -jar "$RUNNER_TEMP/apktool.jar" build "$APP_FOLDER" \
+            --output "$RUNNER_TEMP/apk-output/$APP_FOLDER.apk"
+          # Fail instead of uploading an empty or corrupt file.
+          unzip -tq "$RUNNER_TEMP/apk-output/$APP_FOLDER.apk"
+          printf 'Rebuilt APK: `%s.apk` (unsigned)\n' "$APP_FOLDER" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload the APK artifact
+        uses: actions/upload-artifact@v7
+        with:
+          path: ${{ runner.temp }}/apk-output/
+          if-no-files-found: error
+          archive: false
