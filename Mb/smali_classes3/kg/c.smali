@@ -47,10 +47,10 @@
     invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 16
-    const-string v0, "1"
+    const-string v0, "X-Client-Status"
 
     .line 18
-    const-string v1, "X-Client-Status"
+    const-string v1, "1"
 
     .line 20
     invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;

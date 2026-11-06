@@ -770,6 +770,12 @@
 
     .line 167
     :cond_3
+    new-instance v0, Lcom/mod/UserAgentFixInterceptor;
+
+    invoke-direct {v0}, Lcom/mod/UserAgentFixInterceptor;-><init>()V
+
+    invoke-virtual {v1, v0}, Lokhttp3/OkHttpClient$Builder;->addInterceptor(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient$Builder;
+
     invoke-virtual {v1}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
 
     .line 170
