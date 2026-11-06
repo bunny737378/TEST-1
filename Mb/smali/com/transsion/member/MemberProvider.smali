@@ -909,7 +909,8 @@
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+    move-result-object v5
 
     const/4 v6, 0x0
 
@@ -923,7 +924,8 @@
 
     const/4 v11, 0x0
 
-    const/4 v12, 0x0
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+    move-result-object v12
 
     const/4 v13, 0x0
 
@@ -934,8 +936,6 @@
     invoke-virtual {v0, v1}, Lcom/transsion/memberapi/MemberCheckResult;->setVipEnable(Ljava/lang/Boolean;)V
 
     invoke-virtual {v0, v1}, Lcom/transsion/memberapi/MemberCheckResult;->setVipPayEnable(Ljava/lang/Boolean;)V
-
-    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     invoke-virtual {v0, v1}, Lcom/transsion/memberapi/MemberCheckResult;->setPassed(Ljava/lang/Boolean;)V
 

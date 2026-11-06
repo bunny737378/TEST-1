@@ -1282,12 +1282,46 @@
     .line 79
     invoke-direct {p0}, Lcom/transsion/startup/StartupManager;->L()V
 
+    .line 82
+    sget-object v0, Ljj/r;->a:Ljj/r;
+
+    .line 84
+    invoke-virtual {v0}, Ljj/r;->b()Z
+
+    .line 87
+    move-result v0
+
+    .line 88
+    if-eqz v0, :cond_4
+
+    .line 90
+    sget-object v0, Lcom/transsion/baselib/utils/PlayMode;->STREAM:Lcom/transsion/baselib/utils/PlayMode;
+
+    .line 92
+    :goto_0
+    invoke-virtual {v0}, Lcom/transsion/baselib/utils/PlayMode;->getValue()Ljava/lang/String;
+
+    .line 95
+    move-result-object v0
+
+    .line 96
+    goto :goto_1
+
+    .line 97
+    :cond_4
+    sget-object v0, Lcom/transsion/baselib/utils/PlayMode;->DOWNLOAD:Lcom/transsion/baselib/utils/PlayMode;
+
+    .line 99
+    goto :goto_0
+
+    .line 100
+    :goto_1
     sget-object v1, Lkg/b;->a:Lkg/b$a;
 
+    .line 102
     const-string v2, "X-Play-Mode"
 
-    const-string v0, "2"
-
+    .line 104
     invoke-virtual {v1, v2, v0}, Lkg/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string v2, "X-Client-Build"
@@ -1296,23 +1330,82 @@
 
     invoke-virtual {v1, v2, v4}, Lkg/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v2, "X-Family-Mode"
+    .line 107
+    sget-object v0, Lcom/transsion/baselib/report/launch/b;->a:Lcom/transsion/baselib/report/launch/b;
 
-    const-string v0, "0"
+    .line 109
+    invoke-virtual {v0}, Lcom/transsion/baselib/report/launch/b;->b()Lcom/tencent/mmkv/MMKV;
 
-    invoke-virtual {v1, v2, v0}, Lkg/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
+    .line 112
+    move-result-object v2
 
+    .line 113
+    const-string v4, "k_is_family_mode"
+
+    const/4 v5, 0x1
+
+    .line 115
+    invoke-virtual {v2, v4, v5}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
+
+    .line 118
+    move-result v2
+
+    .line 119
+    const-string v4, "0"
+
+    .line 121
+    const-string v6, "1"
+
+    .line 123
+    if-eqz v2, :cond_5
+
+    .line 125
+    move-object v2, v6
+
+    .line 126
+    goto :goto_2
+
+    .line 127
+    :cond_5
+    move-object v2, v4
+
+    .line 128
+    :goto_2
+    const-string v7, "X-Family-Mode"
+
+    .line 130
+    invoke-virtual {v1, v7, v2}, Lkg/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 133
+    invoke-virtual {v0}, Lcom/transsion/baselib/report/launch/b;->b()Lcom/tencent/mmkv/MMKV;
+
+    .line 136
+    move-result-object v2
+
+    .line 137
+    const-string v7, "k_setting_privacy_idle"
+
+    .line 139
+    const/4 v8, 0x0
+
+    .line 140
+    invoke-virtual {v2, v7, v8}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
+
+    .line 143
+    move-result v2
+
+    .line 144
+    if-eqz v2, :cond_6
+
+    .line 146
+    move-object v4, v6
+
+    .line 147
+    :cond_6
     const-string v2, "X-Idle-Data"
 
-    const-string v0, "1"
-
-    invoke-virtual {v1, v2, v0}, Lkg/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v2, "X-Content-Mode"
-
-    const-string v0, "0"
-
-    invoke-virtual {v1, v2, v0}, Lkg/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
+    .line 149
+    invoke-virtual {v1, v2, v4}, Lkg/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 152
     sget-object v1, Llg/c;->e:Llg/c$a;

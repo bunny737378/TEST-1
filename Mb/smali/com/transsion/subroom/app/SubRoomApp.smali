@@ -202,6 +202,9 @@
     .line 1
     invoke-super {p0, p1}, Landroid/app/Application;->attachBaseContext(Landroid/content/Context;)V
 
+    .line 2
+    invoke-static {p1}, Lcom/transsion/crash/CrashHandler;->init(Landroid/content/Context;)V
+
     .line 4
     sget-object v0, Lcom/transsion/startup/StartupManager;->e:Lcom/transsion/startup/StartupManager$a;
 
