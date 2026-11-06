@@ -162,6 +162,94 @@
     return-object p1
 .end method
 
+.method private final c(Lokhttp3/Request;)Lokhttp3/Request;
+    .locals 6
+
+    .line 1
+    const-string v0, "User-Agent"
+
+    invoke-virtual {p1, v0}, Lokhttp3/Request;->header(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_3
+
+    const-string v2, "com.community"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const-string v2, "/"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v2
+
+    const/4 v4, -0x1
+
+    if-eq v2, v4, :cond_3
+
+    const-string v3, " "
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v3
+
+    if-eq v3, v4, :cond_3
+
+    if-ge v2, v3, :cond_3
+
+    const/4 v4, 0x0
+
+    add-int/lit8 v5, v2, 0x1
+
+    invoke-virtual {v1, v4, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {}, Lcom/mod/VersionHelper;->getVersionCode()I
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+
+    invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+
+    move-result-object p1
+
+    :cond_3
+    return-object p1
+.end method
+
 
 # virtual methods
 .method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
@@ -186,15 +274,21 @@
     move-result-object v0
 
     .line 14
-    const-string v1, ""
+    invoke-direct {p0, v0}, Lkg/c;->c(Lokhttp3/Request;)Lokhttp3/Request;
 
-    .line 16
-    invoke-direct {p0, v0, v1}, Lkg/c;->a(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
-
-    .line 19
+    .line 17
     move-result-object v0
 
+    .line 18
+    const-string v1, ""
+
     .line 20
+    invoke-direct {p0, v0, v1}, Lkg/c;->a(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
+
+    .line 23
+    move-result-object v0
+
+    .line 24
     invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
 
     .line 23

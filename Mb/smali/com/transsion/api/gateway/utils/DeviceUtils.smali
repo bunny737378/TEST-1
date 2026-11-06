@@ -1420,60 +1420,13 @@
 .end method
 
 .method public static getVersionName()Ljava/lang/String;
-    .locals 3
+    .locals 1
 
     .line 1
-    :try_start_0
-    invoke-static {}, Lcom/transsion/api/gateway/utils/ContextUtils;->getContext()Landroid/content/Context;
+    invoke-static {}, Lcom/mod/VersionHelper;->getVersionName()Ljava/lang/String;
 
-    .line 4
     move-result-object v0
 
-    .line 5
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    .line 8
-    move-result-object v1
-
-    .line 9
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    .line 12
-    move-result-object v0
-
-    .line 13
-    const/4 v2, 0x0
-
-    .line 14
-    invoke-virtual {v1, v0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-
-    .line 17
-    move-result-object v0
-
-    .line 18
-    if-eqz v0, :cond_0
-
-    .line 20
-    iget-object v0, v0, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 22
-    goto :goto_0
-
-    .line 23
-    :catch_0
-    move-exception v0
-
-    .line 24
-    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
-
-    .line 27
-    :cond_0
-    const-string v0, ""
-
-    .line 29
-    :goto_0
     return-object v0
 .end method
 
