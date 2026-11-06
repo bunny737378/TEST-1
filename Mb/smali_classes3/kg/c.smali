@@ -28,9 +28,11 @@
 .end method
 
 .method private final a(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
-    .locals 3
+    .locals 2
 
     .line 1
+    sget-object p2, Lkg/b;->a:Lkg/b$a;
+
     invoke-static {}, Lcom/mod/VersionHelper;->getClientInfoJson()Ljava/lang/String;
 
     move-result-object v0
@@ -38,6 +40,7 @@
     .line 7
     invoke-virtual {p1}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
 
+    .line 10
     move-result-object p1
 
     .line 11
@@ -47,21 +50,42 @@
     invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 16
-    const-string v0, "X-Client-Status"
+    invoke-virtual {p2}, Lkg/b$a;->d()Ljava/lang/Boolean;
 
-    .line 18
-    const-string v1, "1"
+    .line 19
+    move-result-object p2
 
     .line 20
-    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    .line 23
-    invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+    .line 22
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    .line 25
+    move-result p2
 
     .line 26
+    xor-int/lit8 p2, p2, 0x1
+
+    .line 28
+    invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    .line 31
+    move-result-object p2
+
+    .line 32
+    const-string v0, "X-Client-Status"
+
+    .line 34
+    invoke-virtual {p1, v0, p2}, Lokhttp3/Request$Builder;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+
+    .line 37
+    invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+
+    .line 40
     move-result-object p1
 
-    .line 27
+    .line 41
     return-object p1
 .end method
 
@@ -162,94 +186,6 @@
     return-object p1
 .end method
 
-.method private final c(Lokhttp3/Request;)Lokhttp3/Request;
-    .locals 6
-
-    .line 1
-    const-string v0, "User-Agent"
-
-    invoke-virtual {p1, v0}, Lokhttp3/Request;->header(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_3
-
-    const-string v2, "com.community"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    const-string v2, "/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v2
-
-    const/4 v4, -0x1
-
-    if-eq v2, v4, :cond_3
-
-    const-string v3, " "
-
-    invoke-virtual {v1, v3}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v3
-
-    if-eq v3, v4, :cond_3
-
-    if-ge v2, v3, :cond_3
-
-    const/4 v4, 0x0
-
-    add-int/lit8 v5, v2, 0x1
-
-    invoke-virtual {v1, v4, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/mod/VersionHelper;->getVersionCode()I
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
-
-    move-result-object p1
-
-    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
-
-    move-result-object p1
-
-    :cond_3
-    return-object p1
-.end method
-
 
 # virtual methods
 .method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
@@ -274,21 +210,15 @@
     move-result-object v0
 
     .line 14
-    invoke-direct {p0, v0}, Lkg/c;->c(Lokhttp3/Request;)Lokhttp3/Request;
-
-    .line 17
-    move-result-object v0
-
-    .line 18
     const-string v1, ""
 
-    .line 20
+    .line 16
     invoke-direct {p0, v0, v1}, Lkg/c;->a(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
 
-    .line 23
+    .line 19
     move-result-object v0
 
-    .line 24
+    .line 20
     invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
 
     .line 23

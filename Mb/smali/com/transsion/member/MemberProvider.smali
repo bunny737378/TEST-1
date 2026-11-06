@@ -668,79 +668,45 @@
 .end method
 
 .method public B(Lkotlin/jvm/functions/Function0;)V
-    .locals 3
+    .locals 7
 
     .line 1
-    sget-object v0, Lcom/transsion/member/w;->a:Lcom/transsion/member/w;
+    invoke-static {}, Lkotlinx/coroutines/y0;->b()Lkotlinx/coroutines/i0;
 
-    .line 3
-    invoke-virtual {v0}, Lcom/transsion/member/w;->b()Lcom/tencent/mmkv/MMKV;
-
-    .line 6
+    .line 4
     move-result-object v0
 
-    .line 7
-    const-string v1, "kv_is_skip_ad"
+    .line 5
+    invoke-static {v0}, Lkotlinx/coroutines/o0;->a(Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/n0;
+
+    .line 8
+    move-result-object v1
 
     .line 9
-    const/4 v2, 0x0
+    new-instance v4, Lcom/transsion/member/MemberProvider$checkShowAdState$1;
 
-    .line 10
-    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    .line 11
+    const/4 v0, 0x0
 
-    .line 13
-    sget-object v0, Lcom/transsion/member/w;->a:Lcom/transsion/member/w;
+    .line 12
+    invoke-direct {v4, p0, p1, v0}, Lcom/transsion/member/MemberProvider$checkShowAdState$1;-><init>(Lcom/transsion/member/MemberProvider;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)V
 
     .line 15
-    invoke-virtual {v0}, Lcom/transsion/member/w;->b()Lcom/tencent/mmkv/MMKV;
+    const/4 v5, 0x3
+
+    .line 16
+    const/4 v6, 0x0
+
+    .line 17
+    const/4 v2, 0x0
 
     .line 18
-    move-result-object v0
+    const/4 v3, 0x0
 
     .line 19
-    const-string v1, "kv_is_enable_member"
-
-    .line 21
-    const/4 v2, 0x1
+    invoke-static/range {v1 .. v6}, Lkotlinx/coroutines/i;->d(Lkotlinx/coroutines/n0;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/t1;
 
     .line 22
-    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    .line 25
-    sget-object v0, Lcom/transsion/member/w;->a:Lcom/transsion/member/w;
-
-    .line 27
-    invoke-virtual {v0}, Lcom/transsion/member/w;->b()Lcom/tencent/mmkv/MMKV;
-
-    .line 30
-    move-result-object v0
-
-    .line 31
-    const-string v1, "kv_is_pay_enable_member"
-
-    .line 33
-    const/4 v2, 0x1
-
-    .line 34
-    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    .line 37
-    sget-object v0, Lsh/b;->a:Lsh/b;
-
-    .line 39
-    const/4 v1, 0x0
-
-    .line 40
-    invoke-virtual {v0, v1}, Lsh/b;->c(Z)V
-
-    .line 43
-    if-eqz p1, :cond_0
-
-    .line 45
-    invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
-
-    .line 48
-    :cond_0
     return-void
 .end method
 
@@ -892,80 +858,421 @@
 .end method
 
 .method public c(Lcom/transsion/memberapi/MemberSceneType;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 14
+    .locals 6
 
     .line 1
-    move-object/from16 v1, p3
+    instance-of v0, p4, Lcom/transsion/member/MemberProvider$checkMemberRights$1;
 
-    if-eqz v1, :cond_0
+    .line 3
+    if-eqz v0, :cond_0
 
-    new-instance v0, Lcom/transsion/memberapi/MemberCheckResult;
+    .line 5
+    move-object v0, p4
 
-    const/4 v1, 0x0
+    .line 6
+    check-cast v0, Lcom/transsion/member/MemberProvider$checkMemberRights$1;
 
-    const/4 v2, 0x0
+    .line 8
+    iget v1, v0, Lcom/transsion/member/MemberProvider$checkMemberRights$1;->label:I
 
-    const/4 v3, 0x0
+    .line 10
+    const/high16 v2, -0x80000000
 
-    const/4 v4, 0x0
+    .line 12
+    and-int v3, v1, v2
 
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-    move-result-object v5
+    .line 14
+    if-eqz v3, :cond_0
 
-    const/4 v6, 0x0
+    .line 16
+    sub-int/2addr v1, v2
 
-    const/4 v7, 0x0
+    .line 17
+    iput v1, v0, Lcom/transsion/member/MemberProvider$checkMemberRights$1;->label:I
 
-    const/4 v8, 0x0
+    .line 19
+    goto :goto_0
 
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
-
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-    move-result-object v12
-
-    const/4 v13, 0x0
-
-    invoke-direct/range {v0 .. v13}, Lcom/transsion/memberapi/MemberCheckResult;-><init>(Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lcom/transsion/memberapi/ThreeInOnePopup;)V
-
-    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
-
-    invoke-virtual {v0, v1}, Lcom/transsion/memberapi/MemberCheckResult;->setVipEnable(Ljava/lang/Boolean;)V
-
-    invoke-virtual {v0, v1}, Lcom/transsion/memberapi/MemberCheckResult;->setVipPayEnable(Ljava/lang/Boolean;)V
-
-    invoke-virtual {v0, v1}, Lcom/transsion/memberapi/MemberCheckResult;->setPassed(Ljava/lang/Boolean;)V
-
-    move-object/from16 v1, p3
-
-    invoke-interface {v1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-
+    .line 20
     :cond_0
-    sget-object v1, Lkotlin/Unit;->a:Lkotlin/Unit;
+    new-instance v0, Lcom/transsion/member/MemberProvider$checkMemberRights$1;
 
+    .line 22
+    invoke-direct {v0, p0, p4}, Lcom/transsion/member/MemberProvider$checkMemberRights$1;-><init>(Lcom/transsion/member/MemberProvider;Lkotlin/coroutines/Continuation;)V
+
+    .line 25
+    :goto_0
+    iget-object p4, v0, Lcom/transsion/member/MemberProvider$checkMemberRights$1;->result:Ljava/lang/Object;
+
+    .line 27
+    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->f()Ljava/lang/Object;
+
+    .line 30
+    move-result-object v1
+
+    .line 31
+    iget v2, v0, Lcom/transsion/member/MemberProvider$checkMemberRights$1;->label:I
+
+    .line 33
+    const/4 v3, 0x2
+
+    .line 34
+    const/4 v4, 0x1
+
+    .line 35
+    const/4 v5, 0x0
+
+    .line 36
+    if-eqz v2, :cond_3
+
+    .line 38
+    if-eq v2, v4, :cond_2
+
+    .line 40
+    if-ne v2, v3, :cond_1
+
+    .line 42
+    invoke-static {p4}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+
+    .line 45
+    goto/16 :goto_6
+
+    .line 47
+    :cond_1
+    new-instance p1, Ljava/lang/IllegalStateException;
+
+    .line 49
+    const-string p2, "call to \'resume\' before \'invoke\' with coroutine"
+
+    .line 51
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    .line 54
+    throw p1
+
+    .line 55
+    :cond_2
+    iget-object p1, v0, Lcom/transsion/member/MemberProvider$checkMemberRights$1;->L$0:Ljava/lang/Object;
+
+    .line 57
+    move-object p3, p1
+
+    .line 58
+    check-cast p3, Lkotlin/jvm/functions/Function1;
+
+    .line 60
+    :try_start_0
+    invoke-static {p4}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 63
+    goto :goto_2
+
+    .line 64
+    :catchall_0
+    move-exception p1
+
+    .line 65
+    goto :goto_3
+
+    .line 66
+    :cond_3
+    invoke-static {p4}, Lkotlin/ResultKt;->b(Ljava/lang/Object;)V
+
+    .line 69
+    new-instance p4, Lcom/google/gson/JsonObject;
+
+    .line 71
+    invoke-direct {p4}, Lcom/google/gson/JsonObject;-><init>()V
+
+    .line 74
+    if-eqz p1, :cond_4
+
+    .line 76
+    invoke-virtual {p1}, Lcom/transsion/memberapi/MemberSceneType;->getValue()Ljava/lang/String;
+
+    .line 79
+    move-result-object p1
+
+    .line 80
+    goto :goto_1
+
+    .line 81
+    :cond_4
+    move-object p1, v5
+
+    .line 82
+    :goto_1
+    const-string v2, "sceneType"
+
+    .line 84
+    invoke-virtual {p4, v2, p1}, Lcom/google/gson/JsonObject;->addProperty(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 87
+    if-eqz p2, :cond_5
+
+    .line 89
+    const-string p1, "resolution"
+
+    .line 91
+    invoke-virtual {p4, p1, p2}, Lcom/google/gson/JsonObject;->addProperty(Ljava/lang/String;Ljava/lang/Number;)V
+
+    .line 94
+    :cond_5
+    sget-object p1, Lokhttp3/RequestBody;->Companion:Lokhttp3/RequestBody$Companion;
+
+    .line 96
+    invoke-virtual {p4}, Lcom/google/gson/JsonElement;->toString()Ljava/lang/String;
+
+    .line 99
+    move-result-object p2
+
+    .line 100
+    const-string p4, "toString(...)"
+
+    .line 102
+    invoke-static {p2, p4}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 105
+    sget-object p4, Lokhttp3/MediaType;->Companion:Lokhttp3/MediaType$Companion;
+
+    .line 107
+    const-string v2, "application/json"
+
+    .line 109
+    invoke-virtual {p4, v2}, Lokhttp3/MediaType$Companion;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
+
+    .line 112
+    move-result-object p4
+
+    .line 113
+    invoke-virtual {p1, p2, p4}, Lokhttp3/RequestBody$Companion;->create(Ljava/lang/String;Lokhttp3/MediaType;)Lokhttp3/RequestBody;
+
+    .line 116
+    move-result-object p1
+
+    .line 117
+    :try_start_1
+    sget-object p2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+
+    .line 119
+    invoke-direct {p0}, Lcom/transsion/member/MemberProvider;->V()Lgm/a;
+
+    .line 122
+    move-result-object p2
+
+    .line 123
+    sget-object p4, Lhg/a;->a:Lhg/a$a;
+
+    .line 125
+    invoke-virtual {p4}, Lhg/a$a;->a()Ljava/lang/String;
+
+    .line 128
+    move-result-object p4
+
+    .line 129
+    iput-object p3, v0, Lcom/transsion/member/MemberProvider$checkMemberRights$1;->L$0:Ljava/lang/Object;
+
+    .line 131
+    iput v4, v0, Lcom/transsion/member/MemberProvider$checkMemberRights$1;->label:I
+
+    .line 133
+    invoke-interface {p2, p4, p1, v0}, Lgm/a;->m(Ljava/lang/String;Lokhttp3/RequestBody;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    .line 136
+    move-result-object p4
+
+    .line 137
+    if-ne p4, v1, :cond_6
+
+    .line 139
     return-object v1
+
+    .line 140
+    :cond_6
+    :goto_2
+    check-cast p4, Lcom/tn/lib/net/bean/BaseDto;
+
+    .line 142
+    invoke-static {p4}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 145
+    move-result-object p1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 146
+    goto :goto_4
+
+    .line 147
+    :goto_3
+    sget-object p2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+
+    .line 149
+    invoke-static {p1}, Lkotlin/ResultKt;->a(Ljava/lang/Throwable;)Ljava/lang/Object;
+
+    .line 152
+    move-result-object p1
+
+    .line 153
+    invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 156
+    move-result-object p1
+
+    .line 157
+    :goto_4
+    invoke-static {p1}, Lkotlin/Result;->exceptionOrNull-impl(Ljava/lang/Object;)Ljava/lang/Throwable;
+
+    .line 160
+    move-result-object p2
+
+    .line 161
+    if-nez p2, :cond_7
+
+    .line 163
+    goto :goto_5
+
+    .line 164
+    :cond_7
+    sget-object p1, Lcom/transsion/member/a;->a:Lcom/transsion/member/a;
+
+    .line 166
+    invoke-direct {p0}, Lcom/transsion/member/MemberProvider;->T()Ljava/lang/String;
+
+    .line 169
+    move-result-object p4
+
+    .line 170
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    .line 172
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 175
+    invoke-virtual {v2, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 178
+    const-string p4, " --> checkMemberRights() ---> getOrElse() --> it = "
+
+    .line 180
+    invoke-virtual {v2, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 183
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    .line 186
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 189
+    move-result-object p2
+
+    .line 190
+    invoke-virtual {p1, p2}, Lcom/transsion/member/a;->b(Ljava/lang/String;)V
+
+    .line 193
+    move-object p1, v5
+
+    .line 194
+    :goto_5
+    check-cast p1, Lcom/tn/lib/net/bean/BaseDto;
+
+    .line 196
+    if-eqz p3, :cond_8
+
+    .line 198
+    invoke-static {}, Lkotlinx/coroutines/y0;->c()Lkotlinx/coroutines/a2;
+
+    .line 201
+    move-result-object p2
+
+    .line 202
+    new-instance p4, Lcom/transsion/member/MemberProvider$checkMemberRights$2$1;
+
+    .line 204
+    invoke-direct {p4, p3, p1, v5}, Lcom/transsion/member/MemberProvider$checkMemberRights$2$1;-><init>(Lkotlin/jvm/functions/Function1;Lcom/tn/lib/net/bean/BaseDto;Lkotlin/coroutines/Continuation;)V
+
+    .line 207
+    iput-object v5, v0, Lcom/transsion/member/MemberProvider$checkMemberRights$1;->L$0:Ljava/lang/Object;
+
+    .line 209
+    iput v3, v0, Lcom/transsion/member/MemberProvider$checkMemberRights$1;->label:I
+
+    .line 211
+    invoke-static {p2, p4, v0}, Lkotlinx/coroutines/i;->g(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    .line 214
+    move-result-object p1
+
+    .line 215
+    if-ne p1, v1, :cond_8
+
+    .line 217
+    return-object v1
+
+    .line 218
+    :cond_8
+    :goto_6
+    sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+
+    .line 220
+    return-object p1
 .end method
 
 .method public d()Z
-    .locals 1
+    .locals 3
 
     .line 1
-    const/4 v0, 0x1
+    sget-object v0, Lcom/transsion/member/w;->a:Lcom/transsion/member/w;
 
-    .line 2
+    .line 3
+    invoke-virtual {v0}, Lcom/transsion/member/w;->b()Lcom/tencent/mmkv/MMKV;
+
+    .line 6
+    move-result-object v0
+
+    .line 7
+    const-string v1, "kv_is_pay_enable_member"
+
+    .line 9
+    const/4 v2, 0x0
+
+    .line 10
+    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
+
+    .line 13
+    move-result v0
+
+    .line 14
     return v0
 .end method
 
 .method public e()Z
-    .locals 1
+    .locals 3
 
     .line 1
-    const/4 v0, 0x0
+    sget-object v0, Lcom/transsion/member/w;->a:Lcom/transsion/member/w;
 
-    .line 2
+    .line 3
+    invoke-virtual {v0}, Lcom/transsion/member/w;->b()Lcom/tencent/mmkv/MMKV;
+
+    .line 6
+    move-result-object v0
+
+    .line 7
+    const-string v1, "kv_is_skip_ad"
+
+    .line 9
+    const/4 v2, 0x0
+
+    .line 10
+    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
+
+    .line 13
+    move-result v0
+
+    .line 14
     return v0
 .end method
 
@@ -1217,9 +1524,35 @@
     .locals 1
 
     .line 1
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/transsion/member/MemberProvider;->b:Lcom/transsion/memberapi/MemberDetail;
 
-    .line 2
+    .line 3
+    if-eqz v0, :cond_0
+
+    .line 5
+    invoke-virtual {v0}, Lcom/transsion/memberapi/MemberDetail;->getMemberInfo()Lcom/transsion/memberapi/MemberInfo;
+
+    .line 8
+    move-result-object v0
+
+    .line 9
+    if-eqz v0, :cond_0
+
+    .line 11
+    invoke-virtual {v0}, Lcom/transsion/memberapi/MemberInfo;->isActive()Z
+
+    .line 14
+    move-result v0
+
+    .line 15
+    goto :goto_0
+
+    .line 16
+    :cond_0
+    const/4 v0, 0x0
+
+    .line 17
+    :goto_0
     return v0
 .end method
 
@@ -1913,11 +2246,29 @@
 .end method
 
 .method public z()Z
-    .locals 1
+    .locals 3
 
     .line 1
-    const/4 v0, 0x1
+    sget-object v0, Lcom/transsion/member/w;->a:Lcom/transsion/member/w;
 
-    .line 2
+    .line 3
+    invoke-virtual {v0}, Lcom/transsion/member/w;->b()Lcom/tencent/mmkv/MMKV;
+
+    .line 6
+    move-result-object v0
+
+    .line 7
+    const-string v1, "kv_is_enable_member"
+
+    .line 9
+    const/4 v2, 0x1
+
+    .line 10
+    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
+
+    .line 13
+    move-result v0
+
+    .line 14
     return v0
 .end method
