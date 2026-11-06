@@ -1,0 +1,91 @@
+.class public final Lcom/transsion/ninegridview/preview/GifImagePreviewActivity$a;
+.super Ljava/lang/Object;
+.source "source.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/transsion/ninegridview/preview/GifImagePreviewActivity;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "a"
+.end annotation
+
+
+# direct methods
+.method private constructor <init>()V
+    .locals 0
+
+    .line 2
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Lcom/transsion/ninegridview/preview/GifImagePreviewActivity$a;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(Landroid/content/Context;ILjava/util/List;)V
+    .locals 3
+
+    .line 1
+    const-string v0, "context"
+
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    new-instance v0, Landroid/content/Intent;
+
+    .line 8
+    const-class v1, Lcom/transsion/ninegridview/preview/GifImagePreviewActivity;
+
+    .line 10
+    invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    .line 13
+    new-instance v1, Landroid/os/Bundle;
+
+    .line 15
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+
+    .line 18
+    const-string v2, "null cannot be cast to non-null type java.io.Serializable"
+
+    .line 20
+    invoke-static {p3, v2}, Lkotlin/jvm/internal/Intrinsics;->f(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 23
+    check-cast p3, Ljava/io/Serializable;
+
+    .line 25
+    const-string v2, "image_list"
+
+    .line 27
+    invoke-virtual {v1, v2, p3}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V
+
+    .line 30
+    const-string p3, "CURRENT_ITEM"
+
+    .line 32
+    invoke-virtual {v1, p3, p2}, Landroid/os/BaseBundle;->putInt(Ljava/lang/String;I)V
+
+    .line 35
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
+
+    .line 38
+    invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    .line 41
+    return-void
+.end method

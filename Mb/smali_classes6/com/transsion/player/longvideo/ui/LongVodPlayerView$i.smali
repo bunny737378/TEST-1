@@ -1,0 +1,117 @@
+.class public final Lcom/transsion/player/longvideo/ui/LongVodPlayerView$i;
+.super Ljava/lang/Object;
+.source "source.java"
+
+# interfaces
+.implements Lmw/e;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/transsion/player/longvideo/ui/LongVodPlayerView;->onResolutionTipFailedFromDialog(Lmn/b;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic a:Lcom/transsion/player/longvideo/ui/LongVodPlayerView;
+
+.field final synthetic b:Lmn/b;
+
+
+# direct methods
+.method constructor <init>(Lcom/transsion/player/longvideo/ui/LongVodPlayerView;Lmn/b;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/transsion/player/longvideo/ui/LongVodPlayerView$i;->a:Lcom/transsion/player/longvideo/ui/LongVodPlayerView;
+
+    .line 3
+    iput-object p2, p0, Lcom/transsion/player/longvideo/ui/LongVodPlayerView$i;->b:Lmn/b;
+
+    .line 5
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Z)V
+    .locals 2
+
+    .line 1
+    if-eqz p1, :cond_0
+
+    .line 3
+    iget-object p1, p0, Lcom/transsion/player/longvideo/ui/LongVodPlayerView$i;->a:Lcom/transsion/player/longvideo/ui/LongVodPlayerView;
+
+    .line 5
+    invoke-static {p1}, Lcom/transsion/player/longvideo/ui/LongVodPlayerView;->access$getConfigViewModel(Lcom/transsion/player/longvideo/ui/LongVodPlayerView;)Lcom/transsion/player/longvideo/ui/dialog/a;
+
+    .line 8
+    move-result-object p1
+
+    .line 9
+    iget-object v0, p0, Lcom/transsion/player/longvideo/ui/LongVodPlayerView$i;->b:Lmn/b;
+
+    .line 11
+    invoke-virtual {p1, v0}, Lcom/transsion/player/longvideo/ui/dialog/a;->c(Lmn/b;)V
+
+    .line 14
+    :cond_0
+    iget-object p1, p0, Lcom/transsion/player/longvideo/ui/LongVodPlayerView$i;->a:Lcom/transsion/player/longvideo/ui/LongVodPlayerView;
+
+    .line 16
+    invoke-static {p1}, Lcom/transsion/player/longvideo/ui/LongVodPlayerView;->access$getPlayerControl$p(Lcom/transsion/player/longvideo/ui/LongVodPlayerView;)Lcom/transsion/player/ui/longvideo/a;
+
+    .line 19
+    move-result-object p1
+
+    .line 20
+    invoke-interface {p1}, Lcom/transsion/player/orplayer/f;->play()V
+
+    .line 23
+    sget-object p1, Lxj/h;->a:Lxj/h;
+
+    .line 25
+    iget-object v0, p0, Lcom/transsion/player/longvideo/ui/LongVodPlayerView$i;->a:Lcom/transsion/player/longvideo/ui/LongVodPlayerView;
+
+    .line 27
+    invoke-static {v0}, Lcom/transsion/player/longvideo/ui/LongVodPlayerView;->access$getClassTag(Lcom/transsion/player/longvideo/ui/LongVodPlayerView;)Ljava/lang/String;
+
+    .line 30
+    move-result-object v0
+
+    .line 31
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    .line 33
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 36
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 39
+    const-string v0, " --> onResolutionTipFailedFromDialog() --> \u7ee7\u7eed\u64ad\u653e"
+
+    .line 41
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 44
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 47
+    move-result-object v0
+
+    .line 48
+    invoke-virtual {p1, v0}, Lxj/h;->a(Ljava/lang/String;)V
+
+    .line 51
+    return-void
+.end method

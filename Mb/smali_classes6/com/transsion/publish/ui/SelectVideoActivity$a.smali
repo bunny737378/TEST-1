@@ -1,0 +1,271 @@
+.class public final Lcom/transsion/publish/ui/SelectVideoActivity$a;
+.super Ljava/lang/Object;
+.source "source.java"
+
+# interfaces
+.implements Lio/reactivex/rxjava3/core/o;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/transsion/publish/ui/SelectVideoActivity;->y0()V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic a:Lcom/transsion/publish/ui/SelectVideoActivity;
+
+
+# direct methods
+.method constructor <init>(Lcom/transsion/publish/ui/SelectVideoActivity;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/transsion/publish/ui/SelectVideoActivity$a;->a:Lcom/transsion/publish/ui/SelectVideoActivity;
+
+    .line 3
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Ljava/util/List;)V
+    .locals 1
+
+    .line 1
+    const-string v0, "t"
+
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+
+    .line 9
+    move-result v0
+
+    .line 10
+    if-eqz v0, :cond_0
+
+    .line 12
+    iget-object p1, p0, Lcom/transsion/publish/ui/SelectVideoActivity$a;->a:Lcom/transsion/publish/ui/SelectVideoActivity;
+
+    .line 14
+    invoke-static {p1}, Lcom/transsion/publish/ui/SelectVideoActivity;->k0(Lcom/transsion/publish/ui/SelectVideoActivity;)Landroid/widget/LinearLayout;
+
+    .line 17
+    move-result-object p1
+
+    .line 18
+    if-eqz p1, :cond_1
+
+    .line 20
+    const/4 v0, 0x0
+
+    .line 21
+    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+
+    .line 24
+    goto :goto_0
+
+    .line 25
+    :cond_0
+    iget-object v0, p0, Lcom/transsion/publish/ui/SelectVideoActivity$a;->a:Lcom/transsion/publish/ui/SelectVideoActivity;
+
+    .line 27
+    invoke-static {v0}, Lcom/transsion/publish/ui/SelectVideoActivity;->l0(Lcom/transsion/publish/ui/SelectVideoActivity;)Lcom/transsion/publish/adapter/k0;
+
+    .line 30
+    move-result-object v0
+
+    .line 31
+    if-eqz v0, :cond_1
+
+    .line 33
+    invoke-virtual {v0, p1}, Lcom/transsion/publish/adapter/k0;->addData(Ljava/util/List;)V
+
+    .line 36
+    :cond_1
+    :goto_0
+    iget-object p1, p0, Lcom/transsion/publish/ui/SelectVideoActivity$a;->a:Lcom/transsion/publish/ui/SelectVideoActivity;
+
+    .line 38
+    invoke-static {p1}, Lcom/transsion/publish/ui/SelectVideoActivity;->m0(Lcom/transsion/publish/ui/SelectVideoActivity;)V
+
+    .line 41
+    return-void
+.end method
+
+.method public onComplete()V
+    .locals 2
+
+    .line 1
+    iget-object v0, p0, Lcom/transsion/publish/ui/SelectVideoActivity$a;->a:Lcom/transsion/publish/ui/SelectVideoActivity;
+
+    .line 3
+    invoke-static {v0}, Lcom/transsion/publish/ui/SelectVideoActivity;->i0(Lcom/transsion/publish/ui/SelectVideoActivity;)Lio/reactivex/rxjava3/disposables/c;
+
+    .line 6
+    move-result-object v0
+
+    .line 7
+    if-eqz v0, :cond_0
+
+    .line 9
+    invoke-interface {v0}, Lio/reactivex/rxjava3/disposables/c;->dispose()V
+
+    .line 12
+    :cond_0
+    iget-object v0, p0, Lcom/transsion/publish/ui/SelectVideoActivity$a;->a:Lcom/transsion/publish/ui/SelectVideoActivity;
+
+    .line 14
+    invoke-static {v0}, Lcom/transsion/publish/ui/SelectVideoActivity;->m0(Lcom/transsion/publish/ui/SelectVideoActivity;)V
+
+    .line 17
+    iget-object v0, p0, Lcom/transsion/publish/ui/SelectVideoActivity$a;->a:Lcom/transsion/publish/ui/SelectVideoActivity;
+
+    .line 19
+    invoke-static {v0}, Lcom/transsion/publish/ui/SelectVideoActivity;->l0(Lcom/transsion/publish/ui/SelectVideoActivity;)Lcom/transsion/publish/adapter/k0;
+
+    .line 22
+    move-result-object v0
+
+    .line 23
+    if-eqz v0, :cond_1
+
+    .line 25
+    iget-object v0, p0, Lcom/transsion/publish/ui/SelectVideoActivity$a;->a:Lcom/transsion/publish/ui/SelectVideoActivity;
+
+    .line 27
+    invoke-static {v0}, Lcom/transsion/publish/ui/SelectVideoActivity;->l0(Lcom/transsion/publish/ui/SelectVideoActivity;)Lcom/transsion/publish/adapter/k0;
+
+    .line 30
+    move-result-object v0
+
+    .line 31
+    if-eqz v0, :cond_2
+
+    .line 33
+    invoke-virtual {v0}, Lcom/transsion/publish/adapter/k0;->getItemCount()I
+
+    .line 36
+    move-result v0
+
+    .line 37
+    if-nez v0, :cond_2
+
+    .line 39
+    :cond_1
+    iget-object v0, p0, Lcom/transsion/publish/ui/SelectVideoActivity$a;->a:Lcom/transsion/publish/ui/SelectVideoActivity;
+
+    .line 41
+    invoke-static {v0}, Lcom/transsion/publish/ui/SelectVideoActivity;->k0(Lcom/transsion/publish/ui/SelectVideoActivity;)Landroid/widget/LinearLayout;
+
+    .line 44
+    move-result-object v0
+
+    .line 45
+    if-eqz v0, :cond_2
+
+    .line 47
+    const/4 v1, 0x0
+
+    .line 48
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 51
+    :cond_2
+    return-void
+.end method
+
+.method public onError(Ljava/lang/Throwable;)V
+    .locals 7
+
+    .line 1
+    const-string v0, "e"
+
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    sget-object v1, Lxf/a;->a:Lxf/a$a;
+
+    .line 8
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 10
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 13
+    const-string v2, "onError e:"
+
+    .line 15
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 18
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    .line 21
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 24
+    move-result-object v3
+
+    .line 25
+    const/4 v5, 0x4
+
+    .line 26
+    const/4 v6, 0x0
+
+    .line 27
+    const-string v2, "SelectVideoManager"
+
+    .line 29
+    const/4 v4, 0x0
+
+    .line 30
+    invoke-static/range {v1 .. v6}, Lxf/a$a;->f(Lxf/a$a;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)V
+
+    .line 33
+    return-void
+.end method
+
+.method public bridge synthetic onNext(Ljava/lang/Object;)V
+    .locals 0
+
+    .line 1
+    check-cast p1, Ljava/util/List;
+
+    .line 3
+    invoke-virtual {p0, p1}, Lcom/transsion/publish/ui/SelectVideoActivity$a;->a(Ljava/util/List;)V
+
+    .line 6
+    return-void
+.end method
+
+.method public onSubscribe(Lio/reactivex/rxjava3/disposables/c;)V
+    .locals 1
+
+    .line 1
+    const-string v0, "d"
+
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    iget-object v0, p0, Lcom/transsion/publish/ui/SelectVideoActivity$a;->a:Lcom/transsion/publish/ui/SelectVideoActivity;
+
+    .line 8
+    invoke-static {v0, p1}, Lcom/transsion/publish/ui/SelectVideoActivity;->o0(Lcom/transsion/publish/ui/SelectVideoActivity;Lio/reactivex/rxjava3/disposables/c;)V
+
+    .line 11
+    return-void
+.end method

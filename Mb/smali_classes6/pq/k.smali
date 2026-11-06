@@ -1,0 +1,51 @@
+.class public final synthetic Lpq/k;
+.super Ljava/lang/Object;
+.source "source.java"
+
+# interfaces
+.implements Landroidx/core/view/OnApplyWindowInsetsListener;
+
+
+# instance fields
+.field public final synthetic a:I
+
+.field public final synthetic b:Landroid/view/View;
+
+
+# direct methods
+.method public synthetic constructor <init>(ILandroid/view/View;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    iput p1, p0, Lpq/k;->a:I
+
+    .line 6
+    iput-object p2, p0, Lpq/k;->b:Landroid/view/View;
+
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
+    .locals 2
+
+    .line 1
+    iget v0, p0, Lpq/k;->a:I
+
+    .line 3
+    iget-object v1, p0, Lpq/k;->b:Landroid/view/View;
+
+    .line 5
+    invoke-static {v0, v1, p1, p2}, Lcom/transsion/share/share/ShareDialogFragment;->b0(ILandroid/view/View;Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
+
+    .line 8
+    move-result-object p1
+
+    .line 9
+    return-object p1
+.end method

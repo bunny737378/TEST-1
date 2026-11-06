@@ -1,0 +1,135 @@
+.class public abstract Lcom/transsnet/downloader/util/DownloadUtilKt;
+.super Ljava/lang/Object;
+.source "source.java"
+
+
+# direct methods
+.method public static final a(Landroid/content/Context;Landroid/widget/ImageView;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 10
+
+    .line 1
+    const-string v0, "context"
+
+    .line 3
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    const-string v0, "imageView"
+
+    .line 8
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 11
+    const-string v0, "url"
+
+    .line 13
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 16
+    const-string v0, "http"
+
+    .line 18
+    const/4 v1, 0x0
+
+    .line 19
+    const/4 v2, 0x2
+
+    .line 20
+    const/4 v3, 0x0
+
+    .line 21
+    invoke-static {p2, v0, v1, v2, v3}, Lkotlin/text/StringsKt;->c0(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+
+    .line 24
+    move-result v0
+
+    .line 25
+    if-nez v0, :cond_0
+
+    .line 27
+    invoke-static {}, Lkotlinx/coroutines/y0;->b()Lkotlinx/coroutines/i0;
+
+    .line 30
+    move-result-object p3
+
+    .line 31
+    invoke-static {p3}, Lkotlinx/coroutines/o0;->a(Lkotlin/coroutines/CoroutineContext;)Lkotlinx/coroutines/n0;
+
+    .line 34
+    move-result-object v4
+
+    .line 35
+    new-instance v7, Lcom/transsnet/downloader/util/DownloadUtilKt$loadImageWithBuiltIn$1;
+
+    .line 37
+    invoke-direct {v7, p0, p2, p1, v3}, Lcom/transsnet/downloader/util/DownloadUtilKt$loadImageWithBuiltIn$1;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/widget/ImageView;Lkotlin/coroutines/Continuation;)V
+
+    .line 40
+    const/4 v8, 0x3
+
+    .line 41
+    const/4 v9, 0x0
+
+    .line 42
+    const/4 v5, 0x0
+
+    .line 43
+    const/4 v6, 0x0
+
+    .line 44
+    invoke-static/range {v4 .. v9}, Lkotlinx/coroutines/i;->d(Lkotlinx/coroutines/n0;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/t1;
+
+    .line 47
+    goto :goto_0
+
+    .line 48
+    :cond_0
+    const/high16 v0, 0x42f00000    # 120.0f
+
+    .line 50
+    invoke-static {v0}, Lcom/blankj/utilcode/util/a0;->a(F)I
+
+    .line 53
+    move-result v0
+
+    .line 54
+    sget-object v1, Loi/f;->a:Loi/f$a;
+
+    .line 56
+    invoke-virtual {v1, p0}, Loi/f$a;->m(Landroid/content/Context;)Loi/f$b;
+
+    .line 59
+    move-result-object p0
+
+    .line 60
+    invoke-virtual {p0, p2}, Loi/f$b;->g(Ljava/lang/String;)Loi/f$b;
+
+    .line 63
+    move-result-object p0
+
+    .line 64
+    invoke-virtual {p0, v0}, Loi/f$b;->m(I)Loi/f$b;
+
+    .line 67
+    move-result-object p0
+
+    .line 68
+    if-nez p3, :cond_1
+
+    .line 70
+    const-string p3, ""
+
+    .line 72
+    :cond_1
+    invoke-virtual {p0, p3}, Loi/f$b;->l(Ljava/lang/String;)Loi/f$b;
+
+    .line 75
+    move-result-object p0
+
+    .line 76
+    invoke-virtual {p0, p1}, Loi/f$b;->d(Landroid/widget/ImageView;)V
+
+    .line 79
+    :goto_0
+    return-void
+.end method
