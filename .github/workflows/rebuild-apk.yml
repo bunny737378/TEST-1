@@ -1,6 +1,9 @@
 name: Rebuild APK
 
 on:
+  push:
+    branches:
+      - 'arena/**'
   workflow_dispatch:
     inputs:
       folder_name:
@@ -30,13 +33,18 @@ jobs:
         id: folder
         env:
           APP_FOLDER: ${{ inputs.folder_name }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
         run: |
           set -euo pipefail
           python3 - <<'PY'
           import os
           from pathlib import Path
 
-          name = os.environ['APP_FOLDER'].strip()
+          name = os.environ.get('APP_FOLDER', '').strip()
+          if not name:
+              # default when triggered via push
+              name = "Mb"
+              print(f"No input folder, defaulting to {name}")
           forbidden = set('/\\:*?"<>|')
           reserved = {'CON', 'PRN', 'AUX', 'NUL'} | {
               f'{prefix}{number}' for prefix in ('COM', 'LPT') for number in range(1, 10)
@@ -92,8 +100,23 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/apk-output"
+          set +e
           java -jar "$RUNNER_TEMP/apktool.jar" build "$APP_FOLDER" \
-            --output "$RUNNER_TEMP/apk-output/$APP_FOLDER.apk"
+            --output "$RUNNER_TEMP/apk-output/$APP_FOLDER.apk" 2>&1 \
+            | tee "$RUNNER_TEMP/apktool-build.log"
+          rc=${PIPESTATUS[0]}
+          set -e
+          if (( rc != 0 )); then
+            python3 - <<'PY'
+          import os
+          from pathlib import Path
+          path = Path(os.environ["RUNNER_TEMP"]) / "apktool-build.log"
+          text = path.read_text(errors="replace")[-20000:]
+          text = text.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+          print("::error::" + text)
+          PY
+            exit "$rc"
+          fi
           # Fail instead of uploading an empty or corrupt file.
           unzip -tq "$RUNNER_TEMP/apk-output/$APP_FOLDER.apk"
           printf 'Rebuilt APK: `%s.apk` (unsigned)\n' "$APP_FOLDER" >> "$GITHUB_STEP_SUMMARY"

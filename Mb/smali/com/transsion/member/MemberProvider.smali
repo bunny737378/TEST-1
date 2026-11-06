@@ -892,16 +892,44 @@
 .end method
 
 .method public c(Lcom/transsion/memberapi/MemberSceneType;Ljava/lang/Integer;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+    .locals 14
 
     .line 1
-    if-eqz p3, :cond_0
+    move-object/from16 v1, p3
+
+    if-eqz v1, :cond_0
 
     new-instance v0, Lcom/transsion/memberapi/MemberCheckResult;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1, v1, v1, v1, v1, v1, v1, v1, v1, v1, v1, v1, v1}, Lcom/transsion/memberapi/MemberCheckResult;-><init>(Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lcom/transsion/memberapi/ThreeInOnePopup;)V
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+    move-result-object v12
+
+    const/4 v13, 0x0
+
+    invoke-direct/range {v0 .. v13}, Lcom/transsion/memberapi/MemberCheckResult;-><init>(Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lcom/transsion/memberapi/ThreeInOnePopup;)V
 
     sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
@@ -909,16 +937,16 @@
 
     invoke-virtual {v0, v1}, Lcom/transsion/memberapi/MemberCheckResult;->setVipPayEnable(Ljava/lang/Boolean;)V
 
-    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
-
     invoke-virtual {v0, v1}, Lcom/transsion/memberapi/MemberCheckResult;->setPassed(Ljava/lang/Boolean;)V
 
-    invoke-interface {p3, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v1, p3
+
+    invoke-interface {v1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
-    sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
+    sget-object v1, Lkotlin/Unit;->a:Lkotlin/Unit;
 
-    return-object p1
+    return-object v1
 .end method
 
 .method public d()Z
