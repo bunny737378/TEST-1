@@ -2666,6 +2666,42 @@
     .line 713
     invoke-direct {v3, v6, v5}, Lcom/transsion/usercenter/profile/bean/MeItemInfo;-><init>(ILjava/lang/Object;)V
 
+    new-instance v5, Lcom/transsion/usercenter/profile/bean/IconItemInfo;
+
+    const-string v21, "Telegram"
+
+    const-string v22, "@Ur_Senpai08"
+
+    const-string v23, "tg_type"
+
+    sget v24, Lcom/tn/lib/widget/R$drawable;->ic_mine_activity:I
+
+    sget v25, Lcom/transsion/baseui/R$drawable;->bg_radius_bottom_6_color_white_6p:I
+
+    const/16 v26, 0x0
+
+    const/16 v27, 0x0
+
+    const/16 v28, 0x0
+
+    const-string v29, "tg_link"
+
+    const/16 v30, 0x0
+
+    const/16 v31, 0x260
+
+    move-object/from16 v20, v5
+
+    invoke-direct/range {v20 .. v32}, Lcom/transsion/usercenter/profile/bean/IconItemInfo;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIZIZLjava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+    new-instance v3, Lcom/transsion/usercenter/profile/bean/MeItemInfo;
+
+    const/4 v6, 0x5
+
+    invoke-direct {v3, v6, v5}, Lcom/transsion/usercenter/profile/bean/MeItemInfo;-><init>(ILjava/lang/Object;)V
+
+    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     .line 714
     .line 715
     .line 716
