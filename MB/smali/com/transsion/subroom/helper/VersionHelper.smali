@@ -31,6 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
+
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,6 +40,7 @@
 .end method
 
 .method private static app()Landroid/app/Application;
+
     .locals 1
 
     :try_start_0
@@ -52,7 +54,14 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     :cond_0
     :try_start_1
     invoke-static {}, Landroid/app/ActivityThread;->currentApplication()Landroid/app/Application;
@@ -64,12 +73,18 @@
     return-object v0
 
     :catch_1
+
+
+
+    move-exception v0
+
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private static cacheFile()Ljava/io/File;
+
     .locals 3
 
     :try_start_0
@@ -99,12 +114,18 @@
     return-object v1
 
     :catch_0
+
+
+
+    move-exception v0
+
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method private static toInt(Ljava/lang/String;)I
+
     .locals 2
 
     :try_start_0
@@ -132,12 +153,18 @@
     return v0
 
     :catch_0
+
+
+
+    move-exception v0
+
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private static loadFile()V
+
     .locals 5
 
     :try_start_0
@@ -216,11 +243,19 @@
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_4
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     return-void
 .end method
 
 .method private static saveFile()V
+
     .locals 5
 
     :try_start_0
@@ -271,12 +306,20 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     return-void
 .end method
 
 # ---------- version (max_by versionCode) ----------
 .method private static parseMax(Ljava/lang/String;)V
+
     .locals 9
 
     :try_start_0
@@ -362,11 +405,19 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     return-void
 .end method
 
 .method private static fetchVersionNow()V
+
     .locals 5
 
     :try_start_0
@@ -438,12 +489,20 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     return-void
 .end method
 
 # ---------- bearer token (from vip/member/detail response header x-user) ----------
 .method private static fetchTokenNow()V
+
     .locals 5
 
     :try_start_0
@@ -520,11 +579,19 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     return-void
 .end method
 
 .method private static pickXUser(Ljava/util/Map;)Ljava/lang/String;
+
     .locals 8
 
     const-string v0, ""
@@ -631,11 +698,17 @@
     return-object v0
 
     :catch_0
+
+
+
+    move-exception v0
+
     return-object v0
 .end method
 
 # ---------- crypto ----------
 .method public static md5Hex(Ljava/lang/String;)Ljava/lang/String;
+
     .locals 7
 
     const-string v0, ""
@@ -696,11 +769,19 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     return-object v0
 .end method
 
 .method public static hmacMd5Base64(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
     .locals 7
 
     const-string v0, ""
@@ -738,12 +819,20 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     return-object v0
 .end method
 
 
 .method public static genClientBuild(J)Ljava/lang/String;
+
     .locals 8
 
     const-wide/16 v0, 0x3e8
@@ -863,12 +952,18 @@
     return-object v0
 
     :catch_0
+
+
+
+    move-exception v0
+
     const-string v0, ""
 
     return-object v0
 .end method
 
 .method public static genToken(J)Ljava/lang/String;
+
     .locals 4
 
     :try_start_0
@@ -913,12 +1008,18 @@
     return-object v0
 
     :catch_0
+
+
+
+    move-exception v0
+
     const-string v0, ""
 
     return-object v0
 .end method
 
 .method public static byteLength(Ljava/lang/String;)I
+
     .locals 5
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -977,7 +1078,122 @@
 .end method
 
 .method private static cuOf(Ljava/lang/String;)Ljava/lang/String;
-    .locals 11
+    .locals 14
+
+    const-string v0, "/"
+
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_ok
+
+    return-object v0
+
+    :cond_ok
+    invoke-static {p0}, Lcom/transsion/subroom/helper/VersionHelper;->pathOnly(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "?"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v2
+
+    if-ltz v2, :cond_q
+
+    goto :goto_q
+
+    :cond_q
+    return-object v1
+
+    :goto_q
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v3, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v4
+
+    add-int/lit8 v5, v2, 0x1
+
+    invoke-virtual {v1, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    new-instance v6, Ljava/util/TreeMap;
+
+    invoke-direct {v6}, Ljava/util/TreeMap;-><init>()V
+
+    const-string v7, "&"
+
+    invoke-virtual {v5, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v7
+
+    array-length v8, v7
+
+    move v9, v3
+
+    :goto_loop
+    if-ge v9, v8, :cond_join
+
+    goto :goto_body
+
+    :goto_body
+    aget-object v10, v7, v9
+
+    invoke-static {v10}, Lcom/transsion/subroom/helper/VersionHelper;->kv(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v10
+
+    aget-object v11, v10, v3
+
+    const/4 v12, 0x1
+
+    aget-object v10, v10, v12
+
+    invoke-virtual {v6, v11, v10}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    add-int/lit8 v9, v9, 0x1
+
+    goto :goto_loop
+
+    :cond_join
+    invoke-static {v6}, Lcom/transsion/subroom/helper/VersionHelper;->joinSorted(Ljava/util/TreeMap;)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_ret
+
+    return-object v4
+
+    :cond_ret
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v11, 0x3f
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private static pathOnly(Ljava/lang/String;)Ljava/lang/String;
+    .locals 4
 
     :try_start_0
     const-string v0, "://"
@@ -986,129 +1202,133 @@
 
     move-result v0
 
+    const/4 v1, 0x0
+
     if-gez v0, :cond_0
 
-    const/4 v0, 0x0
-
-    goto :goto_host
+    goto :goto_0
 
     :cond_0
     add-int/lit8 v0, v0, 0x3
 
-    :goto_host
+    :goto_0
     const-string v1, "/"
 
     invoke-virtual {p0, v1, v0}, Ljava/lang/String;->indexOf(Ljava/lang/String;I)I
 
     move-result v1
 
-    if-gez v1, :cond_1
+    if-ltz v1, :cond_1
 
+    goto :goto_1
+
+    :cond_1
     const-string v0, "/"
 
     return-object v0
 
-    :cond_1
+    :goto_1
     invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v0
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    const-string v1, "?"
+    return-object v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    :catch_0
+    move-exception v0
+
+    const-string v0, "/"
+
+    return-object v0
+.end method
+
+.method private static kv(Ljava/lang/String;)[Ljava/lang/String;
+    .locals 5
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    :try_start_0
+    const-string v1, "="
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v1
 
-    if-gez v1, :cond_2
+    const/4 v2, 0x0
 
-    goto :goto_np
+    const/4 v3, 0x1
 
-    :cond_2
-    add-int/lit8 v2, v1, 0x1
+    if-ltz v1, :cond_a
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    goto :goto_a
 
-    move-result-object v2
+    :cond_a
+    aput-object p0, v0, v2
 
-    const/4 v3, 0x0
+    const-string v1, ""
 
-    invoke-virtual {v0, v3, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    aput-object v1, v0, v3
 
-    move-result-object v0
+    return-object v0
 
-    new-instance v1, Ljava/util/TreeMap;
+    :goto_a
+    invoke-virtual {p0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    invoke-direct {v1}, Ljava/util/TreeMap;-><init>()V
+    move-result-object v4
 
-    const-string v4, "&"
+    add-int/lit8 v1, v1, 0x1
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    array-length v4, v2
+    aput-object v4, v0, v2
 
-    move v5, v3
+    const-string v2, "+"
 
-    :goto_p
-    if-ge v5, v4, :cond_6
+    const-string v4, " "
 
-    aget-object v6, v2, v5
+    invoke-virtual {v1, v2, v4}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    const-string v7, "="
+    move-result-object v1
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v7
-
-    if-gez v7, :cond_3
-
-    goto :goto_put
-
-    :cond_3
-    invoke-virtual {v6, v3, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v8
-
-    add-int/lit8 v7, v7, 0x1
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_put
-
-    :goto_put
     :try_start_1
-    const-string v7, "+"
+    const-string v2, "UTF-8"
 
-    const-string v9, " "
+    invoke-static {v1, v2}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v6, v7, v9}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v6
-
-    const-string v7, "UTF-8"
-
-    invoke-static {v6, v7}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
+    move-result-object v1
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
     :catch_1
-    invoke-virtual {v1, v8, v6}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-exception v2
 
-    add-int/lit8 v5, v5, 0x1
+    aput-object v1, v0, v3
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_p
+    return-object v0
 
-    :cond_6
-    new-instance v2, Ljava/lang/StringBuilder;
+    :catch_0
+    move-exception v1
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    return-object v0
+.end method
 
-    invoke-virtual {v1}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
+.method private static joinSorted(Ljava/util/TreeMap;)Ljava/lang/String;
+    .locals 6
+
+    :try_start_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
 
     move-result-object v1
 
@@ -1116,84 +1336,73 @@
 
     move-result-object v1
 
-    :goto_e
+    :goto_loop
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_8
+    if-nez v2, :cond_body
 
+    goto :goto_done
+
+    :cond_body
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/util/Map$Entry;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->length()I
-
-    move-result v4
-
-    if-gtz v4, :cond_7
-
-    goto :goto_amp
-
-    :cond_7
-    const-string v4, "&"
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :goto_amp
-    invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v4
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v4, "="
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    goto :goto_e
-
-    :cond_8
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, "?"
-
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    check-cast v2, Ljava/util/Map$Entry;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v3
+
+    if-gtz v3, :cond_amp
+
+    goto :goto_amp
+
+    :cond_amp
+    const-string v3, "&"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :goto_amp
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v3, "="
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    goto :goto_loop
+
+    :goto_done
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
-
-    :goto_np
-    return-object v0
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-object v0
+
     :catch_0
-    const-string v0, "/"
+    move-exception v1
+
+    const-string v0, ""
 
     return-object v0
 .end method
 
 .method public static signature(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)Ljava/lang/String;
+
     .locals 8
 
     const-string v0, ""
@@ -1326,12 +1535,20 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     return-object v0
 .end method
 
 # ---------- header value blocks ----------
 .method private static deviceId()Ljava/lang/String;
+
     .locals 1
 
     const-string v0, "1234567890abcdef1234567890abcdef"
@@ -1340,6 +1557,7 @@
 .end method
 
 .method private static region()Ljava/lang/String;
+
     .locals 2
 
     :try_start_0
@@ -1364,13 +1582,21 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     const-string v0, "US"
 
     return-object v0
 .end method
 
 .method private static locale()Ljava/lang/String;
+
     .locals 4
 
     :try_start_0
@@ -1418,12 +1644,18 @@
     return-object v0
 
     :catch_0
+
+
+
+    move-exception v0
+
     const-string v0, "en_US"
 
     return-object v0
 .end method
 
 .method public static userAgent()Ljava/lang/String;
+
     .locals 4
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1486,6 +1718,7 @@
 .end method
 
 .method public static clientInfo()Ljava/lang/String;
+
     .locals 4
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1592,6 +1825,7 @@
 .end method
 
 .method private static authHeader()Ljava/lang/String;
+
     .locals 3
 
     sget-object v0, Lcom/transsion/subroom/helper/VersionHelper;->bearer:Ljava/lang/String;
@@ -1620,7 +1854,14 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     :cond_1
     sget-object v0, Lcom/transsion/subroom/helper/VersionHelper;->bearer:Ljava/lang/String;
 
@@ -1634,6 +1875,7 @@
 
 # ---------- THE interceptor: rebuild with ONLY our headers ----------
 .method public static buildFullHeaders(Lokhttp3/Request;)Lokhttp3/Request;
+
     .locals 9
 
     :try_start_0
@@ -1776,10 +2018,16 @@
     return-object v0
 
     :catch_0
+
+
+
+    move-exception v0
+
     return-object p0
 .end method
 
 .method private static writeBody(Lokhttp3/RequestBody;Lokio/Buffer;)V
+
     .locals 1
 
     :try_start_0
@@ -1787,12 +2035,20 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     return-void
 .end method
 
 
 .method private static bodyOf()Ljava/lang/String;
+
     .locals 1
 
     const-string v0, ""
@@ -1802,6 +2058,7 @@
 
 # ---------- lifecycle ----------
 .method private static await()V
+
     .locals 4
 
     sget v0, Lcom/transsion/subroom/helper/VersionHelper;->vCode:I
@@ -1845,12 +2102,18 @@
     goto :goto_w
 
     :catch_0
+
+
+
+    move-exception v0
+
     :goto_done
     :cond_done
     return-void
 .end method
 
 .method public static versionName()Ljava/lang/String;
+
     .locals 2
 
     invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->await()V
@@ -1866,6 +2129,7 @@
 .end method
 
 .method public static versionCode()I
+
     .locals 1
 
     invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->await()V
@@ -1876,6 +2140,7 @@
 .end method
 
 .method public static boot()V
+
     .locals 3
 
     :try_start_0
@@ -1895,11 +2160,19 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     return-void
 .end method
 
 .method public static bootTask()V
+
     .locals 1
 
     invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->fetchVersionNow()V
@@ -1909,7 +2182,14 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     sget v0, Lcom/transsion/subroom/helper/VersionHelper;->vCode:I
 
     if-lez v0, :cond_0
@@ -1921,6 +2201,7 @@
 .end method
 
 .method private static startToken()V
+
     .locals 3
 
     :try_start_0
@@ -1936,25 +2217,41 @@
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
     :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_start_0} :catch_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
 
     :catch_0
+
+
+
+    move-exception v0
+
     return-void
 .end method
 
 .method public static tokenTask()V
-    .locals 0
+
+    .locals 1
 
     :try_start_0
     invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->fetchTokenNow()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    return-void
+
     :catch_0
+
+
+
+    move-exception v0
+
     return-void
 .end method
 
 .method public static isApiHost(Ljava/lang/String;)Z
+
     .locals 2
 
     if-nez p0, :cond_0
@@ -1980,12 +2277,18 @@
     return v1
 
     :catch_0
+
+
+
+    move-exception v0
+
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public static clientChain()Lokhttp3/Interceptor;
+
     .locals 1
 
     new-instance v0, Lcom/transsion/subroom/helper/VersionHelper$3;

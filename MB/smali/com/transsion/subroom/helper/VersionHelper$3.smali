@@ -38,6 +38,8 @@
     return-object v0
 
     :catch_0
+
+    move-exception v0
     invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->request()Lokhttp3/Request;
 
     move-result-object v0
