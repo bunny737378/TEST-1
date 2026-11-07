@@ -312,7 +312,7 @@
 
 # virtual methods
 .method public a()Lcom/transsion/memberapi/MemberDetail;
-    .locals 6
+    .locals 7
 
     .line 1
     iget-object v0, p0, Lcom/transsion/member/premium/PremiumProvider;->c:Lcom/transsion/memberapi/MemberDetail;
@@ -412,49 +412,27 @@
     .line 45
     const-string v4, "X-PM-Level"
 
-    .line 46
-    .line 47
     invoke-virtual {v1}, Lcom/transsion/memberapi/MemberInfo;->getVipLevel()I
 
-    .line 48
-    .line 49
-    .line 50
     move-result v5
 
-    .line 51
+    const/4 v6, 0x1
+
+    if-ge v5, v6, :cond_lvl
+
+    move v5, v6
+
+    :cond_lvl
     invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    .line 52
-    .line 53
-    .line 54
     move-result-object v5
 
-    .line 55
     invoke-virtual {v3, v4, v5}, Leh/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 56
-    .line 57
-    .line 58
     const-string v4, "X-PM-Active"
 
-    .line 59
-    .line 60
-    invoke-virtual {v1}, Lcom/transsion/memberapi/MemberInfo;->isActive()Z
+    const-string v1, "true"
 
-    .line 61
-    .line 62
-    .line 63
-    move-result v1
-
-    .line 64
-    invoke-static {v1}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
-
-    .line 65
-    .line 66
-    .line 67
-    move-result-object v1
-
-    .line 68
     invoke-virtual {v3, v4, v1}, Leh/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 69

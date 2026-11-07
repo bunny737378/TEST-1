@@ -298,8 +298,6 @@
 
     const-string v4, ""
 
-    const-string v5, ""
-
     :goto_loop
     if-ge v2, v1, :cond_done
 
@@ -322,12 +320,12 @@
 
     move-result v8
 
-    if-gez v8, :cond_hascode
+    if-ltz v8, :cond_hascode
 
     goto :goto_next
 
     :cond_hascode
-    if-gt v8, v3, :cond_bigger
+    if-le v8, v3, :cond_bigger
 
     goto :goto_next
 
@@ -342,7 +340,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_take
+    if-nez v10, :cond_take
 
     goto :goto_next
 
@@ -350,8 +348,6 @@
     move v3, v8
 
     move-object v4, v9
-
-    move-object v5, v7
 
     :goto_next
     add-int/lit8 v2, v2, 0x1

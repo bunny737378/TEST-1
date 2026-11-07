@@ -432,77 +432,32 @@
     :try_start_0
     const-string v3, "package_name"
 
-    .line 15
-    .line 16
     invoke-static {}, Lcom/blankj/utilcode/util/c;->e()Ljava/lang/String;
 
-    .line 17
-    .line 18
-    .line 19
     move-result-object v4
 
-    .line 20
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 21
-    .line 22
-    .line 23
-    if-eqz v1, :cond_0
-
-    .line 24
-    .line 25
     invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->versionName()Ljava/lang/String;
 
-    .line 26
-    .line 27
-    .line 28
-    move-result-object v1
+    move-result-object v4
 
-    .line 29
-    goto :goto_0
+    if-eqz v4, :cond_vn
 
-    .line 30
-    :cond_0
-    const/4 v1, 0x0
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
 
-    .line 31
-    :goto_0
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    .line 32
-    .line 33
-    .line 34
     move-result v3
+
+    if-nez v3, :cond_vn
+
+    :cond_vn
+    const-string v3, "version_name"
+
+    invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 35
-    const-string v4, ""
-
-    .line 36
-    .line 37
-    if-nez v3, :cond_2
-
-    .line 38
-    .line 39
     :try_start_1
-    const-string v3, "version_name"
-
-    .line 40
-    .line 41
-    if-nez v1, :cond_1
-
-    .line 42
-    .line 43
-    move-object v1, v4
-
-    .line 44
-    :cond_1
-    invoke-interface {v2, v3, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 45
-    .line 46
-    .line 47
     :cond_2
     invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->code()I
 
