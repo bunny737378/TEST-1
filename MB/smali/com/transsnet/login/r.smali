@@ -2915,55 +2915,41 @@
 .method public h()Lcom/transsnet/loginapi/bean/UserInfo;
     .locals 2
 
-    .line 1
+    const-string v0, "isLogin"
+
+    invoke-direct {p0, v0}, Lcom/transsnet/login/r;->D(Ljava/lang/String;)Lcom/transsnet/loginapi/bean/UserInfo;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
     new-instance v0, Lcom/transsnet/loginapi/bean/UserInfo;
 
-    .line 2
     invoke-direct {v0}, Lcom/transsnet/loginapi/bean/UserInfo;-><init>()V
 
-    .line 3
+    :cond_0
     const-string v1, "Ur Senapi"
 
-    .line 4
     invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setNickname(Ljava/lang/String;)V
 
-    .line 5
     const-string v1, "Ur_Senpai08"
 
-    .line 6
     invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setUsername(Ljava/lang/String;)V
 
-    .line 7
-    const-string v1, "2612043"
-
-    .line 8
-    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setUserId(Ljava/lang/String;)V
-
-    .line 9
-    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setShortId(Ljava/lang/String;)V
-
-    .line 10
-    const/16 v1, 0x10
-
-    .line 11
-    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setAge(I)V
-
-    .line 12
-    const/4 v1, 0x1
-
-    .line 13
-    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setGender(I)V
-
-    .line 14
-    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setUserType(I)V
-
-    .line 15
     const-string v1, "asset:///img/user.jpg"
 
-    .line 16
     invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setAvatar(Ljava/lang/String;)V
 
-    .line 17
+    const/16 v1, 0x10
+
+    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setAge(I)V
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setGender(I)V
+
+    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setUserType(I)V
+
     return-object v0
 .end method
 
