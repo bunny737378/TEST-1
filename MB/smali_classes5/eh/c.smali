@@ -252,53 +252,68 @@
 
 # virtual methods
 .method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
-    .locals 2
+    .locals 4
 
-    .line 1
     const-string v0, "chain"
 
-    .line 2
-    .line 3
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 4
-    .line 5
-    .line 6
     invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->request()Lokhttp3/Request;
 
-    .line 7
-    .line 8
-    .line 9
     move-result-object v0
 
-    .line 10
+    invoke-virtual {v0}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/transsion/subroom/helper/VersionHelper;->isApiHost(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_ours
+
     invoke-direct {p0, v0}, Leh/c;->b(Lokhttp3/Request;)Lokhttp3/Request;
 
-    .line 11
-    .line 12
-    .line 13
     move-result-object v0
 
-    .line 14
     const-string v1, ""
 
-    .line 15
-    .line 16
     invoke-direct {p0, v0, v1}, Leh/c;->a(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
 
-    .line 17
-    .line 18
-    .line 19
     move-result-object v0
 
-    .line 20
     invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
 
-    .line 21
-    .line 22
-    .line 23
-    move-result-object p1
+    move-result-object v0
 
-    .line 24
-    return-object p1
+    return-object v0
+
+    :cond_ours
+    :try_start_h
+    invoke-static {v0}, Lcom/transsion/subroom/helper/VersionHelper;->buildFullHeaders(Lokhttp3/Request;)Lokhttp3/Request;
+
+    move-result-object v0
+
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
+
+    move-result-object v0
+    :try_end_h
+    .catch Ljava/lang/Throwable; {:try_start_h .. :try_end_h} :catch_h
+
+    return-object v0
+
+    :catch_h
+    invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->request()Lokhttp3/Request;
+
+    move-result-object v0
+
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
+
+    move-result-object v0
+
+    return-object v0
 .end method
