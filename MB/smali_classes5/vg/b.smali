@@ -66,9 +66,21 @@
     .line 2
     move-result-object v0
 
-    .line 3
+    .line 0
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    if-lez v0, :cond_api
+
+    .line 0
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->name()Ljava/lang/String;
+
+    move-result-object v0
+
     return-object v0
 
+    :cond_api
     .line 4
     iget-object v0, p0, Lvg/b;->c:Ljava/lang/String;
 
