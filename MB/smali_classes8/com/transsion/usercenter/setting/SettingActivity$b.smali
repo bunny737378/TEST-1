@@ -232,7 +232,7 @@
     move-result v1
 
     .line 0
-    const/4 v2, 0x8
+    const/16 v2, 0x8
 
     .line 0
     aput v2, v0, v1
