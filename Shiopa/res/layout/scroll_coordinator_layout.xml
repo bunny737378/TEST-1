@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.lynx.xelement.scroll.coordinator.ScrollCoordinatorAppBarLayout android:id="@id/app_bar_layout" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" app:elevation="0.0dp"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@id/collapsing_toolbar_layout" android:fitsSystemWindows="false" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlwaysCollapsed" app:scrimAnimationDuration="200" app:titleEnabled="false">
-        <androidx.appcompat.widget.Toolbar android:id="@id/scroll_coordinator_toolbar" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="0.0dp" android:contentInsetStart="0.0dp" android:contentInsetEnd="0.0dp" android:contentInsetLeft="0.0dp" android:contentInsetRight="0.0dp" app:contentInsetEnd="0.0dp" app:contentInsetLeft="0.0dp" app:contentInsetRight="0.0dp" app:contentInsetStart="0.0dp" app:layout_collapseMode="pin" />
-    </com.google.android.material.appbar.CollapsingToolbarLayout>
-</com.lynx.xelement.scroll.coordinator.ScrollCoordinatorAppBarLayout>

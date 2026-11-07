@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:id="@id/widget_root" android:background="@drawable/widget_bg" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="#99ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MY LIST" android:letterSpacing="0.08" />
-    <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#ffffff" android:ellipsize="end" android:id="@id/widget_item1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="Save titles to see them here" android:maxLines="1" />
-    <TextView android:textSize="14.0sp" android:textColor="#ccffffff" android:ellipsize="end" android:id="@id/widget_item2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:maxLines="1" />
-    <TextView android:textSize="14.0sp" android:textColor="#99ffffff" android:ellipsize="end" android:id="@id/widget_item3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:maxLines="1" />
-</LinearLayout>
