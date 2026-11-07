@@ -900,106 +900,22 @@
 .end method
 
 .method public final g(Ljava/lang/String;)V
-    .locals 3
+    .locals 1
 
-    .line 1
+    # update engine disabled
     const-string v0, "appKey"
 
-    .line 2
-    .line 3
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 4
-    .line 5
-    .line 6
-    invoke-virtual {p0}, Lcom/transsion/version/update/UpdateManager;->f()Z
-
-    .line 7
-    .line 8
-    .line 9
-    move-result v0
-
-    .line 10
-    if-eqz v0, :cond_0
-
-    .line 11
-    .line 12
-    invoke-static {}, Lcom/transsion/upgradesdk/manager/UpgradeSdkManager;->getInstance()Lcom/transsion/upgradesdk/manager/UpgradeSdkManager;
-
-    .line 13
-    .line 14
-    .line 15
-    move-result-object v0
-
-    .line 16
-    invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
-
-    .line 17
-    .line 18
-    .line 19
-    move-result-object v1
-
-    .line 20
-    const/4 v2, 0x0
-
-    .line 21
-    invoke-virtual {v0, v1, p1, v2}, Lcom/transsion/upgradesdk/manager/UpgradeSdkManager;->init(Landroid/app/Application;Ljava/lang/String;Z)V
-
-    .line 22
-    .line 23
-    .line 24
-    :cond_0
     return-void
 .end method
 
 .method public final i()Z
-    .locals 3
+    .locals 1
 
-    .line 1
-    sget-object v0, Lcom/transsion/version/update/d;->a:Lcom/transsion/version/update/d;
+    const/4 v0, 0x0
 
-    .line 2
-    .line 3
-    invoke-virtual {v0}, Lcom/transsion/version/update/d;->b()Lcom/tencent/mmkv/MMKV;
-
-    .line 4
-    .line 5
-    .line 6
-    move-result-object v0
-
-    .line 7
-    const-string v1, "target_version_code"
-
-    .line 8
-    .line 9
-    const/4 v2, 0x0
-
-    .line 10
-    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->getInt(Ljava/lang/String;I)I
-
-    .line 11
-    .line 12
-    .line 13
-    move-result v0
-
-    .line 14
-    invoke-static {}, Lcom/blankj/utilcode/util/c;->f()I
-
-    .line 15
-    .line 16
-    .line 17
-    move-result v1
-
-    .line 18
-    if-le v0, v1, :cond_0
-
-    .line 19
-    .line 20
-    const/4 v2, 0x1
-
-    .line 21
-    :cond_0
-    return v2
+    return v0
 .end method
 
 .method public final j(Ljava/lang/String;)V
@@ -1181,47 +1097,13 @@
 .method public final k(Landroid/app/Activity;)Z
     .locals 2
 
-    .line 1
     const-string v0, "activity"
 
-    .line 2
-    .line 3
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 4
-    .line 5
-    .line 6
-    iget-object v0, p0, Lcom/transsion/version/update/UpdateManager;->a:Lcom/transsion/version/update/UpdateVersionRequest;
+    const/4 v0, 0x0
 
-    .line 7
-    .line 8
-    const/4 v1, 0x0
-
-    .line 9
-    if-eqz v0, :cond_0
-
-    .line 10
-    .line 11
-    invoke-virtual {v0, p1}, Lcom/transsion/version/update/UpdateVersionRequest;->q(Landroid/app/Activity;)Z
-
-    .line 12
-    .line 13
-    .line 14
-    move-result p1
-
-    .line 15
-    const/4 v0, 0x1
-
-    .line 16
-    if-ne p1, v0, :cond_0
-
-    .line 17
-    .line 18
-    move v1, v0
-
-    .line 19
-    :cond_0
-    return v1
+    return v0
 .end method
 
 .method public final l(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
