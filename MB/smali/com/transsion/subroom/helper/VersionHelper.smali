@@ -1056,7 +1056,7 @@
 .end method
 
 .method private static kv(Ljava/lang/String;)[Ljava/lang/String;
-    .locals 5
+    .locals 6
 
     const/4 v0, 0x2
 
@@ -1072,21 +1072,17 @@
 
     aput-object v3, v0, v2
 
-    :try_start_0
     const-string v3, "="
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v3
 
-    if-ltz v3, :cond_ok
+    if-gez v3, :cond_split
 
-    goto :goto_ok
-
-    :cond_ok
     return-object v0
 
-    :goto_ok
+    :cond_split
     invoke-virtual {p0, v1, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v4
@@ -1101,32 +1097,25 @@
 
     const-string v4, "+"
 
-    const-string p0, " "
+    const-string v5, " "
 
-    invoke-virtual {v3, v4, p0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v3, v4, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
     move-result-object v3
 
-    :try_start_1
+    :try_start_0
     const-string v4, "UTF-8"
 
     invoke-static {v3, v4}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
-    :try_end_1
-    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
-
-    :catch_1
-    move-exception v4
-
-    aput-object v3, v0, v2
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
-
     :catch_0
-    move-exception v3
+    move-exception v4
+
+    aput-object v3, v0, v2
 
     return-object v0
 .end method

@@ -78,6 +78,20 @@ def check(path):
                 prev = [l.strip() for l in lines[:ci] if l.strip() and not re.match(r'^:\w+$', l.strip())]
                 if prev and not re.match(r'(return|goto|throw|move-exception)', prev[-1]) and not prev[-1].startswith('.catch'):
                     out.append((head, "falls through into %s" % c))
+        # nested/overlapping try ranges: a handler must never sit inside another
+        # try_start..try_end range (ART: "Can flow through to move-exception")
+        ranges = []
+        for cm in re.finditer(r'\.catch\s+\S+\s+\{(:\w+)[ \t]+\.\.[ \t]+(:\w+)\}\s*(:\w+)', body):
+            a, b, h = cm.group(1), cm.group(2), cm.group(3)
+            if a in pos and b in pos and h in pos:
+                ranges.append((a, b, h, pos[a], pos[b], pos[h]))
+        for (a1, b1, h1, s1, e1, hpos1) in ranges:
+            for (a2, b2, h2, s2, e2, hpos2) in ranges:
+                if a1 == a2:
+                    continue
+                # handler h2 inside range of 1
+                if s1 <= hpos2 <= e1:
+                    out.append((head, "handler %s sits inside try range %s..%s" % (h2, a1, b1)))
     return out
 
 if __name__ == '__main__':
