@@ -254,14 +254,11 @@
 .method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
     .locals 4
 
-    const-string v0, "chain"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->request()Lokhttp3/Request;
 
     move-result-object v0
 
+    :try_start_0
     invoke-virtual {v0}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
 
     move-result-object v1
@@ -272,26 +269,43 @@
 
     invoke-static {v1}, Lcom/transsion/subroom/helper/VersionHelper;->isApiHost(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v2, :cond_ours
+    if-eqz v1, :cond_orig
 
-    return-object v0
+    goto :goto_orig
 
-    :cond_ours
+    :catch_0
+    move-exception v1
+
+    :goto_orig
+    :cond_orig
+    :try_start_1
     invoke-direct {p0, v0}, Leh/c;->b(Lokhttp3/Request;)Lokhttp3/Request;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string v3, ""
+    const-string v2, ""
 
-    invoke-direct {p0, v2, v3}, Leh/c;->a(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
+    invoke-direct {p0, v1, v2}, Leh/c;->a(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
 
-    move-result-object v2
+    move-result-object v1
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
-    invoke-interface {p1, v2}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
+    goto :goto_proceed
 
-    move-result-object v2
+    :catch_1
+    move-exception v1
 
-    return-object v2
+    move-object v1, v0
+
+    :goto_proceed
+    invoke-interface {p1, v1}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
+
+    move-result-object v1
+
+    return-object v1
 .end method

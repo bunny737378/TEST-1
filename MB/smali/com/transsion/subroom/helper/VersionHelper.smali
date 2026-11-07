@@ -951,6 +951,10 @@
 .method public static byteLength(Ljava/lang/String;)I
     .locals 5
 
+    const/4 v0, 0x0
+
+    if-eqz p0, :cond_3
+
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
@@ -958,18 +962,18 @@
     add-int/lit8 v1, v0, -0x1
 
     :goto_loop
-    if-gez v1, :cond_body
+    if-gez v1, :cond_0
 
     goto :goto_done
 
-    :cond_body
+    :cond_0
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
     const/16 v3, 0x7f
 
-    if-le v2, v3, :cond_3
+    if-le v2, v3, :cond_2
 
     const/16 v3, 0x7ff
 
@@ -977,30 +981,33 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :cond_3
+    goto :cond_2
 
     :cond_1
     const v3, 0xffff
 
-    if-gt v2, v3, :cond_3
+    if-gt v2, v3, :cond_2
 
     add-int/lit8 v0, v0, 0x2
 
-    :cond_3
+    :cond_2
     const v3, 0xdc00
 
-    if-lt v2, v3, :cond_5
+    if-lt v2, v3, :cond_4
 
     const v4, 0xdfff
 
-    if-gt v2, v4, :cond_5
+    if-gt v2, v4, :cond_4
 
     add-int/lit8 v1, v1, -0x1
 
-    :cond_5
+    :cond_4
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_loop
+
+    :cond_3
+    return v0
 
     :goto_done
     return v0
@@ -1208,30 +1215,40 @@
 
     const-string v0, "/"
 
+    :try_start_0
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_ok
+    if-nez v1, :cond_0
 
     return-object v0
 
-    :cond_ok
+    :cond_0
     invoke-static {p0}, Lcom/transsion/subroom/helper/VersionHelper;->pathOnly(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    return-object v0
+
+    :cond_1
     const-string v2, "?"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v2
 
-    if-gez v2, :cond_q
+    if-gez v2, :cond_2
 
     return-object v1
 
-    :cond_q
+    :cond_2
     const/4 v3, 0x0
 
     invoke-virtual {v1, v3, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -1288,11 +1305,11 @@
 
     move-result v10
 
-    if-eqz v10, :cond_ret
+    if-nez v10, :cond_3
 
     return-object v4
 
-    :cond_ret
+    :cond_3
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
@@ -1308,6 +1325,15 @@
     invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v0
+
+    :catch_0
+    move-exception v1
+
+    const-string v0, "/"
 
     return-object v0
 .end method
@@ -1549,6 +1575,42 @@
 .end method
 
 .method public static userAgent()Ljava/lang/String;
+    .locals 1
+
+    :try_start_0
+    invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->uaImpl()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    return-object v0
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_1
+    :goto_0
+    :try_start_1
+    const-string v0, "com.community.oneroom/0 (Linux; U; Android)"
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
+
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v0
+
+    const-string v0, ""
+
+    return-object v0
+.end method
+
+.method private static uaImpl()Ljava/lang/String;
     .locals 4
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1610,7 +1672,44 @@
     return-object v0
 .end method
 
+
 .method public static clientInfo()Ljava/lang/String;
+    .locals 1
+
+    :try_start_0
+    invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->ciImpl()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    return-object v0
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_1
+    :goto_0
+    :try_start_1
+    const-string v0, "{\"package_name\":\"com.community.oneroom\",\"version_name\":\"\",\"version_code\":0}"
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
+
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v0
+
+    const-string v0, ""
+
+    return-object v0
+.end method
+
+.method private static ciImpl()Ljava/lang/String;
     .locals 4
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1715,6 +1814,7 @@
 
     return-object v0
 .end method
+
 
 .method private static authHeader()Ljava/lang/String;
     .locals 3
@@ -1974,8 +2074,11 @@
 .end method
 
 .method public static versionName()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
+    const-string v0, ""
+
+    :try_start_0
     invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->await()V
 
     sget-object v0, Lcom/transsion/subroom/helper/VersionHelper;->vName:Ljava/lang/String;
@@ -1983,19 +2086,39 @@
     if-eqz v0, :cond_1
 
     return-object v0
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_1
+    :goto_0
     const-string v0, ""
 
     return-object v0
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method
 
 .method public static versionCode()I
     .locals 1
 
+    const/4 v0, 0x0
+
+    :try_start_0
     invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->await()V
 
     sget v0, Lcom/transsion/subroom/helper/VersionHelper;->vCode:I
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    return v0
+
+    :catch_0
+    move-exception v0
+
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -2129,12 +2252,3 @@
     return v0
 .end method
 
-.method public static clientChain()Lokhttp3/Interceptor;
-    .locals 1
-
-    new-instance v0, Lcom/transsion/subroom/helper/VersionHelper$3;
-
-    invoke-direct {v0}, Lcom/transsion/subroom/helper/VersionHelper$3;-><init>()V
-
-    return-object v0
-.end method

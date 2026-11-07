@@ -777,7 +777,6 @@
     invoke-super {p0}, Lcom/tencent/tinker/entry/DefaultApplicationLike;->onCreate()V
 
     .line 0
-    invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->boot()V
 
     .line 2
     .line 3
