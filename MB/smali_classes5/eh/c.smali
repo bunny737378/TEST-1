@@ -274,48 +274,24 @@
 
     move-result v2
 
-    if-nez v2, :cond_ours
-
-    invoke-direct {p0, v0}, Leh/c;->b(Lokhttp3/Request;)Lokhttp3/Request;
-
-    move-result-object v0
-
-    const-string v1, ""
-
-    invoke-direct {p0, v0, v1}, Leh/c;->a(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
-
-    move-result-object v0
-
-    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
-
-    move-result-object v0
+    if-eqz v2, :cond_ours
 
     return-object v0
 
     :cond_ours
-    :try_start_h
-    invoke-static {v0}, Lcom/transsion/subroom/helper/VersionHelper;->buildFullHeaders(Lokhttp3/Request;)Lokhttp3/Request;
+    invoke-direct {p0, v0}, Leh/c;->b(Lokhttp3/Request;)Lokhttp3/Request;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
+    const-string v3, ""
 
-    move-result-object v0
-    :try_end_h
-    .catch Ljava/lang/Throwable; {:try_start_h .. :try_end_h} :catch_h
+    invoke-direct {p0, v2, v3}, Leh/c;->a(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
 
-    return-object v0
+    move-result-object v2
 
-    :catch_h
+    invoke-interface {p1, v2}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
 
-    move-exception v0
-    invoke-interface {p1}, Lokhttp3/Interceptor$Chain;->request()Lokhttp3/Request;
+    move-result-object v2
 
-    move-result-object v0
-
-    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
-
-    move-result-object v0
-
-    return-object v0
+    return-object v2
 .end method
