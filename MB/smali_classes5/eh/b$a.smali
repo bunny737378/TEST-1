@@ -504,7 +504,7 @@
     .line 46
     .line 47
     :cond_2
-    invoke-static {}, Lcom/blankj/utilcode/util/c;->f()I
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->code()I
 
     .line 48
     .line 49

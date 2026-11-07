@@ -2498,6 +2498,9 @@
 
     .line 71
     .line 72
+    const/4 v2, 0x1
+
+    .line 72
     invoke-virtual {v0, v3, v2}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
 
     .line 73
@@ -3077,6 +3080,11 @@
     goto :goto_1
 
     .line 122
+    :pswitch_x
+    invoke-static {p0}, Lcom/transsion/subroom/server/ServerDialog;->show(Landroid/content/Context;)V
+
+    goto :goto_1
+
     :pswitch_9
     invoke-direct {p0}, Lcom/transsion/usercenter/setting/SettingActivity;->r1()V
 
@@ -3232,7 +3240,7 @@
         :pswitch_9
         :pswitch_8
         :pswitch_7
-        :pswitch_6
+        :pswitch_x
         :pswitch_5
         :pswitch_4
         :pswitch_3
@@ -3535,7 +3543,7 @@
     .line 47
     .line 48
     .line 49
-    invoke-interface {v1, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 50
     .line 51
@@ -3548,18 +3556,40 @@
 
     .line 55
     .line 56
-    sget v3, Lcom/transsion/usercenter/R$string;->language:I
+    sget v3, Lcom/transsion/usercenter/R$string;->srv_select_title:I
 
     .line 57
     .line 58
-    sget-object v4, Lcom/transsion/usercenter/setting/bean/UserSettingType;->LANGUAGE:Lcom/transsion/usercenter/setting/bean/UserSettingType;
+    sget-object v4, Lcom/transsion/usercenter/setting/bean/UserSettingType;->SERVER:Lcom/transsion/usercenter/setting/bean/UserSettingType;
 
     .line 59
     .line 60
-    sget v2, Lcom/tn/lib/widget/R$color;->white_6:I
+    invoke-static {}, Lcom/transsion/subroom/server/ServerPrefs;->current()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_srv
+
+    const-string v5, "Auto"
+
+    goto :goto_srv
+
+    :cond_srv
+    invoke-static {}, Lcom/transsion/subroom/server/ServerPrefs;->current()Ljava/lang/String;
+
+    move-result-object v5
+
+    :goto_srv
+    move-object v5, v5
 
     .line 61
     .line 62
+    sget v2, Lcom/tn/lib/widget/R$color;->white_6:I
+
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     .line 63
@@ -3986,7 +4016,7 @@
     .line 258
     .line 259
     .line 260
-    invoke-interface {v1, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 261
     .line 262
@@ -4149,7 +4179,7 @@
     .line 335
     .line 336
     .line 337
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 338
     .line 339
@@ -4209,7 +4239,7 @@
     .line 363
     .line 364
     .line 365
-    invoke-interface {v1, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 366
     .line 367
@@ -4264,7 +4294,7 @@
     move-result-object v4
 
     .line 390
-    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 391
     .line 392
@@ -4571,6 +4601,12 @@
 
 .method private static final l1(Ljava/lang/Boolean;)Lkotlin/Unit;
     .locals 1
+
+    .line 0
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->clear()V
+
+    .line 0
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fetch()V
 
     .line 1
     sget-object p0, Lai/b;->a:Lai/b$a;

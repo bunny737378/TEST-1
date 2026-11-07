@@ -1944,7 +1944,7 @@
     .line 353
     .line 354
     .line 355
-    invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 356
     .line 357
@@ -2669,7 +2669,7 @@
     .line 714
     .line 715
     .line 716
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 717
     .line 718
@@ -3154,7 +3154,7 @@
     .line 941
     .line 942
     .line 943
-    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 944
     .line 945
@@ -3208,7 +3208,7 @@
     .line 968
     .line 969
     .line 970
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 971
     .line 972

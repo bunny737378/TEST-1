@@ -57,6 +57,15 @@
 .field public static tv_title:I = 0x7f0a1126
 
 
+
+.field public static crashClose:I = 0x7f0a1317
+
+.field public static crashCopy:I = 0x7f0a1316
+
+.field public static crashLog:I = 0x7f0a1318
+
+.field public static crashTitle:I = 0x7f0a1315
+
 # direct methods
 .method private constructor <init>()V
     .locals 0

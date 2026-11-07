@@ -113,7 +113,7 @@
 
     .line 8
     .line 9
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
     .line 10
     invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z

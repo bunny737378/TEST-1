@@ -61,6 +61,15 @@
     .locals 1
 
     .line 1
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->name()Ljava/lang/String;
+
+    .line 2
+    move-result-object v0
+
+    .line 3
+    return-object v0
+
+    .line 4
     iget-object v0, p0, Lvg/b;->c:Ljava/lang/String;
 
     .line 2

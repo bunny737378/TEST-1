@@ -224,6 +224,20 @@
     .line 81
     :catch_7
     :try_start_8
+    sget-object v1, Lcom/transsion/usercenter/setting/bean/UserSettingType;->SERVER:Lcom/transsion/usercenter/setting/bean/UserSettingType;
+
+    .line 0
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+
+    move-result v1
+
+    .line 0
+    const/4 v2, 0x8
+
+    .line 0
+    aput v2, v0, v1
+
+    .line 0
     sget-object v1, Lcom/transsion/usercenter/setting/bean/UserSettingType;->NOTIFICATION:Lcom/transsion/usercenter/setting/bean/UserSettingType;
 
     .line 82

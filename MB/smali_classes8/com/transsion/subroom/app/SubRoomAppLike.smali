@@ -773,6 +773,16 @@
 .method public onCreate()V
     .locals 8
 
+    .line 0
+    invoke-virtual {p0}, Lcom/tencent/tinker/entry/ApplicationLike;->getApplication()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/transsion/subroom/crash/CrashCatcher;->install(Landroid/content/Context;)V
+
+    .line 0
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fetch()V
+
     .line 1
     invoke-super {p0}, Lcom/tencent/tinker/entry/DefaultApplicationLike;->onCreate()V
 

@@ -23,6 +23,9 @@
 .field public static splash_ad_app_layout:I = 0x7f0d0627
 
 
+
+.field public static crash_report:I = 0x7f0d06d1
+
 # direct methods
 .method private constructor <init>()V
     .locals 0
