@@ -24,7 +24,6 @@
 
 
 
-.field public static crash_report:I = 0x7f0d06d1
 
 # direct methods
 .method private constructor <init>()V
