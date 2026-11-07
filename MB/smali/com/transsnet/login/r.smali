@@ -2958,7 +2958,7 @@
     invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setUserType(I)V
 
     .line 15
-    const-string v1, "user"
+    const-string v1, "asset:///img/user.jpg"
 
     .line 16
     invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setAvatar(Ljava/lang/String;)V
