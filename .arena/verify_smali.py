@@ -157,9 +157,21 @@ def check_method_wellformed(lines, header, problems):
         problems.append("%s -> missing .end method" % header)
 
 
+def enumerate_lines(lines):
+    return [(i + 1, l) for i, l in enumerate(lines)]
+
+
+def check_glued(lines, problems):
+    for ln, raw in lines:
+        t = raw.strip()
+        if ".end method." in t or ".method " in t and ".end method" in t:
+            problems.append("line %d -> GLUED directive: %s" % (ln, t[:60]))
+
+
 def verify(path, headers):
     lines = load(path)
     problems = []
+    check_glued(enumerate_lines(lines), problems)
     for h in headers:
         check_range(lines, h, problems)
         check_regs(lines, h, problems)

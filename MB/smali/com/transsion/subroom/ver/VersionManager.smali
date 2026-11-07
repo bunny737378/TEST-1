@@ -197,7 +197,7 @@
     :catch_0
     :goto_1
     return-void
-.end method.end method
+.end method
 
 .method public static clear()V
     .locals 3
