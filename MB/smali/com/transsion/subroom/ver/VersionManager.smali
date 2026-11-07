@@ -305,11 +305,11 @@
 
     move-result-object v6
 
-    if-nez v6, :cond_obj
+    if-eqz v6, :cond_hasobj
 
     goto :goto_next
 
-    :cond_obj
+    :cond_hasobj
     const-string v7, "versionCode"
 
     invoke-virtual {v6, v7}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
@@ -320,12 +320,12 @@
 
     move-result v8
 
-    if-ltz v8, :cond_hascode
+    if-ltz v8, :cond_codeok
 
     goto :goto_next
 
-    :cond_hascode
-    if-le v8, v3, :cond_bigger
+    :cond_codeok
+    if-gt v8, v3, :cond_bigger
 
     goto :goto_next
 
@@ -355,7 +355,7 @@
     goto :goto_loop
 
     :cond_done
-    if-gez v3, :cond_set
+    if-ltz v3, :cond_set
 
     return-void
 
@@ -384,26 +384,13 @@
     :cond_0
     invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fetch()V
 
-    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    if-ne v0, v1, :cond_worker
-
-    return-void
-
-    :cond_worker
     :try_start_0
     const/4 v0, 0x0
 
     move v1, v0
 
     :goto_0
-    const/16 v2, 0x28
+    const/16 v2, 0x14
 
     if-lt v1, v2, :cond_1
 
@@ -417,6 +404,17 @@
     goto :goto_1
 
     :cond_2
+    sget-object v2, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    goto :goto_1
+
+    :cond_3
     const-wide/16 v3, 0x64
 
     invoke-static {v3, v4}, Ljava/lang/Thread;->sleep(J)V
@@ -503,11 +501,11 @@
     :cond_0
     const-string v1, "vm_ver_name"
 
-    invoke-virtual {v0, v1, p0}, Lcom/tencent/mmkv/MMKV;->l(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1, p0}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     const-string v1, "vm_ver_code"
 
-    invoke-virtual {v0, v1, p1}, Lcom/tencent/mmkv/MMKV;->g(Ljava/lang/String;I)I
+    invoke-virtual {v0, v1, p1}, Lcom/tencent/mmkv/MMKV;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
