@@ -636,7 +636,7 @@
 
 # ---------- crypto ----------
 .method public static md5Hex(Ljava/lang/String;)Ljava/lang/String;
-    .locals 8
+    .locals 7
 
     const-string v0, ""
 
@@ -646,8 +646,6 @@
     invoke-static {v1}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
     move-result-object v1
-
-    invoke-virtual {v1, p0}, Ljava/security/MessageDigest;->update([B)V
 
     invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
 
@@ -703,7 +701,7 @@
 .end method
 
 .method public static hmacMd5Base64(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .locals 7
 
     const-string v0, ""
 
@@ -712,29 +710,29 @@
 
     invoke-static {v1}, Ljavax/crypto/Mac;->getInstance(Ljava/lang/String;)Ljavax/crypto/Mac;
 
-    move-result-object v1
-
-    new-instance v2, Ljavax/crypto/spec/SecretKeySpec;
+    move-result-object v2
 
     invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v3
 
-    invoke-direct {v2, v3, v1}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
+    new-instance v4, Ljavax/crypto/spec/SecretKeySpec;
 
-    invoke-virtual {v1, v2}, Ljavax/crypto/Mac;->init(Ljava/security/Key;)V
+    invoke-direct {v4, v3, v1}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
+
+    invoke-virtual {v2, v4}, Ljavax/crypto/Mac;->init(Ljava/security/Key;)V
 
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljavax/crypto/Mac;->doFinal([B)[B
+
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljavax/crypto/Mac;->doFinal([B)[B
+    const/4 v3, 0x2
 
-    move-result-object v1
-
-    const/4 v2, 0x2
-
-    invoke-static {v1, v2}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
+    invoke-static {v2, v3}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
 
     move-result-object v0
     :try_end_0
@@ -744,41 +742,6 @@
     return-object v0
 .end method
 
-.method private static pad6(I)Ljava/lang/String;
-    .locals 2
-
-    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v1
-
-    const/4 p0, 0x6
-
-    if-lt v1, p0, :cond_pad
-
-    return-object v0
-
-    :cond_pad
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p0, "0"
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-.end method
 
 .method public static genClientBuild(J)Ljava/lang/String;
     .locals 8
