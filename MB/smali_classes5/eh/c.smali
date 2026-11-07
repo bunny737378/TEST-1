@@ -105,25 +105,6 @@
     .line 35
     .line 36
     .line 37
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->name()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    if-lez v0, :cond_ua
-
-    const-string v0, "User-Agent"
-
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->ua()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    :cond_ua
 
 
     invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
