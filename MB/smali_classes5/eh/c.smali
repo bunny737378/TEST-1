@@ -32,7 +32,7 @@
 .end method
 
 .method private final a(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
-    .locals 4
+    .locals 3
 
     .line 1
     sget-object p2, Leh/b;->a:Leh/b$a;
@@ -107,33 +107,9 @@
     .line 37
     const-string v0, "User-Agent"
 
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->ua()Ljava/lang/String;
+    invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->userAgent()Ljava/lang/String;
 
     move-result-object v1
-
-    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    const-string v0, "x-pm-active"
-
-    const-string v1, "true"
-
-    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    const-string v0, "x-pm-level"
-
-    const-string v1, "1"
-
-    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    const-string v0, "x-family-mode"
-
-    const-string v1, "1"
-
-    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    const-string v0, "x-idle-data"
-
-    const-string v1, "0"
 
     invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 

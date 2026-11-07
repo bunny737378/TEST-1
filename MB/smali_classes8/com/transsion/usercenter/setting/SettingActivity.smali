@@ -4602,12 +4602,6 @@
 .method private static final l1(Ljava/lang/Boolean;)Lkotlin/Unit;
     .locals 1
 
-    .line 0
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->clear()V
-
-    .line 0
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fetch()V
-
     .line 1
     sget-object p0, Lai/b;->a:Lai/b$a;
 

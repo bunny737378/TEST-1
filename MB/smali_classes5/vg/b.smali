@@ -60,7 +60,7 @@
 .method public final b()Ljava/lang/String;
     .locals 1
 
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->versionName()Ljava/lang/String;
+    invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->versionName()Ljava/lang/String;
 
     move-result-object v0
 

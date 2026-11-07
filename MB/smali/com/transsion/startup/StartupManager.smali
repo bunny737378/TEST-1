@@ -2487,10 +2487,6 @@
 
     .line 215
     .line 216
-    const/4 v7, 0x1
-
-    invoke-virtual {v2, v5, v7}, Lcom/tencent/mmkv/MMKV;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
     invoke-virtual {v2, v5, v7}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
 
     .line 217
@@ -2552,10 +2548,6 @@
 
     .line 244
     .line 245
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v8, v4}, Lcom/tencent/mmkv/MMKV;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
     invoke-virtual {v2, v8, v4}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
 
     .line 246

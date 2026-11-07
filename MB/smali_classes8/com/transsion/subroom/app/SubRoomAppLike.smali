@@ -777,15 +777,7 @@
     invoke-super {p0}, Lcom/tencent/tinker/entry/DefaultApplicationLike;->onCreate()V
 
     .line 0
-    :try_start_hook2
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fetch()V
-    :try_end_hook2
-    .catchall {:try_start_hook2 .. :try_end_hook2} :catchall_hook2
-
-    goto :goto_hook
-
-    :catchall_hook2
-    :goto_hook
+    invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->boot()V
 
     .line 2
     .line 3
