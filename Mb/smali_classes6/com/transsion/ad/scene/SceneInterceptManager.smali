@@ -40,6 +40,21 @@
     .locals 4
 
     .line 1
+    new-instance v0, Lkotlin/Pair;
+
+    .line 2
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    .line 3
+    const-string v2, "ad disabled"
+
+    .line 4
+    invoke-direct {v0, v1, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    .line 5
+    return-object v0
+
+    .line 6
     instance-of v0, p2, Lcom/transsion/ad/scene/SceneInterceptManager$intercept$1;
 
     .line 3
