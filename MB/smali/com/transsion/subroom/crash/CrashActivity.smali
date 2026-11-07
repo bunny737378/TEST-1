@@ -115,7 +115,7 @@
     invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
-.end method.end method
+.end method
 
 .method public static copyText(Landroid/content/Context;Ljava/lang/String;)V
     .locals 3
