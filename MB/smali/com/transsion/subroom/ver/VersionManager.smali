@@ -144,6 +144,27 @@
     return-object v0
 .end method
 
+.method public static versionName()Ljava/lang/String;
+    .locals 2
+
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->name()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->cachedName()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_0
+    return-object v0
+.end method
+
 .method public static code()I
     .locals 2
 
@@ -232,11 +253,13 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result v1
+    move-result-wide v0
 
-    return v1
+    long-to-int v0, v0
+
+    return v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -247,7 +270,7 @@
 .end method
 
 .method private static parse(Ljava/lang/String;)V
-    .locals 10
+    .locals 12
 
     :try_start_0
     new-instance v0, Lorg/json/JSONObject;
@@ -260,86 +283,90 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_arr
 
     return-void
 
-    :cond_0
+    :cond_arr
     invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
 
     move-result v1
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_5
+    const/4 v3, -0x1
+
+    const-string v4, ""
+
+    const-string v5, ""
+
+    :goto_loop
+    if-ge v2, v1, :cond_done
 
     invoke-virtual {v0, v2}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
 
-    move-result-object v3
+    move-result-object v6
 
-    if-nez v3, :cond_1
+    if-nez v6, :cond_obj
 
-    goto :goto_1
+    goto :goto_next
 
-    :cond_1
-    const-string v4, "channelName"
+    :cond_obj
+    const-string v7, "versionCode"
 
-    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v6, v7}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v7
 
-    const-string v5, "official"
+    invoke-static {v7}, Lcom/transsion/subroom/ver/VersionManager;->num(Ljava/lang/String;)I
 
-    invoke-virtual {v5, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v8
 
-    move-result v4
+    if-gez v8, :cond_hascode
 
-    if-nez v4, :cond_2
+    goto :goto_next
 
-    goto :goto_1
+    :cond_hascode
+    if-gt v8, v3, :cond_bigger
 
-    :cond_2
-    const-string v4, "versionName"
+    goto :goto_next
 
-    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    :cond_bigger
+    const-string v9, "versionName"
 
-    move-result-object v4
+    invoke-virtual {v6, v9}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    const-string v5, "versionCode"
+    move-result-object v9
 
-    invoke-virtual {v3, v5}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result-object v5
+    move-result v10
 
-    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    if-eqz v10, :cond_take
 
-    move-result v6
+    goto :goto_next
 
-    if-eqz v6, :cond_3
+    :cond_take
+    move v3, v8
 
-    return-void
+    move-object v4, v9
 
-    :cond_3
-    invoke-static {v5}, Lcom/transsion/subroom/ver/VersionManager;->num(Ljava/lang/String;)I
+    move-object v5, v7
 
-    move-result v6
-
-    if-lez v6, :cond_4
-
-    sput v6, Lcom/transsion/subroom/ver/VersionManager;->code:I
-
-    :cond_4
-    sput-object v4, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
-
-    return-void
-
-    :goto_1
+    :goto_next
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_loop
 
-    :cond_5
+    :cond_done
+    if-gez v3, :cond_set
+
+    return-void
+
+    :cond_set
+    sput v3, Lcom/transsion/subroom/ver/VersionManager;->code:I
+
+    sput-object v4, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -616,11 +643,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->name()Ljava/lang/String;
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->code()I
 
-    move-result-object v1
+    move-result v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v1, " (Linux; U; Android "
 
@@ -630,7 +657,21 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "; en_US; "
+    const-string v1, "; "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/Locale;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "; "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -646,17 +687,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "; ver/"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->code()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v1, "; Cronet/135.0.7012.3)"
+    const-string v1, "; Cronet/155.0.8059.30)"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

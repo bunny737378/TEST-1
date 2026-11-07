@@ -451,7 +451,7 @@
 
     .line 24
     .line 25
-    invoke-virtual {v1}, Lvg/b;->b()Ljava/lang/String;
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->versionName()Ljava/lang/String;
 
     .line 26
     .line 27
