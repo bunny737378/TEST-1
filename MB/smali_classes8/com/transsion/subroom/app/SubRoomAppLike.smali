@@ -773,18 +773,25 @@
 .method public onCreate()V
     .locals 8
 
-    .line 0
-    invoke-virtual {p0}, Lcom/tencent/tinker/entry/ApplicationLike;->getApplication()Landroid/app/Application;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/transsion/subroom/crash/CrashCatcher;->install(Landroid/content/Context;)V
-
-    .line 0
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fetch()V
-
     .line 1
     invoke-super {p0}, Lcom/tencent/tinker/entry/DefaultApplicationLike;->onCreate()V
+
+    .line 0
+    :try_start_hook
+    invoke-static {p0}, Lcom/transsion/subroom/crash/CrashCatcher;->install(Lcom/tencent/tinker/entry/ApplicationLike;)V
+    :try_end_hook
+    .catchall {:try_start_hook .. :try_end_hook} :catchall_hook
+
+    :try_start_hook2
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fetch()V
+    :try_end_hook2
+    .catchall {:try_start_hook2 .. :try_end_hook2} :catchall_hook2
+
+    goto :goto_hook
+
+    :catchall_hook
+    :catchall_hook2
+    :goto_hook
 
     .line 2
     .line 3

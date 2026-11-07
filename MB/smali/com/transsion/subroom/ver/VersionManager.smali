@@ -170,7 +170,7 @@
     move v1, v0
 
     :goto_0
-    const/16 v2, 0x64
+    const/16 v2, 0x1e
 
     if-lt v1, v2, :cond_1
 
@@ -184,7 +184,7 @@
     goto :goto_1
 
     :cond_2
-    const-wide/16 v2, 0x64
+    const-wide/16 v2, 0xa
 
     invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
     :try_end_0
@@ -197,7 +197,7 @@
     :catch_0
     :goto_1
     return-void
-.end method
+.end method.end method
 
 .method public static clear()V
     .locals 3

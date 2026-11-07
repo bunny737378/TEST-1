@@ -9,6 +9,8 @@
 # static fields
 .field private static volatile installed:Z
 
+.field private static volatile ctx:Landroid/content/Context;
+
 
 # direct methods
 .method public constructor <init>()V
@@ -19,8 +21,24 @@
     return-void
 .end method
 
+.method public static install(Lcom/tencent/tinker/entry/ApplicationLike;)V
+    .locals 1
+
+    :try_start_0
+    invoke-virtual {p0}, Lcom/tencent/tinker/entry/ApplicationLike;->getApplication()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/transsion/subroom/crash/CrashCatcher;->install(Landroid/content/Context;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    return-void
+.end method
+
 .method public static install(Landroid/content/Context;)V
-    .locals 2
+    .locals 1
 
     sget-boolean v0, Lcom/transsion/subroom/crash/CrashCatcher;->installed:Z
 
@@ -34,6 +52,8 @@
     sput-boolean v0, Lcom/transsion/subroom/crash/CrashCatcher;->installed:Z
 
     :try_start_0
+    sput-object p0, Lcom/transsion/subroom/crash/CrashCatcher;->ctx:Landroid/content/Context;
+
     new-instance v0, Lcom/transsion/subroom/crash/CrashCatcher;
 
     invoke-direct {v0}, Lcom/transsion/subroom/crash/CrashCatcher;-><init>()V
@@ -198,30 +218,40 @@
 
     move-result-object v0
 
+    :try_start_1
     invoke-static {}, Lcom/blankj/utilcode/util/Utils;->a()Landroid/app/Application;
 
     move-result-object v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_ctx
 
+    goto :goto_ctx
+
+    :catchall_ctx
+    const/4 v1, 0x0
+
+    :goto_ctx
     if-nez v1, :cond_0
 
-    return-void
+    sget-object v1, Lcom/transsion/subroom/crash/CrashCatcher;->ctx:Landroid/content/Context;
 
     :cond_0
-    invoke-static {v1, v0}, Lcom/transsion/subroom/crash/CrashCatcher;->launch(Landroid/content/Context;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    if-eqz v1, :cond_1
 
-    const/4 v1, 0x0
+    invoke-static {v1, v0}, Lcom/transsion/subroom/crash/CrashCatcher;->launch(Landroid/content/Context;Ljava/lang/String;)V
 
     const-wide/16 v2, 0x7d0
 
-    :try_start_1
     invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    :catch_0
-    const/4 v1, 0x0
+    goto :goto_kill
+
+    :cond_1
+    invoke-static {v0}, Lcom/transsion/subroom/crash/CrashCatcher;->logToFile(Ljava/lang/String;)V
+
+    :goto_kill
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :catchall_0
     invoke-static {}, Landroid/os/Process;->myPid()I
@@ -234,5 +264,43 @@
 
     invoke-static {v0}, Ljava/lang/System;->exit(I)V
 
+    return-void
+.end method
+
+.method private static logToFile(Ljava/lang/String;)V
+    .locals 4
+
+    :try_start_0
+    new-instance v0, Ljava/io/File;
+
+    sget-object v1, Lcom/transsion/subroom/crash/CrashCatcher;->ctx:Landroid/content/Context;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :cond_0
+    const-string v1, "/sdcard"
+
+    :goto_0
+    const-string v2, "crash_log.txt"
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    new-instance v1, Ljava/io/FileWriter;
+
+    invoke-direct {v1, v0}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+
+    invoke-virtual {v1, p0}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+
+    invoke-virtual {v1}, Ljava/io/FileWriter;->close()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
     return-void
 .end method
