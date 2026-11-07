@@ -1,0 +1,8 @@
+.class public interface abstract Lpw/a;
+.super Ljava/lang/Object;
+.source "source.java"
+
+
+# virtual methods
+.method public abstract a(Lcom/transsion/transfer/androidasync/p;)Lcom/transsion/transfer/androidasync/future/f;
+.end method

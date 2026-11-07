@@ -1,0 +1,114 @@
+.class final Lcom/tencent/tinker/android/dex/j$j;
+.super Ljava/util/AbstractList;
+.source "source.java"
+
+# interfaces
+.implements Ljava/util/RandomAccess;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/tencent/tinker/android/dex/j;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x12
+    name = "j"
+.end annotation
+
+
+# instance fields
+.field final synthetic a:Lcom/tencent/tinker/android/dex/j;
+
+
+# direct methods
+.method private constructor <init>(Lcom/tencent/tinker/android/dex/j;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/tencent/tinker/android/dex/j$j;->a:Lcom/tencent/tinker/android/dex/j;
+
+    invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/tencent/tinker/android/dex/j;Lcom/tencent/tinker/android/dex/j$a;)V
+    .locals 0
+
+    .line 2
+    invoke-direct {p0, p1}, Lcom/tencent/tinker/android/dex/j$j;-><init>(Lcom/tencent/tinker/android/dex/j;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(I)Ljava/lang/Integer;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/tencent/tinker/android/dex/j$j;->a:Lcom/tencent/tinker/android/dex/j;
+
+    .line 2
+    .line 3
+    invoke-virtual {v0, p1}, Lcom/tencent/tinker/android/dex/j;->g(I)I
+
+    .line 4
+    .line 5
+    .line 6
+    move-result p1
+
+    .line 7
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    .line 8
+    .line 9
+    .line 10
+    move-result-object p1
+
+    .line 11
+    return-object p1
+.end method
+
+.method public bridge synthetic get(I)Ljava/lang/Object;
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1}, Lcom/tencent/tinker/android/dex/j$j;->a(I)Ljava/lang/Integer;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object p1
+
+    .line 5
+    return-object p1
+.end method
+
+.method public size()I
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/tencent/tinker/android/dex/j$j;->a:Lcom/tencent/tinker/android/dex/j;
+
+    .line 2
+    .line 3
+    invoke-static {v0}, Lcom/tencent/tinker/android/dex/j;->a(Lcom/tencent/tinker/android/dex/j;)Lcom/tencent/tinker/android/dex/v;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object v0
+
+    .line 7
+    iget-object v0, v0, Lcom/tencent/tinker/android/dex/v;->c:Lcom/tencent/tinker/android/dex/v$a;
+
+    .line 8
+    .line 9
+    iget v0, v0, Lcom/tencent/tinker/android/dex/v$a;->c:I
+
+    .line 10
+    .line 11
+    return v0
+.end method
