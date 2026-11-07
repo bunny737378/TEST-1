@@ -15,8 +15,6 @@
 
 .field private static volatile started:Z
 
-.field private static volatile done:Z
-
 
 # direct methods
 .method public constructor <init>()V
@@ -42,18 +40,18 @@
 .method private static cachedName()Ljava/lang/String;
     .locals 3
 
+    const-string v1, ""
+
+    :try_start_0
     invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->mmkv()Lcom/tencent/mmkv/MMKV;
 
     move-result-object v0
-
-    const-string v1, ""
 
     if-nez v0, :cond_0
 
     return-object v1
 
     :cond_0
-    :try_start_0
     const-string v2, "vm_ver_name"
 
     invoke-virtual {v0, v2, v1}, Lcom/tencent/mmkv/MMKV;->l(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -76,18 +74,18 @@
 .method private static cachedCode()I
     .locals 3
 
+    const/4 v1, 0x0
+
+    :try_start_0
     invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->mmkv()Lcom/tencent/mmkv/MMKV;
 
     move-result-object v0
-
-    const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
     return v1
 
     :cond_0
-    :try_start_0
     const-string v2, "vm_ver_code"
 
     invoke-virtual {v0, v2, v1}, Lcom/tencent/mmkv/MMKV;->g(Ljava/lang/String;I)I
@@ -102,52 +100,106 @@
     return v1
 .end method
 
-.method public static name()Ljava/lang/String;
-    .locals 2
+.method private static fileCache()Ljava/io/File;
+    .locals 3
 
-    sget-object v0, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
-
-    move-result v1
-
-    if-lez v1, :cond_0
-
-    return-object v0
-
-    :cond_0
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->cachedName()Ljava/lang/String;
+    :try_start_0
+    invoke-static {}, Landroid/app/ActivityThread;->currentApplication()Landroid/app/Application;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
-
-    move-result v1
-
-    if-lez v1, :cond_1
-
-    sput-object v0, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
-
-    return-object v0
-
-    :cond_1
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->waitNet()V
-
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->cachedName()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
 
     move-result-object v0
 
-    sput-object v0, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
+    new-instance v1, Ljava/io/File;
+
+    const-string v2, "vm_ver.txt"
+
+    invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v1
+
+    :catch_0
+    const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public static versionName()Ljava/lang/String;
-    .locals 2
+.method private static fileText()Ljava/lang/String;
+    .locals 4
 
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->name()Ljava/lang/String;
+    const-string v0, ""
+
+    :try_start_0
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fileCache()Ljava/io/File;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    return-object v0
+
+    :cond_0
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_go
+
+    return-object v0
+
+    :cond_go
+    new-instance v2, Ljava/io/BufferedReader;
+
+    new-instance v3, Ljava/io/FileReader;
+
+    invoke-direct {v3, v1}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+
+    invoke-direct {v2, v3}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    :goto_0
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_append
+
+    goto :goto_done
+
+    :cond_append
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "\n"
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :goto_done
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    return-object v0
+.end method
+
+.method private static fileName()Ljava/lang/String;
+    .locals 3
+
+    :try_start_0
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fileText()Ljava/lang/String;
 
     move-result-object v0
 
@@ -155,50 +207,269 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_has
+
+    const-string v0, ""
+
+    return-object v0
+
+    :cond_has
+    const-string v1, "\n"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v1
+
+    if-gez v1, :cond_cut
+
+    return-object v0
+
+    :cond_cut
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v0
+
+    :catch_0
+    const-string v0, ""
+
+    return-object v0
+.end method
+
+.method private static fileCode()I
+    .locals 3
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fileText()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_has
+
+    return v0
+
+    :cond_has
+    const-string v2, "\n"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v2
+
+    if-gez v2, :cond_cut
+
+    return v0
+
+    :cond_cut
+    add-int/lit8 v2, v2, 0x1
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    return v0
+.end method
+
+.method private static writeFile(Ljava/lang/String;I)V
+    .locals 4
+
+    :try_start_0
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fileCache()Ljava/io/File;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "\n"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/io/FileWriter;
+
+    invoke-direct {v2, v0}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+
+    invoke-virtual {v2, v1}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/FileWriter;->flush()V
+
+    invoke-virtual {v2}, Ljava/io/FileWriter;->close()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    return-void
+.end method
+
+.method public static declared-synchronized ensure()V
+    .locals 5
+
+    :try_start_0
+    sget-object v0, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->cachedName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    sput-object v0, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
+
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->cachedCode()I
+
+    move-result v0
+
+    sput v0, Lcom/transsion/subroom/ver/VersionManager;->code:I
+
+    return-void
+
+    :cond_1
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fileName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_file
+
+    sput-object v0, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
+
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fileCode()I
+
+    move-result v0
+
+    sput v0, Lcom/transsion/subroom/ver/VersionManager;->code:I
+
+    return-void
+
+    :cond_file
+    new-instance v0, Ljava/lang/Thread;
+
+    new-instance v1, Lcom/transsion/subroom/ver/a;
+
+    invoke-direct {v1}, Lcom/transsion/subroom/ver/a;-><init>()V
+
+    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+
+    const-wide/16 v1, 0x1f40
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Thread;->join(J)V
 
     invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->cachedName()Ljava/lang/String;
 
     move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    sput-object v0, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
+
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->cachedCode()I
+
+    move-result v0
+
+    sput v0, Lcom/transsion/subroom/ver/VersionManager;->code:I
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_2
+    :catch_0
+    return-void
+.end method
+
+
+.method public static name()Ljava/lang/String;
+    .locals 2
+
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->ensure()V
+
+    sget-object v0, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v0, ""
 
     :cond_0
     return-object v0
 .end method
 
 .method public static code()I
-    .locals 2
+    .locals 1
+
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->ensure()V
 
     sget v0, Lcom/transsion/subroom/ver/VersionManager;->code:I
-
-    if-lez v0, :cond_0
-
-    return v0
-
-    :cond_0
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->cachedCode()I
-
-    move-result v0
-
-    if-lez v0, :cond_1
-
-    sput v0, Lcom/transsion/subroom/ver/VersionManager;->code:I
-
-    return v0
-
-    :cond_1
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->waitNet()V
-
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->cachedCode()I
-
-    move-result v0
-
-    sput v0, Lcom/transsion/subroom/ver/VersionManager;->code:I
 
     return v0
 .end method
 
+.method public static versionName()Ljava/lang/String;
+    .locals 1
+
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->name()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static clear()V
-    .locals 3
+    .locals 2
 
     :try_start_0
     invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->mmkv()Lcom/tencent/mmkv/MMKV;
@@ -223,19 +494,19 @@
 
     sput-object v0, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    sput v1, Lcom/transsion/subroom/ver/VersionManager;->code:I
+    sput v0, Lcom/transsion/subroom/ver/VersionManager;->code:I
 
-    sput-boolean v1, Lcom/transsion/subroom/ver/VersionManager;->done:Z
+    const/4 v0, 0x0
 
-    sput-boolean v1, Lcom/transsion/subroom/ver/VersionManager;->started:Z
+    sput-boolean v0, Lcom/transsion/subroom/ver/VersionManager;->started:Z
 
     return-void
 .end method
 
 .method private static num(Ljava/lang/String;)I
-    .locals 2
+    .locals 3
 
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -255,9 +526,9 @@
 
     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result-wide v0
+    move-result-wide v1
 
-    long-to-int v0, v0
+    long-to-int v0, v1
 
     return v0
     :try_end_0
@@ -279,90 +550,73 @@
 
     const-string v1, "data"
 
-    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v0
 
-    if-nez v0, :cond_arr
-
-    return-void
-
-    :cond_arr
     invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
 
     move-result v1
 
     const/4 v2, 0x0
 
-    const/4 v3, -0x1
+    const-wide/16 v3, -0x1
 
-    const-string v4, ""
+    const-string v5, ""
+
+    const-string v6, ""
 
     :goto_loop
     if-ge v2, v1, :cond_done
 
-    invoke-virtual {v0, v2}, Lorg/json/JSONArray;->optJSONObject(I)Lorg/json/JSONObject;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_hasobj
-
-    goto :goto_next
-
-    :cond_hasobj
-    const-string v7, "versionCode"
-
-    invoke-virtual {v6, v7}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v7
 
-    invoke-static {v7}, Lcom/transsion/subroom/ver/VersionManager;->num(Ljava/lang/String;)I
+    const-string v8, "versionCode"
 
-    move-result v8
-
-    if-ltz v8, :cond_codeok
-
-    goto :goto_next
-
-    :cond_codeok
-    if-gt v8, v3, :cond_bigger
-
-    goto :goto_next
-
-    :cond_bigger
-    const-string v9, "versionName"
-
-    invoke-virtual {v6, v9}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v7, v8}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    const-string v8, "versionName"
+
+    invoke-virtual {v7, v8}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v9}, Lcom/transsion/subroom/ver/VersionManager;->num(Ljava/lang/String;)I
 
     move-result v10
 
-    if-nez v10, :cond_take
+    int-to-long v10, v10
 
-    goto :goto_next
+    cmp-long v11, v10, v3
 
-    :cond_take
-    move v3, v8
+    if-lez v11, :cond_next
 
-    move-object v4, v9
+    move-wide v3, v10
 
-    :goto_next
+    move-object v6, v9
+
+    move-object v5, v8
+
+    :cond_next
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_loop
 
     :cond_done
-    if-ltz v3, :cond_set
+    long-to-int v0, v3
+
+    if-ltz v0, :cond_set
 
     return-void
 
     :cond_set
-    sput v3, Lcom/transsion/subroom/ver/VersionManager;->code:I
+    sput v0, Lcom/transsion/subroom/ver/VersionManager;->code:I
 
-    sput-object v4, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
+    sput-object v5, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -372,117 +626,100 @@
     return-void
 .end method
 
-.method private static waitNet()V
-    .locals 5
-
-    sget-boolean v0, Lcom/transsion/subroom/ver/VersionManager;->done:Z
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->fetch()V
+.method private static runNet()V
+    .locals 9
 
     :try_start_0
-    const/4 v0, 0x0
+    new-instance v0, Ljava/net/URL;
 
-    move v1, v0
+    const-string v1, "https://h5-api.aoneroom.com/wefeed-h5api-bff/app/get-latest-app-pkgs?app_name=moviebox"
+
+    invoke-direct {v0, v1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/net/HttpURLConnection;
+
+    const/16 v1, 0x1388
+
+    invoke-virtual {v0, v1}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
+
+    invoke-virtual {v0, v1}, Ljava/net/HttpURLConnection;->setReadTimeout(I)V
+
+    const-string v1, "GET"
+
+    invoke-virtual {v0, v1}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V
+
+    const-string v1, "User-Agent"
+
+    const-string v2, "okhttp/4.12.0"
+
+    invoke-virtual {v0, v1, v2}, Ljava/net/URLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v1, "Accept"
+
+    const-string v2, "application/json"
+
+    invoke-virtual {v0, v1, v2}, Ljava/net/URLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/io/BufferedReader;
+
+    new-instance v2, Ljava/io/InputStreamReader;
+
+    invoke-direct {v2, v0}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
+
+    invoke-direct {v1, v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     :goto_0
-    const/16 v2, 0x14
+    invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
-    if-lt v1, v2, :cond_1
+    move-result-object v2
 
-    goto :goto_1
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/transsion/subroom/ver/VersionManager;->parse(Ljava/lang/String;)V
+
+    sget-object v0, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    return-void
 
     :cond_1
-    sget-boolean v2, Lcom/transsion/subroom/ver/VersionManager;->done:Z
+    sget v1, Lcom/transsion/subroom/ver/VersionManager;->code:I
 
-    if-eqz v2, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    sget-object v2, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
-
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    goto :goto_1
-
-    :cond_3
-    const-wide/16 v3, 0x64
-
-    invoke-static {v3, v4}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :catch_0
-    :goto_1
-    return-void
-.end method
-
-.method public static fetch()V
-    .locals 3
-
-    sget-boolean v0, Lcom/transsion/subroom/ver/VersionManager;->started:Z
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    sput-boolean v0, Lcom/transsion/subroom/ver/VersionManager;->started:Z
-
-    const/4 v1, 0x0
-
-    sput-boolean v1, Lcom/transsion/subroom/ver/VersionManager;->done:Z
-
-    :try_start_0
-    new-instance v0, Ljava/lang/Thread;
-
-    new-instance v1, Lcom/transsion/subroom/ver/a;
-
-    invoke-direct {v1}, Lcom/transsion/subroom/ver/a;-><init>()V
-
-    const-string v2, "vm-fetch"
-
-    invoke-direct {v0, v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+    invoke-static {v0, v1}, Lcom/transsion/subroom/ver/VersionManager;->cache(Ljava/lang/String;I)V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    :catch_0
     return-void
-.end method
-
-.method public static run()V
-    .locals 2
-
-    :try_start_0
-    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->runNet()V
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
 
     :catch_0
-    :goto_0
-    const/4 v0, 0x1
-
-    sput-boolean v0, Lcom/transsion/subroom/ver/VersionManager;->done:Z
-
     return-void
 .end method
 
@@ -510,117 +747,55 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
+    :try_start_1
+    invoke-static {p0, p1}, Lcom/transsion/subroom/ver/VersionManager;->writeFile(Ljava/lang/String;I)V
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
+
+    :catch_1
     return-void
 .end method
 
-.method private static runNet()V
-    .locals 7
+.method public static fetch()V
+    .locals 4
 
-    const/4 v0, 0x0
+    sget-boolean v0, Lcom/transsion/subroom/ver/VersionManager;->started:Z
 
-    :try_start_0
-    new-instance v1, Ljava/net/URL;
-
-    const-string v2, "https://h5-api.aoneroom.com/wefeed-h5api-bff/app/get-latest-app-pkgs?app_name=moviebox"
-
-    invoke-direct {v1, v2}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/net/HttpURLConnection;
-
-    const/16 v2, 0x3a98
-
-    invoke-virtual {v1, v2}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
-
-    invoke-virtual {v1, v2}, Ljava/net/HttpURLConnection;->setReadTimeout(I)V
-
-    const-string v2, "GET"
-
-    invoke-virtual {v1, v2}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V
-
-    const-string v2, "Accept"
-
-    const-string v3, "application/json"
-
-    invoke-virtual {v1, v2, v3}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v1}, Ljava/net/HttpURLConnection;->getResponseCode()I
-
-    move-result v2
-
-    const/16 v3, 0xc8
-
-    if-eq v2, v3, :cond_0
-
-    invoke-virtual {v1}, Ljava/net/HttpURLConnection;->disconnect()V
+    if-eqz v0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v1}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
+    const/4 v0, 0x1
 
-    move-result-object v2
+    sput-boolean v0, Lcom/transsion/subroom/ver/VersionManager;->started:Z
 
-    new-instance v3, Ljava/io/BufferedReader;
+    :try_start_0
+    new-instance v0, Ljava/lang/Thread;
 
-    new-instance v4, Ljava/io/InputStreamReader;
+    new-instance v1, Lcom/transsion/subroom/ver/a;
 
-    const-string v5, "UTF-8"
+    invoke-direct {v1}, Lcom/transsion/subroom/ver/a;-><init>()V
 
-    invoke-direct {v4, v2, v5}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
+    const-string v2, "vm-fetch"
 
-    invoke-direct {v3, v4}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+    invoke-direct {v0, v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    :goto_0
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
-
-    move-result-object v5
-
-    if-nez v5, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_0
-
-    :goto_1
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
-
-    invoke-virtual {v1}, Ljava/net/HttpURLConnection;->disconnect()V
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/transsion/subroom/ver/VersionManager;->parse(Ljava/lang/String;)V
-
-    sget-object v2, Lcom/transsion/subroom/ver/VersionManager;->name:Ljava/lang/String;
-
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    return-void
-
-    :cond_2
-    sget v3, Lcom/transsion/subroom/ver/VersionManager;->code:I
-
-    invoke-static {v2, v3}, Lcom/transsion/subroom/ver/VersionManager;->cache(Ljava/lang/String;I)V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    :catch_0
     return-void
+.end method
+
+.method public static run()V
+    .locals 0
+
+    :try_start_0
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->ensure()V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
     return-void
