@@ -247,6 +247,28 @@
     return-void
 .end method
 
+.method public static report(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 0
+
+    if-nez p0, :cond_0
+
+    return-void
+
+    :cond_0
+    if-nez p1, :cond_1
+
+    return-void
+
+    :cond_1
+    :try_start_0
+    invoke-static {p0, p1}, Lcom/transsion/subroom/crash/CrashCatcher;->launch(Landroid/content/Context;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :catchall_0
+    return-void
+.end method
+
 .method private static ctxOrNull()Landroid/content/Context;
     .locals 2
 

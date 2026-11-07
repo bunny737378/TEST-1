@@ -194,7 +194,7 @@
 .end method
 
 .method public close()V
-    .locals 4
+    .locals 3
 
     :try_start_0
     invoke-virtual {p0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -215,21 +215,17 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    const/high16 v1, 0x4000000
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
     invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
     :cond_0
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
-
     const/4 v0, 0x0
 
-    invoke-static {v0}, Ljava/lang/System;->exit(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setResult(I)V
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
 .end method
