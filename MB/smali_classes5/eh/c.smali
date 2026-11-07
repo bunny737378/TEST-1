@@ -105,7 +105,13 @@
     .line 35
     .line 36
     .line 37
+    const-string v0, "User-Agent"
 
+    invoke-static {}, Lcom/transsion/subroom/ver/VersionManager;->ua()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
