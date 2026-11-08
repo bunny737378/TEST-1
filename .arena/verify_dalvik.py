@@ -52,6 +52,15 @@ def check(path):
         # every method needs a reachable terminal (rough)
         if not re.search(r'^\s*(return|throw)', body, re.M):
             out.append((head, "no return/throw instruction"))
+        # dalvik: non-range invoke takes at most 5 registers (wide counts 2)
+        for ln in body.split("\n"):
+            im = re.match(r'\s*invoke-(static|virtual|direct|interface)(/range)? \{([^}]*)\},', ln)
+            if not im or im.group(2):
+                continue
+            regs = [r.strip() for r in im.group(3).split(",") if r.strip()]
+            if len(regs) > 5:
+                out.append((head, "invoke with %d registers (max 5, use /range)" % len(regs)))
+
         # labels
         pos = {}
         for lm in re.finditer(r'^[ \t]*(:\w+)[ \t]*$', body, re.M):

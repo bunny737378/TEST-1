@@ -169,6 +169,10 @@
 
     sput-object v0, Lcom/transsion/subroom/helper/HdrEngine;->REQ_URL:Ljava/lang/String;
 
+    const-wide/16 v0, 0x0
+
+    sput-wide v0, Lcom/transsion/subroom/helper/HdrEngine;->REQ_TS:J
+
     return-void
 .end method
 
@@ -932,35 +936,37 @@
     return-object v0
 .end method
 
-.method public static signature(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)Ljava/lang/String;
-    .locals 4
+.method public static signature(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 6
 
     const-string v0, ""
 
     :try_start_0
-    invoke-static {p0, p1, p2, p3, p4, p5}, Lcom/transsion/subroom/helper/HdrEngine;->context(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)Ljava/lang/String;
+    sget-wide v1, Lcom/transsion/subroom/helper/HdrEngine;->REQ_TS:J
 
-    move-result-object v1
+    invoke-static {p0, p1, p2, p3}, Lcom/transsion/subroom/helper/HdrEngine;->context(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    sget-object v2, Lcom/transsion/subroom/helper/HdrEngine;->SECRET:Ljava/lang/String;
+    move-result-object v3
 
-    invoke-static {v1, v2}, Lcom/transsion/subroom/helper/HdrCrypto;->hmacMd5Base64(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    sget-object v4, Lcom/transsion/subroom/helper/HdrEngine;->SECRET:Ljava/lang/String;
 
-    move-result-object v1
+    invoke-static {v3, v4}, Lcom/transsion/subroom/helper/HdrCrypto;->hmacMd5Base64(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p4, p5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "|2|"
+    invoke-virtual {v4, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v5, "|2|"
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
     :try_end_0
@@ -976,8 +982,8 @@
     return-object v0
 .end method
 
-.method public static context(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)Ljava/lang/String;
-    .locals 5
+.method public static context(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 6
 
     const-string v0, ""
 
@@ -1030,7 +1036,9 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p4, p5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    sget-wide v3, Lcom/transsion/subroom/helper/HdrEngine;->REQ_TS:J
+
+    invoke-virtual {v2, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     const-string v3, "\n"
 
@@ -1217,6 +1225,8 @@
 
     move-result-wide v1
 
+    sput-wide v1, Lcom/transsion/subroom/helper/HdrEngine;->REQ_TS:J
+
     const-string v3, "User-Agent"
 
     invoke-static {}, Lcom/transsion/subroom/helper/HdrEngine;->userAgent()Ljava/lang/String;
@@ -1277,7 +1287,7 @@
 
     sget-object v4, Lcom/transsion/subroom/helper/HdrEngine;->CONTENT_TYPE:Ljava/lang/String;
 
-    invoke-static {v5, v7, v4, v6, v1, v2}, Lcom/transsion/subroom/helper/HdrEngine;->signature(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)Ljava/lang/String;
+    invoke-static {v5, v7, v4, v6}, Lcom/transsion/subroom/helper/HdrEngine;->signature(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
