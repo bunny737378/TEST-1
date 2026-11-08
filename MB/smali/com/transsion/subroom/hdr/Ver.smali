@@ -31,11 +31,11 @@
 
     sput-object v0, Lcom/transsion/subroom/hdr/Ver;->vName:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    sput v0, Lcom/transsion/subroom/hdr/Ver;->vCode:I
+    sput v1, Lcom/transsion/subroom/hdr/Ver;->vCode:I
 
-    sput-boolean v0, Lcom/transsion/subroom/hdr/Ver;->ready:Z
+    sput-boolean v1, Lcom/transsion/subroom/hdr/Ver;->ready:Z
 
     return-void
 .end method
@@ -225,11 +225,11 @@
 
     invoke-virtual {v3, v4}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V
 
-    const/16 v4, 0x2710
+    const/16 v7, 0x2710
 
-    invoke-virtual {v3, v4}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
+    invoke-virtual {v3, v7}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
 
-    invoke-virtual {v3, v4}, Ljava/net/HttpURLConnection;->setReadTimeout(I)V
+    invoke-virtual {v3, v7}, Ljava/net/HttpURLConnection;->setReadTimeout(I)V
 
     const-string v4, "Accept"
 
@@ -382,7 +382,7 @@
 .end method
 
 .method private static readAll(Ljava/io/InputStream;)Ljava/lang/String;
-    .locals 4
+    .locals 5
 
     const-string v0, ""
 
@@ -402,9 +402,9 @@
 
     if-gtz v3, :done
 
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v1, v2, v0, v3}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    invoke-virtual {v1, v2, v4, v3}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
     goto :goto_loop
 

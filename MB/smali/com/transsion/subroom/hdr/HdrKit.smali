@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .locals 4
 
     const-string v0, "76iRl07s0xSN9jqmEWAt79EBJZulIQIsV64FZr2O"
 
@@ -35,13 +35,13 @@
 
     sput-object v0, Lcom/transsion/subroom/hdr/HdrKit;->INFO_TAIL:Ljava/lang/String;
 
-    const/16 v0, 0x10
+    const/16 v3, 0x10
 
-    new-array v0, v0, [C
+    new-array v3, v3, [C
 
-    fill-array-data v0, :array_0
+    fill-array-data v3, :array_0
 
-    sput-object v0, Lcom/transsion/subroom/hdr/HdrKit;->HEX:[C
+    sput-object v3, Lcom/transsion/subroom/hdr/HdrKit;->HEX:[C
 
     return-void
 
@@ -565,7 +565,7 @@
 .end method
 
 .method public static canon(Lokhttp3/Request;)Ljava/lang/String;
-    .locals 7
+    .locals 8
 
     :try_start_0
     invoke-virtual {p0}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
@@ -595,18 +595,18 @@
 
     move-result-object v2
 
-    array-length v4, v2
+    array-length v5, v2
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     :goto_0
-    if-ge v5, v4, :cond_2
+    if-ge v6, v5, :cond_2
 
-    aget-object v6, v2, v5
+    aget-object v7, v2, v6
 
-    invoke-static {v3, v6}, Lcom/transsion/subroom/hdr/HdrKit;->kv(Ljava/util/Map;Ljava/lang/String;)V
+    invoke-static {v3, v7}, Lcom/transsion/subroom/hdr/HdrKit;->kv(Ljava/util/Map;Ljava/lang/String;)V
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
@@ -653,13 +653,13 @@
 .end method
 
 .method private static kv(Ljava/util/Map;Ljava/lang/String;)V
-    .locals 6
+    .locals 8
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result v7
 
-    if-eqz v0, :cond_0
+    if-eqz v7, :cond_0
 
     return-void
 
@@ -668,115 +668,109 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    move-result v0
+    move-result v7
 
-    if-gez v0, :cond_1
+    if-gez v7, :cond_1
+
+    move-object v0, p1
 
     const-string v1, ""
 
-    goto :goto_0
+    goto :goto_2
 
     :cond_1
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {p1, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p1, v6, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v7, v7, 0x1
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {p1, v7}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string v3, "+"
+    const-string v2, "+"
 
-    const-string v4, " "
+    const-string v3, " "
 
-    invoke-virtual {v1, v3, v4}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
     move-result-object v1
 
     :try_start_0
-    const-string v3, "UTF-8"
+    const-string v2, "UTF-8"
 
-    invoke-static {v1, v3}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v2}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
-
-    :catch_0
-    move-exception v3
-
-    :goto_1
-    move-object p1, v2
-
     goto :goto_2
 
-    :goto_0
-    move-object p1, p1
+    :catch_0
+    move-exception v2
 
     :goto_2
     :try_start_1
-    invoke-interface {p0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {p0, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v7
 
-    if-eqz v0, :cond_new
+    if-eqz v7, :cond_new
 
-    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v2
 
-    check-cast v0, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "&"
+    const-string v2, "&"
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, "="
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "="
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {p0, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 
     :cond_new
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v3, "="
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-interface {p0, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -852,7 +846,7 @@
 .end method
 
 .method public static bLen(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .locals 6
 
     const-string v0, ""
 
@@ -871,7 +865,7 @@
     return-object v0
 
     :cond_1
-    move v0, v1
+    move v5, v1
 
     add-int/lit8 v2, v1, -0x1
 
@@ -893,7 +887,7 @@
 
     if-gt v3, v4, :cond_4
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :cond_3
 
@@ -902,7 +896,7 @@
 
     if-gt v3, v4, :cond_3
 
-    add-int/lit8 v0, v0, 0x2
+    add-int/lit8 v5, v5, 0x2
 
     :cond_3
     const v4, 0xdc00
@@ -921,7 +915,7 @@
     goto :goto_0
 
     :done
-    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v0
     :try_end_0
@@ -930,7 +924,7 @@
     return-object v0
 
     :catch_0
-    move-exception p0
+    move-exception v1
 
     const-string v0, ""
 
@@ -957,13 +951,13 @@
     return-object v0
 
     :cond_1
-    const v0, 0x19000
+    const v2, 0x19000
 
-    if-le v1, v0, :cond_2
+    if-le v1, v2, :cond_2
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object p0
 
@@ -1021,33 +1015,36 @@
 .end method
 
 .method public static hex([B)Ljava/lang/String;
-    .locals 6
+    .locals 8
 
     if-nez p0, :cond_0
 
-    const-string v0, ""
+    const-string v7, ""
 
-    return-object v0
+    return-object v7
 
     :cond_0
-    array-length v0, p0
+    array-length v6, p0
 
-    mul-int/lit8 v1, v0, 0x2
+    mul-int/lit8 v0, v6, 0x2
 
-    new-array v1, v1, [C
+    new-array v1, v0, [C
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    sget-object v5, Lcom/transsion/subroom/hdr/HdrKit;->HEX:[C
 
+    :goto_0
+    if-lt v2, v6, :cond_1
+
+    goto :done
+
+    :cond_1
     aget-byte v3, p0, v2
 
     and-int/lit16 v3, v3, 0xff
 
     mul-int/lit8 v4, v2, 0x2
-
-    sget-object v5, Lcom/transsion/subroom/hdr/HdrKit;->HEX:[C
 
     ushr-int/lit8 v0, v3, 0x4
 
@@ -1067,12 +1064,12 @@
 
     goto :goto_0
 
-    :cond_1
-    new-instance v0, Ljava/lang/String;
+    :done
+    new-instance v7, Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/String;-><init>([C)V
+    invoke-direct {v7, v1}, Ljava/lang/String;-><init>([C)V
 
-    return-object v0
+    return-object v7
 .end method
 
 .method public static hmac(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -1109,9 +1106,9 @@
 
     move-result-object p0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-static {p0, v0}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
+    invoke-static {p0, p1}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
 
     move-result-object p0
     :try_end_0
@@ -1128,130 +1125,127 @@
 .end method
 
 .method public static clientBuild()Ljava/lang/String;
-    .locals 10
+    .locals 12
 
-    const-string v0, ""
+    const-string v9, ""
 
     :try_start_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    const-wide/16 v3, 0x3e8
+    const-wide/16 v2, 0x3e8
 
-    div-long v3, v1, v3
+    div-long v2, v0, v2
 
-    const-wide/16 v5, 0x3e8
+    const-wide/16 v4, 0x3e8
 
-    rem-long v5, v1, v5
+    rem-long v4, v0, v4
 
-    long-to-int v5, v5
+    long-to-int v4, v4
 
-    mul-int/lit16 v5, v5, 0x3e8
+    mul-int/lit16 v4, v4, 0x3e8
 
-    invoke-static {v5}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
     :goto_0
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
 
-    move-result v6
+    move-result v7
 
-    const/4 v7, 0x6
+    const/4 v5, 0x6
 
-    if-lt v6, v7, :cond_0
+    if-lt v7, v5, :done
 
-    goto :done
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    :cond_0
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v8, "0"
 
-    const-string v7, "0"
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
+    move-result-object v6
 
     goto :goto_0
 
     :done
     invoke-static {}, Ljava/lang/Math;->random()D
 
-    move-result-wide v6
+    move-result-wide v7
 
-    const-wide v8, 0x408f400000000000L
+    const-wide v10, 0x408f400000000000L
 
-    mul-double/2addr v6, v8
+    mul-double/2addr v7, v10
 
-    double-to-int v6, v6
+    double-to-int v7, v7
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v10, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
 
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v7, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    sget-object v8, Lcom/transsion/subroom/hdr/HdrKit;->CERT:Ljava/lang/String;
 
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v8, "oneroom"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v7
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-static {v7}, Lcom/transsion/subroom/hdr/HdrKit;->md5(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v7
 
-    sget-object v5, Lcom/transsion/subroom/hdr/HdrKit;->CERT:Ljava/lang/String;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "oneroom"
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v6, "."
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v4}, Lcom/transsion/subroom/hdr/HdrKit;->md5(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, "."
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
+    move-result-object v9
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object v9
 
     :catch_0
-    move-exception v1
+    move-exception v9
 
-    const-string v0, ""
+    const-string v9, ""
 
-    return-object v0
+    return-object v9
 .end method
