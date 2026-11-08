@@ -1047,22 +1047,37 @@
 .method public final getUserInfo()Lcom/transsnet/loginapi/bean/UserInfo;
     .locals 1
 
-    .line 1
-    iget-object v0, p0, Lcom/transsion/usercenter/profile/bean/MinePageInfo;->userInfo:Lcom/transsnet/loginapi/bean/UserInfo;
+    invoke-static {}, Lcom/transsnet/login/t;->d()Lcom/transsnet/loginapi/ILoginApi;
 
-    .line 2
-    .line 3
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/transsnet/loginapi/ILoginApi;->h()Lcom/transsnet/loginapi/bean/UserInfo;
+
+    move-result-object v0
+
     return-object v0
 .end method
 
 .method public final getVipInfo()Lcom/transsion/memberapi/MemberInfo;
-    .locals 1
+    .locals 2
 
-    .line 1
     iget-object v0, p0, Lcom/transsion/usercenter/profile/bean/MinePageInfo;->vipInfo:Lcom/transsion/memberapi/MemberInfo;
 
-    .line 2
-    .line 3
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/transsion/memberapi/MemberInfo;
+
+    invoke-direct {v0}, Lcom/transsion/memberapi/MemberInfo;-><init>()V
+
+    :cond_0
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Lcom/transsion/memberapi/MemberInfo;->setVipLevel(I)V
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/transsion/memberapi/MemberInfo;->setActive(Z)V
+
     return-object v0
 .end method
 

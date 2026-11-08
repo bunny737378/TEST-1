@@ -61,12 +61,12 @@
 
     .line 8
     .line 9
-    invoke-static {v0, v1, v2, p1}, Lcom/transsion/usercenter/me/adapter/h0;->y(Lcom/transsion/usercenter/profile/bean/ButtonInfo;Lcom/transsion/usercenter/me/adapter/h0;Lcom/transsion/usercenter/profile/bean/MeItemInfo;Landroid/view/View;)Lkotlin/Unit;
+    sget-object p1, Lkotlin/Unit;->a:Lkotlin/Unit;
 
     .line 10
     .line 11
     .line 12
-    move-result-object p1
+    nop
 
     .line 13
     return-object p1

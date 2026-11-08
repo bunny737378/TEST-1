@@ -607,6 +607,11 @@
 .field public static yes:I = 0x7f120b55
 
 
+
+.field public static srv_select_title:I = 0x7f120b5b
+
+.field public static srv_select_confirm:I = 0x7f120b5c
+
 # direct methods
 .method private constructor <init>()V
     .locals 0

@@ -78,6 +78,8 @@
 
 .field public static final enum PRIVACY_DATA_SETTING:Lcom/transsion/usercenter/setting/bean/UserSettingType;
 
+.field public static final enum SERVER:Lcom/transsion/usercenter/setting/bean/UserSettingType;
+
 .field public static final enum PRIVACY_POLICY:Lcom/transsion/usercenter/setting/bean/UserSettingType;
 
 .field public static final enum UPDATE:Lcom/transsion/usercenter/setting/bean/UserSettingType;
@@ -92,7 +94,7 @@
     .locals 3
 
     .line 1
-    const/16 v0, 0x10
+    const/16 v0, 0x11
 
     .line 2
     .line 3
@@ -284,6 +286,18 @@
 
     .line 92
     .line 93
+    sget-object v1, Lcom/transsion/usercenter/setting/bean/UserSettingType;->SERVER:Lcom/transsion/usercenter/setting/bean/UserSettingType;
+
+    .line 94
+    .line 95
+    const/16 v2, 0x10
+
+    .line 96
+    .line 97
+    aput-object v1, v0, v2
+
+    .line 98
+    .line 99
     return-object v0
 .end method
 
@@ -616,6 +630,19 @@
     .line 166
     .line 167
     sput-object v0, Lcom/transsion/usercenter/setting/bean/UserSettingType;->PRIVACY_DATA_SETTING:Lcom/transsion/usercenter/setting/bean/UserSettingType;
+    new-instance v0, Lcom/transsion/usercenter/setting/bean/UserSettingType;
+
+    .line 0
+    const-string v1, "SERVER"
+
+    .line 0
+    const/16 v2, 0x10
+
+    .line 0
+    invoke-direct {v0, v1, v2}, Lcom/transsion/usercenter/setting/bean/UserSettingType;-><init>(Ljava/lang/String;I)V
+
+    .line 0
+    sput-object v0, Lcom/transsion/usercenter/setting/bean/UserSettingType;->SERVER:Lcom/transsion/usercenter/setting/bean/UserSettingType;
 
     .line 168
     .line 169

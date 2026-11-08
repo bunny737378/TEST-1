@@ -2017,6 +2017,12 @@
 .method public a()Z
     .locals 3
 
+    .line 0
+    const/4 v0, 0x1
+
+    .line 0
+    return v0
+
     .line 1
     const-string v0, "isLogin"
 
@@ -2907,21 +2913,43 @@
 .end method
 
 .method public h()Lcom/transsnet/loginapi/bean/UserInfo;
-    .locals 1
+    .locals 2
 
-    .line 1
-    const-string v0, "getUserInfo"
+    const-string v0, "isLogin"
 
-    .line 2
-    .line 3
     invoke-direct {p0, v0}, Lcom/transsnet/login/r;->D(Ljava/lang/String;)Lcom/transsnet/loginapi/bean/UserInfo;
 
-    .line 4
-    .line 5
-    .line 6
     move-result-object v0
 
-    .line 7
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/transsnet/loginapi/bean/UserInfo;
+
+    invoke-direct {v0}, Lcom/transsnet/loginapi/bean/UserInfo;-><init>()V
+
+    :cond_0
+    const-string v1, "Ur Senapi"
+
+    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setNickname(Ljava/lang/String;)V
+
+    const-string v1, "Ur_Senpai08"
+
+    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setUsername(Ljava/lang/String;)V
+
+    const-string v1, "asset:///img/user.jpg"
+
+    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setAvatar(Ljava/lang/String;)V
+
+    const/16 v1, 0x10
+
+    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setAge(I)V
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setGender(I)V
+
+    invoke-virtual {v0, v1}, Lcom/transsnet/loginapi/bean/UserInfo;->setUserType(I)V
+
     return-object v0
 .end method
 

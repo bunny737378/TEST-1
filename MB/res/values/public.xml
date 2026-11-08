@@ -19577,4 +19577,7 @@
     <public type="xml" name="widget_info" id="0x7f15000d" />
     <public type="xml" name="widget_info_big" id="0x7f15000e" />
     <public type="xml" name="widget_schedule_sport" id="0x7f15000f" />
+    <public type="array" name="server_domains" id="0x7f030007" />
+    <public type="string" name="srv_select_title" id="0x7f120b5b" />
+    <public type="string" name="srv_select_confirm" id="0x7f120b5c" />
 </resources>

@@ -1643,7 +1643,7 @@
     .line 213
     .line 214
     .line 215
-    invoke-interface {v2, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 216
     .line 217
@@ -1944,7 +1944,7 @@
     .line 353
     .line 354
     .line 355
-    invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 356
     .line 357
@@ -2443,7 +2443,9 @@
     .line 603
     .line 604
     .line 605
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
+
+    .line 0
 
     .line 606
     .line 607
@@ -2585,7 +2587,9 @@
     .line 672
     .line 673
     .line 674
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
+
+    .line 0
 
     .line 675
     .line 676
@@ -2666,10 +2670,46 @@
     .line 713
     invoke-direct {v3, v6, v5}, Lcom/transsion/usercenter/profile/bean/MeItemInfo;-><init>(ILjava/lang/Object;)V
 
+    new-instance v5, Lcom/transsion/usercenter/profile/bean/IconItemInfo;
+
+    const-string v21, "Telegram"
+
+    const-string v22, "@Ur_Senpai08"
+
+    const-string v23, "tg_type"
+
+    sget v24, Lcom/tn/lib/widget/R$drawable;->ic_mine_activity:I
+
+    sget v25, Lcom/transsion/baseui/R$drawable;->bg_radius_bottom_6_color_white_6p:I
+
+    const/16 v26, 0x0
+
+    const/16 v27, 0x0
+
+    const/16 v28, 0x0
+
+    const-string v29, "tg_link"
+
+    const/16 v30, 0x0
+
+    const/16 v31, 0x260
+
+    move-object/from16 v20, v5
+
+    invoke-direct/range {v20 .. v32}, Lcom/transsion/usercenter/profile/bean/IconItemInfo;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IIZIZLjava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+    new-instance v3, Lcom/transsion/usercenter/profile/bean/MeItemInfo;
+
+    const/4 v6, 0x5
+
+    invoke-direct {v3, v6, v5}, Lcom/transsion/usercenter/profile/bean/MeItemInfo;-><init>(ILjava/lang/Object;)V
+
+    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     .line 714
     .line 715
     .line 716
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 717
     .line 718
@@ -3154,7 +3194,7 @@
     .line 941
     .line 942
     .line 943
-    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 944
     .line 945
@@ -3208,7 +3248,7 @@
     .line 968
     .line 969
     .line 970
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    nop
 
     .line 971
     .line 972

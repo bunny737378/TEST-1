@@ -924,206 +924,26 @@
 
 # virtual methods
 .method public final l()V
-    .locals 3
+    .locals 0
 
-    .line 1
-    sget-object v0, Lcom/transsion/subroom/update/AppUpdateCoordinator;->b:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    .line 2
-    .line 3
-    const/4 v1, 0x0
-
-    .line 4
-    const/4 v2, 0x1
-
-    .line 5
-    invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
-
-    .line 6
-    .line 7
-    .line 8
-    move-result v0
-
-    .line 9
-    if-nez v0, :cond_0
-
-    .line 10
-    .line 11
-    return-void
-
-    .line 12
-    :cond_0
-    sget-object v0, Lth/m;->a:Lth/m;
-
-    .line 13
-    .line 14
-    invoke-virtual {v0, p0}, Lth/m;->l(Lth/n;)V
-
-    .line 15
-    .line 16
-    .line 17
-    sget-object v0, Lcom/transsion/baselib/report/l;->a:Lcom/transsion/baselib/report/l;
-
-    .line 18
-    .line 19
-    invoke-virtual {v0, p0}, Lcom/transsion/baselib/report/l;->g(Lcom/transsion/baselib/report/l$a;)Z
-
-    .line 20
-    .line 21
-    .line 22
     return-void
 .end method
 
 .method public final m()V
-    .locals 6
+    .locals 0
 
-    .line 1
-    sget-object v0, Lcom/transsion/subroom/update/AppUpdateCoordinator;->c:Lkotlinx/coroutines/n0;
-
-    .line 2
-    .line 3
-    new-instance v3, Lcom/transsion/subroom/update/AppUpdateCoordinator$onHostResumed$1;
-
-    .line 4
-    .line 5
-    const/4 v1, 0x0
-
-    .line 6
-    invoke-direct {v3, v1}, Lcom/transsion/subroom/update/AppUpdateCoordinator$onHostResumed$1;-><init>(Lkotlin/coroutines/Continuation;)V
-
-    .line 7
-    .line 8
-    .line 9
-    const/4 v4, 0x3
-
-    .line 10
-    const/4 v5, 0x0
-
-    .line 11
-    const/4 v2, 0x0
-
-    .line 12
-    invoke-static/range {v0 .. v5}, Lkotlinx/coroutines/i;->d(Lkotlinx/coroutines/n0;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/t1;
-
-    .line 13
-    .line 14
-    .line 15
     return-void
 .end method
 
 .method public final n()V
-    .locals 8
+    .locals 0
 
-    .line 1
-    sget-wide v0, Lcom/transsion/subroom/update/AppUpdateCoordinator;->i:J
-
-    .line 2
-    .line 3
-    sget-object v2, Lcom/transsion/subroom/update/AppUpdateCoordinator;->c:Lkotlinx/coroutines/n0;
-
-    .line 4
-    .line 5
-    new-instance v5, Lcom/transsion/subroom/update/AppUpdateCoordinator$requestCheck$1;
-
-    .line 6
-    .line 7
-    const/4 v3, 0x0
-
-    .line 8
-    invoke-direct {v5, v0, v1, v3}, Lcom/transsion/subroom/update/AppUpdateCoordinator$requestCheck$1;-><init>(JLkotlin/coroutines/Continuation;)V
-
-    .line 9
-    .line 10
-    .line 11
-    const/4 v6, 0x3
-
-    .line 12
-    const/4 v7, 0x0
-
-    .line 13
-    const/4 v4, 0x0
-
-    .line 14
-    invoke-static/range {v2 .. v7}, Lkotlinx/coroutines/i;->d(Lkotlinx/coroutines/n0;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/t1;
-
-    .line 15
-    .line 16
-    .line 17
     return-void
 .end method
 
 .method public final o()V
-    .locals 4
+    .locals 0
 
-    .line 1
-    sget-wide v0, Lcom/transsion/subroom/update/AppUpdateCoordinator;->i:J
-
-    .line 2
-    .line 3
-    const-wide/16 v2, 0x1
-
-    .line 4
-    .line 5
-    add-long/2addr v0, v2
-
-    .line 6
-    sput-wide v0, Lcom/transsion/subroom/update/AppUpdateCoordinator;->i:J
-
-    .line 7
-    .line 8
-    sget-object v0, Lcom/transsion/subroom/update/AppUpdateCoordinator;->f:Lkotlinx/coroutines/t1;
-
-    .line 9
-    .line 10
-    const/4 v1, 0x1
-
-    .line 11
-    const/4 v2, 0x0
-
-    .line 12
-    if-eqz v0, :cond_0
-
-    .line 13
-    .line 14
-    invoke-static {v0, v2, v1, v2}, Lkotlinx/coroutines/t1$a;->b(Lkotlinx/coroutines/t1;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
-
-    .line 15
-    .line 16
-    .line 17
-    :cond_0
-    sput-object v2, Lcom/transsion/subroom/update/AppUpdateCoordinator;->f:Lkotlinx/coroutines/t1;
-
-    .line 18
-    .line 19
-    sget-object v0, Lcom/transsion/subroom/update/AppUpdateCoordinator;->h:Lkotlinx/coroutines/t1;
-
-    .line 20
-    .line 21
-    if-eqz v0, :cond_1
-
-    .line 22
-    .line 23
-    invoke-static {v0, v2, v1, v2}, Lkotlinx/coroutines/t1$a;->b(Lkotlinx/coroutines/t1;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
-
-    .line 24
-    .line 25
-    .line 26
-    :cond_1
-    sput-object v2, Lcom/transsion/subroom/update/AppUpdateCoordinator;->h:Lkotlinx/coroutines/t1;
-
-    .line 27
-    .line 28
-    const/4 v0, 0x0
-
-    .line 29
-    sput-boolean v0, Lcom/transsion/subroom/update/AppUpdateCoordinator;->e:Z
-
-    .line 30
-    .line 31
-    sput-boolean v0, Lcom/transsion/subroom/update/AppUpdateCoordinator;->d:Z
-
-    .line 32
-    .line 33
     return-void
 .end method
 
