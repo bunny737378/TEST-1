@@ -60,10 +60,11 @@
 .method public final b()Ljava/lang/String;
     .locals 1
 
-    invoke-static {}, Lcom/transsion/subroom/helper/VersionHelper;->versionName()Ljava/lang/String;
+    .line 1
+    iget-object v0, p0, Lvg/b;->c:Ljava/lang/String;
 
-    move-result-object v0
-
+    .line 2
+    .line 3
     return-object v0
 .end method
 
