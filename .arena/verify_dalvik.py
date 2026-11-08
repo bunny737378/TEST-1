@@ -24,10 +24,16 @@ def check(path):
         nloc = int(loc.group(1)) if loc else None
         # register usage
         if nloc is not None:
-            for rm in re.finditer(r'\bv(\d+)\b', body):
-                if int(rm.group(1)) >= nloc:
-                    out.append((head, "uses v%s but .locals %d" % (rm.group(1), nloc)))
-                    break
+            for line in body.split("\n"):
+                for rm in re.finditer(r'\bv(\d+)\b', line):
+                    idx = int(rm.group(1))
+                    wide = bool(re.search(r'(-wide|const-wide|/2addr\s+\D*wide)', line)) or \
+                           bool(re.search(r'\b(J|D)\b', line))
+                    need = idx + (2 if wide else 1)
+                    if need > nloc:
+                        out.append((head, "uses v%s (width %d) but .locals %d"
+                                    % (rm.group(1), 2 if wide else 1, nloc)))
+                        break
         # return kind consistency
         for rm in re.finditer(r'^\s*(return\S*)(?:[ \t]+(\w+))?\s*$', body, re.M):
             op, reg = rm.group(1), rm.group(2)

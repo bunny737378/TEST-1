@@ -613,8 +613,12 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    goto :done_0
+
     :catch_0
     move-exception v5
+
+    :done_0
 
     aput-object v4, v0, v1
 
@@ -785,7 +789,7 @@
 .end method
 
 .method public static clientBuild()Ljava/lang/String;
-    .locals 9
+    .locals 10
 
     const-string v0, ""
 
@@ -1202,7 +1206,7 @@
 .end method
 
 .method public static buildHeaders()Lokhttp3/Headers;
-    .locals 8
+    .locals 10
 
     new-instance v0, Lokhttp3/Headers$Builder;
 
