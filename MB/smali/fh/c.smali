@@ -1019,6 +1019,14 @@
     .line 166
     .line 167
     :cond_3
+    new-instance v2, Lcom/transsion/subroom/helper/HdrIntercept;
+
+    invoke-direct {v2}, Lcom/transsion/subroom/helper/HdrIntercept;-><init>()V
+
+    invoke-virtual {v1, v2}, Lokhttp3/OkHttpClient$Builder;->addInterceptor(Lokhttp3/Interceptor;)Lokhttp3/OkHttpClient$Builder;
+
+    move-result-object v1
+
     invoke-virtual {v1}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
 
     .line 168
