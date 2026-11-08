@@ -2133,19 +2133,6 @@
     const/4 v1, 0x0
 
     .line 116
-    :try_start_3
-    invoke-static {v5}, Lcom/transsion/subroom/helper/HdrGate;->onRequest(Lokhttp3/Request;)Lokhttp3/Request;
-
-    move-result-object v5
-    :try_end_3
-    .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_3
-
-    goto :goto_gate
-
-    :catch_3
-    move-exception v2
-
-    :goto_gate
     :try_start_0
     iget-object v2, p0, Lokhttp3/internal/connection/RealCall;->originalRequest:Lokhttp3/Request;
 

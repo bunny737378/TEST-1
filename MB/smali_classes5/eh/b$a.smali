@@ -403,7 +403,7 @@
 .method public final c()Ljava/lang/String;
     .locals 1
 
-    invoke-static {}, Lcom/transsion/subroom/helper/HdrEngine;->clientInfo()Ljava/lang/String;
+    invoke-static {}, Lcom/transsion/subroom/hdr/Info;->json()Ljava/lang/String;
 
     move-result-object v0
 
@@ -569,11 +569,46 @@
 .method public final declared-synchronized f()Ljava/util/Map;
     .locals 1
 
-    new-instance v0, Ljava/util/LinkedHashMap;
+    .line 1
+    monitor-enter p0
 
-    invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
+    .line 2
+    :try_start_0
+    invoke-static {}, Leh/b;->c()Lj$/util/concurrent/ConcurrentHashMap;
 
+    .line 3
+    .line 4
+    .line 5
+    move-result-object v0
+
+    .line 6
+    invoke-static {v0}, Lkotlin/collections/MapsKt;->u(Ljava/util/Map;)Ljava/util/Map;
+
+    .line 7
+    .line 8
+    .line 9
+    move-result-object v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 10
+    monitor-exit p0
+
+    .line 11
     return-object v0
+
+    .line 12
+    :catchall_0
+    move-exception v0
+
+    .line 13
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 14
+    throw v0
 .end method
 
 .method public final g()Ljava/lang/String;
