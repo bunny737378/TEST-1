@@ -1359,6 +1359,73 @@
     return-object p0
 .end method
 
+.method public static applyWithBody(Lokhttp3/Request;)Lokhttp3/Request;
+    .locals 4
+
+    :try_start_0
+    invoke-virtual {p0}, Lokhttp3/Request;->method()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_m
+
+    goto :goto_m
+
+    :cond_m
+    const-string v0, "GET"
+
+    :goto_m
+    sput-object v0, Lcom/transsion/subroom/helper/HdrEngine;->REQ_METHOD:Ljava/lang/String;
+
+    invoke-virtual {p0}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lokhttp3/HttpUrl;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/transsion/subroom/helper/HdrEngine;->REQ_URL:Ljava/lang/String;
+
+    const-string v0, ""
+
+    sput-object v0, Lcom/transsion/subroom/helper/HdrEngine;->BODY:Ljava/lang/String;
+
+    invoke-virtual {p0}, Lokhttp3/Request;->body()Lokhttp3/RequestBody;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_nobody
+
+    new-instance v1, Lokio/Buffer;
+
+    invoke-direct {v1}, Lokio/Buffer;-><init>()V
+
+    invoke-virtual {v0, v1}, Lokhttp3/RequestBody;->writeTo(Lokio/BufferedSink;)V
+
+    invoke-virtual {v1}, Lokio/Buffer;->readUtf8()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_nobody
+
+    sput-object v0, Lcom/transsion/subroom/helper/HdrEngine;->BODY:Ljava/lang/String;
+
+    :cond_nobody
+    invoke-static {p0}, Lcom/transsion/subroom/helper/HdrEngine;->apply(Lokhttp3/Request;)Lokhttp3/Request;
+
+    move-result-object v0
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    return-object p0
+.end method
+
 .method public static contentMode()Ljava/lang/String;
     .locals 1
 
