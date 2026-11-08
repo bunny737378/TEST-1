@@ -180,68 +180,9 @@
 
     .line 46
     :goto_0
-    invoke-virtual {p1}, Lokhttp3/Request;->headers()Lokhttp3/Headers;
 
-    .line 47
-    .line 48
-    .line 49
-    move-result-object v2
+    invoke-static {p1, p2}, Lcom/transsion/subroom/hdr/HdrKit;->push(Lokhttp3/Request;Lorg/chromium/net/UrlRequest$Builder;)V
 
-    .line 50
-    invoke-virtual {v2}, Lokhttp3/Headers;->size()I
-
-    .line 51
-    .line 52
-    .line 53
-    move-result v2
-
-    .line 54
-    if-ge v1, v2, :cond_0
-
-    .line 55
-    .line 56
-    invoke-virtual {p1}, Lokhttp3/Request;->headers()Lokhttp3/Headers;
-
-    .line 57
-    .line 58
-    .line 59
-    move-result-object v2
-
-    .line 60
-    invoke-virtual {v2, v1}, Lokhttp3/Headers;->name(I)Ljava/lang/String;
-
-    .line 61
-    .line 62
-    .line 63
-    move-result-object v2
-
-    .line 64
-    invoke-virtual {p1}, Lokhttp3/Request;->headers()Lokhttp3/Headers;
-
-    .line 65
-    .line 66
-    .line 67
-    move-result-object v3
-
-    .line 68
-    invoke-virtual {v3, v1}, Lokhttp3/Headers;->value(I)Ljava/lang/String;
-
-    .line 69
-    .line 70
-    .line 71
-    move-result-object v3
-
-    .line 72
-    invoke-virtual {p2, v2, v3}, Lorg/chromium/net/UrlRequest$Builder;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lorg/chromium/net/UrlRequest$Builder;
-
-    .line 73
-    .line 74
-    .line 75
-    add-int/lit8 v1, v1, 0x1
-
-    .line 76
-    .line 77
-    goto :goto_0
 
     .line 78
     :cond_0

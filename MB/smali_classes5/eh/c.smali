@@ -102,25 +102,6 @@
     .line 34
     invoke-virtual {p1, v0, p2}, Lokhttp3/Request$Builder;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    :try_start_0
-    const-string p2, "User-Agent"
-
-    invoke-static {}, Lcom/transsion/subroom/hdr/Info;->ua()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, p2, v0}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    move-result-object p1
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p2
-
-    :goto_0
     .line 35
     .line 36
     .line 37
