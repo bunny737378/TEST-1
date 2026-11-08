@@ -1,6 +1,5 @@
 .class interface abstract Lcom/google/protobuf/Writer;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # annotations

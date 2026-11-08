@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/bumptech/glide/request/RequestCoordinator;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # annotations

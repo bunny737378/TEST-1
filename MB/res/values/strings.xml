@@ -202,7 +202,7 @@
     <string name="co_download_intercept_dialog_title">Oops, no more free downloads !</string>
     <string name="co_network_error">Network error. Please retry.</string>
     <string name="collection">Collection</string>
-    <string name="com.google.firebase.crashlytics.mapping_file_id">2ed95d7166cb48cabd62de7e2ae97577</string>
+    <string name="com.google.firebase.crashlytics.mapping_file_id">5b7eaec751454b539f55cf1e72a350e8</string>
     <string name="coming_soon">Coming soon</string>
     <string name="comment_copy_success">Copied Successfully</string>
     <string name="comment_copy_tips">Copy comments</string>
@@ -2830,6 +2830,4 @@ Logins"</string>
     <string name="zxing_button_ok">OK</string>
     <string name="zxing_msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>
     <string name="zxing_msg_default_status">Place a barcode inside the viewfinder rectangle to scan it.</string>
-    <string name="srv_select_title">Server</string>
-    <string name="srv_select_confirm">Apply</string>
 </resources>

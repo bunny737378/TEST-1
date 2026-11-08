@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="drawable" name="exo_edit_mode_logo" format="string">res/wXD.png</item>
+    <item type="drawable" name="exo_ic_audiotrack" format="string">res/lPN.png</item>
+    <item type="drawable" name="exo_ic_check" format="string">res/7Rw.png</item>
+    <item type="drawable" name="exo_ic_chevron_left" format="string">res/bDi.png</item>
+    <item type="drawable" name="exo_ic_chevron_right" format="string">res/0cc.png</item>
+    <item type="drawable" name="exo_ic_default_album_image" format="string">res/3ZS.png</item>
+    <item type="drawable" name="exo_ic_forward" format="string">res/doO.png</item>
+    <item type="drawable" name="exo_ic_fullscreen_enter" format="string">res/gsF.png</item>
+    <item type="drawable" name="exo_ic_fullscreen_exit" format="string">res/HQi.png</item>
+    <item type="drawable" name="exo_ic_pause_circle_filled" format="string">res/Gkh.png</item>
+    <item type="drawable" name="exo_ic_play_circle_filled" format="string">res/oNP.png</item>
+    <item type="drawable" name="exo_ic_rewind" format="string">res/BNY.png</item>
+    <item type="drawable" name="exo_ic_settings" format="string">res/oF4.png</item>
+    <item type="drawable" name="exo_ic_skip_next" format="string">res/Mhj.png</item>
+    <item type="drawable" name="exo_ic_skip_previous" format="string">res/myd.png</item>
+    <item type="drawable" name="exo_ic_speed" format="string">res/o3Q.png</item>
+    <item type="drawable" name="exo_ic_subtitle_off" format="string">res/Epo.png</item>
+    <item type="drawable" name="exo_ic_subtitle_on" format="string">res/23j.png</item>
+    <item type="drawable" name="exo_icon_circular_play" format="string">res/V4_.png</item>
+    <item type="drawable" name="exo_icon_fastforward" format="string">res/rH3.png</item>
+    <item type="drawable" name="exo_icon_fullscreen_enter" format="string">res/1dn.png</item>
+    <item type="drawable" name="exo_icon_fullscreen_exit" format="string">res/MHm.png</item>
+    <item type="drawable" name="exo_icon_next" format="string">res/rp7.png</item>
+    <item type="drawable" name="exo_icon_pause" format="string">res/9x_.png</item>
+    <item type="drawable" name="exo_icon_play" format="string">res/GaW.png</item>
+    <item type="drawable" name="exo_icon_previous" format="string">res/MuT.png</item>
+    <item type="drawable" name="exo_icon_repeat_all" format="string">res/d7D.png</item>
+    <item type="drawable" name="exo_icon_repeat_off" format="string">res/LUz.png</item>
+    <item type="drawable" name="exo_icon_repeat_one" format="string">res/fRQ.png</item>
+    <item type="drawable" name="exo_icon_rewind" format="string">res/6zk.png</item>
+    <item type="drawable" name="exo_icon_shuffle_off" format="string">res/1xQ.png</item>
+    <item type="drawable" name="exo_icon_shuffle_on" format="string">res/NxX.png</item>
+    <item type="drawable" name="exo_icon_stop" format="string">res/QKW.png</item>
+    <item type="drawable" name="exo_icon_vr" format="string">res/fNS.png</item>
+    <item type="drawable" name="icon_update_sdk_default" format="string">res/YIG.png</item>
+</resources>

@@ -1,6 +1,5 @@
 .class interface abstract Lcom/gyf/immersionbar/ImmersionCallback;
 .super Ljava/lang/Object;
-.source "source.java"
 
 # interfaces
 .implements Lcom/gyf/immersionbar/n;

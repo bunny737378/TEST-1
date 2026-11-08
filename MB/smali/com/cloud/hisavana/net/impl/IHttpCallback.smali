@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/cloud/hisavana/net/impl/IHttpCallback;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # virtual methods

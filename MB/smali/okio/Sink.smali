@@ -1,6 +1,5 @@
 .class public interface abstract Lokio/Sink;
 .super Ljava/lang/Object;
-.source "source.java"
 
 # interfaces
 .implements Ljava/io/Closeable;

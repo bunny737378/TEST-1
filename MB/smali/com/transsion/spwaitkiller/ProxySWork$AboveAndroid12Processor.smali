@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/transsion/spwaitkiller/ProxySWork$AboveAndroid12Processor;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # annotations

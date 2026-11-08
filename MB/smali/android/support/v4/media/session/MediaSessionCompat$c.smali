@@ -1,6 +1,5 @@
 .class interface abstract Landroid/support/v4/media/session/MediaSessionCompat$c;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # annotations

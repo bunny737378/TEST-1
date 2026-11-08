@@ -1,6 +1,5 @@
 .class public interface abstract Landroidx/viewpager2/adapter/StatefulAdapter;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # virtual methods

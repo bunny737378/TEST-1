@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/transsion/commercializationapi/ITaskCenterApi;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # annotations

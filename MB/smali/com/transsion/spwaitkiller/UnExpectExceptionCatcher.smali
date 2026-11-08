@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/transsion/spwaitkiller/UnExpectExceptionCatcher;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # annotations

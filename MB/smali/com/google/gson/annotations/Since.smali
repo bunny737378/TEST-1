@@ -1,6 +1,5 @@
 .class public interface abstract annotation Lcom/google/gson/annotations/Since;
 .super Ljava/lang/Object;
-.source "source.java"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;

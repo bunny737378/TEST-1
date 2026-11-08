@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/transsion/baselib/db/video/ShortTVPlayDao;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # annotations

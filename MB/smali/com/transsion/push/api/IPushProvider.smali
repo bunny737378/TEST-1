@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/transsion/push/api/IPushProvider;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # annotations

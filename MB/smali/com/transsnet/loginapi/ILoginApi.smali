@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/transsnet/loginapi/ILoginApi;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # annotations

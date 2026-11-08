@@ -1,0 +1,13 @@
+.class public interface abstract Lst/b;
+.super Ljava/lang/Object;
+
+
+# virtual methods
+.method public abstract a(Ljava/lang/CharSequence;)V
+.end method
+
+.method public abstract b(Lst/c;)V
+.end method
+
+.method public abstract registerStrategy(Landroid/app/Application;)V
+.end method

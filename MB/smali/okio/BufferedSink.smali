@@ -1,6 +1,5 @@
 .class public interface abstract Lokio/BufferedSink;
 .super Ljava/lang/Object;
-.source "source.java"
 
 # interfaces
 .implements Lokio/Sink;

@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/hisavana/common/interfacz/IBaseAdSummary;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # virtual methods

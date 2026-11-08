@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/hisavana/mediation/config/TAdManager$OnCloudCompleteListener;
 .super Ljava/lang/Object;
-.source "source.java"
 
 
 # annotations
