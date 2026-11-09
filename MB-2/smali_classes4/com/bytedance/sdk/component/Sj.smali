@@ -14,7 +14,7 @@
 
 
 # static fields
-.field private static Fmk:Landroid/util/ArrayMap; = null
+.field private static Fmk:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -25,9 +25,9 @@
     .end annotation
 .end field
 
-.field protected static Sj:Lcom/bytedance/sdk/component/Sj$Sj; = null
+.field protected static Sj:Lcom/bytedance/sdk/component/Sj$Sj;
 
-.field private static aa:Landroid/util/ArrayMap; = null
+.field private static aa:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private static sP:Z = false
+.field private static sP:Z
 
 
 # instance fields

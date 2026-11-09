@@ -4,19 +4,19 @@
 
 
 # static fields
-.field private static a:I = 0x0
+.field private static a:I
 
-.field private static b:I = 0x0
+.field private static b:I
 
-.field private static c:I = 0x0
+.field private static c:I
 
-.field private static d:I = 0x0
+.field private static d:I
 
-.field private static e:I = 0x0
+.field private static e:I
 
-.field private static f:I = 0x0
+.field private static f:I
 
-.field private static g:Z = false
+.field private static g:Z
 
 .field private static h:Landroid/hardware/input/InputManager;
 

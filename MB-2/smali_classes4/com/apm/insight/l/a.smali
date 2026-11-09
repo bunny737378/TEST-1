@@ -4,9 +4,9 @@
 
 
 # static fields
-.field private static a:Ljava/lang/String; = null
+.field private static a:Ljava/lang/String;
 
-.field private static b:Ljava/lang/Class; = null
+.field private static b:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -15,11 +15,11 @@
     .end annotation
 .end field
 
-.field private static c:Ljava/lang/reflect/Field; = null
+.field private static c:Ljava/lang/reflect/Field;
 
-.field private static d:Ljava/lang/reflect/Field; = null
+.field private static d:Ljava/lang/reflect/Field;
 
-.field private static e:Z = false
+.field private static e:Z
 
 
 # direct methods

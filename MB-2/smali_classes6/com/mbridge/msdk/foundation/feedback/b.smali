@@ -16,7 +16,7 @@
 
 .field public static e:I = -0x2
 
-.field public static volatile f:Z = false
+.field public static volatile f:Z
 
 
 # instance fields

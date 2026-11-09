@@ -18,9 +18,9 @@
 
 .field private static g:Ljava/lang/String; = ""
 
-.field private static h:Z = false
+.field private static h:Z
 
-.field private static i:Z = false
+.field private static i:Z
 
 
 # direct methods

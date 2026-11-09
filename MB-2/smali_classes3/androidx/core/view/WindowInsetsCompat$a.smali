@@ -15,13 +15,13 @@
 
 
 # static fields
-.field private static e:Ljava/lang/reflect/Field; = null
+.field private static e:Ljava/lang/reflect/Field;
 
-.field private static f:Z = false
+.field private static f:Z
 
-.field private static g:Ljava/lang/reflect/Constructor; = null
+.field private static g:Ljava/lang/reflect/Constructor;
 
-.field private static h:Z = false
+.field private static h:Z
 
 
 # instance fields

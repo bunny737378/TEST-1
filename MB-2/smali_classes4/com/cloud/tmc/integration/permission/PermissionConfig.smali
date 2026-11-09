@@ -10,9 +10,9 @@
 
 .field public static final WHITELIST:Ljava/lang/String; = "whitelist"
 
-.field private static instance:Lcom/cloud/tmc/integration/permission/PermissionConfig; = null
+.field private static instance:Lcom/cloud/tmc/integration/permission/PermissionConfig;
 
-.field private static isInit:Z = false
+.field private static isInit:Z
 
 
 # instance fields

@@ -3814,8 +3814,6 @@
     move-result-object v0
 
     .line 88
-    invoke-direct {p0, v0}, Lcom/transsion/player/longvideo/ui/LongVodPlayerView;->J2(Ljava/lang/String;)V
-
     .line 89
     .line 90
     .line 91
@@ -11379,8 +11377,6 @@
     .locals 0
 
     .line 1
-    invoke-direct {p0}, Lcom/transsion/player/longvideo/ui/LongVodPlayerView;->x2()V
-
     .line 2
     .line 3
     .line 4
@@ -29611,7 +29607,7 @@
 .end method
 
 .method public final setFeedBackVisible(Z)V
-    .locals 2
+    .locals 3
 
     .line 1
     iget-object v0, p0, Lcom/transsion/player/longvideo/ui/LongVodPlayerView;->a:Lsp/k;
@@ -29635,7 +29631,9 @@
     .line 10
     .line 11
     .line 12
-    invoke-static {v0, p1}, Lpg/c;->j(Landroid/view/View;Z)V
+    const/4 v2, 0x0
+
+    invoke-static {v0, v2}, Lpg/c;->j(Landroid/view/View;Z)V
 
     .line 13
     .line 14
@@ -29661,7 +29659,9 @@
     .line 24
     .line 25
     .line 26
-    invoke-static {v0, p1}, Lpg/c;->j(Landroid/view/View;Z)V
+    const/4 v2, 0x0
+
+    invoke-static {v0, v2}, Lpg/c;->j(Landroid/view/View;Z)V
 
     .line 27
     .line 28

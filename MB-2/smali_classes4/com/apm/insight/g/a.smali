@@ -7,9 +7,9 @@
 
 
 # static fields
-.field private static a:Lcom/apm/insight/g/a; = null
+.field private static a:Lcom/apm/insight/g/a;
 
-.field private static volatile i:Z = false
+.field private static volatile i:Z
 
 .field private static volatile j:Ljava/lang/ThreadLocal;
     .annotation system Ldalvik/annotation/Signature;

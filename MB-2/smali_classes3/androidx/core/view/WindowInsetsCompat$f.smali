@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static i:Z = false
+.field private static i:Z
 
 .field private static j:Ljava/lang/reflect/Method;
 

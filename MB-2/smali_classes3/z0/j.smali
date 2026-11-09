@@ -4,15 +4,15 @@
 
 
 # static fields
-.field private static b:Ljava/lang/Class; = null
+.field private static b:Ljava/lang/Class;
 
-.field private static c:Ljava/lang/reflect/Constructor; = null
+.field private static c:Ljava/lang/reflect/Constructor;
 
-.field private static d:Ljava/lang/reflect/Method; = null
+.field private static d:Ljava/lang/reflect/Method;
 
-.field private static e:Ljava/lang/reflect/Method; = null
+.field private static e:Ljava/lang/reflect/Method;
 
-.field private static f:Z = false
+.field private static f:Z
 
 
 # direct methods

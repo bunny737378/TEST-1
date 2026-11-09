@@ -6,7 +6,7 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "OSS-Android-SDK"
 
-.field private static enableLog:Z = false
+.field private static enableLog:Z
 
 
 # direct methods

@@ -29,9 +29,9 @@
 
 .field public static timeSpan:J = 0x64L
 
-.field public static totalRecycled:I = 0x0
+.field public static totalRecycled:I
 
-.field private static volatile useSafeClassloading:Z = false
+.field private static volatile useSafeClassloading:Z
 
 .field private static writeLock:Ljava/util/concurrent/locks/Lock;
 

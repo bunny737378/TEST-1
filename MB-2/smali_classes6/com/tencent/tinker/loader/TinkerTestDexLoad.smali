@@ -9,7 +9,7 @@
 
 
 # static fields
-.field public static isPatch:Z = false
+.field public static isPatch:Z
 
 
 # direct methods

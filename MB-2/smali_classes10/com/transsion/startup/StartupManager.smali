@@ -1210,7 +1210,9 @@
 
     const-string v9, "X-Client-Build"
 
-    const-string v6, "1790144723381916466.632cf3fe507b339bc757f117f85b4c4a"
+    invoke-static {}, Lcom/mod/ClientBuild;->gen()Ljava/lang/String;
+
+    move-result-object v6
 
     invoke-virtual {v8, v9, v6}, Leh/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1379,9 +1381,9 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v2, v8, v4}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v2, v8, v4}, Lcom/tencent/mmkv/MMKV;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result v2
+    const/4 v2, 0x0
 
     if-eqz v2, :cond_a
 
@@ -1390,7 +1392,7 @@
     goto :goto_6
 
     :cond_a
-    move-object v2, v5
+    move-object v2, v6
 
     :goto_6
     const-string v4, "X-Idle-Data"

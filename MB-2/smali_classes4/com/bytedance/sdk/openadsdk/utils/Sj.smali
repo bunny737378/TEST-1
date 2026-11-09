@@ -19,7 +19,7 @@
 
 
 # static fields
-.field public static Sj:Z = false
+.field public static Sj:Z
 
 .field public static TKC:J
 

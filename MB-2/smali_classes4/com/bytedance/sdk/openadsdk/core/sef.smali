@@ -4,15 +4,15 @@
 
 
 # static fields
-.field private static volatile Dq:Landroid/os/Handler; = null
+.field private static volatile Dq:Landroid/os/Handler;
 
-.field public static EjP:F = 0.0f
+.field public static EjP:F
 
-.field public static HiB:J = 0x0L
+.field public static HiB:J
 
-.field private static volatile Jcg:Landroid/os/HandlerThread; = null
+.field private static volatile Jcg:Landroid/os/HandlerThread;
 
-.field public static volatile Sj:Z = false
+.field public static volatile Sj:Z
 
 .field public static TKC:J
 

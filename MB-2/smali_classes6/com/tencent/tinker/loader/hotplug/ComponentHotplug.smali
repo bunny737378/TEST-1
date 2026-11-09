@@ -4,9 +4,9 @@
 
 
 # static fields
-.field private static sAMSInterceptor:Lcom/tencent/tinker/loader/hotplug/interceptor/ServiceBinderInterceptor; = null
+.field private static sAMSInterceptor:Lcom/tencent/tinker/loader/hotplug/interceptor/ServiceBinderInterceptor;
 
-.field private static volatile sInstalled:Z = false
+.field private static volatile sInstalled:Z
 
 .field private static sMHMessageInterceptor:Lcom/tencent/tinker/loader/hotplug/interceptor/HandlerMessageInterceptor;
 

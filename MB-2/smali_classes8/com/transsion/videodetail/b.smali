@@ -124,6 +124,6 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        value = "/wefeed-mobile-bff/subject-api/play-info/v2"
+        value = "/wefeed-mobile-bff/subject-api/play-info"
     .end annotation
 .end method

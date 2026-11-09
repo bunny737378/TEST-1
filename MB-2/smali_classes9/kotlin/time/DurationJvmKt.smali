@@ -36,7 +36,7 @@
 
 
 # static fields
-.field private static final a:Z = false
+.field private static final a:Z
 
 .field private static final b:[Ljava/lang/ThreadLocal;
 

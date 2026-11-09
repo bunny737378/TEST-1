@@ -14,7 +14,7 @@
 
 .field private static e:I = 0x1
 
-.field public static f:Z = false
+.field public static f:Z
 
 
 # direct methods

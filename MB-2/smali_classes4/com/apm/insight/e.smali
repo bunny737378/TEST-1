@@ -12,7 +12,7 @@
 
 .field private static d:Ljava/lang/String; = "default"
 
-.field private static e:Z = false
+.field private static e:Z
 
 .field private static f:Lcom/apm/insight/nativecrash/b;
     .annotation build Landroid/annotation/SuppressLint;

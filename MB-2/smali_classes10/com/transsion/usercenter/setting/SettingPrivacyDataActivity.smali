@@ -92,9 +92,9 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result v0
+    const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/transsion/usercenter/setting/SettingPrivacyDataActivity;->b:Z
 
@@ -157,26 +157,21 @@
 
     move-result-object p1
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1}, Lcom/tencent/mmkv/MMKV;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
     :goto_0
-    iget-boolean p1, p0, Lcom/transsion/usercenter/setting/SettingPrivacyDataActivity;->b:Z
-
-    xor-int/lit8 v0, p1, 0x1
+    const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/transsion/usercenter/setting/SettingPrivacyDataActivity;->b:Z
 
     sget-object v0, Leh/b;->a:Leh/b$a;
 
-    if-nez p1, :cond_1
-
     const-string p1, "1"
 
     goto :goto_1
 
-    :cond_1
     const-string p1, "0"
 
     :goto_1

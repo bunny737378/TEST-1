@@ -31,6 +31,10 @@
 
     move-result-object v0
 
+    invoke-static {v0}, Lcom/mod/VersionHelper;->refreshIdentity(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
     invoke-virtual {p1}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
 
     move-result-object p1
@@ -79,11 +83,6 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
-
-    return-object p1
-
-    :cond_0
     invoke-virtual {p1}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
 
     move-result-object p1
@@ -101,7 +100,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -125,7 +124,15 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
+    const-string v2, "X-Client-Build"
+
+    invoke-static {}, Lcom/mod/ClientBuild;->gen()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v2, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+
     invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
     move-result-object p1

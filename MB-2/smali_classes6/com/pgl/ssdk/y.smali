@@ -4,9 +4,9 @@
 
 
 # static fields
-.field private static volatile a:Landroid/hardware/display/DisplayManager$DisplayListener; = null
+.field private static volatile a:Landroid/hardware/display/DisplayManager$DisplayListener;
 
-.field private static volatile b:Z = false
+.field private static volatile b:Z
 
 .field private static c:Ljava/lang/String;
 

@@ -28,7 +28,7 @@
 
 
 # static fields
-.field public static l0:Z = false
+.field public static l0:Z
 
 .field private static final m0:Ljava/lang/Object;
 

@@ -8,7 +8,7 @@
 
 .field private static final MAX_LENGTH:I = 0x7f
 
-.field private static final TRACING_ENABLED:Z = false
+.field private static final TRACING_ENABLED:Z
 
 
 # direct methods

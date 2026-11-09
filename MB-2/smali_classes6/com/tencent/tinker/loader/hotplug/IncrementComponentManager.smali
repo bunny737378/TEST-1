@@ -44,9 +44,9 @@
     .end annotation
 .end field
 
-.field private static sContext:Landroid/content/Context; = null
+.field private static sContext:Landroid/content/Context;
 
-.field private static volatile sInitialized:Z = false
+.field private static volatile sInitialized:Z
 
 .field private static sPackageName:Ljava/lang/String;
 

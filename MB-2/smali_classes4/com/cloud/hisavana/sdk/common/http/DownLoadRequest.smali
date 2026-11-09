@@ -12,7 +12,7 @@
 
 
 # static fields
-.field public static q:Z = false
+.field public static q:Z
 
 
 # instance fields

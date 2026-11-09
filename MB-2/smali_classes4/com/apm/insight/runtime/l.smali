@@ -4,15 +4,15 @@
 
 
 # static fields
-.field private static a:Z = false
+.field private static a:Z
 
-.field private static b:Z = false
+.field private static b:Z
 
-.field private static c:Z = false
+.field private static c:Z
 
-.field private static d:Z = false
+.field private static d:Z
 
-.field private static e:Z = false
+.field private static e:Z
 
 .field private static f:Lcom/apm/insight/runtime/c;
 

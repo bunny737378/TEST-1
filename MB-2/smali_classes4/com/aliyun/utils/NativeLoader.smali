@@ -4,9 +4,9 @@
 
 
 # static fields
-.field private static downloaderLoaded:Z = false
+.field private static downloaderLoaded:Z
 
-.field private static playerLoaded:Z = false
+.field private static playerLoaded:Z
 
 
 # direct methods

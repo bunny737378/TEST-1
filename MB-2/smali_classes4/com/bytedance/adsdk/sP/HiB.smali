@@ -18,11 +18,11 @@
 
 .field private static TKC:Z = true
 
-.field private static volatile Ym:Lcom/bytedance/adsdk/sP/EjP/Dq; = null
+.field private static volatile Ym:Lcom/bytedance/adsdk/sP/EjP/Dq;
 
-.field private static volatile aa:Lcom/bytedance/adsdk/sP/EjP/Jcg; = null
+.field private static volatile aa:Lcom/bytedance/adsdk/sP/EjP/Jcg;
 
-.field private static sP:Z = false
+.field private static sP:Z
 
 .field private static uA:Lcom/bytedance/adsdk/sP/EjP/vS;
 

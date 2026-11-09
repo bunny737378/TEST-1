@@ -353,7 +353,7 @@
     .end annotation
 
     .annotation runtime Lretrofit2/http/GET;
-        value = "/wefeed-mobile-bff/subject-api/resource/v2"
+        value = "/wefeed-mobile-bff/subject-api/resource"
     .end annotation
 .end method
 

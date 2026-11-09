@@ -52,9 +52,9 @@
     .end annotation
 .end field
 
-.field public static enablePreV21AudioSessionWorkaround:Z = false
+.field public static enablePreV21AudioSessionWorkaround:Z
 
-.field public static failOnSpuriousAudioTimestamp:Z = false
+.field public static failOnSpuriousAudioTimestamp:Z
 
 
 # instance fields

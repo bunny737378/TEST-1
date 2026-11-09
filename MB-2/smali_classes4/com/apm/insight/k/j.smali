@@ -4,11 +4,11 @@
 
 
 # static fields
-.field private static a:Ljava/io/File; = null
+.field private static a:Ljava/io/File;
 
-.field private static b:Z = false
+.field private static b:Z
 
-.field private static c:Z = false
+.field private static c:Z
 
 .field private static d:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;

@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static DEBUG:Z = false
+.field private static DEBUG:Z
 
 .field private static sLogger:Lcom/bykv/vk/openvk/preload/geckox/logger/Logger;
 

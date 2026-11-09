@@ -12,9 +12,9 @@
 
 
 # static fields
-.field public static Sj:Lcom/bytedance/sdk/openadsdk/core/Fmk; = null
+.field public static Sj:Lcom/bytedance/sdk/openadsdk/core/Fmk;
 
-.field private static dNu:Z = false
+.field private static dNu:Z
 
 .field public static final sP:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;

@@ -4,11 +4,11 @@
 
 
 # static fields
-.field private static EjP:Ljava/lang/String; = null
+.field private static EjP:Ljava/lang/String;
 
-.field private static HiB:Z = false
+.field private static HiB:Z
 
-.field private static Sj:Landroid/content/Context; = null
+.field private static Sj:Landroid/content/Context;
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "StaticFieldLeak"
@@ -16,11 +16,11 @@
     .end annotation
 .end field
 
-.field private static TKC:Landroid/content/res/Resources; = null
+.field private static TKC:Landroid/content/res/Resources;
 
-.field private static sP:Ljava/lang/String; = null
+.field private static sP:Ljava/lang/String;
 
-.field private static vS:Z = false
+.field private static vS:Z
 
 
 # direct methods

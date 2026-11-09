@@ -13,9 +13,9 @@
 
 
 # static fields
-.field public static mCustomRequestHeader:Lcom/apm/insight/CustomRequestHeader; = null
+.field public static mCustomRequestHeader:Lcom/apm/insight/CustomRequestHeader;
 
-.field private static volatile sAppMonitorCrashInit:Z = false
+.field private static volatile sAppMonitorCrashInit:Z
 
 
 # instance fields

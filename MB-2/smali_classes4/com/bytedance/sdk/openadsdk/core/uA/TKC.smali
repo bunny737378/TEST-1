@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static Sj:Z = false
+.field private static Sj:Z
 
 
 # direct methods

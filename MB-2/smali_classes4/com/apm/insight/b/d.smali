@@ -8,7 +8,7 @@
 
 .field private static b:J = -0x1L
 
-.field private static c:Z = false
+.field private static c:Z
 
 .field private static d:Landroid/os/FileObserver;
 

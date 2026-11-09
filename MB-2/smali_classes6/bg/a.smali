@@ -12,9 +12,9 @@
 
 
 # static fields
-.field private static o:Lbg/a; = null
+.field private static o:Lbg/a;
 
-.field private static p:Z = false
+.field private static p:Z
 
 
 # instance fields

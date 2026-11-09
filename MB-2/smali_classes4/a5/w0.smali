@@ -8,7 +8,7 @@
 
 
 # static fields
-.field private static a:Z = false
+.field private static a:Z
 
 .field public static final b:La5/w0;
 

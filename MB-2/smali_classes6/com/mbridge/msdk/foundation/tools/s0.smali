@@ -12,9 +12,9 @@
 
 
 # static fields
-.field public static a:[C = null
+.field public static a:[C
 
-.field public static b:Z = false
+.field public static b:Z
 
 .field public static c:Landroid/widget/LinearLayout;
 

@@ -15,6 +15,36 @@
     return-void
 .end method
 
+.method private static appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+    .locals 4
+
+    const-string v0, "0123456789abcdef"
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, p2, :cond_0
+
+    const/16 v2, 0x10
+
+    invoke-virtual {p0, v2}, Ljava/util/Random;->nextInt(I)I
+
+    move-result v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
 .method private static fetchAndSaveLatest()Ljava/lang/String;
     .locals 12
 
@@ -152,7 +182,27 @@
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, ",\"os\":\"android\",\"os_version\":\"16\",\"install_ch\":\"google-play\",\"device_id\":\"2c25301e1e8d8f36dad83d86460bf24fe\",\"install_store\":\"gp\",\"gaid\":\"9b9d005f-ddc1-4f19-ba9c-4744807f8125\",\"brand\":\"Samsung\",\"model\":\"SM-S928B\",\"system_language\":\"en\",\"net\":\"WIFI\",\"region\":\"IN\",\"timezone\":\"Asia/Kolkata\",\"sp_code\":\"405863\",\"X-Client-Build\":\"1790144723381916466.632cf3fe507b339bc757f117f85b4c4a\",\"X-Play-Mode\":\"2\",\"X-Idle-Data\":\"1\",\"X-Family-Mode\":\"0\",\"X-Content-Mode\":\"0\"}"
+    const-string v0, ",\"os\":\"android\",\"os_version\":\"16\",\"install_ch\":\"google-play\",\"device_id\":\""
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/mod/VersionHelper;->newDeviceId()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "\",\"install_store\":\"gp\",\"gaid\":\""
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/mod/VersionHelper;->newGaid()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "\",\"brand\":\"Samsung\",\"model\":\"SM-S928B\",\"system_language\":\"en\",\"net\":\"WIFI\",\"region\":\"IN\",\"timezone\":\"Asia/Kolkata\",\"sp_code\":\"405863\",\"X-Play-Mode\":\"2\",\"X-Idle-Data\":\"1\",\"X-Family-Mode\":\"0\",\"X-Content-Mode\":\"0\"}"
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -201,7 +251,7 @@
 
     new-instance v1, Ljava/io/File;
 
-    const-string v2, "version_info.json"
+    const-string v2, "version_info_v2.json"
 
     invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
     :try_end_0
@@ -296,6 +346,82 @@
     throw v1
 .end method
 
+.method private static newDeviceId()Ljava/lang/String;
+    .locals 3
+
+    new-instance v0, Ljava/util/Random;
+
+    invoke-direct {v0}, Ljava/util/Random;-><init>()V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/16 v2, 0x21
+
+    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private static newGaid()Ljava/lang/String;
+    .locals 5
+
+    new-instance v0, Ljava/util/Random;
+
+    invoke-direct {v0}, Ljava/util/Random;-><init>()V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/16 v2, 0x8
+
+    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+
+    const-string v3, "-"
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v2, 0x4
+
+    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+
+    const-string v3, "-4"
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v2, 0x3
+
+    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+
+    const-string v3, "-a"
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v2, 0x3
+
+    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+
+    const-string v3, "-"
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/16 v2, 0xc
+
+    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method private static readFromCacheFile()Ljava/lang/String;
     .locals 3
 
@@ -355,4 +481,55 @@
     const/4 v0, 0x0
 
     return-object v0
+.end method
+
+.method public static refreshIdentity(Ljava/lang/String;)Ljava/lang/String;
+    .locals 3
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    :try_start_0
+    new-instance v0, Lorg/json/JSONObject;
+
+    invoke-direct {v0, p0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "device_id"
+
+    invoke-static {}, Lcom/mod/VersionHelper;->newDeviceId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    const-string v1, "gaid"
+
+    invoke-static {}, Lcom/mod/VersionHelper;->newGaid()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    const-string v1, "X-Client-Build"
+
+    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->remove(Ljava/lang/String;)Ljava/lang/Object;
+
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    :cond_0
+    return-object p0
 .end method

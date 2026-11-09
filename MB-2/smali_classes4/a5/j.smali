@@ -7,9 +7,9 @@
 
 
 # static fields
-.field private static volatile a:Ljava/lang/Class; = null
+.field private static volatile a:Ljava/lang/Class;
 
-.field private static volatile b:Z = false
+.field private static volatile b:Z
 
 .field private static volatile c:Ljava/lang/reflect/Method;
 

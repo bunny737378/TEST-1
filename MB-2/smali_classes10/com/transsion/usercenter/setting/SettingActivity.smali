@@ -2005,8 +2005,6 @@
 
     invoke-direct/range {v2 .. v14}, Lgy/b;-><init>(ILcom/transsion/usercenter/setting/bean/UserSettingType;Ljava/lang/String;Ljava/lang/Integer;ILjava/lang/String;ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
-    invoke-interface {v1, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     iget-object v1, v0, Lcom/transsion/usercenter/setting/SettingActivity;->c:Ljava/util/List;
 
     new-instance v15, Lgy/b;
@@ -2146,8 +2144,6 @@
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     iget-object v1, v0, Lcom/transsion/usercenter/setting/SettingActivity;->c:Ljava/util/List;
 
     new-instance v15, Lgy/b;
@@ -2245,8 +2241,6 @@
 
     invoke-direct/range {v2 .. v14}, Lgy/b;-><init>(ILcom/transsion/usercenter/setting/bean/UserSettingType;Ljava/lang/String;Ljava/lang/Integer;ILjava/lang/String;ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
-    invoke-interface {v1, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     invoke-virtual/range {p0 .. p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
@@ -2331,8 +2325,6 @@
 
     invoke-direct/range {v3 .. v15}, Lgy/b;-><init>(ILcom/transsion/usercenter/setting/bean/UserSettingType;Ljava/lang/String;Ljava/lang/Integer;ILjava/lang/String;ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     iget-object v1, v0, Lcom/transsion/usercenter/setting/SettingActivity;->c:Ljava/util/List;
 
     new-instance v15, Lgy/b;
@@ -2363,8 +2355,6 @@
 
     invoke-direct/range {v2 .. v14}, Lgy/b;-><init>(ILcom/transsion/usercenter/setting/bean/UserSettingType;Ljava/lang/String;Ljava/lang/Integer;ILjava/lang/String;ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
-    invoke-interface {v1, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     invoke-direct/range {p0 .. p0}, Lcom/transsion/usercenter/setting/SettingActivity;->Q0()Lcom/transsnet/loginapi/ILoginApi;
 
     move-result-object v1
@@ -2392,8 +2382,6 @@
     invoke-direct/range {p0 .. p0}, Lcom/transsion/usercenter/setting/SettingActivity;->V0()Lgy/b;
 
     move-result-object v4
-
-    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-direct/range {p0 .. p0}, Lcom/transsion/usercenter/setting/SettingActivity;->Q0()Lcom/transsnet/loginapi/ILoginApi;
 

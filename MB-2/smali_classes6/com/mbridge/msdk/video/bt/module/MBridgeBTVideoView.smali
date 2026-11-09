@@ -12,7 +12,7 @@
 
 
 # static fields
-.field private static P:Z = false
+.field private static P:Z
 
 .field private static Q:J
 

@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static allowBlurBackground:Z = false
+.field private static allowBlurBackground:Z
 
 
 # instance fields

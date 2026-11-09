@@ -17,17 +17,17 @@
 
 
 # static fields
-.field private static R0:I = 0x0
+.field private static R0:I
 
-.field private static S0:I = 0x0
+.field private static S0:I
 
-.field private static T0:I = 0x0
+.field private static T0:I
 
-.field private static U0:I = 0x0
+.field private static U0:I
 
-.field private static V0:I = 0x0
+.field private static V0:I
 
-.field private static W0:Z = false
+.field private static W0:Z
 
 .field private static X0:J
 

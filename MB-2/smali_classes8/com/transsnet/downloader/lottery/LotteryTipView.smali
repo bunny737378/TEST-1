@@ -1359,11 +1359,9 @@
     return-void
 
     .line 34
-    :cond_0
-    invoke-direct {p0}, Lcom/transsnet/downloader/lottery/LotteryTipView;->getLotteryUserInfoEntity()V
-
     .line 35
     .line 36
     .line 37
+    :cond_0
     return-void
 .end method

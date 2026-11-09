@@ -4,11 +4,11 @@
 
 
 # static fields
-.field private static volatile a:Landroid/content/Context; = null
+.field private static volatile a:Landroid/content/Context;
 
-.field private static volatile b:Z = false
+.field private static volatile b:Z
 
-.field private static volatile c:Z = false
+.field private static volatile c:Z
 
 .field private static volatile d:J
 

@@ -13,13 +13,13 @@
 
 
 # static fields
-.field private static EjP:Z = false
+.field private static EjP:Z
 
-.field private static HiB:Z = false
+.field private static HiB:Z
 
-.field private static Jcg:Lcom/bytedance/sdk/openadsdk/ApmHelper$Sj; = null
+.field private static Jcg:Lcom/bytedance/sdk/openadsdk/ApmHelper$Sj;
 
-.field private static volatile Sj:Z = false
+.field private static volatile Sj:Z
 
 .field private static TKC:Ljava/lang/String;
 

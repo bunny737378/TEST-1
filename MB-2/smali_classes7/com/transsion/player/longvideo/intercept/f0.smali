@@ -2168,8 +2168,6 @@
 
     .line 41
     .line 42
-    invoke-virtual {p2}, Lcom/transsion/player/longvideo/intercept/PlaybackPremiumTipView;->setPremiumTip()V
-
     .line 43
     .line 44
     .line 45

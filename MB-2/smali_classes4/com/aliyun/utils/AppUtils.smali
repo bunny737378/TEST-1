@@ -4,13 +4,13 @@
 
 
 # static fields
-.field private static appName:Ljava/lang/String; = null
+.field private static appName:Ljava/lang/String;
 
-.field private static appNameDecied:Z = false
+.field private static appNameDecied:Z
 
-.field private static packageName:Ljava/lang/String; = null
+.field private static packageName:Ljava/lang/String;
 
-.field private static packageNameDecied:Z = false
+.field private static packageNameDecied:Z
 
 
 # direct methods
