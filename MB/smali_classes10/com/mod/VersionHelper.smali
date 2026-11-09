@@ -422,7 +422,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v2, 0x8
+    const/16 v2, 0x8
 
     invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
 
@@ -430,7 +430,7 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v2, 0x4
+    const/16 v2, 0x4
 
     invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
 
@@ -438,7 +438,7 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v2, 0x3
+    const/16 v2, 0x3
 
     invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
 
@@ -446,7 +446,7 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v2, 0x3
+    const/16 v2, 0x3
 
     invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
 
@@ -454,7 +454,7 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v2, 0xc
+    const/16 v2, 0xc
 
     invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
 
