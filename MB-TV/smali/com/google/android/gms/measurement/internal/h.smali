@@ -1,0 +1,8 @@
+.class public interface abstract Lcom/google/android/gms/measurement/internal/h;
+.super Ljava/lang/Object;
+.source "source.java"
+
+
+# virtual methods
+.method public abstract c(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+.end method
