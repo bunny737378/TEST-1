@@ -1,0 +1,62 @@
+
+name: Delete Multiple Folders
+
+on:
+  push:
+    paths:
+      - '.github/workflows/delete-folder.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  delete-folders:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Folder names to delete
+      - name: Delete specified folders
+        run: |
+          set -e
+
+          FOLDERS="MB"
+
+          IFS=',' read -ra FOLDER_LIST <<< "$FOLDERS"
+
+          for FOLDER in "${FOLDER_LIST[@]}"; do
+
+            FOLDER=$(echo "$FOLDER" | xargs)
+
+            # Validate folder name
+            if [[ ! "$FOLDER" =~ ^[a-zA-Z0-9._-]+$ ]] ||
+               [[ "$FOLDER" == "." || "$FOLDER" == ".." ]]; then
+              echo "Invalid folder name: $FOLDER"
+              exit 1
+            fi
+
+            if [ -d "./$FOLDER" ]; then
+              echo "Deleting folder: $FOLDER"
+              rm -rf -- "./$FOLDER"
+            else
+              echo "Folder not found: $FOLDER"
+            fi
+
+          done
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Automated folder deletion"
+          git push
