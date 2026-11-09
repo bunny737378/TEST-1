@@ -430,6 +430,19 @@
     .line 76
     move-result-object v7
 
+    # SINGLE_IMAGE is the standalone promotional poster row.
+    sget-object v8, Lcom/transsion/moviedetailapi/bean/PostItemType;->SINGLE_IMAGE:Lcom/transsion/moviedetailapi/bean/PostItemType;
+
+    invoke-virtual {v8}, Lcom/transsion/moviedetailapi/bean/PostItemType;->getValue()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Lkotlin/jvm/internal/Intrinsics;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :goto_0
+
     .line 77
     sget-object v8, Lcom/transsion/moviedetailapi/bean/PostItemType;->SPORT_LIVE:Lcom/transsion/moviedetailapi/bean/PostItemType;
 

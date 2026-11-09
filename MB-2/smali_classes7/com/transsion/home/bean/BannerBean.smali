@@ -709,7 +709,7 @@
 .end method
 
 .method public final getBanners()Ljava/util/List;
-    .locals 1
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -719,11 +719,54 @@
         }
     .end annotation
 
-    .line 1
     iget-object v0, p0, Lcom/transsion/home/bean/BannerBean;->banners:Ljava/util/List;
 
-    .line 2
-    .line 3
+    if-eqz v0, :done_null
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :loop
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :done
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    if-eqz v4, :keep
+
+    check-cast v4, Lcom/transsion/home/bean/BannerData;
+
+    invoke-virtual {v4}, Lcom/transsion/home/bean/BannerData;->getHasResource()Ljava/lang/Boolean;
+
+    move-result-object v5
+
+    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+
+    invoke-virtual {v0, v5}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :loop
+
+    :keep
+    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :loop
+
+    :done
+    return-object v1
+
+    :done_null
     return-object v0
 .end method
 

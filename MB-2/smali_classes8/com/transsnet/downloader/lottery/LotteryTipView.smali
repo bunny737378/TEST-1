@@ -1360,7 +1360,7 @@
 
     .line 34
     :cond_0
-    invoke-direct {p0}, Lcom/transsnet/downloader/lottery/LotteryTipView;->getLotteryUserInfoEntity()V
+    # Do not request or display the download lottery promotion.
 
     .line 35
     .line 36
