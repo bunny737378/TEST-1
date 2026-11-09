@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.smarteist.autoimageslider.SliderView android:id="@id/sliderView" android:layout_width="match_parent" android:layout_height="310.0dp" app:sliderAnimationDuration="600" app:sliderAutoCycleDirection="right" app:sliderAutoCycleEnabled="true" app:sliderIndicatorAnimationDuration="600" app:sliderIndicatorEnabled="false" app:sliderIndicatorGravity="center|bottom" app:sliderIndicatorMargin="15.0dp" app:sliderIndicatorOrientation="horizontal" app:sliderIndicatorPadding="2.0dp" app:sliderIndicatorRadius="1.1999817dp" app:sliderIndicatorSelectedColor="#2fcefe" app:sliderIndicatorUnselectedColor="#2c3344" app:sliderScrollTimeInSec="1" app:sliderStartAutoCycle="true" />
+    <LinearLayout android:gravity="center" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/indicatorContainer" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" />
+</androidx.appcompat.widget.LinearLayoutCompat>

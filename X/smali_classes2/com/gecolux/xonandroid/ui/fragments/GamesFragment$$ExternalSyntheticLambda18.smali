@@ -1,0 +1,38 @@
+.class public final synthetic Lcom/gecolux/xonandroid/ui/fragments/GamesFragment$$ExternalSyntheticLambda18;
+.super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
+
+# interfaces
+.implements Lkotlin/jvm/functions/Function0;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/gecolux/xonandroid/ui/fragments/GamesFragment;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/gecolux/xonandroid/ui/fragments/GamesFragment;)V
+    .locals 0
+
+    .line 0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/gecolux/xonandroid/ui/fragments/GamesFragment$$ExternalSyntheticLambda18;->f$0:Lcom/gecolux/xonandroid/ui/fragments/GamesFragment;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke()Ljava/lang/Object;
+    .locals 1
+
+    .line 0
+    iget-object v0, p0, Lcom/gecolux/xonandroid/ui/fragments/GamesFragment$$ExternalSyntheticLambda18;->f$0:Lcom/gecolux/xonandroid/ui/fragments/GamesFragment;
+
+    invoke-static {v0}, Lcom/gecolux/xonandroid/ui/fragments/GamesFragment;->$r8$lambda$q847cinV5Dfy5U9VTahsQnDn0aM(Lcom/gecolux/xonandroid/ui/fragments/GamesFragment;)Lcom/gecolux/xonandroid/ui/adapter/GamesAdapter;
+
+    move-result-object v0
+
+    return-object v0
+.end method

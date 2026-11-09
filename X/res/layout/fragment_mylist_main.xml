@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/layoutMyListMain" android:background="@drawable/bg_main" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/toolbarLayout" android:layout_width="match_parent" android:layout_height="66.0dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/btnBack" android:padding="12.0dp" android:layout_width="42.0dp" android:layout_height="42.0dp" android:src="@drawable/ic_back_arrow" android:layout_centerVertical="true" app:tint="@android:color/white" />
+        <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:id="@id/toolbarTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/my_list" android:layout_centerVertical="true" android:fontFamily="@font/roboto_bold" android:layout_toEndOf="@id/btnBack" />
+        <com.gecolux.xonandroid.ui.views.ToolbarActionsView android:id="@id/toolbarActions" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginEnd="10.0dp" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="60.0dp">
+        <com.google.android.material.tabs.TabLayout android:layout_gravity="center" android:id="@id/tabLayoutMyList" android:background="@null" android:layout_width="match_parent" android:layout_height="wrap_content" app:tabGravity="center" app:tabIndicator="@drawable/tab_indicator" app:tabIndicatorAnimationDuration="250" app:tabIndicatorColor="@color/white" app:tabIndicatorFullWidth="false" app:tabIndicatorGravity="bottom" app:tabInlineLabel="true" app:tabMode="scrollable" app:tabRippleColor="@null" app:tabSelectedTextColor="@color/white" app:tabTextAppearance="@style/CustomTabTextStyle" app:tabTextColor="#69747b" />
+        <androidx.viewpager2.widget.ViewPager2 android:id="@id/viewPagerMyList" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" />
+    </LinearLayout>
+    <ProgressBar android:layout_gravity="center" android:id="@id/progressBar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/emptyLayout" android:padding="16.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/emptyIcon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_moon" />
+        <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/emptyTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:text="@string/my_list_is_empty" android:fontFamily="@font/roboto_bold" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/emptySubtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/collect_the_stories_that_inspire_you" android:fontFamily="@font/roboto_medium" />
+    </LinearLayout>
+</FrameLayout>

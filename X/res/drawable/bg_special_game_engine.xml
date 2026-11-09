@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="23.0dp" android:width="122.0dp" android:viewportWidth="122.0" android:viewportHeight="23.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$bg_special_game_engine__0" android:pathData="M11.5,0L109.5,0A11.5,11.5 0,0 1,121 11.5L121,11.5A11.5,11.5 0,0 1,109.5 23L11.5,23A11.5,11.5 0,0 1,0 11.5L0,11.5A11.5,11.5 0,0 1,11.5 0z" />
+    <path android:fillColor="#ff000000" android:pathData="M11.5,1L111.5,1A10.5,10.5 0,0 1,122 11.5L122,11.5A10.5,10.5 0,0 1,111.5 22L11.5,22A10.5,10.5 0,0 1,1 11.5L1,11.5A10.5,10.5 0,0 1,11.5 1z" />
+</vector>

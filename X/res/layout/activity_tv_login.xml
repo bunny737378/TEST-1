@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:background="#282a31" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.7" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/topBar" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/backArrow" android:padding="5.0dp" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_back_arrow" android:contentDescription="@string/todo" app:tint="@android:color/white" />
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/tvLoginTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/login_in_tv" android:layout_marginStart="12.0dp" />
+    </LinearLayout>
+    <com.google.android.material.card.MaterialCardView android:id="@id/view" android:layout_width="260.0dp" android:layout_height="260.0dp" android:layout_marginTop="32.0dp" android:layout_below="@id/topBar" android:layout_centerHorizontal="true" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="18.0dp" app:strokeColor="@color/white" app:strokeWidth="1.0dp" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/centerCard" android:padding="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/view">
+        <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/instructionText" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/scan_the_qr_code_or_enter_5_digit_code_shown_on_your_xon_tv_app_to_log_in_ninstantly" android:fontFamily="@font/roboto_regular" android:paddingHorizontal="16.0dp" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/codeInputRow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+            <EditText android:layout_gravity="center" android:id="@id/code1" android:text="5" style="@style/CodeInputBox" />
+            <EditText android:id="@id/code2" android:text="2" style="@style/CodeInputBox" />
+            <EditText android:id="@id/code3" android:text="0" style="@style/CodeInputBox" />
+            <EditText android:id="@id/code4" style="@style/CodeInputBox" />
+            <EditText android:id="@id/code5" style="@style/CodeInputBox" />
+        </LinearLayout>
+        <TextView android:textSize="18.0sp" android:textColor="#ff0000" android:id="@id/errorText" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="Invalid code. Please try again." android:fontFamily="@font/roboto_regular" />
+    </LinearLayout>
+</RelativeLayout>

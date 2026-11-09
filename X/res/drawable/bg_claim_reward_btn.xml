@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="40.0dp" android:width="160.0dp" android:viewportWidth="160.0" android:viewportHeight="40.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$bg_claim_reward_btn__0" android:pathData="M20,0L140,0A20,20 0,0 1,160 20L160,20A20,20 0,0 1,140 40L20,40A20,20 0,0 1,0 20L0,20A20,20 0,0 1,20 0z" />
+</vector>

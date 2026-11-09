@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/contentLayout" android:layout_width="0.0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.45">
+        <TextView android:textSize="22.0sp" android:textColor="@android:color/white" android:id="@id/textFeatherBalanceTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="12.0dp" android:text="@string/feathers_balance" android:fontFamily="@font/roboto_bold" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/featherBalanceLayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="40.0dp">
+            <androidx.appcompat.widget.AppCompatImageView android:id="@id/iconFeatherLarge" android:layout_width="60.0dp" android:layout_height="60.0dp" android:src="@drawable/ic_feather_300" />
+            <com.yy.mobile.rollingtextview.RollingTextView android:textSize="72.0sp" android:textStyle="bold" android:textColor="@android:color/white" android:id="@id/tvTotalFeathers" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="50" android:fontFamily="@font/roboto_bold" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/btnWatchAd" android:background="@drawable/bg_btn_watch_ad" android:layout_width="match_parent" android:layout_height="70.0dp" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:layout_marginHorizontal="16.0dp">
+            <TextView android:textSize="21.0sp" android:textColor="#282a31" android:id="@id/textWatch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Watch " android:fontFamily="@font/roboto_medium" />
+            <TextView android:textSize="21.0sp" android:textColor="@android:color/white" android:id="@id/textAdLabel" android:background="@drawable/bg_ad_label" android:paddingLeft="8.0dp" android:paddingTop="2.0dp" android:paddingRight="8.0dp" android:paddingBottom="2.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ad" android:fontFamily="@font/roboto_medium" android:paddingHorizontal="8.0dp" android:paddingVertical="2.0dp" />
+            <TextView android:textSize="21.0sp" android:textColor="#282a31" android:id="@id/textWatchReward" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" to Get 15 Feathers" android:fontFamily="@font/roboto_medium" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:background="@drawable/bg_main" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/includeAccount" layout="@layout/toolbar_account" />
+    <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="66.0dp">
+        <LinearLayout android:orientation="vertical" android:padding="24.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/llProfileFree" android:background="@drawable/bg_normal_user_profile" android:layout_width="92.0dp" android:layout_height="92.0dp" android:layout_marginTop="16.0dp">
+                <ImageView android:layout_gravity="center" android:id="@id/userProfileImage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_user_profile" android:scaleType="centerCrop" android:contentDescription="@string/todo" />
+            </FrameLayout>
+            <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/llProfilePaid" android:background="@drawable/bg_paid_user_profile" android:visibility="gone" android:layout_width="92.0dp" android:layout_height="92.0dp" android:layout_marginTop="16.0dp">
+                <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/crownLottie" android:layout_width="55.0dp" android:layout_height="55.0dp" app:lottie_autoPlay="false" app:lottie_loop="true" app:lottie_rawRes="@raw/paid_user_crown_image" />
+            </FrameLayout>
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="42.0dp" app:cardBackgroundColor="#282a31" app:cardCornerRadius="12.0dp" app:strokeColor="@android:color/transparent" app:strokeWidth="0.0dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:orientation="horizontal" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="14.0sp" android:textColor="#b8bdd0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/name" />
+                        <TextView android:textSize="20.0sp" android:textColor="@android:color/white" android:id="@id/tvUserName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rahul Kundu" android:layout_marginStart="10.0dp" />
+                    </LinearLayout>
+                    <View android:background="#000000" android:layout_width="match_parent" android:layout_height="3.0dp" android:layout_marginTop="8.0dp" android:layout_marginBottom="8.0dp" android:layout_marginVertical="8.0dp" />
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="14.0sp" android:textColor="#b8bdd0" android:id="@id/subStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/subscription_status" />
+                        <TextView android:textSize="20.0sp" android:textColor="#ffc38a" android:id="@id/tvSubscriptionType" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/vip" android:layout_marginStart="10.0dp" />
+                        <LinearLayout android:gravity="end" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                            <TextView android:textSize="12.0sp" android:textColor="#08c6fb" android:id="@id/tvGetVipNow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/get_vip_now" />
+                            <TextView android:textSize="12.0sp" android:textColor="#ffc38a" android:id="@id/tvValidTill" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <View android:background="#000000" android:layout_width="match_parent" android:layout_height="3.0dp" android:layout_marginTop="8.0dp" android:layout_marginBottom="8.0dp" android:layout_marginVertical="8.0dp" />
+                    <LinearLayout android:orientation="horizontal" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="14.0sp" android:textColor="#b8bdd0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/email" />
+                        <TextView android:textSize="16.0sp" android:textColor="#ffc38a" android:id="@id/tvUserEmail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16.0dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.button.MaterialButton android:textSize="16.0sp" android:textColor="@android:color/white" android:id="@id/btnLogout" android:layout_width="match_parent" android:layout_height="52.0dp" android:layout_marginTop="24.0dp" android:text="@string/logout" android:fontFamily="@font/roboto_medium" app:backgroundTint="#282a31" app:cornerRadius="26.0dp" app:icon="@drawable/ic_logout" app:iconGravity="textStart" app:iconTint="@null" app:layout_constraintBottom_toBottomOf="@id/deviceInfoLayout" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@id/deviceInfoLayout" app:rippleColor="@android:color/darker_gray" />
+            <TextView android:textSize="20.0sp" android:textColor="#ffff" android:id="@id/tvDevicesCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:layout_marginBottom="16.0dp" android:text="" android:fontFamily="@font/roboto_bold" />
+            <androidx.recyclerview.widget.RecyclerView android:orientation="vertical" android:id="@id/rvDevices" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:overScrollMode="never" android:nestedScrollingEnabled="false" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <include android:id="@id/includeLoading" layout="@layout/layout_loading_overlay" />
+</androidx.constraintlayout.widget.ConstraintLayout>

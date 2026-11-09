@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="52.0dp" android:width="394.0dp" android:viewportWidth="394.0" android:viewportHeight="52.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$bg_btn_watch_vip__0" android:pathData="M7,0L387,0A7,7 0,0 1,394 7L394,45A7,7 0,0 1,387 52L7,52A7,7 0,0 1,0 45L0,7A7,7 0,0 1,7 0z" />
+</vector>

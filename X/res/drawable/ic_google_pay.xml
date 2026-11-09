@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="24.957977dp" android:width="29.296997dp" android:viewportWidth="29.297" android:viewportHeight="24.958"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$ic_google_pay__0" android:pathData="M15.429,15.066 L22.681,2.509l3.951,2.281a5.325,5.325 0,0 1,1.949 7.279l-4.085,7.072a3.337,3.337 0,0 1,-4.552 1.224l-3.66,-2.115A2.338,2.338 0,0 1,15.429 15.066Z" />
+    <path android:fillColor="#fdbd00" android:pathData="M14.666,6.345 L5.655,21.961l3.951,2.281A5.325,5.325 0,0 0,16.885 22.291l5.848,-10.13a3.328,3.328 0,0 0,-1.224 -4.552L17.838,5.491A2.323,2.323 0,0 0,14.666 6.345Z" />
+    <path android:fillColor="#2da94f" android:pathData="M22.681,2.509 L19.892,0.892a6.674,6.674 0,0 0,-9.1 2.437L5.604,12.308a3.328,3.328 0,0 0,1.224 4.552l2.789,1.618a3.328,3.328 0,0 0,4.552 -1.224l6.19,-10.721h0a4.647,4.647 0,0 1,6.356 -1.7" />
+    <path android:fillColor="@drawable/$ic_google_pay__1" android:pathData="M11.596,5.962 L8.516,4.189a2.873,2.873 0,0 0,-3.919 1.047L0.885,11.623a6.576,6.576 0,0 0,2.416 8.99l2.343,1.348L8.496,23.599l1.234,0.715A5.052,5.052 0,0 1,8.185 17.599L9.138,15.947l3.5,-6.055A2.873,2.873 0,0 0,11.596 5.962Z" />
+</vector>

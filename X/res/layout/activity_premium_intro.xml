@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:background="@color/black" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:id="@id/includeToolbar" layout="@layout/toolbar_premium" />
+    <androidx.core.widget.NestedScrollView android:background="@color/black" android:paddingBottom="24.0dp" android:layout_width="match_parent" android:layout_height="0.0dp" android:fillViewport="true" app:layout_constraintBottom_toTopOf="@id/btnProceed" app:layout_constraintTop_toBottomOf="@id/includeToolbar">
+        <LinearLayout android:orientation="vertical" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16.0dp">
+            <com.google.android.material.card.MaterialCardView android:id="@id/playerCard" android:layout_width="match_parent" android:layout_height="220.0dp" android:layout_marginTop="16.0dp" app:cardBackgroundColor="#282a31" app:cardCornerRadius="6.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                    <androidx.media3.ui.PlayerView android:id="@id/playerView" android:layout_width="match_parent" android:layout_height="match_parent" app:resize_mode="zoom" app:surface_type="texture_view" app:use_controller="false" />
+                    <ProgressBar android:layout_gravity="center" android:id="@id/playerProgressBar" android:visibility="visible" android:layout_width="40.0dp" android:layout_height="40.0dp" android:indeterminateTint="@color/white" />
+                    <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="end|top" android:id="@id/btnMute" android:background="@drawable/bg_circle_black_trans_volume" android:padding="12.0dp" android:visibility="gone" android:layout_width="42.0dp" android:layout_height="42.0dp" android:layout_margin="12.0dp" android:src="@drawable/ic_volume_on" />
+                    <com.makeramen.roundedimageview.RoundedImageView android:id="@id/previewThumb" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" app:riv_corner_radius="6.0dp" />
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <androidx.appcompat.widget.AppCompatImageView android:layout_width="match_parent" android:layout_height="80.0dp" android:layout_marginTop="20.0dp" android:src="@drawable/img_multi_device" />
+            <androidx.appcompat.widget.AppCompatImageView android:layout_width="match_parent" android:layout_height="80.0dp" android:layout_marginTop="8.0dp" android:src="@drawable/img_premium_content" />
+            <androidx.appcompat.widget.LinearLayoutCompat android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp">
+                <androidx.appcompat.widget.AppCompatImageView android:orientation="horizontal" android:layout_width="0.0dp" android:layout_height="60.0dp" android:layout_marginTop="1.0dp" android:src="@drawable/img_no_ads" android:layout_weight="1.0" android:layout_marginEnd="6.0dp" />
+                <androidx.appcompat.widget.AppCompatImageView android:layout_width="0.0dp" android:layout_height="60.0dp" android:src="@drawable/img_high_quality" android:layout_weight="1.0" android:layout_marginStart="6.0dp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <LinearLayout android:gravity="bottom" android:layout_gravity="bottom" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="163.0dp" android:layout_marginTop="16.0dp">
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:layout_marginEnd="16.0dp">
+                        <LinearLayout android:gravity="center" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/exchangeFeathersLayout" android:background="@drawable/bg_exchange_feathers_normal" android:layout_width="match_parent" android:layout_height="163.0dp">
+                            <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/exchange" android:includeFontPadding="false" android:fontFamily="@font/roboto_medium" />
+                            <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_marginBottom="10.0dp" android:text="@string/my_feathers" android:includeFontPadding="false" android:fontFamily="@font/roboto_medium" />
+                            <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:layout_marginEnd="5.0dp">
+                                <androidx.appcompat.widget.AppCompatImageView android:layout_width="30.0dp" android:layout_height="30.0dp" android:src="@drawable/ic_feathers_right" android:contentDescription="@string/todo" android:layout_marginEnd="10.0dp" />
+                                <TextView android:textSize="22.0sp" android:textColor="#f9be86" android:id="@id/exchangeMyFeathers" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/_20000" android:includeFontPadding="false" android:fontFamily="@font/roboto_medium" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                    <FrameLayout android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/subscriptionLayout" android:background="@drawable/bg_buy_on_sub_selected" android:layout_width="wrap_content" android:layout_height="163.0dp">
+                            <TextView android:textSize="20.0sp" android:textColor="#f9be86" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/buy_on_nsubscription" android:includeFontPadding="false" android:fontFamily="@font/roboto_medium" android:textAlignment="center" />
+                            <androidx.appcompat.widget.AppCompatImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_start_crown" />
+                        </LinearLayout>
+                        <TextView android:textSize="10.0sp" android:gravity="center" android:layout_gravity="end|top" android:id="@id/tvOFF" android:background="@drawable/ic_off_2" android:layout_width="wrap_content" android:layout_height="50.0dp" android:maxLines="2" android:singleLine="false" android:lineSpacingMultiplier="0.9" android:contentDescription="@string/todo" android:fontFamily="@font/roboto_bold" android:layout_marginEnd="16.0dp" />
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.button.MaterialButton android:textSize="24.0sp" android:textColor="@color/black" android:id="@id/btnProceed" android:background="@drawable/bg_proceed_btn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dp" android:layout_marginRight="16.0dp" android:layout_marginBottom="42.0dp" android:text="@string/proceed" android:fontFamily="@font/roboto_medium" android:layout_marginHorizontal="16.0dp" app:backgroundTint="@null" app:layout_constraintBottom_toBottomOf="parent" app:rippleColor="#000000" />
+    <include android:id="@id/includeLoading" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/layout_loading_overlay" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,39 @@
+.class final Lcom/google/android/gms/internal/mlkit_translate/zzr;
+.super Lcom/google/android/gms/internal/mlkit_translate/zzk;
+.source "com.google.mlkit:translate@@17.0.3"
+
+
+# instance fields
+.field private final zza:Lcom/google/android/gms/internal/mlkit_translate/zzt;
+
+
+# direct methods
+.method constructor <init>(Lcom/google/android/gms/internal/mlkit_translate/zzt;I)V
+    .locals 1
+
+    .line 1
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/mlkit_translate/zzt;->size()I
+
+    move-result v0
+
+    invoke-direct {p0, v0, p2}, Lcom/google/android/gms/internal/mlkit_translate/zzk;-><init>(II)V
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/mlkit_translate/zzr;->zza:Lcom/google/android/gms/internal/mlkit_translate/zzt;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method protected final zza(I)Ljava/lang/Object;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/internal/mlkit_translate/zzr;->zza:Lcom/google/android/gms/internal/mlkit_translate/zzt;
+
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/mlkit_translate/zzt;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method

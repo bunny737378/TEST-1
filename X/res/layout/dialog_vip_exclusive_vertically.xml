@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:id="@id/rootLayoutLiveTvSorting" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/bg_bottom_sheet" android:paddingLeft="16.0dp" android:paddingTop="16.0dp" android:paddingRight="16.0dp" android:paddingBottom="44.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16.0dp">
+        <View android:id="@id/dividerCenter" android:background="@drawable/bg_bottom_sheet_divider" android:layout_width="60.0dp" android:layout_height="5.0dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/dividerCenter">
+            <TextView android:textSize="20.0sp" android:textColor="#ff8900" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/vip_exclusive_content" android:fontFamily="@font/roboto_medium" />
+            <TextView android:textSize="14.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/tvVipDescription" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/this_content_you_re_asking_for_is_exclusively_for_vip_users_get_vip_to_unlock_best_experience_best_content_quality_ultra_fast_download_speed_and_vip_services" android:fontFamily="@font/roboto_regular" />
+            <com.google.android.material.button.MaterialButton android:id="@id/btnGetVip" android:background="@drawable/btn_get_vip_now_ripple" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" app:backgroundTint="@null" app:cornerRadius="18.0dp" app:rippleColor="#6a6262" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

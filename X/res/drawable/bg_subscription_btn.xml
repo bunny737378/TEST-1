@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="163.0dp" android:width="190.0dp" android:viewportWidth="190.0" android:viewportHeight="163.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$bg_subscription_btn__0" android:pathData="M28,0L162,0A28,28 0,0 1,190 28L190,135A28,28 0,0 1,162 163L28,163A28,28 0,0 1,0 135L0,28A28,28 0,0 1,28 0z" android:strokeColor="#00000000" android:strokeWidth="5.0" />
+    <path android:fillColor="#00000000" android:pathData="M28,2.5L162,2.5A25.5,25.5 0,0 1,187.5 28L187.5,135A25.5,25.5 0,0 1,162 160.5L28,160.5A25.5,25.5 0,0 1,2.5 135L2.5,28A25.5,25.5 0,0 1,28 2.5z" android:strokeColor="#3e3e3e" android:strokeWidth="5.0" />
+</vector>

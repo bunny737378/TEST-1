@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_bottom_sheet" android:paddingTop="16.0dp" android:paddingBottom="24.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tool="http://schemas.android.com/apk/res-auto">
+    <View android:layout_gravity="center_horizontal" android:background="@drawable/bg_bottom_sheet_divider" android:layout_width="60.0dp" android:layout_height="5.0dp" android:layout_marginBottom="16.0dp" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/layoutAction" android:background="?selectableItemBackground" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="56.0dp" android:paddingHorizontal="16.0dp">
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/ivActionIcon" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_delete" app:tint="@android:color/white"
+          xmlns:app="http://schemas.android.com/apk/res-auto" />
+        <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:id="@id/tvActionLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Delete" android:fontFamily="@font/roboto_medium" android:layout_marginStart="16.0dp" />
+    </LinearLayout>
+</LinearLayout>

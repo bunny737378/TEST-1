@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/bg_main" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/toolbarLayout" android:layout_width="match_parent" android:layout_height="66.0dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/btnBack" android:padding="12.0dp" android:layout_width="42.0dp" android:layout_height="42.0dp" android:src="@drawable/ic_back_arrow" android:layout_centerVertical="true" app:tint="@android:color/white" />
+        <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:id="@id/toolbarTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ongoing_series" android:layout_centerVertical="true" android:fontFamily="@font/roboto_bold" android:layout_toEndOf="@id/btnBack" />
+        <com.gecolux.xonandroid.ui.views.ToolbarActionsView android:id="@id/toolbarActions" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_marginEnd="10.0dp" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/rvOngoingSeries" android:padding="8.0dp" android:layout_width="match_parent" android:layout_height="0.0dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@id/toolbarLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

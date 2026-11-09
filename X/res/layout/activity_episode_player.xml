@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/rootContainer" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent" android:keepScreenOn="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.media3.ui.PlayerView android:id="@id/playerView" android:layout_width="0.0dp" android:layout_height="0.0dp" app:controller_layout_id="@layout/exo_custom_controllers" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:resize_mode="fit" app:use_controller="false" />
+    <ProgressBar android:id="@id/progressBuffering" android:visibility="gone" android:layout_width="56.0dp" android:layout_height="56.0dp" android:indeterminateTint="#ffffff" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <include android:id="@id/panelVipContent" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/dialog_vip_content_horizontal" />
+    <include android:id="@id/panelVipExclusive" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/dialog_vip_exclusive_horizontal" />
+    <include android:id="@id/panelSwitchPlayer" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/dialog_switch_player_horizontal" />
+    <include android:id="@id/panelQualitySelector" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/panel_quality_selector" />
+    <include android:id="@id/panelMoviePlaylist" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/panel_playlist" />
+    <include android:id="@id/includePlayerLoading" layout="@layout/view_player_loading" />
+    <WebView android:id="@id/webViewLoader" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

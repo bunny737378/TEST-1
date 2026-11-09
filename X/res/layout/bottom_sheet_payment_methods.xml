@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/rootLayoutPaymentMethods" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:id="@id/sheetContainer" android:background="@drawable/bg_bottom_sheet_payment_methods" android:paddingLeft="16.0dp" android:paddingTop="24.0dp" android:paddingRight="16.0dp" android:paddingBottom="50.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16.0dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <View android:layout_gravity="center" android:id="@id/dividerCenter" android:background="@drawable/bg_bottom_sheet_divider" android:layout_width="60.0dp" android:layout_height="5.0dp" />
+        <com.google.android.material.card.MaterialCardView android:id="@id/cardUpi" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" app:cardBackgroundColor="@android:color/white" app:cardCornerRadius="32.0dp" app:cardElevation="0.0dp" app:rippleColor="@color/black" app:strokeWidth="0.0dp">
+            <androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_vertical" android:orientation="horizontal" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <androidx.appcompat.widget.AppCompatImageView android:id="@id/ivUpi" android:layout_width="0.0dp" android:layout_height="46.0dp" android:src="@drawable/ic_upi" android:scaleType="fitStart" android:adjustViewBounds="true" android:layout_weight="1.0" />
+                    <androidx.appcompat.widget.LinearLayoutCompat android:gravity="end" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <androidx.appcompat.widget.AppCompatImageView android:id="@id/ivPhonePe" android:layout_width="77.0dp" android:layout_height="22.0dp" android:src="@drawable/ic_phonepe" />
+                        <androidx.appcompat.widget.AppCompatImageView android:id="@id/ivGooglePay" android:layout_width="77.0dp" android:layout_height="20.0dp" android:layout_marginTop="8.0dp" android:src="@drawable/ic_google_p" android:contentDescription="@string/google_pay" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center" android:layout_gravity="center" android:background="@drawable/all_payments_bg" android:layout_width="match_parent" android:layout_height="46.0dp">
+                    <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/ivAmazonPay" android:layout_width="260.0dp" android:layout_height="22.0dp" android:src="@drawable/all_payments_logo" android:scaleType="fitStart" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </com.google.android.material.card.MaterialCardView>
+        <androidx.appcompat.widget.LinearLayoutCompat android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp">
+            <com.google.android.material.card.MaterialCardView android:id="@id/cardEasyPaisa" android:focusable="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="66.0dp" android:layout_weight="1.0" android:layout_marginEnd="7.0dp" app:cardBackgroundColor="@android:color/white" app:cardCornerRadius="32.0dp" app:cardElevation="0.0dp" app:rippleColor="@color/black" app:strokeWidth="0.0dp">
+                <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/ivEasyPaisa" android:layout_width="130.0dp" android:layout_height="32.0dp" android:src="@drawable/ic_easypaisa" />
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView android:id="@id/cardJazzCash" android:focusable="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="66.0dp" android:layout_weight="1.0" android:layout_marginStart="7.0dp" app:cardBackgroundColor="@android:color/white" app:cardCornerRadius="32.0dp" app:cardElevation="0.0dp" app:rippleColor="@color/black" app:strokeWidth="0.0dp">
+                <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/ivJazzCash" android:layout_width="130.0dp" android:layout_height="32.0dp" android:src="@drawable/ic_jazzcash" />
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp">
+            <com.google.android.material.card.MaterialCardView android:id="@id/cardPaypal" android:focusable="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="66.0dp" android:layout_weight="1.0" app:cardBackgroundColor="@android:color/white" app:cardCornerRadius="32.0dp" app:cardElevation="0.0dp" app:rippleColor="@color/black" app:strokeWidth="0.0dp">
+                <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/ivPaypal" android:layout_width="130.0dp" android:layout_height="32.0dp" android:src="@drawable/ic_paypal" />
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView android:id="@id/cardBinance" android:focusable="true" android:clickable="true" android:layout_width="0.0dp" android:layout_height="66.0dp" android:layout_weight="1.0" android:layout_marginStart="7.0dp" app:cardBackgroundColor="@android:color/white" app:cardCornerRadius="32.0dp" app:cardElevation="0.0dp" app:rippleColor="@color/black" app:strokeWidth="0.0dp">
+                <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/ivBinance" android:layout_width="130.0dp" android:layout_height="32.0dp" android:src="@drawable/ic_binance" />
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

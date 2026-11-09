@@ -1,0 +1,13 @@
+.class final Lcom/google/mlkit/nl/translate/internal/zzb;
+.super Ljava/lang/Object;
+.source "com.google.mlkit:translate@@17.0.3"
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method

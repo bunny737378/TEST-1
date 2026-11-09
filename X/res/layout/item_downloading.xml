@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="?selectableItemBackground" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="110.0dp" android:layout_margin="5.0dp" android:paddingVertical="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/thumbnailContainer" android:layout_width="160.0dp" android:layout_height="100.0dp" android:layout_centerVertical="true">
+        <com.makeramen.roundedimageview.RoundedImageView android:id="@id/ivThumbnail" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:riv_border_color="@color/white" app:riv_border_width="2.0dp" app:riv_corner_radius="18.0dp" />
+        <View android:background="@drawable/bg_downloading_overlay" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <FrameLayout android:layout_gravity="center" android:id="@id/btnControlOverlay" android:background="@drawable/bg_download_controls_white_oval" android:focusable="true" android:clickable="true" android:layout_width="50.0dp" android:layout_height="50.0dp">
+            <View android:layout_gravity="center" android:background="@drawable/bg_download_controls_dark_oval" android:layout_width="32.0dp" android:layout_height="32.0dp" />
+            <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/ivControlIcon" android:layout_width="12.0dp" android:layout_height="16.0dp" android:src="@drawable/ic_pause" app:tint="@android:color/white" />
+        </FrameLayout>
+    </FrameLayout>
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/ivMenu" android:background="?selectableItemBackgroundBorderless" android:padding="10.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/ic_more_vert" android:layout_alignParentBottom="true" android:layout_marginEnd="-5.0dp" android:layout_alignParentEnd="true" app:tint="@android:color/white" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/infoLayout" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginStart="12.0dp" android:layout_toStartOf="@id/ivMenu" android:layout_toEndOf="@id/thumbnailContainer">
+        <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:ellipsize="end" android:id="@id/tvTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="2" android:fontFamily="@font/roboto_medium" />
+        <ProgressBar android:id="@id/progressBar" android:visibility="gone" android:layout_width="match_parent" android:layout_height="5.0dp" android:layout_marginTop="5.0dp" android:progress="60" android:progressDrawable="@drawable/bg_downloading_progress" android:layout_below="@id/tvTitle" android:layout_marginEnd="24.0dp" style="?android:progressBarStyleHorizontal" />
+        <TextView android:textSize="14.0sp" android:textColor="#08c6fb" android:ellipsize="end" android:id="@id/tvProgressInfo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:maxLines="1" android:fontFamily="@font/roboto_regular" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/black" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/tvShowName" android:background="@drawable/bg_download_show_name" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="20.0dp" android:layout_marginTop="5.0dp" android:text="Downloading..." android:maxLines="1" android:fontFamily="@font/roboto_medium" android:paddingHorizontal="10.0dp" />
+    </LinearLayout>
+</RelativeLayout>

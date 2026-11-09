@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:layout_gravity="end|bottom" android:id="@id/cardTimerFull" android:layout_width="wrap_content" android:layout_height="52.0dp" android:layout_marginEnd="24.0dp" app:cardBackgroundColor="#b8000000" app:cardCornerRadius="50.0dp" app:cardElevation="0.0dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent" android:animateLayoutChanges="true" android:paddingStart="14.0dp" android:paddingEnd="10.0dp">
+            <androidx.appcompat.widget.LinearLayoutCompat android:gravity="center_vertical" android:id="@id/llFull" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:id="@id/tvTimerLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/free_live_tv_time_remaining" android:fontFamily="@font/roboto_regular" />
+                <TextView android:textSize="18.0sp" android:textColor="#ffc38a" android:id="@id/tvTimerCountFull" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/roboto_medium" android:layout_marginStart="8.0dp" />
+                <TextView android:textSize="12.0sp" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/or_get" android:fontFamily="@font/roboto_regular" android:layout_marginStart="8.0dp" />
+                <com.google.android.material.button.MaterialButton android:textSize="16.0sp" android:textColor="#000000" android:id="@id/btnTimerVip" android:layout_width="80.0dp" android:layout_height="28.0dp" android:text="vip" android:insetTop="0.0dp" android:insetBottom="0.0dp" android:fontFamily="@font/roboto_medium" android:layout_marginStart="8.0dp" app:backgroundTint="#ffc38a" app:cornerRadius="50.0dp" style="@style/Widget.MaterialComponents.Button" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <TextView android:textSize="18.0sp" android:textColor="#ffc38a" android:id="@id/tvTimerCountCompact" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/roboto_medium" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

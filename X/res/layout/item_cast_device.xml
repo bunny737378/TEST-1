@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="60.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/ivDevice" android:layout_width="28.0dp" android:layout_height="28.0dp" android:src="@drawable/ic_cast_tv_logo" app:tint="@color/white" />
+    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/tvDeviceName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Living Room TV" android:layout_marginStart="16.0dp" />
+</LinearLayout>
