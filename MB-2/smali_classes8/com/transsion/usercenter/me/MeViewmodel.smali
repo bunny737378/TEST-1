@@ -1643,7 +1643,7 @@
     .line 213
     .line 214
     .line 215
-    invoke-interface {v2, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    # Hide the top notice link row.
 
     .line 216
     .line 217
@@ -3208,7 +3208,7 @@
     .line 968
     .line 969
     .line 970
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    # Hide the bottom notice link row.
 
     .line 971
     .line 972
