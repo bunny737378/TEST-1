@@ -4,7 +4,7 @@ name: Delete Multiple Folders
 on:
   push:
     paths:
-      - '.github/workflows/delete-folder.yml'
+      - '.github/workflows/d.yml'
 
 permissions:
   contents: write
