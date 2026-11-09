@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/ic_home" android:id="@id/home" android:title="@string/home" />
+    <item android:icon="@drawable/ic_categories" android:id="@id/categories" android:title="@string/categories" />
+    <item android:icon="@drawable/ic_tv" android:id="@id/latest" android:title="@string/latest" />
+    <item android:icon="@drawable/ic_search" android:id="@id/search" android:title="@string/search" />
+    <item android:icon="@drawable/ic_heart" android:id="@id/watchlist" android:title="@string/watchlist" />
+</menu>
