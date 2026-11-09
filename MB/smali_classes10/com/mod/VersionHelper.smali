@@ -152,7 +152,27 @@
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, ",\"os\":\"android\",\"os_version\":\"16\",\"install_ch\":\"google-play\",\"device_id\":\"2c25301e1e8d8f36dad83d86460bf24fe\",\"install_store\":\"gp\",\"gaid\":\"9b9d005f-ddc1-4f19-ba9c-4744807f8125\",\"brand\":\"Samsung\",\"model\":\"SM-S928B\",\"system_language\":\"en\",\"net\":\"WIFI\",\"region\":\"IN\",\"timezone\":\"Asia/Kolkata\",\"sp_code\":\"405863\",\"X-Client-Build\":\"1790144723381916466.632cf3fe507b339bc757f117f85b4c4a\",\"X-Play-Mode\":\"2\",\"X-Idle-Data\":\"1\",\"X-Family-Mode\":\"0\",\"X-Content-Mode\":\"0\"}"
+    const-string v0, ",\"os\":\"android\",\"os_version\":\"16\",\"install_ch\":\"google-play\",\"device_id\":\""
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/mod/VersionHelper;->newDeviceId()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "\",\"install_store\":\"gp\",\"gaid\":\""
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/mod/VersionHelper;->newGaid()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "\",\"brand\":\"Samsung\",\"model\":\"SM-S928B\",\"system_language\":\"en\",\"net\":\"WIFI\",\"region\":\"IN\",\"timezone\":\"Asia/Kolkata\",\"sp_code\":\"405863\",\"X-Play-Mode\":\"2\",\"X-Idle-Data\":\"1\",\"X-Family-Mode\":\"0\",\"X-Content-Mode\":\"0\"}"
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -201,7 +221,7 @@
 
     new-instance v1, Ljava/io/File;
 
-    const-string v2, "version_info.json"
+    const-string v2, "version_info_v2.json"
 
     invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
     :try_end_0
@@ -284,10 +304,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v1}, Lcom/mod/VersionHelper;->maskIdentity(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
     monitor-exit v0
 
     return-object v1
@@ -362,88 +378,7 @@
 .end method
 
 
-.method private static maskIdentity(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
-
-    if-nez p0, :ret
-
-    :try_start_0
-    invoke-static {}, Lcom/mod/VersionHelper;->randHex()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "\"device_id\":\"2c25301e1e8d8f36dad83d86460bf24fe\""
-
-    const-string v2, "\"X-Client-Build\":\"1790144723381916466.632cf3fe507b339bc757f117f85b4c4a\","
-
-    const-string v3, ""
-
-    invoke-virtual {p0, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object p0
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "\"device_id\":\""
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, "\""
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {}, Lcom/mod/VersionHelper;->randGaid()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "\"gaid\":\"9b9d005f-ddc1-4f19-ba9c-4744807f8125\""
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "\"gaid\":\""
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, "\""
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-
-    :ret
-    return-object p0
-
-    :catch_0
-    move-exception v0
-
-    return-object p0
-.end method
-
-.method private static randHex()Ljava/lang/String;
+.method private static newDeviceId()Ljava/lang/String;
     .locals 3
 
     :try_start_0
@@ -475,57 +410,55 @@
     return-object v0
 .end method
 
-.method private static randGaid()Ljava/lang/String;
-    .locals 7
-
-    const-string v0, "9b9d005f-ddc1-4f19-ba9c-4744807f8125"
+.method private static newGaid()Ljava/lang/String;
+    .locals 5
 
     :try_start_0
-    new-instance v1, Ljava/util/Random;
+    new-instance v0, Ljava/util/Random;
 
-    invoke-direct {v1}, Ljava/util/Random;-><init>()V
+    invoke-direct {v0}, Ljava/util/Random;-><init>()V
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/16 v3, 0x8
+    const/4 v2, 0x8
 
-    invoke-static {v1, v2, v3}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
 
-    const-string v4, "-"
+    const-string v3, "-"
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v3, 0x4
+    const/4 v2, 0x4
 
-    invoke-static {v1, v2, v3}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
 
-    const-string v4, "-4"
+    const-string v3, "-4"
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v3, 0x3
+    const/4 v2, 0x3
 
-    invoke-static {v1, v2, v3}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
 
-    const-string v4, "-a"
+    const-string v3, "-a"
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v3, 0x3
+    const/4 v2, 0x3
 
-    invoke-static {v1, v2, v3}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
 
-    const-string v4, "-"
+    const-string v3, "-"
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v3, 0xc
+    const/4 v2, 0xc
 
-    invoke-static {v1, v2, v3}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
+    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
     :try_end_0
@@ -534,7 +467,7 @@
     return-object v0
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
     const-string v0, "9b9d005f-ddc1-4f19-ba9c-4744807f8125"
 

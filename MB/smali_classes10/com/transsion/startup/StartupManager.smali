@@ -1208,7 +1208,9 @@
     :goto_1
     sget-object v8, Leh/b;->a:Leh/b$a;
 
-    # X-Client-Build header removed
+    const-string v9, "X-Client-Build"
+
+    invoke-virtual {v8, v9, v6}, Leh/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {v1}, Lcom/transsion/baselib/report/launch/b;->b()Lcom/tencent/mmkv/MMKV;
 
