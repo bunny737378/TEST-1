@@ -1027,25 +1027,7 @@
 .method public static getVersionName()Ljava/lang/String;
     .locals 3
 
-    # API version from VersionHelper wins over the installed package version
     :try_start_0
-    invoke-static {}, Lcom/mod/VersionHelper;->apiVersionName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    return-object v0
-
-    :cond_1
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
-
-    :try_start_1
     invoke-static {}, Lcom/transsion/api/gateway/utils/ContextUtils;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1067,9 +1049,8 @@
     if-eqz v0, :cond_0
 
     iget-object v0, v0, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
-
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
@@ -1079,13 +1060,6 @@
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     :cond_0
-    const-string v0, ""
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v0
-
     const-string v0, ""
 
     :goto_0
