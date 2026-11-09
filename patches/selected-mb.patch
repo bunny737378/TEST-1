@@ -1,0 +1,702 @@
+diff --git a/MB/smali_classes10/com/mod/ClientBuild.smali b/MB/smali_classes10/com/mod/ClientBuild.smali
+new file mode 100644
+index 0000000..c57d961
+--- /dev/null
++++ b/MB/smali_classes10/com/mod/ClientBuild.smali
+@@ -0,0 +1,257 @@
++.class public final Lcom/mod/ClientBuild;
++.super Ljava/lang/Object;
++
++
++# static fields
++.field private static final CERT:Ljava/lang/String; = "03d4b741632d136bc23e2de4c6adcdb7712f1980b619c183221801730bbd0410"
++
++
++# direct methods
++.method public constructor <init>()V
++    .locals 0
++
++    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
++
++    return-void
++.end method
++
++.method public static gen()Ljava/lang/String;
++    .locals 14
++
++    # v0,v1   = ms (wide)
++    # v2,v3   = sec (wide)
++    # v4,v5   = usec (wide)
++    # v6,v7   = scratch wide
++    # v8      = body (String)
++    # v9      = result (String)
++    # v10     = StringBuilder / digest (String)
++    # v11     = StringBuilder (String)
++    # v12     = Random
++    # v13     = int scratch
++    const-string v9, ""
++
++    :try_start_0
++    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
++
++    move-result-wide v0
++
++    const-wide/16 v2, 0x3e8
++
++    div-long v2, v0, v2
++
++    const-wide/16 v4, 0x3e8
++
++    rem-long v4, v0, v4
++
++    const-wide/16 v6, 0x3e8
++
++    mul-long/2addr v4, v6
++
++    new-instance v10, Ljava/lang/StringBuilder;
++
++    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
++
++    invoke-virtual {v10, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
++
++    invoke-static {v4, v5}, Lcom/mod/ClientBuild;->pad6(J)Ljava/lang/String;
++
++    move-result-object v8
++
++    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    new-instance v12, Ljava/util/Random;
++
++    invoke-direct {v12}, Ljava/util/Random;-><init>()V
++
++    const/16 v13, 0x3e8
++
++    invoke-virtual {v12, v13}, Ljava/util/Random;->nextInt(I)I
++
++    move-result v13
++
++    invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
++
++    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++
++    move-result-object v8
++
++    new-instance v11, Ljava/lang/StringBuilder;
++
++    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
++
++    const-string v10, "03d4b741632d136bc23e2de4c6adcdb7712f1980b619c183221801730bbd0410"
++
++    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    const-string v10, "oneroom"
++
++    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++
++    move-result-object v10
++
++    invoke-static {v10}, Lcom/mod/ClientBuild;->md5(Ljava/lang/String;)Ljava/lang/String;
++
++    move-result-object v10
++
++    new-instance v11, Ljava/lang/StringBuilder;
++
++    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
++
++    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    const-string v12, "."
++
++    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++
++    move-result-object v9
++    :try_end_0
++    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
++
++    return-object v9
++
++    :catch_0
++    move-exception v0
++
++    const-string v9, ""
++
++    return-object v9
++.end method
++
++.method private static pad6(J)Ljava/lang/String;
++    .locals 5
++
++    invoke-static {p0, p1}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
++
++    move-result-object v0
++
++    :goto_0
++    invoke-virtual {v0}, Ljava/lang/String;->length()I
++
++    move-result v1
++
++    const/4 v2, 0x6
++
++    if-ge v1, v2, :done
++
++    new-instance v3, Ljava/lang/StringBuilder;
++
++    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
++
++    const-string v4, "0"
++
++    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++
++    move-result-object v0
++
++    goto :goto_0
++
++    :done
++    return-object v0
++.end method
++
++.method public static md5(Ljava/lang/String;)Ljava/lang/String;
++    .locals 4
++
++    :try_start_0
++    const-string v0, "MD5"
++
++    invoke-static {v0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
++
++    move-result-object v0
++
++    sget-object v1, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
++
++    invoke-virtual {p0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
++
++    move-result-object v1
++
++    invoke-virtual {v0, v1}, Ljava/security/MessageDigest;->digest([B)[B
++
++    move-result-object v0
++
++    invoke-static {v0}, Lcom/mod/ClientBuild;->hex([B)Ljava/lang/String;
++
++    move-result-object v0
++    :try_end_0
++    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
++
++    return-object v0
++
++    :catch_0
++    move-exception v0
++
++    const-string v0, ""
++
++    return-object v0
++.end method
++
++.method private static hex([B)Ljava/lang/String;
++    .locals 7
++
++    if-eqz p0, :null_ret
++
++    array-length v0, p0
++
++    mul-int/lit8 v1, v0, 0x2
++
++    new-array v2, v1, [C
++
++    const-string v3, "0123456789abcdef"
++
++    const/4 v4, 0x0
++
++    :goto_0
++    if-ge v4, v0, :done
++
++    aget-byte v5, p0, v4
++
++    and-int/lit16 v5, v5, 0xff
++
++    mul-int/lit8 v6, v4, 0x2
++
++    ushr-int/lit8 v1, v5, 0x4
++
++    invoke-virtual {v3, v1}, Ljava/lang/String;->charAt(I)C
++
++    move-result v1
++
++    aput-char v1, v2, v6
++
++    add-int/lit8 v6, v6, 0x1
++
++    and-int/lit8 v1, v5, 0xf
++
++    invoke-virtual {v3, v1}, Ljava/lang/String;->charAt(I)C
++
++    move-result v1
++
++    aput-char v1, v2, v6
++
++    add-int/lit8 v4, v4, 0x1
++
++    goto :goto_0
++
++    :done
++    new-instance v0, Ljava/lang/String;
++
++    invoke-direct {v0, v2}, Ljava/lang/String;-><init>([C)V
++
++    return-object v0
++
++    :null_ret
++    const-string v0, ""
++
++    return-object v0
++.end method
+diff --git a/MB/smali_classes10/com/mod/VersionHelper.smali b/MB/smali_classes10/com/mod/VersionHelper.smali
+index 31e8302..7885aab 100644
+--- a/MB/smali_classes10/com/mod/VersionHelper.smali
++++ b/MB/smali_classes10/com/mod/VersionHelper.smali
+@@ -152,7 +152,27 @@
+ 
+     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    const-string v0, ",\"os\":\"android\",\"os_version\":\"16\",\"install_ch\":\"google-play\",\"device_id\":\"2c25301e1e8d8f36dad83d86460bf24fe\",\"install_store\":\"gp\",\"gaid\":\"9b9d005f-ddc1-4f19-ba9c-4744807f8125\",\"brand\":\"Samsung\",\"model\":\"SM-S928B\",\"system_language\":\"en\",\"net\":\"WIFI\",\"region\":\"IN\",\"timezone\":\"Asia/Kolkata\",\"sp_code\":\"405863\",\"X-Client-Build\":\"1790144723381916466.632cf3fe507b339bc757f117f85b4c4a\",\"X-Play-Mode\":\"2\",\"X-Idle-Data\":\"1\",\"X-Family-Mode\":\"0\",\"X-Content-Mode\":\"0\"}"
++    const-string v0, ",\"os\":\"android\",\"os_version\":\"16\",\"install_ch\":\"google-play\",\"device_id\":\""
++
++    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    invoke-static {}, Lcom/mod/VersionHelper;->newDeviceId()Ljava/lang/String;
++
++    move-result-object v0
++
++    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    const-string v0, "\",\"install_store\":\"gp\",\"gaid\":\""
++
++    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    invoke-static {}, Lcom/mod/VersionHelper;->newGaid()Ljava/lang/String;
++
++    move-result-object v0
++
++    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    const-string v0, "\",\"brand\":\"Samsung\",\"model\":\"SM-S928B\",\"system_language\":\"en\",\"net\":\"WIFI\",\"region\":\"IN\",\"timezone\":\"Asia/Kolkata\",\"sp_code\":\"405863\",\"X-Play-Mode\":\"2\",\"X-Idle-Data\":\"1\",\"X-Family-Mode\":\"0\",\"X-Content-Mode\":\"0\"}"
+ 
+     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+@@ -201,7 +221,7 @@
+ 
+     new-instance v1, Ljava/io/File;
+ 
+-    const-string v2, "version_info.json"
++    const-string v2, "version_info_v2.json"
+ 
+     invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+     :try_end_0
+@@ -356,3 +376,162 @@
+ 
+     return-object v0
+ .end method
++
++
++.method private static newDeviceId()Ljava/lang/String;
++    .locals 3
++
++    new-instance v0, Ljava/util/Random;
++
++    invoke-direct {v0}, Ljava/util/Random;-><init>()V
++
++    new-instance v1, Ljava/lang/StringBuilder;
++
++    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
++
++    const/16 v2, 0x21
++
++    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
++
++    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++
++    move-result-object v0
++
++    return-object v0
++.end method
++
++.method private static newGaid()Ljava/lang/String;
++    .locals 5
++
++    new-instance v0, Ljava/util/Random;
++
++    invoke-direct {v0}, Ljava/util/Random;-><init>()V
++
++    new-instance v1, Ljava/lang/StringBuilder;
++
++    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
++
++    const/16 v2, 0x8
++
++    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
++
++    const-string v3, "-"
++
++    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    const/16 v2, 0x4
++
++    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
++
++    const-string v3, "-4"
++
++    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    const/16 v2, 0x3
++
++    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
++
++    const-string v3, "-a"
++
++    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    const/16 v2, 0x3
++
++    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
++
++    const-string v3, "-"
++
++    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++
++    const/16 v2, 0xc
++
++    invoke-static {v0, v1, v2}, Lcom/mod/VersionHelper;->appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
++
++    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++
++    move-result-object v0
++
++    return-object v0
++.end method
++
++.method private static appendHex(Ljava/util/Random;Ljava/lang/StringBuilder;I)V
++    .locals 4
++
++    const-string v0, "0123456789abcdef"
++
++    const/4 v1, 0x0
++
++    :goto_0
++    if-ge v1, p2, :done
++
++    const/16 v2, 0x10
++
++    invoke-virtual {p0, v2}, Ljava/util/Random;->nextInt(I)I
++
++    move-result v2
++
++    invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
++
++    move-result v2
++
++    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
++
++    add-int/lit8 v1, v1, 0x1
++
++    goto :goto_0
++
++    :done
++    return-void
++.end method
++
++# Refresh identity for each request, without changing cached version metadata.
++.method public static refreshIdentity(Ljava/lang/String;)Ljava/lang/String;
++    .locals 3
++
++    if-eqz p0, :return_original
++
++    invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
++
++    move-result v0
++
++    if-nez v0, :return_original
++
++    :try_start_0
++    new-instance v0, Lorg/json/JSONObject;
++
++    invoke-direct {v0, p0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
++
++    const-string v1, "device_id"
++
++    invoke-static {}, Lcom/mod/VersionHelper;->newDeviceId()Ljava/lang/String;
++
++    move-result-object v2
++
++    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
++
++    const-string v1, "gaid"
++
++    invoke-static {}, Lcom/mod/VersionHelper;->newGaid()Ljava/lang/String;
++
++    move-result-object v2
++
++    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
++
++    const-string v1, "X-Client-Build"
++
++    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->remove(Ljava/lang/String;)Ljava/lang/Object;
++
++    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
++
++    move-result-object v0
++    :try_end_0
++    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
++
++    return-object v0
++
++    :catch_0
++    move-exception v0
++
++    :return_original
++    return-object p0
++.end method
+diff --git a/MB/smali_classes10/com/transsion/startup/StartupManager.smali b/MB/smali_classes10/com/transsion/startup/StartupManager.smali
+index 0c7c97d..ff44467 100644
+--- a/MB/smali_classes10/com/transsion/startup/StartupManager.smali
++++ b/MB/smali_classes10/com/transsion/startup/StartupManager.smali
+@@ -1210,7 +1210,9 @@
+ 
+     const-string v9, "X-Client-Build"
+ 
+-    const-string v6, "1790144723381916466.632cf3fe507b339bc757f117f85b4c4a"
++    invoke-static {}, Lcom/mod/ClientBuild;->gen()Ljava/lang/String;
++
++    move-result-object v6
+ 
+     invoke-virtual {v8, v9, v6}, Leh/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
+ 
+@@ -1379,9 +1381,9 @@
+ 
+     const/4 v4, 0x0
+ 
+-    invoke-virtual {v2, v8, v4}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
++    invoke-virtual {v2, v8, v4}, Lcom/tencent/mmkv/MMKV;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+ 
+-    move-result v2
++    const/4 v2, 0x0
+ 
+     if-eqz v2, :cond_a
+ 
+@@ -1390,7 +1392,7 @@
+     goto :goto_6
+ 
+     :cond_a
+-    move-object v2, v5
++    move-object v2, v6
+ 
+     :goto_6
+     const-string v4, "X-Idle-Data"
+diff --git a/MB/smali_classes10/com/transsion/usercenter/setting/SettingActivity.smali b/MB/smali_classes10/com/transsion/usercenter/setting/SettingActivity.smali
+index 6ce08f8..d62c2cf 100644
+--- a/MB/smali_classes10/com/transsion/usercenter/setting/SettingActivity.smali
++++ b/MB/smali_classes10/com/transsion/usercenter/setting/SettingActivity.smali
+@@ -2005,7 +2005,7 @@
+ 
+     invoke-direct/range {v2 .. v14}, Lgy/b;-><init>(ILcom/transsion/usercenter/setting/bean/UserSettingType;Ljava/lang/String;Ljava/lang/Integer;ILjava/lang/String;ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    invoke-interface {v1, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: notifications
+ 
+     iget-object v1, v0, Lcom/transsion/usercenter/setting/SettingActivity;->c:Ljava/util/List;
+ 
+@@ -2146,7 +2146,7 @@
+ 
+     move-result-object v2
+ 
+-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: privacy settings
+ 
+     iget-object v1, v0, Lcom/transsion/usercenter/setting/SettingActivity;->c:Ljava/util/List;
+ 
+@@ -2245,7 +2245,7 @@
+ 
+     invoke-direct/range {v2 .. v14}, Lgy/b;-><init>(ILcom/transsion/usercenter/setting/bean/UserSettingType;Ljava/lang/String;Ljava/lang/Integer;ILjava/lang/String;ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    invoke-interface {v1, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: check update
+ 
+     invoke-virtual/range {p0 .. p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+ 
+@@ -2331,7 +2331,7 @@
+ 
+     invoke-direct/range {v3 .. v15}, Lgy/b;-><init>(ILcom/transsion/usercenter/setting/bean/UserSettingType;Ljava/lang/String;Ljava/lang/Integer;ILjava/lang/String;ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: about us
+ 
+     iget-object v1, v0, Lcom/transsion/usercenter/setting/SettingActivity;->c:Ljava/util/List;
+ 
+@@ -2363,7 +2363,7 @@
+ 
+     invoke-direct/range {v2 .. v14}, Lgy/b;-><init>(ILcom/transsion/usercenter/setting/bean/UserSettingType;Ljava/lang/String;Ljava/lang/Integer;ILjava/lang/String;ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+-    invoke-interface {v1, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: privacy policy
+ 
+     invoke-direct/range {p0 .. p0}, Lcom/transsion/usercenter/setting/SettingActivity;->Q0()Lcom/transsnet/loginapi/ILoginApi;
+ 
+@@ -2393,7 +2393,7 @@
+ 
+     move-result-object v4
+ 
+-    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: user agreement
+ 
+     invoke-direct/range {p0 .. p0}, Lcom/transsion/usercenter/setting/SettingActivity;->Q0()Lcom/transsnet/loginapi/ILoginApi;
+ 
+diff --git a/MB/smali_classes10/com/transsion/usercenter/setting/SettingPrivacyDataActivity.smali b/MB/smali_classes10/com/transsion/usercenter/setting/SettingPrivacyDataActivity.smali
+index d310db7..24af09b 100644
+--- a/MB/smali_classes10/com/transsion/usercenter/setting/SettingPrivacyDataActivity.smali
++++ b/MB/smali_classes10/com/transsion/usercenter/setting/SettingPrivacyDataActivity.smali
+@@ -92,9 +92,9 @@
+ 
+     const/4 v2, 0x0
+ 
+-    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
++    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+ 
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     iput-boolean v0, p0, Lcom/transsion/usercenter/setting/SettingPrivacyDataActivity;->b:Z
+ 
+@@ -157,21 +157,17 @@
+ 
+     move-result-object p1
+ 
+-    const/4 v1, 0x1
++    const/4 v1, 0x0
+ 
+     invoke-virtual {p1, v0, v1}, Lcom/tencent/mmkv/MMKV;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+ 
+     :goto_0
+-    iget-boolean p1, p0, Lcom/transsion/usercenter/setting/SettingPrivacyDataActivity;->b:Z
+-
+-    xor-int/lit8 v0, p1, 0x1
++    const/4 v0, 0x0
+ 
+     iput-boolean v0, p0, Lcom/transsion/usercenter/setting/SettingPrivacyDataActivity;->b:Z
+ 
+     sget-object v0, Leh/b;->a:Leh/b$a;
+ 
+-    if-nez p1, :cond_1
+-
+     const-string p1, "1"
+ 
+     goto :goto_1
+diff --git a/MB/smali_classes10/eh/c.smali b/MB/smali_classes10/eh/c.smali
+index 4bf416e..9ae883b 100644
+--- a/MB/smali_classes10/eh/c.smali
++++ b/MB/smali_classes10/eh/c.smali
+@@ -31,6 +31,10 @@
+ 
+     move-result-object v0
+ 
++    invoke-static {v0}, Lcom/mod/VersionHelper;->refreshIdentity(Ljava/lang/String;)Ljava/lang/String;
++
++    move-result-object v0
++
+     invoke-virtual {p1}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
+ 
+     move-result-object p1
+@@ -79,10 +83,6 @@
+ 
+     move-result v1
+ 
+-    if-eqz v1, :cond_0
+-
+-    return-object p1
+-
+     :cond_0
+     invoke-virtual {p1}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
+ 
+@@ -126,6 +126,15 @@
+     goto :goto_0
+ 
+     :cond_1
++    # every request gets a freshly generated X-Client-Build (never a cached one)
++    const-string v2, "X-Client-Build"
++
++    invoke-static {}, Lcom/mod/ClientBuild;->gen()Ljava/lang/String;
++
++    move-result-object v1
++
++    invoke-virtual {p1, v2, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
++
+     invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+ 
+     move-result-object p1
+diff --git a/MB/smali_classes8/com/transsion/usercenter/me/MeViewmodel.smali b/MB/smali_classes8/com/transsion/usercenter/me/MeViewmodel.smali
+index 34071cd..4817195 100644
+--- a/MB/smali_classes8/com/transsion/usercenter/me/MeViewmodel.smali
++++ b/MB/smali_classes8/com/transsion/usercenter/me/MeViewmodel.smali
+@@ -1944,7 +1944,7 @@
+     .line 353
+     .line 354
+     .line 355
+-    invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: reward center
+ 
+     .line 356
+     .line 357
+@@ -2327,7 +2327,7 @@
+     .line 545
+     .line 546
+     .line 547
+-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: messages
+ 
+     .line 548
+     .line 549
+@@ -2443,7 +2443,7 @@
+     .line 603
+     .line 604
+     .line 605
+-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: tv_download_web_link
+ 
+     .line 606
+     .line 607
+@@ -2585,7 +2585,7 @@
+     .line 672
+     .line 673
+     .line 674
+-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: myrooms
+ 
+     .line 675
+     .line 676
+@@ -2669,7 +2669,7 @@
+     .line 714
+     .line 715
+     .line 716
+-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: my_activity
+ 
+     .line 717
+     .line 718
+@@ -3154,7 +3154,7 @@
+     .line 941
+     .line 942
+     .line 943
+-    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    # row removed: feedback
+ 
+     .line 944
+     .line 945
