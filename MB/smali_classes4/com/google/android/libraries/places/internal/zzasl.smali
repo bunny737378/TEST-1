@@ -1,2 +1,0 @@
-.class public final synthetic Lcom/google/android/libraries/places/internal/zzasl;
-.super Ljava/lang/Object;

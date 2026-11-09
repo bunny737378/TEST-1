@@ -1,2 +1,0 @@
-.class public abstract Lgv/a;
-.super Ljava/lang/Object;

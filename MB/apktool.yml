@@ -7,8 +7,8 @@ sdkInfo:
   minSdkVersion: 23
   targetSdkVersion: 35
 versionInfo:
-  versionCode: 50020133
-  versionName: 4.0.03.1028.03
+  versionCode: 50020126
+  versionName: 4.0.02.0831.02
 resourcesInfo:
   packageId: 127
 doNotCompress:
@@ -19,24 +19,7 @@ doNotCompress:
 - ogg
 - png
 - webp
-- META-INF/com/android/build/gradle/app-metadata.properties
-- META-INF/com/pangle/global/pag-sdk/verification.properties
-- META-INF/services/ik.b
-- META-INF/services/ik.c
-- META-INF/services/javax.annotation.processing.Processor
-- META-INF/services/javax.script.ScriptEngineFactory
-- META-INF/services/javax.ws.rs.ext.MessageBodyReader
-- META-INF/services/javax.ws.rs.ext.MessageBodyWriter
-- META-INF/services/javax.ws.rs.ext.Providers
-- META-INF/services/kotlinx.coroutines.internal.n
-- META-INF/services/kotlinx.coroutines.j0
-- META-INF/services/org.glassfish.jersey.internal.spi.AutoDiscoverable
-- META-INF/version-control-info.textproto
 - assets/dexopt/baseline.prof
 - assets/dexopt/baseline.profm
-- assets/mini_offline/100000/100000.zip
-- assets/mini_offline/1000681057309249536/1000681057309249536.zip
-- okhttp3/internal/publicsuffix/publicsuffixes.gz
-- org/apache/tools/ant/version.txt
 - res/raw/com_android_billingclient_heterodyne_info
 - res/raw/com_android_billingclient_registration_info.binarypb

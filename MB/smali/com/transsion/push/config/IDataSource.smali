@@ -1,5 +1,6 @@
 .class public interface abstract Lcom/transsion/push/config/IDataSource;
 .super Ljava/lang/Object;
+.source "source.java"
 
 
 # virtual methods

@@ -1,5 +1,6 @@
 .class interface abstract Landroid/support/v4/media/session/MediaControllerCompat$b;
 .super Ljava/lang/Object;
+.source "source.java"
 
 
 # annotations

@@ -1,5 +1,6 @@
 .class public interface abstract Lcom/transsion/postdetailapi/IPostDetailApi;
 .super Ljava/lang/Object;
+.source "source.java"
 
 
 # annotations
