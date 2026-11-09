@@ -1,5 +1,6 @@
 .class public interface abstract Lcom/transsion/baselib/db/video/IShortTvFavoriteStateDao;
 .super Ljava/lang/Object;
+.source "source.java"
 
 
 # annotations

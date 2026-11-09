@@ -1,5 +1,6 @@
 .class public interface abstract Landroid/support/v4/media/session/b;
 .super Ljava/lang/Object;
+.source "source.java"
 
 # interfaces
 .implements Landroid/os/IInterface;

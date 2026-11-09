@@ -1,5 +1,6 @@
 .class interface abstract Landroid/support/v4/media/MediaBrowserCompat$c$b;
 .super Ljava/lang/Object;
+.source "source.java"
 
 
 # annotations
