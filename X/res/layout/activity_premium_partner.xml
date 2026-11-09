@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/toolbar_premium" />
+    <androidx.core.widget.NestedScrollView android:background="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content" android:fillViewport="true">
+        <LinearLayout android:orientation="vertical" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="16.0dp">
+            <com.makeramen.roundedimageview.RoundedImageView android:layout_width="match_parent" android:layout_height="232.0dp" android:layout_marginTop="16.0dp" android:src="@drawable/ic_proceed_image" android:scaleType="centerCrop" app:riv_corner_radius="8.0dp" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp">
+                <TextView android:textSize="42.0sp" android:textColor="#f0ba85" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1" android:fontFamily="@font/roboto_bold" />
+                <View android:layout_gravity="bottom" android:background="@drawable/bg_step_circle" android:layout_width="8.0dp" android:layout_height="8.0dp" android:layout_marginBottom="6.0dp" />
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="12.0dp">
+                    <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Step 1" android:fontFamily="@font/roboto_medium" />
+                    <TextView android:textSize="15.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Install SavePlus app" android:fontFamily="@font/roboto_regular" />
+                </LinearLayout>
+                <com.google.android.material.button.MaterialButton android:textSize="16.0sp" android:textColor="@android:color/black" android:layout_gravity="center_vertical" android:id="@id/btnInstall" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Install" android:fontFamily="@font/roboto_regular" android:paddingVertical="10.0dp" app:backgroundTint="#ffff" app:cornerRadius="18.0dp" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp">
+                <TextView android:textSize="42.0sp" android:textColor="#f0ba85" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2" android:fontFamily="@font/roboto_bold" />
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="12.0dp">
+                    <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Step 2" android:fontFamily="@font/roboto_medium" />
+                    <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Login in SavePlus app using same email" android:fontFamily="@font/roboto_regular" />
+                    <TextView android:textSize="14.0sp" android:textColor="#08c6fb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:text="avensapps@gmail.com" android:fontFamily="@font/roboto_regular" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp">
+                <TextView android:textSize="42.0sp" android:textColor="#f0ba85" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3" android:fontFamily="@font/roboto_bold" />
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="12.0dp">
+                    <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Step 3" android:fontFamily="@font/roboto_medium" />
+                    <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Get subscription in SavePlus" android:fontFamily="@font/roboto_regular" />
+                </LinearLayout>
+            </LinearLayout>
+            <TextView android:textSize="14.0sp" android:textColor="#a0a4b2" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:text="SavePlus is our official partner. When you subscribe through SavePlus, your subscription will be activated in both apps—SavePlus and XON. Just log in to both apps using the same account." android:lineSpacingExtra="2.0dp" android:fontFamily="@font/roboto_regular" />
+            <com.google.android.material.button.MaterialButton android:textSize="18.0sp" android:textColor="@color/black" android:id="@id/btnProceed" android:background="@drawable/bg_proceed_btn" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:text="Watch Video" android:fontFamily="@font/roboto_regular" app:backgroundTint="@null" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>

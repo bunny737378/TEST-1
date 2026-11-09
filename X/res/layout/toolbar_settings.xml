@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat android:paddingTop="16.0dp" android:paddingBottom="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/backArrow" android:padding="10.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/ic_back_arrow" android:contentDescription="@string/todo" android:layout_marginStart="10.0dp" app:tint="@android:color/white" />
+    <TextView android:textSize="24.0sp" android:textColor="@android:color/white" android:layout_gravity="center_vertical" android:id="@id/tvLoginTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="2.0dp" android:text="@string/app_settings" android:fontFamily="@font/roboto_medium" android:layout_marginStart="16.0dp" />
+</androidx.appcompat.widget.LinearLayoutCompat>

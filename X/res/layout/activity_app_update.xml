@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/bg_home_live_tv" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@id/bottom" android:fadeScrollbars="true" android:overScrollMode="never">
+        <LinearLayout android:orientation="vertical" android:id="@id/card_update_dialog" android:paddingBottom="28.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="end" android:id="@id/iv_close" android:background="?selectableItemBackgroundBorderless" android:layout_width="50.0dp" android:layout_height="50.0dp" android:layout_marginTop="50.0dp" android:src="@drawable/iv_close_update" android:layout_marginEnd="16.0dp" />
+            <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center|top" android:id="@id/iv_app_logo" android:layout_width="118.0dp" android:layout_height="124.0dp" android:layout_marginTop="50.0dp" android:src="@drawable/xon_logo" android:elevation="6.0dp" />
+            <Space android:layout_width="match_parent" android:layout_height="8.0dp" />
+            <TextView android:textSize="32.0sp" android:textStyle="bold" android:textColor="#ffffff" android:gravity="center" android:id="@id/tv_update_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/update_available" android:fontFamily="@font/arial_black" android:layout_marginStart="24.0dp" android:layout_marginEnd="24.0dp" />
+            <TextView android:textSize="16.0sp" android:textColor="#a0a4b2" android:gravity="center" android:id="@id/tv_update_description" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/you_re_using_an_older_version_that_is_no_longer_supported_please_update_now_to_continue" android:lineSpacingMultiplier="1.35" android:fontFamily="@font/roboto_regular" android:layout_marginStart="36.0dp" android:layout_marginEnd="36.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14.0dp">
+                <TextView android:textSize="20.0sp" android:textColor="#a0a4b2" android:id="@id/tv_old_version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.18.1" android:fontFamily="@font/roboto_regular" />
+                <androidx.appcompat.widget.AppCompatImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_double_arrow_right" android:tint="#a0a4b2" android:contentDescription="@null" android:layout_marginStart="6.0dp" android:layout_marginEnd="6.0dp" />
+                <TextView android:textSize="20.0sp" android:textColor="#ffffff" android:id="@id/tv_new_version" android:background="@drawable/bg_version_badge" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.18.5" android:fontFamily="@font/roboto_regular" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" />
+            </LinearLayout>
+            <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="#ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="32.0dp" android:text="@string/what_s_new" android:fontFamily="@font/roboto_medium" android:layout_marginStart="24.0dp" />
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="24.0dp" android:paddingEnd="24.0dp">
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp" android:layout_marginBottom="24.0dp">
+                    <TextView android:textSize="15.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_marginEnd="8.0dp" />
+                    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <TextView android:textSize="20.0sp" android:textColor="#a0a4b2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/performance_boosts" android:fontFamily="@font/roboto_medium" />
+                        <TextView android:textSize="20.0sp" android:textColor="#a0a4b2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:text="@string/we_ve_optimized_background_processes_so_the_app_feels_smoother_and_faster_even_though_you_probably_won_t_notice_we_promise_it_s_there" android:lineSpacingMultiplier="1.3" android:fontFamily="@font/roboto_regular" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="24.0dp">
+                    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <TextView android:textSize="20.0sp" android:textColor="#a0a4b2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bug_fixes_sort_of" android:fontFamily="@font/roboto_medium" />
+                        <TextView android:textSize="20.0sp" android:textColor="#a0a4b2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:text="@string/we_squashed_bugs_that_weren_t_really_bugs_but_it_makes_us_look_busy" android:lineSpacingMultiplier="1.3" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="24.0dp">
+                    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <TextView android:textSize="20.0sp" android:textColor="#a0a4b2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hidden_feature" android:fontFamily="@font/roboto_medium" />
+                        <TextView android:textSize="20.0sp" android:textColor="#a0a4b2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:text="@string/there_s_a_secret_option_buried_somewhere_in_the_settings_finding_it_is_half_the_fun" android:lineSpacingMultiplier="1.3" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="4.0dp">
+                    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <TextView android:textSize="20.0sp" android:textColor="#a0a4b2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/user_happiness_upgrade" android:fontFamily="@font/roboto_regular" />
+                        <TextView android:textSize="20.0sp" android:textColor="#a0a4b2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:text="@string/just_opening_the_app_now_increases_joy_by_17_according_to_our_imaginary_research_team" android:lineSpacingMultiplier="1.3" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <androidx.appcompat.widget.LinearLayoutCompat android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/bottom" android:background="@drawable/bg_bottom_sheet_rounded_app_update" android:layout_width="match_parent" android:layout_height="172.0dp" android:layout_alignParentBottom="true">
+        <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center" android:orientation="horizontal" android:paddingTop="16.0dp" android:paddingBottom="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="16.0dp">
+            <androidx.appcompat.widget.AppCompatImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_verified_tested" android:contentDescription="@null" android:layout_marginEnd="5.0dp" />
+            <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="#4fc3f7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:text="@string/verified_amp_tested" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/ll_dual_buttons" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" android:layout_marginStart="24.0dp" android:layout_marginEnd="24.0dp">
+            <com.google.android.material.button.MaterialButton android:textSize="24.0sp" android:textColor="#ffffff" android:id="@id/btn_watch" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="60.0dp" android:text="Watch" android:layout_weight="1.0" android:fontFamily="@font/roboto_regular" android:layout_marginEnd="10.0dp" app:backgroundTint="@android:color/transparent" app:cornerRadius="24.0dp" app:rippleColor="#000000" app:strokeColor="@color/white" app:strokeWidth="1.0dp" />
+            <com.google.android.material.button.MaterialButton android:textSize="24.0sp" android:textColor="#1c1d22" android:id="@id/btn_update" android:layout_width="0.0dp" android:layout_height="60.0dp" android:text="Update Now" android:layout_weight="1.0" android:fontFamily="@font/roboto_regular" android:layout_marginEnd="10.0dp" app:backgroundTint="@color/white" app:cornerRadius="24.0dp" app:rippleColor="#000000" app:strokeColor="@color/white" app:strokeWidth="1.0dp" />
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</RelativeLayout>

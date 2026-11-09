@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/llCategoryItem" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/btnCategory" android:background="@drawable/bg_category_first_selected" android:padding="8.0dp" android:layout_width="42.0dp" android:layout_height="42.0dp" android:src="@drawable/ic_category_first_selected" android:scaleType="centerInside" />
+    <TextView android:textColor="#ffff" android:id="@id/tv_category" android:background="@drawable/bg_category_item_unselected" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:paddingHorizontal="20.0dp" style="@style/GameTypeButton" />
+</LinearLayout>

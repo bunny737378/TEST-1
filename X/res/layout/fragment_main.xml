@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/bg_main" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.tabs.TabLayout android:id="@id/tab_layout" android:background="@null" android:layout_width="0.0dp" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:tabIndicatorColor="@color/white" app:tabIndicatorFullWidth="false" app:tabMode="scrollable" app:tabPaddingEnd="24.0dp" app:tabPaddingStart="24.0dp" app:tabRippleColor="@null" app:tabSelectedTextColor="@color/white" app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1" app:tabTextColor="#509189" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/layoutLiveFragment" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="match_parent" android:layout_height="60.0dp" android:layout_marginTop="4.0dp" android:layout_marginBottom="16.0dp" android:paddingHorizontal="16.0dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tab_layout">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/btnHome" android:background="@drawable/live_btn_selector" android:padding="8.0dp" android:layout_width="42.0dp" android:layout_height="40.0dp">
+            <ImageView android:id="@id/iconHome" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_live_home" app:tint="@color/white" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/btnDetails" android:background="@drawable/live_btn_selector" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="wrap_content" android:layout_height="40.0dp" android:layout_marginStart="10.0dp" android:paddingHorizontal="16.0dp">
+            <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:id="@id/textDetails" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Details" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/btnShort" android:background="@drawable/live_btn_selector" android:paddingLeft="16.0dp" android:paddingRight="16.0dp" android:layout_width="wrap_content" android:layout_height="40.0dp" android:layout_marginStart="10.0dp" android:paddingHorizontal="16.0dp">
+            <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:id="@id/textShort" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Short" />
+        </LinearLayout>
+        <View android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_weight="1.0" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/btnSort" android:paddingLeft="10.0dp" android:paddingRight="10.0dp" android:layout_width="wrap_content" android:layout_height="40.0dp" android:paddingHorizontal="10.0dp">
+            <ImageView android:id="@id/iconSort" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_live_sort" />
+        </LinearLayout>
+    </LinearLayout>
+    <FrameLayout android:id="@id/liveFragmentContainer" android:background="@android:color/transparent" android:layout_width="0.0dp" android:layout_height="0.0dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/layoutLiveFragment" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="92.0dp" android:width="380.0dp" android:viewportWidth="380.0" android:viewportHeight="92.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$bg_plan_selected__0" android:pathData="M18,0L362,0A18,18 0,0 1,380 18L380,74A18,18 0,0 1,362 92L18,92A18,18 0,0 1,0 74L0,18A18,18 0,0 1,18 0z" android:strokeColor="#00000000" android:strokeWidth="3.0" />
+    <path android:fillColor="#00000000" android:pathData="M18,1.5L362,1.5A16.5,16.5 0,0 1,378.5 18L378.5,74A16.5,16.5 0,0 1,362 90.5L18,90.5A16.5,16.5 0,0 1,1.5 74L1.5,18A16.5,16.5 0,0 1,18 1.5z" android:strokeColor="#f9be86" android:strokeWidth="3.0" />
+    <path android:fillColor="#f9be86" android:pathData="M360,54L380,54a0,0 0,0 1,0 0L380,74A18,18 0,0 1,362 92L342,92a0,0 0,0 1,0 0L342,72A18,18 0,0 1,360 54Z" />
+    <path android:fillColor="#00000000" android:pathData="M368.77,67.5 L358.49,77.77a1.25,1.25 0,0 1,-1.77 0L353.5,74.52" android:strokeColor="#1c1d22" android:strokeWidth="3.0" android:strokeLineCap="round" android:fillType="evenOdd" />
+</vector>

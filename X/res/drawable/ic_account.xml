@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="21.0dp" android:width="21.0dp" android:viewportWidth="21.0" android:viewportHeight="21.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$ic_account__0" android:pathData="M10.5,0A10.5,10.5 0,1 0,21 10.5,10.5 10.5,0 0,0 10.5,0ZM10.5,3.15A3.15,3.15 0,1 1,7.35 6.3,3.146 3.146,0 0,1 10.5,3.15ZM10.5,18.06a7.561,7.561 0,0 1,-6.3 -3.381c0.032,-2.089 4.2,-3.234 6.3,-3.234s6.268,1.144 6.3,3.234A7.561,7.561 0,0 1,10.5 18.06Z" />
+</vector>

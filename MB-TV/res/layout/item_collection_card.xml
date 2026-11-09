@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.noober.background.view.BLFrameLayout android:id="@id/collectionCardRoot" android:focusable="true" android:focusableInTouchMode="true" android:clipChildren="false" android:layout_width="124.0dp" android:layout_height="202.0dp" android:contentDescription="@string/tv_collection_desc_card_item" app:bl_corners_radius="4.0dp" app:bl_selected_solid_color="?modeSurfaceUnfocused" app:bl_selected_stroke_color="?modeContentCardFocusStroke" app:bl_stroke_width="@dimen/tv_poster_card_stroke_width" app:bl_unSelected_solid_color="?modeSurfaceUnfocused" app:bl_unSelected_stroke_color="@color/transparent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.constraintlayout.widget.ConstraintLayout android:focusable="false" android:focusableInTouchMode="false" android:layout_width="match_parent" android:layout_height="match_parent">
-        <include android:id="@id/posterCardPanel" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/tv_poster_card_inner" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</com.noober.background.view.BLFrameLayout>

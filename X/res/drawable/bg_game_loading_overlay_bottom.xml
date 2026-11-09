@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="266.0dp" android:width="430.0dp" android:viewportWidth="430.0" android:viewportHeight="266.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$bg_game_loading_overlay_bottom__0" android:pathData="M0,0h430v266h-430z" />
+</vector>

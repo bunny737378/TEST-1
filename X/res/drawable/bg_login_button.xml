@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="60.0dp" android:width="400.0dp" android:viewportWidth="400.0" android:viewportHeight="60.0"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <path android:fillColor="@drawable/$bg_login_button__0" android:pathData="M5,0L395,0A5,5 0,0 1,400 5L400,55A5,5 0,0 1,395 60L5,60A5,5 0,0 1,0 55L0,5A5,5 0,0 1,5 0z" />
+</vector>

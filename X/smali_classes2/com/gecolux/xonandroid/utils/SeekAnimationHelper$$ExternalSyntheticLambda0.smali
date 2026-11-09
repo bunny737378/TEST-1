@@ -1,0 +1,36 @@
+.class public final synthetic Lcom/gecolux/xonandroid/utils/SeekAnimationHelper$$ExternalSyntheticLambda0;
+.super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/gecolux/xonandroid/utils/SeekAnimationHelper;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/gecolux/xonandroid/utils/SeekAnimationHelper;)V
+    .locals 0
+
+    .line 0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/gecolux/xonandroid/utils/SeekAnimationHelper$$ExternalSyntheticLambda0;->f$0:Lcom/gecolux/xonandroid/utils/SeekAnimationHelper;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .locals 1
+
+    .line 0
+    iget-object v0, p0, Lcom/gecolux/xonandroid/utils/SeekAnimationHelper$$ExternalSyntheticLambda0;->f$0:Lcom/gecolux/xonandroid/utils/SeekAnimationHelper;
+
+    invoke-static {v0}, Lcom/gecolux/xonandroid/utils/SeekAnimationHelper;->$r8$lambda$X7b0liOLmEZp98tcRctLsjdJG_o(Lcom/gecolux/xonandroid/utils/SeekAnimationHelper;)V
+
+    return-void
+.end method

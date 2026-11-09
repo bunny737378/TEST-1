@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/viewDismiss" android:layout_width="0.0dp" android:layout_height="match_parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintWidth_percent="0.35" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/panelContainer" android:background="@drawable/bg_player_panel" android:focusable="false" android:clickable="false" android:layout_width="0.0dp" android:layout_height="match_parent" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintWidth_percent="0.65">
+        <TextView android:textSize="32.0sp" android:textColor="#ffffff" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/choose_nplayer" android:fontFamily="@font/arial_black" android:layout_marginStart="32.0dp" />
+        <FrameLayout android:id="@id/rightContainer" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/layoutPlayerContainer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="16.0dp">
+                <androidx.cardview.widget.CardView android:id="@id/cardX1Player" android:layout_width="220.0dp" android:layout_height="40.0dp" android:foreground="@drawable/bg_player_switch_card" app:cardBackgroundColor="@android:color/white" app:cardCornerRadius="12.0dp" app:cardElevation="0.0dp">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+                        <androidx.appcompat.widget.AppCompatImageView android:id="@id/imgX1Icon" android:layout_width="16.0dp" android:layout_height="18.0dp" android:src="@drawable/ic_x3_fire" android:layout_marginStart="8.0dp" />
+                        <TextView android:textSize="21.0sp" android:textColor="#212227" android:gravity="center" android:id="@id/tvX1Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/x1_player" android:fontFamily="@font/roboto_medium" android:layout_marginStart="8.0dp" />
+                        <TextView android:textSize="9.0sp" android:textColor="#212227" android:id="@id/tvX1Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/best_quality" android:fontFamily="@font/roboto_regular" android:textAlignment="center" android:layout_marginStart="8.0dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:id="@id/cardX2Player" android:layout_width="220.0dp" android:layout_height="40.0dp" android:layout_marginTop="16.0dp" android:foreground="@drawable/bg_player_switch_card" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="12.0dp" app:cardElevation="0.0dp">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+                        <androidx.appcompat.widget.AppCompatImageView android:id="@id/imgX2Icon" android:layout_width="16.0dp" android:layout_height="18.0dp" android:src="@drawable/ic_fire" android:layout_marginStart="8.0dp" />
+                        <TextView android:textSize="21.0sp" android:textColor="#ffff" android:id="@id/tvX2Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/x2_player" android:fontFamily="@font/roboto_medium" android:layout_marginStart="8.0dp" />
+                        <TextView android:textSize="9.0sp" android:textColor="@color/white" android:id="@id/tvX2Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ultra_fast_loading" android:includeFontPadding="false" android:fontFamily="@font/roboto_regular" android:textAlignment="center" android:layout_marginStart="8.0dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:id="@id/cardX3Player" android:layout_width="220.0dp" android:layout_height="40.0dp" android:layout_marginTop="16.0dp" android:foreground="@drawable/bg_player_switch_card" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="12.0dp" app:cardElevation="0.0dp">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+                        <androidx.appcompat.widget.AppCompatImageView android:id="@id/imgX3Icon" android:layout_width="16.0dp" android:layout_height="18.0dp" android:layout_marginStart="8.0dp" />
+                        <TextView android:textSize="21.0sp" android:textColor="#ffff" android:id="@id/tvX3Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/x3_player" android:fontFamily="@font/roboto_bold" android:layout_marginStart="8.0dp" />
+                        <TextView android:textSize="9.0sp" android:textColor="#d1d2d6" android:id="@id/tvX3Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/extreme_fast" android:includeFontPadding="false" android:fontFamily="@font/roboto_regular" android:textAlignment="center" android:layout_marginStart="8.0dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/ivClosePanel" android:background="?selectableItemBackgroundBorderless" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dp" android:src="@drawable/ic_close_panel" android:layout_marginEnd="32.0dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

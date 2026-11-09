@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/bg_cast_bottom_sheet" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:layout_gravity="center_horizontal" android:background="@drawable/bg_cast_sheet_drag_handle" android:layout_width="40.0dp" android:layout_height="4.0dp" android:layout_marginTop="16.0dp" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="20.0dp" android:paddingTop="24.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="20.0dp">
+        <TextView android:textSize="26.0sp" android:textColor="@android:color/white" android:id="@id/tvSubtitleTvTitle" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/cast_subtitle_header_title" android:layout_weight="1.0" android:fontFamily="@font/arial_black" />
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/ivClosePanel" android:background="?selectableItemBackgroundBorderless" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_close_panel" />
+    </LinearLayout>
+    <View android:background="#282a31" android:layout_width="match_parent" android:layout_height="2.0dp" android:layout_marginTop="16.0dp" />
+    <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20.0dp" app:cardBackgroundColor="#41434d" app:cardCornerRadius="16.0dp" app:cardElevation="0.0dp">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/rvSubtitleTvList" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" android:paddingVertical="8.0dp" />
+            <View android:layout_gravity="center_horizontal" android:background="#282a31" android:layout_width="match_parent" android:layout_height="2.0dp" android:layout_marginTop="16.0dp" />
+            <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/tvTranslate" android:background="?selectableItemBackgroundBorderless" android:paddingLeft="20.0dp" android:paddingRight="20.0dp" android:layout_width="match_parent" android:layout_height="72.0dp" android:text="@string/translate" android:fontFamily="@font/roboto_medium" android:paddingHorizontal="20.0dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

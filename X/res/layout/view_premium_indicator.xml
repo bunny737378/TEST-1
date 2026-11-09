@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/crownImage" android:background="?selectableItemBackgroundBorderless" android:padding="6.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/ic_crown" android:contentDescription="@string/todo" />
+    <com.airbnb.lottie.LottieAnimationView android:id="@id/crownLottie" android:visibility="gone" android:layout_width="45.0dp" android:layout_height="45.0dp" app:lottie_autoPlay="false" app:lottie_loop="true" app:lottie_rawRes="@raw/paid_user_crown_image" />
+</merge>
