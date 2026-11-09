@@ -65,9 +65,9 @@
     .end annotation
 .end field
 
-.field static zza:Z
+.field static zza:Z = false
 
-.field private static zzb:Z
+.field private static zzb:Z = false
 
 .field private static final zzc:Ljava/util/concurrent/atomic/AtomicBoolean;
 

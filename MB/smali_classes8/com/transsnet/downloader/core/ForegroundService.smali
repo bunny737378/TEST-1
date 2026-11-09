@@ -6,7 +6,7 @@
 # static fields
 .field private static final a:Ljava/lang/String; = "ForegroundService"
 
-.field static b:Z
+.field static b:Z = false
 
 
 # direct methods

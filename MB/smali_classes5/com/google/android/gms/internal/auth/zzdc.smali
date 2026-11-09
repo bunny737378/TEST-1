@@ -6,11 +6,11 @@
 # static fields
 .field private static final zza:Ljava/lang/Object;
 
-.field public static final synthetic zzd:I
+.field public static final synthetic zzd:I = 0x0
 
-.field private static volatile zze:Lcom/google/android/gms/internal/auth/zzda;
+.field private static volatile zze:Lcom/google/android/gms/internal/auth/zzda; = null
 
-.field private static volatile zzf:Z
+.field private static volatile zzf:Z = false
 
 .field private static final zzg:Ljava/util/concurrent/atomic/AtomicReference;
 

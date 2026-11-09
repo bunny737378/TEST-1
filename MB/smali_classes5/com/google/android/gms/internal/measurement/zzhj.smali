@@ -17,9 +17,9 @@
 # static fields
 .field private static final zza:Ljava/lang/Object;
 
-.field private static volatile zzb:Lcom/google/android/gms/internal/measurement/zzhu;
+.field private static volatile zzb:Lcom/google/android/gms/internal/measurement/zzhu; = null
 
-.field private static volatile zzc:Z
+.field private static volatile zzc:Z = false
 
 .field private static zzd:Lcom/google/android/gms/internal/measurement/zzhy;
 

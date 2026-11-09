@@ -19,7 +19,7 @@
 
 
 # static fields
-.field private static S:Z
+.field private static S:Z = false
 
 
 # instance fields

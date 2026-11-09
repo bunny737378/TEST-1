@@ -12,11 +12,11 @@
 
 
 # static fields
-.field private static k:Ljava/lang/String;
+.field private static k:Ljava/lang/String; = null
 
-.field private static l:Ljava/lang/String;
+.field private static l:Ljava/lang/String; = null
 
-.field private static m:Z
+.field private static m:Z = false
 
 
 # instance fields

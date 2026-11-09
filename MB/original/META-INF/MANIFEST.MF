@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Built-By: Signflinger
-Created-By: Android Gradle 8.0.2
+Created-By: Android Gradle 8.6.0
 
 Name: AndroidManifest.xml
 SHA-256-Digest: Z7WMe/u/LwyNtyJ5W/cUVbAEgtAsxAU0moRtqe03L9Y=
@@ -785,10 +785,7 @@ Name: build.properties
 SHA-256-Digest: UaaRzZ10cLjfUunHbm1tGjcS5Q7HH6a7GhBlz0OMBRc=
 
 Name: classes.dex
-SHA-256-Digest: 9FN+/09Cb4J6QMKj48KROYQpurMO/U/ipedJzodSoUs=
-
-Name: classes10.dex
-SHA-256-Digest: /YGRg70zRsOyHlzyYEdmXab/1XjOLwofM4UJJgyDqqk=
+SHA-256-Digest: 8e0rDNd9MgTW3MIvenSFN+2xYTVeh0fgHTCuNJsVp+Y=
 
 Name: classes2.dex
 SHA-256-Digest: AiGndjLV9JmaJzghkkl5djBlHH1uEJZ3v5q0hOAlEI0=
@@ -800,16 +797,16 @@ Name: classes4.dex
 SHA-256-Digest: 53QFyx/OkPbxp7+QBoOCfn01KMrBthQQyVJE6Re/DF8=
 
 Name: classes5.dex
-SHA-256-Digest: xasek1rTyUGVBGHyrIofEhnuTogeBBbLvwWZwSMNLsk=
+SHA-256-Digest: VB3GLCPwKHiJV/3wI52oLOMv4GStGXwMaPe4gmbT9EM=
 
 Name: classes6.dex
 SHA-256-Digest: pjkyXevTzvPCkg1D7cLqEOV/vXruSIXRC+LI8wh7Cbw=
 
 Name: classes7.dex
-SHA-256-Digest: 2GlxF7nWeR6jLwD6Cvo3XUGVSReCnWjU8P4fTBOr+S0=
+SHA-256-Digest: HFFO3yP0iMEQ27OVDvSNptB8XLoqtXGnGyduhSFfPT4=
 
 Name: classes8.dex
-SHA-256-Digest: 4iq0fWJRp2Qt3NA2PofM+PRqCHZxVNE6yuFLPObLj5o=
+SHA-256-Digest: ClPTp4WpU8ERaoQ+JL7+nNAQnhFfo7J1LqM8c6nk4ZE=
 
 Name: classes9.dex
 SHA-256-Digest: fRPhzEQ15A5bVNUweULqMs0FBrz1FBRSeKVukz0p2WM=
@@ -3659,7 +3656,7 @@ Name: res/8G0.xml
 SHA-256-Digest: YiUfWnkyYv6yzve3CjM4GUMty3DfntWsuTGmw/IyBk4=
 
 Name: res/8GD.xml
-SHA-256-Digest: rmtlL77i1wakvqP2GKRhu/AohLVSxWkbSo5crufXL5I=
+SHA-256-Digest: EtI2miqb6gQHnJAbgnJfV8UZSBJcnIG+nBODLCHCHwA=
 
 Name: res/8GY.png
 SHA-256-Digest: o+wF3fqE0atbgp/5r0raPY6q67k2XZVneNbR3Kxw9rc=

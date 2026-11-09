@@ -4,13 +4,13 @@
 
 
 # static fields
-.field private static a:Landroid/content/Context;
+.field private static a:Landroid/content/Context; = null
 
-.field private static b:Z
+.field private static b:Z = false
 
-.field private static c:Z
+.field private static c:Z = false
 
-.field private static d:Z
+.field private static d:Z = false
 
 
 # direct methods

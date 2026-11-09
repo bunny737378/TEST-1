@@ -12,7 +12,7 @@
 
 
 # static fields
-.field public static a:Z
+.field public static a:Z = false
 
 .field private static final b:[I
 

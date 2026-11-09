@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static zzbm:Z
+.field private static zzbm:Z = false
 
 
 # direct methods

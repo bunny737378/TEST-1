@@ -9,7 +9,7 @@
 
 
 # static fields
-.field private static zzr:Z
+.field private static zzr:Z = false
 
 .field private static zzs:Lcom/google/android/gms/iid/zzk;
 

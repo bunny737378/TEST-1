@@ -4,13 +4,13 @@
 
 
 # static fields
-.field public static activeTime:Ljava/lang/String;
+.field public static activeTime:Ljava/lang/String; = null
 
-.field public static ageRestrictedUser:Z
+.field public static ageRestrictedUser:Z = false
 
-.field public static channel:Ljava/lang/String;
+.field public static channel:Ljava/lang/String; = null
 
-.field public static extInfo:Ljava/util/Map;
+.field public static extInfo:Ljava/util/Map; = null
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -21,7 +21,7 @@
     .end annotation
 .end field
 
-.field public static isFirstStartToday:Z
+.field public static isFirstStartToday:Z = false
 
 .field public static userConsent:Z
 

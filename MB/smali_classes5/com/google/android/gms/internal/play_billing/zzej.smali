@@ -6,9 +6,9 @@
 # static fields
 .field static final zza:Lcom/google/android/gms/internal/play_billing/zzej;
 
-.field public static final synthetic zzb:I
+.field public static final synthetic zzb:I = 0x0
 
-.field private static volatile zzc:Z
+.field private static volatile zzc:Z = false
 
 .field private static volatile zzd:Lcom/google/android/gms/internal/play_billing/zzej;
 

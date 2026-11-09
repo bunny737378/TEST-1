@@ -25,7 +25,7 @@
 
 
 # static fields
-.field public static c0:Z
+.field public static c0:Z = false
 
 
 # instance fields

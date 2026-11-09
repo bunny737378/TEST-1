@@ -14,7 +14,7 @@
 # static fields
 .field static final zza:Lcom/google/android/gms/internal/measurement/zzjg;
 
-.field private static volatile zzb:Z
+.field private static volatile zzb:Z = false
 
 .field private static volatile zzc:Lcom/google/android/gms/internal/measurement/zzjg;
 

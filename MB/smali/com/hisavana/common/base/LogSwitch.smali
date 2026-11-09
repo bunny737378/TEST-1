@@ -4,7 +4,7 @@
 
 
 # static fields
-.field public static isDebug:Z
+.field public static isDebug:Z = false
 
 
 # direct methods

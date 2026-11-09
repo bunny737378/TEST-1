@@ -9,24 +9,24 @@
 
 
 # static fields
-.field static zza:Landroid/os/HandlerThread;
+.field static zza:Landroid/os/HandlerThread; = null
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
 .field private static final zzb:Ljava/lang/Object;
 
-.field private static zzc:Lcom/google/android/gms/common/internal/zzs;
+.field private static zzc:Lcom/google/android/gms/common/internal/zzs; = null
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
-.field private static zzd:Ljava/util/concurrent/Executor;
+.field private static zzd:Ljava/util/concurrent/Executor; = null
     .annotation build Landroidx/annotation/Nullable;
     .end annotation
 .end field
 
-.field private static zze:Z
+.field private static zze:Z = false
 
 
 # direct methods

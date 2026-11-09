@@ -6,7 +6,7 @@
 # static fields
 .field static final zza:Lcom/google/android/libraries/places/internal/zzatf;
 
-.field private static volatile zzb:Z
+.field private static volatile zzb:Z = false
 
 
 # instance fields

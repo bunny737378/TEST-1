@@ -11,9 +11,9 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "TmcInitializer"
 
-.field private static alreadyInited:Z
+.field private static alreadyInited:Z = false
 
-.field private static alreadySetupProxy:Z
+.field private static alreadySetupProxy:Z = false
 
 .field private static sExtensionManager:Lcom/cloud/tmc/kernel/extension/ExtensionManager;
 
