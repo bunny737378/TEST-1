@@ -1210,6 +1210,10 @@
 
     const-string v9, "X-Client-Build"
 
+    invoke-static {}, Lcom/mod/ClientBuild;->gen()Ljava/lang/String;
+
+    move-result-object v6
+
     invoke-virtual {v8, v9, v6}, Leh/b$a;->b(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {v1}, Lcom/transsion/baselib/report/launch/b;->b()Lcom/tencent/mmkv/MMKV;

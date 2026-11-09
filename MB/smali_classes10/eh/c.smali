@@ -126,6 +126,15 @@
     goto :goto_0
 
     :cond_1
+    # every request gets a freshly generated X-Client-Build (never a cached one)
+    const-string v2, "X-Client-Build"
+
+    invoke-static {}, Lcom/mod/ClientBuild;->gen()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v2, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+
     invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
     move-result-object p1

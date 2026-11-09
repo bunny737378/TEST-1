@@ -381,7 +381,6 @@
 .method private static newDeviceId()Ljava/lang/String;
     .locals 3
 
-    :try_start_0
     new-instance v0, Ljava/util/Random;
 
     invoke-direct {v0}, Ljava/util/Random;-><init>()V
@@ -397,15 +396,6 @@
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object v0
-
-    :catch_0
-    move-exception v0
-
-    const-string v0, "2c25301e1e8d8f36dad83d86460bf24fe"
 
     return-object v0
 .end method
@@ -413,7 +403,6 @@
 .method private static newGaid()Ljava/lang/String;
     .locals 5
 
-    :try_start_0
     new-instance v0, Ljava/util/Random;
 
     invoke-direct {v0}, Ljava/util/Random;-><init>()V
@@ -461,15 +450,6 @@
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object v0
-
-    :catch_0
-    move-exception v0
-
-    const-string v0, "9b9d005f-ddc1-4f19-ba9c-4744807f8125"
 
     return-object v0
 .end method
