@@ -1,5 +1,6 @@
 .class public interface abstract Lcom/hisavana/common/interfacz/IBidWithNotify;
 .super Ljava/lang/Object;
+.source "source.java"
 
 
 # virtual methods

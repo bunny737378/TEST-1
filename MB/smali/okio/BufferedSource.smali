@@ -1,5 +1,6 @@
 .class public interface abstract Lokio/BufferedSource;
 .super Ljava/lang/Object;
+.source "source.java"
 
 # interfaces
 .implements Lokio/Source;

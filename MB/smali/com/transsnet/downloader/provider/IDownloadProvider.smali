@@ -1,5 +1,6 @@
 .class public interface abstract Lcom/transsnet/downloader/provider/IDownloadProvider;
 .super Ljava/lang/Object;
+.source "source.java"
 
 
 # annotations

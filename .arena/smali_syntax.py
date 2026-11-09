@@ -7,7 +7,7 @@ INSTR = [
  r'^nop$',
  r'^(move|move-object|move-result|move-result-object|move-exception|move-result-wide|move-wide)(/\w+)? .*$',
  r'^return(-void|-object|-wide)?( .*)?$',
- r'^const(-string|/4|/16|/high16|-wide|-wide/16|-wide/32|-wide/high16|/class)? .*$',
+ r'^const(-string|/4|/16|/high16|-wide|-wide/16|-wide/32|-wide/high16|-class|/class)? .*$',
  r'^monitor-(enter|exit) .*$',
  r'^check-cast .*$',
  r'^instance-of .*$',
@@ -45,6 +45,19 @@ def check(path):
             probs.append((n, "')V;' invalid", raw)); continue
         if re.search(r'->[\w<>$]+\(\)$', t):
             probs.append((n, "method ref without return type", raw)); continue
+        # const/4 range is -8..7, const/16 is -32768..32767
+        cm = re.match(r'^const/4\s+v\d+,\s*(-?0x[0-9a-fA-F]+|-?\d+)$', t)
+        if cm:
+            raw = cm.group(1)
+            val = int(raw, 16) if 'x' in raw.lower() else int(raw)
+            if not -8 <= val <= 7:
+                probs.append((n, 'const/4 literal %s out of range (-8..7)' % raw, raw)); continue
+        cm = re.match(r'^const/16\s+v\d+,\s*(-?0x[0-9a-fA-F]+|-?\d+)$', t)
+        if cm:
+            raw = cm.group(1)
+            val = int(raw, 16) if 'x' in raw.lower() else int(raw)
+            if not -32768 <= val <= 32767:
+                probs.append((n, 'const/16 literal %s out of range' % raw, raw)); continue
         if not any(p.match(t) for p in INSTR):
             probs.append((n, "unrecognised/malformed instruction: '%s'" % op, raw)); continue
         # invoke arg count
