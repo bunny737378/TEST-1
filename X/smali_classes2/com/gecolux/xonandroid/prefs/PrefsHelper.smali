@@ -253,11 +253,7 @@
     iput-object p1, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->prefs:Landroid/content/SharedPreferences;
 
     .line 62
-    const-string v0, "total_feathers"
-
-    invoke-interface {p1, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
+    const v0, 0x1869f
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -275,11 +271,7 @@
     iput-object v0, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->feathers:Lkotlinx/coroutines/flow/StateFlow;
 
     .line 65
-    const-string v0, "total_powers"
-
-    invoke-interface {p1, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
-
-    move-result p1
+    const p1, 0x1869f
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -336,78 +328,16 @@
 
 # virtual methods
 .method public final addFeathers(I)V
-    .locals 2
+    .locals 0
 
-    .line 72
-    invoke-virtual {p0}, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->getTotalFeathers()I
-
-    move-result v0
-
-    add-int/2addr v0, p1
-
-    .line 73
-    iget-object p1, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->prefs:Landroid/content/SharedPreferences;
-
-    .line 278
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p1
-
-    .line 73
-    const-string v1, "total_feathers"
-
-    invoke-interface {p1, v1, v0}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-
-    .line 283
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    .line 74
-    iget-object p1, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->_feathers:Lkotlinx/coroutines/flow/MutableStateFlow;
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-interface {p1, v0}, Lkotlinx/coroutines/flow/MutableStateFlow;->setValue(Ljava/lang/Object;)V
-
+    # Keep the local balance fixed across reward and game operations.
     return-void
 .end method
 
 .method public final addPowers(I)V
-    .locals 2
+    .locals 0
 
-    .line 86
-    invoke-virtual {p0}, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->getTotalPowers()I
-
-    move-result v0
-
-    add-int/2addr v0, p1
-
-    .line 87
-    iget-object p1, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->prefs:Landroid/content/SharedPreferences;
-
-    .line 302
-    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object p1
-
-    .line 87
-    const-string v1, "total_powers"
-
-    invoke-interface {p1, v1, v0}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-
-    .line 307
-    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    .line 88
-    iget-object p1, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->_powers:Lkotlinx/coroutines/flow/MutableStateFlow;
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-interface {p1, v0}, Lkotlinx/coroutines/flow/MutableStateFlow;->setValue(Ljava/lang/Object;)V
-
+    # Keep the local balance fixed across reward and game operations.
     return-void
 .end method
 
@@ -787,36 +717,16 @@
 .end method
 
 .method public final getTotalFeathers()I
-    .locals 3
+    .locals 1
 
-    .line 69
-    iget-object v0, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->prefs:Landroid/content/SharedPreferences;
-
-    const-string v1, "total_feathers"
-
-    const/4 v2, 0x0
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
+    const v0, 0x1869f
     return v0
 .end method
 
 .method public final getTotalPowers()I
-    .locals 3
+    .locals 1
 
-    .line 84
-    iget-object v0, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->prefs:Landroid/content/SharedPreferences;
-
-    const-string v1, "total_powers"
-
-    const/4 v2, 0x0
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
+    const v0, 0x1869f
     return v0
 .end method
 
@@ -1424,90 +1334,16 @@
 .end method
 
 .method public final subtractFeathers(I)V
-    .locals 2
+    .locals 0
 
-    .line 78
-    invoke-virtual {p0}, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->getTotalFeathers()I
-
-    move-result v0
-
-    sub-int/2addr v0, p1
-
-    const/4 p1, 0x0
-
-    invoke-static {v0, p1}, Lkotlin/ranges/RangesKt;->coerceAtLeast(II)I
-
-    move-result p1
-
-    .line 79
-    iget-object v0, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->prefs:Landroid/content/SharedPreferences;
-
-    .line 290
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    .line 79
-    const-string v1, "total_feathers"
-
-    invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-
-    .line 295
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    .line 80
-    iget-object v0, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->_feathers:Lkotlinx/coroutines/flow/MutableStateFlow;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-interface {v0, p1}, Lkotlinx/coroutines/flow/MutableStateFlow;->setValue(Ljava/lang/Object;)V
-
+    # Keep the local balance fixed across reward and game operations.
     return-void
 .end method
 
 .method public final subtractPowers(I)V
-    .locals 2
+    .locals 0
 
-    .line 92
-    invoke-virtual {p0}, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->getTotalPowers()I
-
-    move-result v0
-
-    sub-int/2addr v0, p1
-
-    const/4 p1, 0x0
-
-    invoke-static {v0, p1}, Lkotlin/ranges/RangesKt;->coerceAtLeast(II)I
-
-    move-result p1
-
-    .line 93
-    iget-object v0, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->prefs:Landroid/content/SharedPreferences;
-
-    .line 314
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    .line 93
-    const-string v1, "total_powers"
-
-    invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-
-    .line 319
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    .line 94
-    iget-object v0, p0, Lcom/gecolux/xonandroid/prefs/PrefsHelper;->_powers:Lkotlinx/coroutines/flow/MutableStateFlow;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-interface {v0, p1}, Lkotlinx/coroutines/flow/MutableStateFlow;->setValue(Ljava/lang/Object;)V
-
+    # Keep the local balance fixed across reward and game operations.
     return-void
 .end method
 

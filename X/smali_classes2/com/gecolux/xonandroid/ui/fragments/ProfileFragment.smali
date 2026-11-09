@@ -441,24 +441,7 @@
 
     check-cast v0, Lcom/gecolux/xonandroid/databinding/FragmentProfileBinding;
 
-    .line 198
-    iget-object v1, v0, Lcom/gecolux/xonandroid/databinding/FragmentProfileBinding;->llFeatherReward:Landroidx/appcompat/widget/LinearLayoutCompat;
-
-    new-instance v2, Lcom/gecolux/xonandroid/ui/fragments/ProfileFragment$$ExternalSyntheticLambda9;
-
-    invoke-direct {v2, p0}, Lcom/gecolux/xonandroid/ui/fragments/ProfileFragment$$ExternalSyntheticLambda9;-><init>(Lcom/gecolux/xonandroid/ui/fragments/ProfileFragment;)V
-
-    invoke-virtual {v1, v2}, Landroidx/appcompat/widget/LinearLayoutCompat;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 199
-    iget-object v1, v0, Lcom/gecolux/xonandroid/databinding/FragmentProfileBinding;->llPlayPowerReward:Landroidx/appcompat/widget/LinearLayoutCompat;
-
-    new-instance v2, Lcom/gecolux/xonandroid/ui/fragments/ProfileFragment$$ExternalSyntheticLambda12;
-
-    invoke-direct {v2, p0}, Lcom/gecolux/xonandroid/ui/fragments/ProfileFragment$$ExternalSyntheticLambda12;-><init>(Lcom/gecolux/xonandroid/ui/fragments/ProfileFragment;)V
-
-    invoke-virtual {v1, v2}, Landroidx/appcompat/widget/LinearLayoutCompat;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
+    # Balance indicators are intentionally non-interactive.
     .line 200
     iget-object v1, v0, Lcom/gecolux/xonandroid/databinding/FragmentProfileBinding;->btnSettings:Lcom/google/android/material/button/MaterialButton;
 

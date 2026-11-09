@@ -646,6 +646,10 @@
 
     iget-object v0, v0, Lcom/gecolux/xonandroid/databinding/FragmentHomeBinding;->toolbarActions:Lcom/gecolux/xonandroid/ui/views/ToolbarActionsView;
 
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/gecolux/xonandroid/ui/views/ToolbarActionsView;->showCast(Z)V
+
     invoke-virtual {v0}, Lcom/gecolux/xonandroid/ui/views/ToolbarActionsView;->getBtnSearch()Landroid/widget/ImageView;
 
     move-result-object v0

@@ -297,7 +297,7 @@
     iput-object v0, p0, Lcom/gecolux/xonandroid/ui/fragments/LiveTvFragment;->viewModel$delegate:Lkotlin/Lazy;
 
     .line 58
-    sget-object v0, Lcom/gecolux/xonandroid/ui/fragments/LiveTvFragment$Tab;->HOME:Lcom/gecolux/xonandroid/ui/fragments/LiveTvFragment$Tab;
+    sget-object v0, Lcom/gecolux/xonandroid/ui/fragments/LiveTvFragment$Tab;->LIVE:Lcom/gecolux/xonandroid/ui/fragments/LiveTvFragment$Tab;
 
     iput-object v0, p0, Lcom/gecolux/xonandroid/ui/fragments/LiveTvFragment;->selectedTab:Lcom/gecolux/xonandroid/ui/fragments/LiveTvFragment$Tab;
 
