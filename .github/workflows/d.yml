@@ -22,7 +22,7 @@ jobs:
         run: |
           set -e
 
-          FOLDERS="MB,.arena"
+          FOLDERS="MB-2,MB-TV"
 
           IFS=',' read -ra FOLDER_LIST <<< "$FOLDERS"
 
