@@ -10867,6 +10867,8 @@
     .line 24
     .line 25
     :goto_0
+    const/16 p2, 0x8
+
     invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 26

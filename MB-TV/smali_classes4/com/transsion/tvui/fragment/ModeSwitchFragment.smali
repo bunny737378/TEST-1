@@ -1655,7 +1655,7 @@
     move-object v7, p0
 
     .line 59
-    invoke-static/range {v6 .. v13}, Lcom/transsion/tvui/dialog/n2;->e(Lcom/transsion/tvui/dialog/n2;Landroidx/fragment/app/Fragment;IZIIILjava/lang/Object;)Z
+    # Display-only profile: do not launch the QR login dialog.
 
     .line 60
     .line 61
@@ -5025,6 +5025,7 @@
     move-result-object v0
 
     .line 94
+    const-string v0, "Ur Senpai"
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 95
@@ -5067,6 +5068,7 @@
     move-result-object v0
 
     .line 113
+    const-string v0, "Ur Senpai"
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 114
@@ -9302,6 +9304,7 @@
     move-result-object v1
 
     .line 261
+    const-string v1, "Ur Senpai"
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 262
@@ -9447,6 +9450,7 @@
 
     .line 336
     .line 337
+    const-string v2, "Ur Senpai"
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 338

@@ -778,7 +778,8 @@
     move-object v0, v8
 
     .line 215
-    move v1, p1
+    # Present the profile card as logged in, without changing real auth state.
+    const/4 v1, 0x1
 
     .line 216
     move v2, p5

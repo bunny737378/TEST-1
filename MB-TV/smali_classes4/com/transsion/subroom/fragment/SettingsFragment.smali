@@ -6457,7 +6457,7 @@
 
     .line 37
     .line 38
-    invoke-virtual {p0}, Lcom/transsion/subroom/fragment/SettingsFragment;->S0()V
+    invoke-static {p0}, Lcom/mod/TvProfileLink;->open(Landroidx/fragment/app/Fragment;)V
 
     .line 39
     .line 40
@@ -8459,6 +8459,8 @@
 
     .line 377
     :goto_b
+    const-string v6, "Telegram"
+
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 378

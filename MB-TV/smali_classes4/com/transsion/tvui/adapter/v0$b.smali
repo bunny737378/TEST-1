@@ -1642,6 +1642,8 @@
     .line 99
     .line 100
     :goto_1
+    const/16 v4, 0x8
+
     invoke-virtual {p1, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 101

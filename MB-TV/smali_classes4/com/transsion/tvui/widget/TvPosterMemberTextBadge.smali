@@ -500,6 +500,9 @@
 .method public final bindBadge(ZLjava/lang/String;)V
     .locals 6
 
+    # Remove only the membership icon; retain any accompanying text badge.
+    const/4 p1, 0x0
+
     .line 1
     if-eqz p2, :cond_0
 

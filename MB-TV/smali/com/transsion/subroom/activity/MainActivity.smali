@@ -10122,7 +10122,7 @@
     const/4 v1, 0x2
 
     .line 25
-    invoke-static {p0, p1, v0, v1, v0}, Lcom/transsion/tvui/router/VipPayNavigator;->e(Lcom/transsion/tvui/router/VipPayNavigator;Lcom/transsion/tvui/constants/VipPayPageFrom;Ljava/lang/String;ILjava/lang/Object;)V
+    # Premium status remains visible; do not open the purchase page.
 
     .line 26
     .line 27
@@ -21601,6 +21601,9 @@
 
     .line 30
     :goto_0
+    # Suppress the promotional header without disrupting focus restoration.
+    const/4 v3, 0x0
+
     if-nez v3, :cond_2
 
     .line 31
