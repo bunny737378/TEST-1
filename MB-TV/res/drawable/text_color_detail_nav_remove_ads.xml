@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true" android:color="@color/tv_member_badge_premium_icon" />
+    <item android:color="@color/tv_detail_remove_ads_text" />
+</selector>

@@ -1,0 +1,140 @@
+Matching class paths (not proof of equivalent behavior):
+a5/j.smali -> MB-TV/smali_classes2/a5/j.smali
+ag/b.smali -> MB-TV/smali/ag/b.smali
+al/a.smali -> MB-TV/smali_classes4/al/a.smali
+androidx/appcompat/widget/t0.smali -> MB-TV/smali_classes2/androidx/appcompat/widget/t0.smali
+androidx/core/view/KeyEventDispatcher.smali -> MB-TV/smali/androidx/core/view/KeyEventDispatcher.smali
+androidx/core/view/WindowInsetsCompat$a.smali -> MB-TV/smali_classes2/androidx/core/view/WindowInsetsCompat$a.smali
+androidx/core/view/WindowInsetsCompat$f.smali -> MB-TV/smali/androidx/core/view/WindowInsetsCompat$f.smali
+androidx/fragment/app/FragmentManager.smali -> MB-TV/smali/androidx/fragment/app/FragmentManager.smali
+androidx/media3/exoplayer/audio/DefaultAudioSink.smali -> MB-TV/smali_classes2/androidx/media3/exoplayer/audio/DefaultAudioSink.smali
+androidx/recyclerview/widget/DefaultItemAnimator.smali -> MB-TV/smali/androidx/recyclerview/widget/DefaultItemAnimator.smali
+androidx/recyclerview/widget/RecyclerView.smali -> MB-TV/smali/androidx/recyclerview/widget/RecyclerView.smali
+androidx/viewpager/widget/ViewPager.smali -> MB-TV/smali_classes2/androidx/viewpager/widget/ViewPager.smali
+bg/a.smali -> MB-TV/smali/bg/a.smali
+com/alibaba/fastjson/util/i.smali -> MB-TV/smali/com/alibaba/fastjson/util/i.smali
+com/alibaba/sdk/android/oss/common/OSSLog.smali -> MB-TV/smali_classes2/com/alibaba/sdk/android/oss/common/OSSLog.smali
+com/aliyun/utils/AppUtils.smali -> MB-TV/smali_classes2/com/aliyun/utils/AppUtils.smali
+com/aliyun/utils/NativeLoader.smali -> MB-TV/smali_classes2/com/aliyun/utils/NativeLoader.smali
+com/bumptech/glide/util/pool/GlideTrace.smali -> MB-TV/smali/com/bumptech/glide/util/pool/GlideTrace.smali
+com/bumptech/glide/util/pool/StateVerifier.smali -> MB-TV/smali/com/bumptech/glide/util/pool/StateVerifier.smali
+com/cloud/hisavana/net/CommonOkHttpClient.smali -> MB-TV/smali_classes2/com/cloud/hisavana/net/CommonOkHttpClient.smali
+com/cloud/hisavana/sdk/common/bean/AdImage.smali -> MB-TV/smali_classes3/com/cloud/hisavana/sdk/common/bean/AdImage.smali
+com/cloud/hisavana/sdk/common/http/DownLoadRequest.smali -> MB-TV/smali_classes3/com/cloud/hisavana/sdk/common/http/DownLoadRequest.smali
+com/cloud/hisavana/sdk/common/http/a.smali -> MB-TV/smali_classes3/com/cloud/hisavana/sdk/common/http/a.smali
+com/cloud/hisavana/sdk/i0.smali -> MB-TV/smali_classes3/com/cloud/hisavana/sdk/i0.smali
+com/cloud/sdk/commonutil/util/e.smali -> MB-TV/smali_classes3/com/cloud/sdk/commonutil/util/e.smali
+com/cloud/sdk/commonutil/util/n.smali -> MB-TV/smali_classes3/com/cloud/sdk/commonutil/util/n.smali
+com/facebook/biddingkit/logging/h.smali -> MB-TV/smali_classes3/com/facebook/biddingkit/logging/h.smali
+com/google/android/exoplayer2/audio/DefaultAudioSink.smali -> MB-TV/smali_classes3/com/google/android/exoplayer2/audio/DefaultAudioSink.smali
+com/google/android/exoplayer2/util/GlUtil.smali -> MB-TV/smali_classes3/com/google/android/exoplayer2/util/GlUtil.smali
+com/google/protobuf/o.smali -> MB-TV/smali_classes3/com/google/protobuf/o.smali
+com/hisavana/common/base/LogSwitch.smali -> MB-TV/smali_classes3/com/hisavana/common/base/LogSwitch.smali
+com/hisavana/common/bean/AppStartInfo.smali -> MB-TV/smali_classes3/com/hisavana/common/bean/AppStartInfo.smali
+com/transsion/ad/scene/b.smali -> MB-TV/smali_classes3/com/transsion/ad/scene/b.smali
+com/transsion/api/gateway/utils/DeviceUtils.smali -> MB-TV/smali/com/transsion/api/gateway/utils/DeviceUtils.smali
+com/transsion/athena/taaneh/ehatna.smali -> MB-TV/smali/com/transsion/athena/taaneh/ehatna.smali
+com/transsion/baselib/db/download/DownloadBean.smali -> MB-TV/smali_classes2/com/transsion/baselib/db/download/DownloadBean.smali
+com/transsion/core/deviceinfo/DeviceInfo.smali -> MB-TV/smali/com/transsion/core/deviceinfo/DeviceInfo.smali
+com/transsion/startup/StartupManager.smali -> MB-TV/smali/com/transsion/startup/StartupManager.smali
+com/transsion/version/update/RemoteVersionInfo.smali -> MB-TV/smali_classes4/com/transsion/version/update/RemoteVersionInfo.smali
+eh/c.smali -> MB-TV/smali_classes3/eh/c.smali
+f7/a.smali -> MB-TV/smali/f7/a.smali
+oh/b.smali -> MB-TV/smali_classes3/oh/b.smali
+t5/b.smali -> MB-TV/smali_classes2/t5/b.smali
+
+Missing class paths (may be renamed or functionality absent):
+a00/a.smali
+a5/w0.smali
+androidx/loader/app/b.smali
+com/apm/insight/MonitorCrash.smali
+com/apm/insight/b/d.smali
+com/apm/insight/e.smali
+com/apm/insight/f/a.smali
+com/apm/insight/g/a.smali
+com/apm/insight/k/e.smali
+com/apm/insight/k/j.smali
+com/apm/insight/l/a.smali
+com/apm/insight/runtime/l.smali
+com/bykv/vk/openvk/preload/geckox/logger/GeckoLogger.smali
+com/bytedance/adsdk/sP/HiB.smali
+com/bytedance/sdk/component/Sj.smali
+com/bytedance/sdk/component/utils/ib.smali
+com/bytedance/sdk/openadsdk/ApmHelper.smali
+com/bytedance/sdk/openadsdk/common/HiB.smali
+com/bytedance/sdk/openadsdk/core/fF.smali
+com/bytedance/sdk/openadsdk/core/sef.smali
+com/bytedance/sdk/openadsdk/core/uA.smali
+com/bytedance/sdk/openadsdk/core/uA/TKC.smali
+com/bytedance/sdk/openadsdk/utils/Sj.smali
+com/cloud/tmc/integration/permission/PermissionConfig.smali
+com/cloud/tmc/miniapp/TmcInitializer.smali
+com/danikula/videocache/q.smali
+com/google/android/gms/auth/api/signin/internal/SignInHubActivity.smali
+com/google/android/gms/common/GooglePlayServicesUtilLight.smali
+com/google/android/gms/common/internal/GmsClientSupervisor.smali
+com/google/android/gms/gcm/GcmReceiver.smali
+com/google/android/gms/internal/auth/zzdc.smali
+com/google/android/gms/internal/auth/zzek.smali
+com/google/android/gms/internal/measurement/zzhj.smali
+com/google/android/gms/internal/measurement/zzjg.smali
+com/google/android/gms/internal/play_billing/zzej.smali
+com/google/android/gms/maps/MapsInitializer.smali
+com/google/android/libraries/places/internal/zzatf.smali
+com/mbridge/msdk/click/a.smali
+com/mbridge/msdk/dycreator/utils/g.smali
+com/mbridge/msdk/foundation/feedback/b.smali
+com/mbridge/msdk/foundation/tools/b1.smali
+com/mbridge/msdk/foundation/tools/f.smali
+com/mbridge/msdk/foundation/tools/s0.smali
+com/mbridge/msdk/playercommon/exoplayer2/audio/DefaultAudioSink.smali
+com/mbridge/msdk/playercommon/exoplayer2/scheduler/Scheduler.smali
+com/mbridge/msdk/tracker/a.smali
+com/mbridge/msdk/util/e.smali
+com/mbridge/msdk/video/bt/module/MBridgeBTVideoView.smali
+com/mbridge/msdk/video/dynview/ui/a.smali
+com/mbridge/msdk/video/dynview/wrapper/a.smali
+com/mbridge/msdk/video/module/MBridgeVideoView.smali
+com/mod/ClientBuild.smali
+com/mod/LoginPass.smali
+com/mod/VersionHelper.smali
+com/pgl/ssdk/w.smali
+com/pgl/ssdk/y.smali
+com/tencent/tinker/loader/TinkerTestDexLoad.smali
+com/tencent/tinker/loader/hotplug/ComponentHotplug.smali
+com/tencent/tinker/loader/hotplug/IncrementComponentManager.smali
+com/transsion/baselib/db/download/VipInfo.smali
+com/transsion/baselib/net/AppLifeStatusInterceptor.smali
+com/transsion/home/bean/BannerBean.smali
+com/transsion/home/viewmodel/TrendingUGCViewModel.smali
+com/transsion/member/MemberProvider.smali
+com/transsion/member/ObserveLoginAction.smali
+com/transsion/member/bean/MemberBriefInfo.smali
+com/transsion/member/premium/PremiumProvider.smali
+com/transsion/memberapi/MemberCheckResult.smali
+com/transsion/memberapi/MemberInfo.smali
+com/transsion/memberapi/PremiumV2CheckAccessDto.smali
+com/transsion/moviedetailapi/DownloadItem.smali
+com/transsion/moviedetailapi/bean/DownloadResolutionItem.smali
+com/transsion/player/longvideo/helper/x.smali
+com/transsion/player/longvideo/intercept/f0.smali
+com/transsion/player/longvideo/intercept/n0.smali
+com/transsion/player/longvideo/ui/LongVodPlayerView.smali
+com/transsion/shorttv/bean/DownloadItem.smali
+com/transsion/shorttv/bean/ShortTVItem.smali
+com/transsion/shorttv/bean/Subject.smali
+com/transsion/shorttv_pugc/bean/DownloadItem.smali
+com/transsion/transfer/androidasync/a0.smali
+com/transsion/usercenter/me/MeViewmodel.smali
+com/transsion/usercenter/me/adapter/b0.smali
+com/transsion/usercenter/me/adapter/f0.smali
+com/transsion/usercenter/setting/SettingActivity$clickFamilyMode$1.smali
+com/transsion/usercenter/setting/SettingActivity.smali
+com/transsion/usercenter/setting/SettingPrivacyDataActivity.smali
+com/transsion/videodetail/b.smali
+com/transsnet/downloader/core/ForegroundService.smali
+com/transsnet/downloader/lottery/LotteryTipView.smali
+hw/d.smali
+kotlin/time/DurationJvmKt.smali
+org/mvel2/optimizers/dynamic/DynamicOptimizer.smali
+z0/j.smali
