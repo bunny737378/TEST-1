@@ -2852,55 +2852,9 @@
 .end method
 
 .method public final J()V
-    .locals 6
+    .locals 0
 
-    .line 1
-    invoke-static {p0}, Landroidx/lifecycle/m0;->a(Landroidx/lifecycle/l0;)Lkotlinx/coroutines/g0;
-
-    .line 2
-    .line 3
-    .line 4
-    move-result-object v0
-
-    .line 5
-    invoke-static {}, Lkotlinx/coroutines/s0;->b()Lkotlinx/coroutines/CoroutineDispatcher;
-
-    .line 6
-    .line 7
-    .line 8
-    move-result-object v1
-
-    .line 9
-    new-instance v3, Lcom/transsion/tvui/viewmodel/HomeViewModel$loadActivityEntry$1;
-
-    .line 10
-    .line 11
-    const/4 v2, 0x0
-
-    .line 12
-    invoke-direct {v3, p0, v2}, Lcom/transsion/tvui/viewmodel/HomeViewModel$loadActivityEntry$1;-><init>(Lcom/transsion/tvui/viewmodel/HomeViewModel;Lkotlin/coroutines/Continuation;)V
-
-    .line 13
-    .line 14
-    .line 15
-    const/4 v4, 0x2
-
-    .line 16
-    const/4 v5, 0x0
-
-    .line 17
-    invoke-static/range {v0 .. v5}, Lkotlinx/coroutines/g;->d(Lkotlinx/coroutines/g0;Lkotlin/coroutines/d;Lkotlinx/coroutines/CoroutineStart;Ldn/p;ILjava/lang/Object;)Lkotlinx/coroutines/m1;
-
-    .line 18
-    .line 19
-    .line 20
-    move-result-object v0
-
-    .line 21
-    iput-object v0, p0, Lcom/transsion/tvui/viewmodel/HomeViewModel;->m:Lkotlinx/coroutines/m1;
-
-    .line 22
-    .line 23
+    # Do not insert the tv_activity promotional entry into the Home carousel.
     return-void
 .end method
 

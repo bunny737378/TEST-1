@@ -160,10 +160,22 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 9
 
     .line 1
     invoke-direct {p0}, Landroidx/lifecycle/l0;-><init>()V
+
+    # Publish the display-only profile synchronously, before network requests.
+    new-instance v0, Lcom/transsion/subroom/viewmodel/SettingsMembershipViewModel$b;
+    const/4 v1, 0x1
+    const/4 v2, 0x1
+    const-string v3, "Ur Senpai"
+    const-string v4, "2612043"
+    const-string v5, "https://i.scdn.co/image/ab67616d00001e02c41b618be91581bb4d204ae1"
+    const/4 v6, 0x0
+    const-string v7, "2"
+    invoke-direct/range {v0 .. v7}, Lcom/transsion/subroom/viewmodel/SettingsMembershipViewModel$b;-><init>(ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)V
+    move-object v8, v0
 
     .line 2
     .line 3
@@ -172,7 +184,7 @@
 
     .line 5
     .line 6
-    invoke-direct {v0}, Landroidx/lifecycle/y;-><init>()V
+    invoke-direct {v0, v8}, Landroidx/lifecycle/y;-><init>(Ljava/lang/Object;)V
 
     .line 7
     .line 8

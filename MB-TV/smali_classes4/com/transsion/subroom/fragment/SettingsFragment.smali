@@ -8562,6 +8562,7 @@
     .line 425
     .line 426
     :goto_c
+    sget v5, Lcom/transsion/subroom/R$drawable;->ic_main_premium:I
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 427
