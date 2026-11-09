@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/homeAdRowContainer" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:foreground="@drawable/tv_home_shelf_ad_focus_ring" android:contentDescription="@string/tv_home_desc_ad_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.transsion.ad.view.native_ad.NativeWrapperAdView android:id="@id/homeAdNativeView" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="0.0dp" android:layout_height="126.0dp" android:layout_margin="2.0dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
