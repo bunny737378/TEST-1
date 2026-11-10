@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/main" android:layout_width="match_parent" android:layout_height="match_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView android:id="@id/sp_bg" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:srcCompat="@drawable/splash_bg" />
-    <com.google.android.material.progressindicator.CircularProgressIndicator android:id="@id/progress" android:layout_width="48.0dp" android:layout_height="48.0dp" android:layout_marginBottom="154.0dp" android:indeterminate="true" app:indicatorColor="@color/white" app:indicatorInset="0.0dp" app:indicatorSize="48.0dp" app:layout_constraintBottom_toBottomOf="@id/sp_bg" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
