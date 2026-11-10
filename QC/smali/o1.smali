@@ -265,32 +265,11 @@
     .line 58
     .line 59
     :cond_0
-    iget-object p1, p0, Lcom/mim/quizchamp/MainActivity;->U:Lyq1;
-
-    .line 60
-    .line 61
-    if-eqz p1, :cond_1
-
-    .line 62
-    .line 63
-    invoke-virtual {p1, p0}, Lyq1;->b(Landroid/app/Activity;)V
-
-    .line 64
-    .line 65
-    .line 66
-    goto :goto_0
-
-    .line 67
-    :cond_1
+    # Go directly to the existing start transition, without an interstitial.
     invoke-virtual {p0}, Lcom/mim/quizchamp/MainActivity;->r()V
 
-    .line 68
-    .line 69
-    .line 70
-    :goto_0
     return-void
 
-    .line 71
     :pswitch_5
     new-instance p0, Landroid/content/Intent;
 

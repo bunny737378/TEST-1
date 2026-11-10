@@ -300,6 +300,7 @@
 
     .line 6
     iput-boolean v0, p0, Lcom/mim/quizchamp/QuizActivity;->B0:Z
+    invoke-virtual {p0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
 
     .line 7
     .line 8
@@ -3311,6 +3312,7 @@
     .line 84
     :catch_0
     iput-boolean v1, p0, Lcom/mim/quizchamp/QuizActivity;->B0:Z
+    invoke-virtual {p0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
 
     .line 85
     .line 86
@@ -3325,6 +3327,7 @@
     :cond_5
     :goto_3
     iput-boolean v1, p0, Lcom/mim/quizchamp/QuizActivity;->B0:Z
+    invoke-virtual {p0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
 
     .line 89
     .line 90

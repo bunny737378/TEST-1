@@ -1051,7 +1051,7 @@
     .line 267
     .line 268
     .line 269
-    const-string v6, "Your dedication has been recognized.\nEnjoy 200 seconds per question from here on."
+    const-string v6, "Your status has been updated.\nYou can return to the previous app."
 
     .line 270
     .line 271
@@ -1102,7 +1102,7 @@
     .line 296
     .line 297
     .line 298
-    const-string v11, "Continue Quiz"
+    const-string v11, "Done"
 
     .line 299
     .line 300
@@ -1534,11 +1534,11 @@
     .line 534
     .line 535
     :cond_3
-    new-instance v2, Lo90;
+    new-instance v2, Lp90;
 
     .line 536
     .line 537
-    invoke-direct {v2, v1, v8}, Lo90;-><init>(Ls3;I)V
+    invoke-direct {v2, v0, v1, v8}, Lp90;-><init>(Lcom/mim/quizchamp/QuizActivity;Ls3;I)V
 
     .line 538
     .line 539

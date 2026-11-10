@@ -3871,6 +3871,7 @@
 
     .line 6
     iput-boolean v0, p0, Lcom/mim/quizchamp/QuizActivity;->B0:Z
+    invoke-virtual {p0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
 
     .line 7
     .line 8
@@ -4886,7 +4887,10 @@
     .line 26
     .line 27
     .line 28
+    return-void
+
     :cond_0
+    invoke-virtual {p1}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
     return-void
 .end method
 

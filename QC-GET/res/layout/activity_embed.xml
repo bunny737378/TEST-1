@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent" android:keepScreenOn="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/main_s" android:background="@color/black" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <LinearLayout android:orientation="vertical" android:background="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/unity_Banner" android:background="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/adView" android:background="@color/black" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <RelativeLayout android:background="@color/black" android:layout_width="match_parent" android:layout_height="200.0dp" />
+    </RelativeLayout>
+    <FrameLayout android:id="@id/customViewContainer" android:background="@color/black" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.app.bluesun.utils.CursorLayout android:id="@id/cursorLayout" android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView android:textColor="@color/white" android:layout_gravity="center" android:id="@id/error" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <Button android:layout_gravity="center" android:id="@id/retry" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/retry" />
+        <WebView android:id="@id/webView" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/title_view" android:background="@drawable/ic_island" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:layout_alignParentTop="true" android:layout_marginStart="8.0dp">
+            <ImageButton android:id="@id/exit" android:background="@color/transparent" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/ic_back" android:layout_marginStart="6.0dp" />
+            <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center_vertical" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginStart="4.0dp" android:layout_marginEnd="20.0dp" />
+        </LinearLayout>
+    </com.app.bluesun.utils.CursorLayout>
+</RelativeLayout>
