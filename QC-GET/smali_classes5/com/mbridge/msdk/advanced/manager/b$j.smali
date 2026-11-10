@@ -1,0 +1,67 @@
+.class Lcom/mbridge/msdk/advanced/manager/b$j;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/mbridge/msdk/foundation/same/image/c;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/mbridge/msdk/advanced/manager/b;->b(Lcom/mbridge/msdk/foundation/entity/CampaignEx;I)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic a:Lcom/mbridge/msdk/foundation/entity/CampaignEx;
+
+.field final synthetic b:I
+
+.field final synthetic c:Lcom/mbridge/msdk/advanced/manager/b;
+
+
+# direct methods
+.method constructor <init>(Lcom/mbridge/msdk/advanced/manager/b;Lcom/mbridge/msdk/foundation/entity/CampaignEx;I)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/mbridge/msdk/advanced/manager/b$j;->c:Lcom/mbridge/msdk/advanced/manager/b;
+
+    iput-object p2, p0, Lcom/mbridge/msdk/advanced/manager/b$j;->a:Lcom/mbridge/msdk/foundation/entity/CampaignEx;
+
+    iput p3, p0, Lcom/mbridge/msdk/advanced/manager/b$j;->b:I
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onFailedLoad(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
+
+    const/16 v0, 0x50c5
+
+    invoke-static/range {v0 .. v3}, Lnoxid/fox/sckit/VMPPBridge;->i_LL_V(ILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public onSuccessLoad(Landroid/graphics/Bitmap;Ljava/lang/String;)V
+    .locals 1
+
+    const/16 v0, 0x50c7
+
+    invoke-static/range {v0 .. v3}, Lnoxid/fox/sckit/VMPPBridge;->i_LL_V(ILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-void
+.end method

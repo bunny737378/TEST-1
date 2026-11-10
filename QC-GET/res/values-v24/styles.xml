@@ -2,7 +2,10 @@
 <resources>
     <style name="Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored" parent="@android:style/TextAppearance.Material.Widget.Button.Borderless.Colored" />
     <style name="Base.TextAppearance.AppCompat.Widget.Button.Colored" parent="@android:style/TextAppearance.Material.Widget.Button.Colored" />
+    <style name="Base.Theme.Material3.Dark" parent="@style/Base.V24.Theme.Material3.Dark" />
+    <style name="Base.Theme.Material3.Dark.Dialog" parent="@style/Base.V24.Theme.Material3.Dark.Dialog" />
     <style name="Base.Theme.Material3.Light" parent="@style/Base.V24.Theme.Material3.Light" />
+    <style name="Base.Theme.Material3.Light.Dialog" parent="@style/Base.V24.Theme.Material3.Light.Dialog" />
     <style name="Base.V14.Theme.MaterialComponents" parent="@style/Base.V14.Theme.MaterialComponents.Bridge">
         <item name="android:colorBackground">@color/design_dark_default_color_background</item>
         <item name="android:buttonBarButtonStyle">?buttonBarButtonStyle</item>
@@ -37,7 +40,6 @@
         <item name="popupMenuStyle">@style/Widget.MaterialComponents.PopupMenu</item>
         <item name="radioButtonStyle">@style/Widget.MaterialComponents.CompoundButton.RadioButton</item>
         <item name="snackbarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Snackbar</item>
-        <item name="snackbarCloseButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Icon.Close.Snackbar</item>
         <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar</item>
         <item name="snackbarTextViewStyle">@style/Widget.MaterialComponents.Snackbar.TextView</item>
         <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
@@ -81,7 +83,6 @@
         <item name="popupMenuStyle">@style/Widget.MaterialComponents.PopupMenu</item>
         <item name="radioButtonStyle">@style/Widget.MaterialComponents.CompoundButton.RadioButton</item>
         <item name="snackbarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Snackbar</item>
-        <item name="snackbarCloseButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Icon.Close.Snackbar</item>
         <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar</item>
         <item name="snackbarTextViewStyle">@style/Widget.MaterialComponents.Snackbar.TextView</item>
         <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
@@ -131,7 +132,6 @@
         <item name="popupMenuStyle">@style/Widget.MaterialComponents.PopupMenu</item>
         <item name="radioButtonStyle">@style/Widget.MaterialComponents.CompoundButton.RadioButton</item>
         <item name="snackbarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Snackbar</item>
-        <item name="snackbarCloseButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Icon.Close.Snackbar</item>
         <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar</item>
         <item name="snackbarTextViewStyle">@style/Widget.MaterialComponents.Snackbar.TextView</item>
         <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
@@ -174,7 +174,6 @@
         <item name="popupMenuStyle">@style/Widget.MaterialComponents.PopupMenu</item>
         <item name="radioButtonStyle">@style/Widget.MaterialComponents.CompoundButton.RadioButton</item>
         <item name="snackbarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Snackbar</item>
-        <item name="snackbarCloseButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Icon.Close.Snackbar</item>
         <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar</item>
         <item name="snackbarTextViewStyle">@style/Widget.MaterialComponents.Snackbar.TextView</item>
         <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
@@ -191,24 +190,20 @@
         <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar</item>
         <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
     </style>
+    <style name="Base.V24.Theme.Material3.Dark" parent="@style/Base.V14.Theme.Material3.Dark">
+        <item name="android:contextPopupMenuStyle">@style/Widget.Material3.PopupMenu.ContextMenu</item>
+    </style>
+    <style name="Base.V24.Theme.Material3.Dark.Dialog" parent="@style/Base.V14.Theme.Material3.Dark.Dialog">
+        <item name="android:contextPopupMenuStyle">@style/Widget.Material3.PopupMenu.ContextMenu</item>
+    </style>
     <style name="Base.V24.Theme.Material3.Light" parent="@style/Base.V14.Theme.Material3.Light">
         <item name="android:contextPopupMenuStyle">@style/Widget.Material3.PopupMenu.ContextMenu</item>
-        <item name="focusRingsEnabled">@bool/m3_focus_rings_enabled</item>
+    </style>
+    <style name="Base.V24.Theme.Material3.Light.Dialog" parent="@style/Base.V14.Theme.Material3.Light.Dialog">
+        <item name="android:contextPopupMenuStyle">@style/Widget.Material3.PopupMenu.ContextMenu</item>
     </style>
     <style name="TextAppearance.Compat.Notification.Info.Media" parent="@style/TextAppearance.Compat.Notification.Info" />
     <style name="TextAppearance.Compat.Notification.Media" parent="@style/TextAppearance.Compat.Notification" />
     <style name="TextAppearance.Compat.Notification.Time.Media" parent="@style/TextAppearance.Compat.Notification.Time" />
     <style name="TextAppearance.Compat.Notification.Title.Media" parent="@style/TextAppearance.Compat.Notification.Title" />
-    <style name="Widget.Material.Button.Borderless.FocusRing" parent="@android:style/Widget.Material.Button.Borderless">
-        <item name="android:background">@drawable/m3_focus_ring_framework_button_background_borderless</item>
-    </style>
-    <style name="Widget.Material.Button.FocusRing" parent="@android:style/Widget.Material.Button">
-        <item name="android:background">@drawable/m3_focus_ring_framework_button_background</item>
-    </style>
-    <style name="Widget.Material.ImageButton.FocusRing" parent="@android:style/Widget.Material.ImageButton">
-        <item name="android:background">@drawable/m3_focus_ring_framework_button_background</item>
-    </style>
-    <style name="Widget.Material3.Toolbar.Button.Navigation" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
-        <item name="android:background">?toolbarNavigationButtonBackground</item>
-    </style>
 </resources>

@@ -1,0 +1,253 @@
+.class public Lxe/j;
+.super Ljava/lang/Object;
+
+
+# static fields
+.field private static k:Ljava/lang/String;
+
+
+# instance fields
+.field private a:Lcom/journeyapps/barcodescanner/camera/CameraInstance;
+
+.field private b:Landroid/os/HandlerThread;
+
+.field private c:Landroid/os/Handler;
+
+.field private d:Lxe/g;
+
+.field private e:Landroid/os/Handler;
+
+.field private f:Landroid/graphics/Rect;
+
+.field private g:Z
+
+.field private final h:Ljava/lang/Object;
+
+.field private final i:Landroid/os/Handler$Callback;
+
+.field private final j:Lcom/journeyapps/barcodescanner/camera/p;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const-string v0, "j"
+
+    sput-object v0, Lxe/j;->k:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/journeyapps/barcodescanner/camera/CameraInstance;Lxe/g;Landroid/os/Handler;)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lxe/j;->g:Z
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lxe/j;->h:Ljava/lang/Object;
+
+    new-instance v0, Lxe/j$a;
+
+    invoke-direct {v0, p0}, Lxe/j$a;-><init>(Lxe/j;)V
+
+    iput-object v0, p0, Lxe/j;->i:Landroid/os/Handler$Callback;
+
+    new-instance v0, Lxe/j$b;
+
+    invoke-direct {v0, p0}, Lxe/j$b;-><init>(Lxe/j;)V
+
+    iput-object v0, p0, Lxe/j;->j:Lcom/journeyapps/barcodescanner/camera/p;
+
+    invoke-static {}, Lxe/s;->a()V
+
+    iput-object p1, p0, Lxe/j;->a:Lcom/journeyapps/barcodescanner/camera/CameraInstance;
+
+    iput-object p2, p0, Lxe/j;->d:Lxe/g;
+
+    iput-object p3, p0, Lxe/j;->e:Landroid/os/Handler;
+
+    return-void
+.end method
+
+.method static synthetic a(Lxe/j;Lxe/r;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lxe/j;->g(Lxe/r;)V
+
+    return-void
+.end method
+
+.method static synthetic b(Lxe/j;)V
+    .locals 0
+
+    invoke-direct {p0}, Lxe/j;->h()V
+
+    return-void
+.end method
+
+.method static synthetic c(Lxe/j;)Ljava/lang/Object;
+    .locals 0
+
+    iget-object p0, p0, Lxe/j;->h:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method static synthetic d(Lxe/j;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lxe/j;->g:Z
+
+    return p0
+.end method
+
+.method static synthetic e(Lxe/j;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lxe/j;->c:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method private g(Lxe/r;)V
+    .locals 1
+
+    const/16 v0, 0x71cc
+
+    invoke-static/range {v0 .. v2}, Lnoxid/fox/sckit/VMPPBridge;->i_L_V(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method private h()V
+    .locals 2
+
+    iget-object v0, p0, Lxe/j;->a:Lcom/journeyapps/barcodescanner/camera/CameraInstance;
+
+    iget-object v1, p0, Lxe/j;->j:Lcom/journeyapps/barcodescanner/camera/p;
+
+    invoke-virtual {v0, v1}, Lcom/journeyapps/barcodescanner/camera/CameraInstance;->y(Lcom/journeyapps/barcodescanner/camera/p;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method protected f(Lxe/r;)Lcom/google/zxing/e;
+    .locals 1
+
+    iget-object v0, p0, Lxe/j;->f:Landroid/graphics/Rect;
+
+    if-nez v0, :cond_0
+
+    const/4 p1, 0x0
+
+    return-object p1
+
+    :cond_0
+    invoke-virtual {p1}, Lxe/r;->a()Lcom/google/zxing/h;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public i(Landroid/graphics/Rect;)V
+    .locals 0
+
+    iput-object p1, p0, Lxe/j;->f:Landroid/graphics/Rect;
+
+    return-void
+.end method
+
+.method public j(Lxe/g;)V
+    .locals 0
+
+    iput-object p1, p0, Lxe/j;->d:Lxe/g;
+
+    return-void
+.end method
+
+.method public k()V
+    .locals 3
+
+    invoke-static {}, Lxe/s;->a()V
+
+    new-instance v0, Landroid/os/HandlerThread;
+
+    sget-object v1, Lxe/j;->k:Ljava/lang/String;
+
+    invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
+
+    iput-object v0, p0, Lxe/j;->b:Landroid/os/HandlerThread;
+
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+
+    new-instance v0, Landroid/os/Handler;
+
+    iget-object v1, p0, Lxe/j;->b:Landroid/os/HandlerThread;
+
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lxe/j;->i:Landroid/os/Handler$Callback;
+
+    invoke-direct {v0, v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
+
+    iput-object v0, p0, Lxe/j;->c:Landroid/os/Handler;
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lxe/j;->g:Z
+
+    invoke-direct {p0}, Lxe/j;->h()V
+
+    return-void
+.end method
+
+.method public l()V
+    .locals 3
+
+    invoke-static {}, Lxe/s;->a()V
+
+    iget-object v0, p0, Lxe/j;->h:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iput-boolean v1, p0, Lxe/j;->g:Z
+
+    iget-object v1, p0, Lxe/j;->c:Landroid/os/Handler;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+
+    iget-object v1, p0, Lxe/j;->b:Landroid/os/HandlerThread;
+
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->quit()Z
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method

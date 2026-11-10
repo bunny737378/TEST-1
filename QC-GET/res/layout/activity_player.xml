@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/main_media_frame" android:background="@color/black" android:layout_width="match_parent" android:layout_height="match_parent" android:keepScreenOn="true"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.media3.ui.PlayerView android:id="@id/player" android:layout_width="match_parent" android:layout_height="match_parent" app:controller_layout_id="@layout/exo_control_view" />
-    <ProgressBar android:id="@id/progress" android:layout_width="80.0dp" android:layout_height="80.0dp" android:layout_centerInParent="true" android:indeterminateTint="@color/white" />
-    <fragment android:id="@id/castMiniController" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" class="com.google.android.gms.cast.framework.media.widget.MiniControllerFragment" />
-</RelativeLayout>
