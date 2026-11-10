@@ -42,8 +42,8 @@ jobs:
 
           name = os.environ.get('APP_FOLDER', '').strip()
           if not name:
-              # Push builds target AN2; manual runs can still select any folder.
-              name = "AN2"
+              # Push builds target QC; manual runs can still select any folder.
+              name = "QC"
               print(f"No input folder, defaulting to {name}")
           forbidden = set('/\\:*?"<>|')
           reserved = {'CON', 'PRN', 'AUX', 'NUL'} | {
