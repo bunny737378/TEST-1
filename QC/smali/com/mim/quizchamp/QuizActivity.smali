@@ -1302,6 +1302,10 @@
 
 .method public final startDirectUnlock()V
     .locals 4
+    iget-boolean v0, p0, Lcom/mim/quizchamp/QuizActivity;->B0:Z
+    if-eqz v0, :start_request
+    return-void
+    :start_request
     const/4 v0, 0x1
     iput-boolean v0, p0, Lcom/mim/quizchamp/QuizActivity;->B0:Z
     new-instance v1, Lorg/json/JSONObject;
@@ -1447,7 +1451,10 @@
     .line 154
     :catch_2
     move-exception v0
-    invoke-virtual {p0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
+    const/4 v0, 0x0
+    iput-boolean v0, p0, Lcom/mim/quizchamp/QuizActivity;->B0:Z
+    const-string v1, "Could not prepare authentication. Tap to retry."
+    invoke-virtual {p0, v1}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed(Ljava/lang/String;)V
     const/4 v0, 0x0
 
     .line 155
@@ -1459,11 +1466,27 @@
     return-void
 .end method
 
-.method public final unlockFailed()V
+.method public final unlockFailed(Ljava/lang/String;)V
     .locals 1
     new-instance v0, LqcUnlockFailure;
-    invoke-direct {v0, p0}, LqcUnlockFailure;-><init>(Lcom/mim/quizchamp/QuizActivity;)V
+    invoke-direct {v0, p0, p1}, LqcUnlockFailure;-><init>(Lcom/mim/quizchamp/QuizActivity;Ljava/lang/String;)V
     invoke-virtual {p0, v0}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
+    return-void
+.end method
+
+.method public final unlockHttpFailure(Ljava/lang/String;I)V
+    .locals 2
+    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " (HTTP "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, "). Tap to retry."
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+    invoke-virtual {p0, v0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed(Ljava/lang/String;)V
     return-void
 .end method
 
@@ -2424,7 +2447,8 @@
     return-void
 
     :direct_missing
-    invoke-virtual {p0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
+    const-string v1, "Required launch data is missing. Open QC using Get in the other app."
+    invoke-virtual {p0, v1}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed(Ljava/lang/String;)V
     return-void
 
     :unused_original_quiz_start

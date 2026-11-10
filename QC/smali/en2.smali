@@ -300,7 +300,8 @@
 
     .line 6
     iput-boolean v0, p0, Lcom/mim/quizchamp/QuizActivity;->B0:Z
-    invoke-virtual {p0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
+    const-string v0, "Authentication connection failed. Tap to retry."
+    invoke-virtual {p0, v0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed(Ljava/lang/String;)V
 
     .line 7
     .line 8
@@ -3312,7 +3313,8 @@
     .line 84
     :catch_0
     iput-boolean v1, p0, Lcom/mim/quizchamp/QuizActivity;->B0:Z
-    invoke-virtual {p0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
+    const-string v2, "Authentication response invalid. Tap to retry."
+    invoke-virtual {p0, v2}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed(Ljava/lang/String;)V
 
     .line 85
     .line 86
@@ -3327,7 +3329,9 @@
     :cond_5
     :goto_3
     iput-boolean v1, p0, Lcom/mim/quizchamp/QuizActivity;->B0:Z
-    invoke-virtual {p0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
+    const-string v2, "Authentication failed"
+    iget v3, p1, Lvc0;->i:I
+    invoke-virtual {p0, v2, v3}, Lcom/mim/quizchamp/QuizActivity;->unlockHttpFailure(Ljava/lang/String;I)V
 
     .line 89
     .line 90

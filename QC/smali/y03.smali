@@ -3871,7 +3871,8 @@
 
     .line 6
     iput-boolean v0, p0, Lcom/mim/quizchamp/QuizActivity;->B0:Z
-    invoke-virtual {p0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
+    const-string v0, "Database connection failed. Tap to retry."
+    invoke-virtual {p0, v0}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed(Ljava/lang/String;)V
 
     .line 7
     .line 8
@@ -4831,9 +4832,10 @@
 .end method
 
 .method public r(Lvc0;)V
-    .locals 2
+    .locals 3
 
     .line 1
+    iget v2, p1, Lvc0;->i:I
     iget-boolean v0, p1, Lvc0;->u:Z
 
     .line 2
@@ -4890,7 +4892,8 @@
     return-void
 
     :cond_0
-    invoke-virtual {p1}, Lcom/mim/quizchamp/QuizActivity;->unlockFailed()V
+    const-string v0, "Database update failed"
+    invoke-virtual {p1, v0, v2}, Lcom/mim/quizchamp/QuizActivity;->unlockHttpFailure(Ljava/lang/String;I)V
     return-void
 .end method
 

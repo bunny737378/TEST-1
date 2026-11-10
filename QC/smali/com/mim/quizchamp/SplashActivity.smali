@@ -202,6 +202,16 @@
     .line 5
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
+    # Keep the caller's extras when entry happens through the launcher.
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+    move-result-object v1
+    if-eqz v1, :no_caller_extras
+    invoke-virtual {v1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+    move-result-object v1
+    if-eqz v1, :no_caller_extras
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
+    :no_caller_extras
+
     .line 6
     .line 7
     .line 8
