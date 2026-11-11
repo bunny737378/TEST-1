@@ -518,12 +518,6 @@
     invoke-virtual {p1, v4}, Lcom/chad/library/adapter/base/viewholder/BaseViewHolder;->getView(I)Landroid/view/View;
     move-result-object v4
     invoke-virtual {v4, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-    sget v4, Lcom/transsion/usercenter/R$id;->avatarIV:I
-    invoke-virtual {p1, v4}, Lcom/chad/library/adapter/base/viewholder/BaseViewHolder;->getView(I)Landroid/view/View;
-    move-result-object v4
-    new-instance v5, Lcom/mod/ProfileTapUnlock;
-    invoke-direct {v5}, Lcom/mod/ProfileTapUnlock;-><init>()V
-    invoke-virtual {v4, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
 
     if-nez p2, :cond_0

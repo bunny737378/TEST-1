@@ -16,10 +16,6 @@
                     <TextView android:tag="selected_region" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="4dp" android:textSize="12sp" android:textColor="@color/text_03" />
                     <ImageView android:layout_width="15dp" android:layout_height="15dp" android:src="@drawable/user_setting_arrow" android:tint="@color/gray_60" />
                 </LinearLayout>
-                <LinearLayout android:tag="hidden_mode" android:visibility="gone" android:layout_width="match_parent" android:layout_height="52dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="12dp" android:paddingEnd="12dp" android:background="?selectableItemBackground" android:clickable="true" android:focusable="true" android:onClick="openModeSelector">
-                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="Mode" android:textSize="14sp" android:textColor="@color/text_01" />
-                    <ImageView android:layout_width="15dp" android:layout_height="15dp" android:src="@drawable/user_setting_arrow" android:tint="@color/gray_60" />
-                </LinearLayout>
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView android:id="@id/rv" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" app:layout_constraintTop_toBottomOf="@id/tool_bar" />
             <TextView android:id="@id/deviceInfoTv" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />

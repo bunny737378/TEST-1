@@ -3044,16 +3044,6 @@
     return-void
 .end method
 
-# Hidden until the profile-photo tap sequence unlocks it.
-.method public openModeSelector(Landroid/view/View;)V
-    .locals 2
-    new-instance v0, Lcom/transsion/usercenter/laboratory/LabContentModeDialog;
-    invoke-direct {v0}, Lcom/transsion/usercenter/laboratory/LabContentModeDialog;-><init>()V
-    const-string v1, "LabContentModeDialog"
-    invoke-virtual {v0, p0, v1}, Lcom/transsion/baseui/dialog/BaseDialog;->l0(Landroid/content/Context;Ljava/lang/String;)V
-    return-void
-.end method
-
 # The picker reads all entries generated from local_mcc.json.
 .method public openCountrySelector(Landroid/view/View;)V
     .locals 1

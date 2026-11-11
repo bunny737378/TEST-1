@@ -378,25 +378,6 @@
     move-result-object v3
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
     :server_done
-    const-string v0, "hidden_mode"
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
-    move-result-object v2
-    if-eqz v2, :done
-    sget-object v3, Lhh/a;->a:Lhh/a$a;
-    invoke-virtual {v3}, Lhh/a$a;->c()Lcom/tencent/mmkv/MMKV;
-    move-result-object v3
-    if-eqz v3, :mode_hidden
-    const-string v0, "profile_mode_unlocked"
-    const/4 v4, 0x0
-    invoke-virtual {v3, v0, v4}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
-    move-result v0
-    if-eqz v0, :mode_hidden
-    const/4 v0, 0x0
-    goto :mode_visibility
-    :mode_hidden
-    const/16 v0, 0x8
-    :mode_visibility
-    invoke-virtual {v2, v0}, Landroid/view/View;->setVisibility(I)V
     :done
     return-void
 .end method
