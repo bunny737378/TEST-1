@@ -510,23 +510,21 @@
 
     invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
 
+    # Header taps no longer open profile editing or the profile-switch dialog.
     iget-object v4, p1, Landroidx/recyclerview/widget/RecyclerView$b0;->itemView:Landroid/view/View;
+    const/4 v5, 0x0
+    invoke-virtual {v4, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    sget v4, Lcom/transsion/usercenter/R$id;->safeKidsGroup:I
+    invoke-virtual {p1, v4}, Lcom/chad/library/adapter/base/viewholder/BaseViewHolder;->getView(I)Landroid/view/View;
+    move-result-object v4
+    invoke-virtual {v4, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    sget v4, Lcom/transsion/usercenter/R$id;->avatarIV:I
+    invoke-virtual {p1, v4}, Lcom/chad/library/adapter/base/viewholder/BaseViewHolder;->getView(I)Landroid/view/View;
+    move-result-object v4
+    new-instance v5, Lcom/mod/ProfileTapUnlock;
+    invoke-direct {v5}, Lcom/mod/ProfileTapUnlock;-><init>()V
+    invoke-virtual {v4, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const-string v1, "itemView"
-
-    invoke-static {v4, v1}, Lkotlin/jvm/internal/Intrinsics;->g(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance v7, Lcom/transsion/usercenter/me/adapter/y;
-
-    invoke-direct {v7, p2, p0}, Lcom/transsion/usercenter/me/adapter/y;-><init>(Lcom/transsnet/loginapi/bean/UserInfo;Lcom/transsion/usercenter/me/adapter/b0;)V
-
-    const/4 v8, 0x1
-
-    const/4 v9, 0x0
-
-    const-wide/16 v5, 0x0
-
-    invoke-static/range {v4 .. v9}, Lpg/c;->c(Landroid/view/View;JLkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 
     if-nez p2, :cond_0
 
@@ -630,6 +628,12 @@
     invoke-interface {v4, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_4
+    # Clear the profile/study-mode click target after MeFragment's binding callback.
+    sget v1, Lcom/transsion/usercenter/R$id;->safeKidsGroup:I
+    invoke-virtual {p1, v1}, Lcom/chad/library/adapter/base/viewholder/BaseViewHolder;->getView(I)Landroid/view/View;
+    move-result-object v1
+    const/4 v4, 0x0
+    invoke-virtual {v1, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
     sget-object v1, Lkk/o;->a:Lkk/o;
 
     invoke-virtual {v1}, Lkk/o;->i()Z

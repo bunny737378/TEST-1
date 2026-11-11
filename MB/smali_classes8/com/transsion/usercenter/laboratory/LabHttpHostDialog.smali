@@ -266,7 +266,7 @@
 .end method
 
 .method private final v0(Ljava/lang/String;)V
-    .locals 4
+    .locals 5
 
     .line 1
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -439,6 +439,11 @@
     .line 88
     .line 89
     :cond_1
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+    move-result-object v0
+    if-eqz v0, :return
+    invoke-static {v0}, Lcom/mod/RegionPicker;->update(Landroid/app/Activity;)V
+    :return
     return-void
 .end method
 

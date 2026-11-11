@@ -2144,41 +2144,11 @@
 
     move-result-object v2
 
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     iget-object v1, v0, Lcom/transsion/usercenter/setting/SettingActivity;->c:Ljava/util/List;
 
     new-instance v15, Lgy/b;
-
-    sget v3, Lcom/transsion/usercenter/R$string;->user_setting_title_more:I
-
-    const/16 v13, 0x3ee
-
-    const/4 v14, 0x0
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x2
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
-
-    move-object v2, v15
-
-    invoke-direct/range {v2 .. v14}, Lgy/b;-><init>(ILcom/transsion/usercenter/setting/bean/UserSettingType;Ljava/lang/String;Ljava/lang/Integer;ILjava/lang/String;ZZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    invoke-interface {v1, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v1, v0, Lcom/transsion/usercenter/setting/SettingActivity;->c:Ljava/util/List;
 
     sget v3, Lcom/transsion/usercenter/R$string;->user_setting_update:I
 
@@ -3070,6 +3040,16 @@
     new-instance v0, Lcom/transsion/usercenter/laboratory/LabHttpHostDialog;
     invoke-direct {v0}, Lcom/transsion/usercenter/laboratory/LabHttpHostDialog;-><init>()V
     const-string v1, "host"
+    invoke-virtual {v0, p0, v1}, Lcom/transsion/baseui/dialog/BaseDialog;->l0(Landroid/content/Context;Ljava/lang/String;)V
+    return-void
+.end method
+
+# Hidden until the profile-photo tap sequence unlocks it.
+.method public openModeSelector(Landroid/view/View;)V
+    .locals 2
+    new-instance v0, Lcom/transsion/usercenter/laboratory/LabContentModeDialog;
+    invoke-direct {v0}, Lcom/transsion/usercenter/laboratory/LabContentModeDialog;-><init>()V
+    const-string v1, "LabContentModeDialog"
     invoke-virtual {v0, p0, v1}, Lcom/transsion/baseui/dialog/BaseDialog;->l0(Landroid/content/Context;Ljava/lang/String;)V
     return-void
 .end method

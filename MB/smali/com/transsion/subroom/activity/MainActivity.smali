@@ -12629,3 +12629,10 @@
     .line 3
     return v0
 .end method
+
+.method public onStop()V
+    .locals 0
+    invoke-super {p0}, Lcom/transsion/baseui/activity/BaseActivity;->onStop()V
+    invoke-static {p0}, Lcom/mod/ProfileTapUnlock;->resetIfBackground(Landroid/app/Activity;)V
+    return-void
+.end method

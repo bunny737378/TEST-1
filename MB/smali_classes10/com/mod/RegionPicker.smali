@@ -56,7 +56,7 @@
 .end method
 
 .method public static show(Landroid/app/Activity;)V
-    .locals 9
+    .locals 12
     new-instance v0, Lcom/mod/RegionPicker;
     invoke-direct {v0, p0}, Lcom/mod/RegionPicker;-><init>(Landroid/app/Activity;)V
     new-instance v1, Landroid/app/Dialog;
@@ -73,13 +73,6 @@
     invoke-virtual {v3, v2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
     move-result-object v2
     invoke-virtual {v1, v2}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
-    const-string v3, "region_current"
-    invoke-virtual {v2, v3}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
-    move-result-object v3
-    check-cast v3, Landroid/widget/TextView;
-    invoke-static {p0}, Lcom/mod/RegionPicker;->selectedName(Landroid/app/Activity;)Ljava/lang/String;
-    move-result-object v4
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
     const-string v3, "region_list"
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
     move-result-object v3
@@ -122,14 +115,34 @@
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v8
     aput-object v8, v5, v7
-    new-instance v4, Landroid/widget/ArrayAdapter;
-    const-string v6, "mod_region_item"
-    invoke-static {p0, v6}, Lcom/mod/RegionPicker;->layoutId(Landroid/app/Activity;Ljava/lang/String;)I
-    move-result v6
-    invoke-direct {v4, p0, v6, v5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
-    invoke-virtual {v3, v4}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+    new-instance v4, Ljava/util/ArrayList;
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+    const/4 v6, 0x0
+    :entry_loop
+    array-length v8, v5
+    if-ge v6, v8, :entries_done
+    new-instance v8, Lcom/mod/RegionEntry;
+    aget-object v9, v5, v6
+    invoke-direct {v8, v9, v6}, Lcom/mod/RegionEntry;-><init>(Ljava/lang/String;I)V
+    invoke-virtual {v4, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    add-int/lit8 v6, v6, 0x1
+    goto :entry_loop
+    :entries_done
+    new-instance v6, Landroid/widget/ArrayAdapter;
+    const-string v8, "mod_region_item"
+    invoke-static {p0, v8}, Lcom/mod/RegionPicker;->layoutId(Landroid/app/Activity;Ljava/lang/String;)I
+    move-result v8
+    invoke-direct {v6, p0, v8, v4}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
+    invoke-virtual {v3, v6}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
     invoke-virtual {v3, v0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
     invoke-virtual {v3, v7}, Landroid/widget/ListView;->setSelection(I)V
+    const-string v8, "region_search"
+    invoke-virtual {v2, v8}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+    move-result-object v8
+    check-cast v8, Landroidx/appcompat/widget/SearchView;
+    new-instance v9, Lcom/mod/RegionSearchListener;
+    invoke-direct {v9, v6}, Lcom/mod/RegionSearchListener;-><init>(Landroid/widget/ArrayAdapter;)V
+    invoke-virtual {v8, v9}, Landroidx/appcompat/widget/SearchView;->setOnQueryTextListener(Landroidx/appcompat/widget/SearchView$OnQueryTextListener;)V
     const-string v3, "region_reset"
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
     move-result-object v3
@@ -169,7 +182,12 @@
 .end method
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 5
+    .locals 6
+    invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
+    move-result-object v0
+    check-cast v0, Lcom/mod/RegionEntry;
+    invoke-virtual {v0}, Lcom/mod/RegionEntry;->getPosition()I
+    move-result p3
     invoke-direct {p0, p3}, Lcom/mod/RegionPicker;->savePosition(I)V
     if-nez p3, :not_device
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -361,19 +379,49 @@
 .end method
 
 .method public static update(Landroid/app/Activity;)V
-    .locals 4
-    const-string v0, "selected_region"
+    .locals 5
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
     move-result-object v1
     invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
     move-result-object v1
+    const-string v0, "selected_region"
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
-    move-result-object v1
-    if-eqz v1, :done
-    check-cast v1, Landroid/widget/TextView;
-    invoke-static {p0}, Lcom/mod/RegionPicker;->selectedName(Landroid/app/Activity;)Ljava/lang/String;
     move-result-object v2
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    if-eqz v2, :region_done
+    check-cast v2, Landroid/widget/TextView;
+    invoke-static {p0}, Lcom/mod/RegionPicker;->selectedName(Landroid/app/Activity;)Ljava/lang/String;
+    move-result-object v3
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    :region_done
+    const-string v0, "selected_server"
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+    move-result-object v2
+    if-eqz v2, :server_done
+    check-cast v2, Landroid/widget/TextView;
+    sget-object v3, Lcom/tn/lib/net/dns/or/CacheIpPool;->a:Lcom/tn/lib/net/dns/or/CacheIpPool;
+    invoke-virtual {v3}, Lcom/tn/lib/net/dns/or/CacheIpPool;->l()Ljava/lang/String;
+    move-result-object v3
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    :server_done
+    const-string v0, "hidden_mode"
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+    move-result-object v2
+    if-eqz v2, :done
+    sget-object v3, Lhh/a;->a:Lhh/a$a;
+    invoke-virtual {v3}, Lhh/a$a;->c()Lcom/tencent/mmkv/MMKV;
+    move-result-object v3
+    if-eqz v3, :mode_hidden
+    const-string v0, "profile_mode_unlocked"
+    const/4 v4, 0x0
+    invoke-virtual {v3, v0, v4}, Lcom/tencent/mmkv/MMKV;->getBoolean(Ljava/lang/String;Z)Z
+    move-result v0
+    if-eqz v0, :mode_hidden
+    const/4 v0, 0x0
+    goto :mode_visibility
+    :mode_hidden
+    const/16 v0, 0x8
+    :mode_visibility
+    invoke-virtual {v2, v0}, Landroid/view/View;->setVisibility(I)V
     :done
     return-void
 .end method
