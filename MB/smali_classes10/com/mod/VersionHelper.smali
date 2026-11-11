@@ -670,6 +670,10 @@
     const-string v2, "0"
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
+    invoke-static {}, Lcom/mod/VersionHelper;->currentPlayMode()Ljava/lang/String;
+    move-result-object v2
+    const-string v1, "X-Play-Mode"
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
     invoke-static {v0}, Lcom/mod/VersionHelper;->applyRegionSettings(Lorg/json/JSONObject;)V
 
     const-string v1, "X-Client-Build"
@@ -747,4 +751,24 @@
     :catch_0
     move-exception v0
     return-void
+.end method
+
+.method private static currentPlayMode()Ljava/lang/String;
+    .locals 1
+    :try_start_0
+    sget-object v0, Lkk/t;->a:Lkk/t;
+    invoke-virtual {v0}, Lkk/t;->b()Z
+    move-result v0
+    if-eqz v0, :download
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :default
+    const-string v0, "2"
+    return-object v0
+    :download
+    const-string v0, "1"
+    return-object v0
+    :default
+    move-exception v0
+    const-string v0, "2"
+    return-object v0
 .end method

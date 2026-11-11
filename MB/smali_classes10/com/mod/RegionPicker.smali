@@ -92,13 +92,6 @@
     move-result-object v6
     invoke-virtual {v6}, Ljava/util/Locale;->getDisplayCountry()Ljava/lang/String;
     move-result-object v6
-    new-instance v7, Ljava/lang/StringBuilder;
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v8, "Device region: "
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v6
     const/4 v7, 0x0
     aput-object v6, v5, v7
     const/4 v6, 0x1
@@ -117,17 +110,10 @@
     add-int/lit8 v6, v6, 0x1
     goto :list_loop
     :list_done
-    # Mark the selected full name; default is Netherlands.
-    invoke-static {p0}, Lcom/mod/RegionPicker;->selectedName(Landroid/app/Activity;)Ljava/lang/String;
-    move-result-object v6
-    const/4 v7, 0x1
-    :mark_loop
-    array-length v8, v5
-    if-ge v7, v8, :mark_done
-    aget-object v8, v5, v7
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    move-result v8
-    if-eqz v8, :mark_next
+    # Mark and scroll to the exact selected entry, including duplicate names.
+    invoke-direct {v0}, Lcom/mod/RegionPicker;->selectedPosition()I
+    move-result v7
+    aget-object v6, v5, v7
     new-instance v8, Ljava/lang/StringBuilder;
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
     invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -136,11 +122,6 @@
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v8
     aput-object v8, v5, v7
-    goto :mark_done
-    :mark_next
-    add-int/lit8 v7, v7, 0x1
-    goto :mark_loop
-    :mark_done
     new-instance v4, Landroid/widget/ArrayAdapter;
     const-string v6, "mod_region_item"
     invoke-static {p0, v6}, Lcom/mod/RegionPicker;->layoutId(Landroid/app/Activity;Ljava/lang/String;)I
@@ -148,6 +129,7 @@
     invoke-direct {v4, p0, v6, v5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
     invoke-virtual {v3, v4}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
     invoke-virtual {v3, v0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    invoke-virtual {v3, v7}, Landroid/widget/ListView;->setSelection(I)V
     const-string v3, "region_reset"
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
     move-result-object v3
@@ -161,11 +143,34 @@
     const v3, 0x106000d
     invoke-virtual {v2, v3}, Landroid/view/Window;->setBackgroundDrawableResource(I)V
     invoke-virtual {v1}, Landroid/app/Dialog;->show()V
+    const-string v3, "dialog_lab_http_host"
+    invoke-static {p0, v3}, Lcom/mod/RegionPicker;->layoutId(Landroid/app/Activity;Ljava/lang/String;)I
+    move-result v3
+    invoke-virtual {p0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    move-result-object v4
+    const/4 v5, 0x0
+    invoke-virtual {v4, v3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    move-result-object v4
+    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    move-result-object v3
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    move-result-object v3
+    iget v3, v3, Landroid/util/DisplayMetrics;->widthPixels:I
+    const/high16 v5, -0x80000000
+    invoke-static {v3, v5}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    move-result v3
+    const/4 v5, 0x0
+    invoke-virtual {v4, v3, v5}, Landroid/view/View;->measure(II)V
+    invoke-virtual {v4}, Landroid/view/View;->getMeasuredWidth()I
+    move-result v3
+    const/4 v4, -0x2
+    invoke-virtual {v2, v3, v4}, Landroid/view/Window;->setLayout(II)V
     return-void
 .end method
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 5
+    invoke-direct {p0, p3}, Lcom/mod/RegionPicker;->savePosition(I)V
     if-nez p3, :not_device
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
     move-result-object v0
@@ -221,6 +226,8 @@
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     move-result v0
     if-eqz v0, :cancel
+    const/4 v0, 0x1
+    invoke-direct {p0, v0}, Lcom/mod/RegionPicker;->savePosition(I)V
     const-string v0, "NL"
     const-string v1, "204"
     const-string v2, "Netherlands"
@@ -230,6 +237,74 @@
     iget-object v0, p0, Lcom/mod/RegionPicker;->dialog:Landroid/app/Dialog;
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
     return-void
+.end method
+
+
+.method private savePosition(I)V
+    .locals 2
+    sget-object v0, Lhh/a;->a:Lhh/a$a;
+    invoke-virtual {v0}, Lhh/a$a;->c()Lcom/tencent/mmkv/MMKV;
+    move-result-object v0
+    if-eqz v0, :done
+    const-string v1, "mock_region_position"
+    invoke-virtual {v0, v1, p1}, Lcom/tencent/mmkv/MMKV;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
+    :done
+    return-void
+.end method
+
+.method private selectedPosition()I
+    .locals 7
+    sget-object v0, Lhh/a;->a:Lhh/a$a;
+    invoke-virtual {v0}, Lhh/a$a;->c()Lcom/tencent/mmkv/MMKV;
+    move-result-object v0
+    if-eqz v0, :default
+    const-string v1, "mock_region_position"
+    const/4 v2, -0x1
+    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->getInt(Ljava/lang/String;I)I
+    move-result v1
+    if-ltz v1, :lookup
+    iget-object v2, p0, Lcom/mod/RegionPicker;->names:[Ljava/lang/String;
+    array-length v2, v2
+    if-gt v1, v2, :lookup
+    return v1
+    :lookup
+    const-string v1, "mock_header_region"
+    const-string v2, "NL"
+    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
+    const-string v2, "sp_code"
+    const-string v3, ""
+    invoke-virtual {v0, v2, v3}, Lcom/tencent/mmkv/MMKV;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v2
+    iget-object v3, p0, Lcom/mod/RegionPicker;->codes:[Ljava/lang/String;
+    iget-object v4, p0, Lcom/mod/RegionPicker;->mccs:[Ljava/lang/String;
+    const/4 v5, 0x0
+    :loop
+    array-length v6, v3
+    if-ge v5, v6, :default
+    aget-object v6, v3, v5
+    invoke-virtual {v6, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v6
+    if-eqz v6, :next
+    aget-object v6, v4, v5
+    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v6
+    if-nez v6, :found
+    :next
+    add-int/lit8 v5, v5, 0x1
+    goto :loop
+    :found
+    const/4 v6, 0x1
+    if-eq v5, v6, :default
+    if-nez v5, :other
+    const/4 v5, 0x2
+    return v5
+    :other
+    add-int/lit8 v5, v5, 0x1
+    return v5
+    :default
+    const/4 v0, 0x1
+    return v0
 .end method
 
 .method private save(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V

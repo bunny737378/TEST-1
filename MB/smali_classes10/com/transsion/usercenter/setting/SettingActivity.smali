@@ -2418,13 +2418,12 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
-    iget-object v1, v0, Lcom/transsion/usercenter/setting/SettingActivity;->c:Ljava/util/List;
-
-    invoke-direct/range {p0 .. p0}, Lcom/transsion/usercenter/setting/SettingActivity;->R0()Lgy/b;
-
+    invoke-direct/range {p0 .. p0}, Lcom/transsion/usercenter/setting/SettingActivity;->V0()Lgy/b;
+    move-result-object v1
+    sget v2, Lcom/transsion/baseui/R$drawable;->bg_radius_bottom_6_color_white_6p:I
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
     move-result-object v2
-
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Lgy/b;->l(Ljava/lang/Integer;)V
 
     goto :goto_5
 
@@ -3384,17 +3383,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    iget-object v0, p0, Lcom/transsion/usercenter/setting/SettingActivity;->a:Lcom/transsion/usercenter/setting/adapter/d;
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0}, Lcom/transsion/usercenter/setting/SettingActivity;->R0()Lgy/b;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/chad/library/adapter/base/BaseQuickAdapter;->p(Ljava/lang/Object;)V
-
-    :cond_0
     invoke-direct {p0, p1}, Lcom/transsion/usercenter/setting/SettingActivity;->C0(Lcom/transsnet/loginapi/bean/UserInfo;)V
 
     return-void
