@@ -280,7 +280,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, "\",\"brand\":\"Samsung\",\"model\":\"SM-S928B\",\"system_language\":\"en\",\"net\":\"WIFI\",\"region\":\"IN\",\"timezone\":\"Asia/Kolkata\",\"sp_code\":\"405863\",\"X-Play-Mode\":\"2\",\"X-Idle-Data\":\"1\",\"X-Family-Mode\":\"0\",\"X-Content-Mode\":\"0\"}"
+    const-string v5, "\",\"brand\":\"Samsung\",\"model\":\"SM-S928B\",\"system_language\":\"en\",\"net\":\"WIFI\",\"region\":\"\",\"timezone\":\"\",\"sp_code\":\"\",\"X-Play-Mode\":\"2\",\"X-Idle-Data\":\"0\",\"X-Family-Mode\":\"0\",\"X-Content-Mode\":\"0\"}"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -665,6 +665,13 @@
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
+    # Enforce the user's idle-off setting even for previously cached templates.
+    const-string v1, "X-Idle-Data"
+    const-string v2, "0"
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    invoke-static {v0}, Lcom/mod/VersionHelper;->applyRegionSettings(Lorg/json/JSONObject;)V
+
     const-string v1, "X-Client-Build"
 
     invoke-virtual {v0, v1}, Lorg/json/JSONObject;->remove(Ljava/lang/String;)Ljava/lang/Object;
@@ -682,4 +689,57 @@
 
     :cond_0
     return-object p0
+.end method
+
+
+# Apply the country override on every request; otherwise use the device's own values.
+.method private static applyRegionSettings(Lorg/json/JSONObject;)V
+    .locals 4
+    :try_start_0
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+    move-result-object v0
+    invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+    move-result-object v0
+    sget-object v1, Lhh/a;->a:Lhh/a$a;
+    invoke-virtual {v1}, Lhh/a$a;->c()Lcom/tencent/mmkv/MMKV;
+    move-result-object v1
+    if-eqz v1, :region_ready
+    const-string v2, "mock_header_region"
+    const-string v3, ""
+    invoke-virtual {v1, v2, v3}, Lcom/tencent/mmkv/MMKV;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v2
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result v3
+    if-nez v3, :region_ready
+    move-object v0, v2
+    :region_ready
+    const-string v2, "region"
+    invoke-virtual {p0, v2, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    const-string v2, "timezone"
+    invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
+    move-result-object v0
+    invoke-virtual {v0}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
+    move-result-object v0
+    invoke-virtual {p0, v2, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    const-string v0, ""
+    if-eqz v1, :operator_ready
+    const-string v2, "sp_code"
+    invoke-virtual {v1, v2, v0}, Lcom/tencent/mmkv/MMKV;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v0
+    :operator_ready
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result v1
+    if-eqz v1, :operator_set
+    sget-object v1, Loh/b;->a:Loh/b;
+    invoke-virtual {v1}, Loh/b;->o()Ljava/lang/String;
+    move-result-object v0
+    :operator_set
+    const-string v1, "sp_code"
+    invoke-virtual {p0, v1, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    return-void
+    :catch_0
+    move-exception v0
+    return-void
 .end method

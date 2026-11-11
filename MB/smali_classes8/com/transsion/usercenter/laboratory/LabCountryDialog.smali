@@ -328,6 +328,8 @@
     .line 26
     .line 27
     invoke-virtual {p1, v0, v1}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    const-string v0, "mock_header_region"
+    invoke-virtual {p1, v0, v1}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     .line 28
     .line 29
@@ -343,6 +345,30 @@
 
 .method private final E0(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
+
+    # Do not save an invalid/unknown ISO without a corresponding MCC.
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result v0
+    if-eqz v0, :country_found
+    const-string v0, "Country code not found. Use a supported ISO code."
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+    move-result-object v1
+    const/4 v2, 0x1
+    invoke-static {v1, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    move-result-object v0
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    return-void
+    :country_found
+    sget-object v0, Lhh/a;->a:Lhh/a$a;
+    invoke-virtual {v0}, Lhh/a$a;->c()Lcom/tencent/mmkv/MMKV;
+    move-result-object v0
+    if-eqz v0, :region_saved
+    const-string v1, "mock_header_region"
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+    invoke-virtual {p1, v2}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+    move-result-object v2
+    invoke-virtual {v0, v1, v2}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    :region_saved
 
     .line 1
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;

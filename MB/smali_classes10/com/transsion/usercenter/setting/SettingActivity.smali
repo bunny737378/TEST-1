@@ -3075,6 +3075,25 @@
     return-void
 .end method
 
+# Open only the two requested Laboratory controls.
+.method public openCountrySelector(Landroid/view/View;)V
+    .locals 2
+    new-instance v0, Lcom/transsion/usercenter/laboratory/LabCountryDialog;
+    invoke-direct {v0}, Lcom/transsion/usercenter/laboratory/LabCountryDialog;-><init>()V
+    const-string v1, "country"
+    invoke-virtual {v0, p0, v1}, Lcom/transsion/baseui/dialog/BaseDialog;->l0(Landroid/content/Context;Ljava/lang/String;)V
+    return-void
+.end method
+
+.method public openLocationMock(Landroid/view/View;)V
+    .locals 2
+    new-instance v0, Lcom/transsion/usercenter/laboratory/LabLocationDialog;
+    invoke-direct {v0}, Lcom/transsion/usercenter/laboratory/LabLocationDialog;-><init>()V
+    const-string v1, "location"
+    invoke-virtual {v0, p0, v1}, Lcom/transsion/baseui/dialog/BaseDialog;->l0(Landroid/content/Context;Ljava/lang/String;)V
+    return-void
+.end method
+
 .method public W0()Lpx/h1;
     .locals 2
 
