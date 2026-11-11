@@ -696,10 +696,7 @@
 .method private static applyRegionSettings(Lorg/json/JSONObject;)V
     .locals 4
     :try_start_0
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-    move-result-object v0
-    invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-    move-result-object v0
+    const-string v0, "NL"
     sget-object v1, Lhh/a;->a:Lhh/a$a;
     invoke-virtual {v1}, Lhh/a$a;->c()Lcom/tencent/mmkv/MMKV;
     move-result-object v1
@@ -710,7 +707,15 @@
     move-result-object v2
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
     move-result v3
-    if-nez v3, :region_ready
+    if-eqz v3, :region_selected
+    const-string v2, "mock_header_region"
+    const-string v3, "NL"
+    invoke-virtual {v1, v2, v3}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    const-string v2, "sp_code"
+    const-string v3, "204"
+    invoke-virtual {v1, v2, v3}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    goto :region_ready
+    :region_selected
     move-object v0, v2
     :region_ready
     const-string v2, "region"

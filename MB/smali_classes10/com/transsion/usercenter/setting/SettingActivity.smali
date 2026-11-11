@@ -3082,14 +3082,7 @@
     return-void
 .end method
 
-.method public openModeSelector(Landroid/view/View;)V
-    .locals 2
-    new-instance v0, Lcom/transsion/usercenter/laboratory/LabContentModeDialog;
-    invoke-direct {v0}, Lcom/transsion/usercenter/laboratory/LabContentModeDialog;-><init>()V
-    const-string v1, "LabContentModeDialog"
-    invoke-virtual {v0, p0, v1}, Lcom/transsion/baseui/dialog/BaseDialog;->l0(Landroid/content/Context;Ljava/lang/String;)V
-    return-void
-.end method
+
 
 .method public W0()Lpx/h1;
     .locals 2

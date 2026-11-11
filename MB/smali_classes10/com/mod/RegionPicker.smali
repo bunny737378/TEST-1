@@ -1,8 +1,10 @@
 .class public final Lcom/mod/RegionPicker;
 .super Ljava/lang/Object;
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/widget/AdapterView$OnItemClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 .field private activity:Landroid/app/Activity;
+.field private dialog:Landroid/app/Dialog;
 .field private names:[Ljava/lang/String;
 .field private codes:[Ljava/lang/String;
 .field private mccs:[Ljava/lang/String;
@@ -40,68 +42,218 @@
     return-object v0
 .end method
 
-.method public static show(Landroid/app/Activity;)V
+# Use the same dialog background, colors, rows and buttons as the server selector.
+.method private static layoutId(Landroid/app/Activity;Ljava/lang/String;)I
     .locals 3
+    invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    move-result-object v0
+    invoke-virtual {p0}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+    move-result-object v1
+    const-string v2, "layout"
+    invoke-virtual {v0, p1, v2, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    move-result v0
+    return v0
+.end method
+
+.method public static show(Landroid/app/Activity;)V
+    .locals 9
     new-instance v0, Lcom/mod/RegionPicker;
     invoke-direct {v0, p0}, Lcom/mod/RegionPicker;-><init>(Landroid/app/Activity;)V
-    new-instance v1, Landroid/app/AlertDialog$Builder;
-    invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-    const-string v2, "Region"
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-    iget-object v2, v0, Lcom/mod/RegionPicker;->names:[Ljava/lang/String;
-    invoke-virtual {v1, v2, v0}, Landroid/app/AlertDialog$Builder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-    const-string v2, "Reset"
-    invoke-virtual {v1, v2, v0}, Landroid/app/AlertDialog$Builder;->setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-    const-string v2, "Cancel"
-    const/4 v0, 0x0
-    invoke-virtual {v1, v2, v0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+    new-instance v1, Landroid/app/Dialog;
+    invoke-direct {v1, p0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
+    iput-object v1, v0, Lcom/mod/RegionPicker;->dialog:Landroid/app/Dialog;
+    const/4 v2, 0x1
+    invoke-virtual {v1, v2}, Landroid/app/Dialog;->requestWindowFeature(I)Z
+    const-string v2, "mod_region_dialog"
+    invoke-static {p0, v2}, Lcom/mod/RegionPicker;->layoutId(Landroid/app/Activity;Ljava/lang/String;)I
+    move-result v2
+    invoke-virtual {p0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    move-result-object v3
+    const/4 v4, 0x0
+    invoke-virtual {v3, v2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    move-result-object v2
+    invoke-virtual {v1, v2}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
+    const-string v3, "region_current"
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+    move-result-object v3
+    check-cast v3, Landroid/widget/TextView;
+    invoke-static {p0}, Lcom/mod/RegionPicker;->selectedName(Landroid/app/Activity;)Ljava/lang/String;
+    move-result-object v4
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    const-string v3, "region_list"
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+    move-result-object v3
+    check-cast v3, Landroid/widget/ListView;
+    iget-object v4, v0, Lcom/mod/RegionPicker;->names:[Ljava/lang/String;
+    array-length v5, v4
+    add-int/lit8 v5, v5, 0x1
+    new-array v5, v5, [Ljava/lang/String;
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+    move-result-object v6
+    invoke-virtual {v6}, Ljava/util/Locale;->getDisplayCountry()Ljava/lang/String;
+    move-result-object v6
+    new-instance v7, Ljava/lang/StringBuilder;
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v8, "Device region: "
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
+    const/4 v7, 0x0
+    aput-object v6, v5, v7
+    const/4 v6, 0x1
+    aget-object v8, v4, v6
+    aput-object v8, v5, v6
+    const/4 v6, 0x2
+    aget-object v7, v4, v7
+    aput-object v7, v5, v6
+    const/4 v6, 0x2
+    :list_loop
+    array-length v7, v4
+    if-ge v6, v7, :list_done
+    aget-object v7, v4, v6
+    add-int/lit8 v8, v6, 0x1
+    aput-object v7, v5, v8
+    add-int/lit8 v6, v6, 0x1
+    goto :list_loop
+    :list_done
+    # Mark the selected full name; default is Netherlands.
+    invoke-static {p0}, Lcom/mod/RegionPicker;->selectedName(Landroid/app/Activity;)Ljava/lang/String;
+    move-result-object v6
+    const/4 v7, 0x1
+    :mark_loop
+    array-length v8, v5
+    if-ge v7, v8, :mark_done
+    aget-object v8, v5, v7
+    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v8
+    if-eqz v8, :mark_next
+    new-instance v8, Ljava/lang/StringBuilder;
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v6, "  ✓"
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v8
+    aput-object v8, v5, v7
+    goto :mark_done
+    :mark_next
+    add-int/lit8 v7, v7, 0x1
+    goto :mark_loop
+    :mark_done
+    new-instance v4, Landroid/widget/ArrayAdapter;
+    const-string v6, "mod_region_item"
+    invoke-static {p0, v6}, Lcom/mod/RegionPicker;->layoutId(Landroid/app/Activity;Ljava/lang/String;)I
+    move-result v6
+    invoke-direct {v4, p0, v6, v5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
+    invoke-virtual {v3, v4}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {v3, v0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    const-string v3, "region_reset"
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+    move-result-object v3
+    invoke-virtual {v3, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    const-string v3, "region_cancel"
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+    move-result-object v2
+    invoke-virtual {v2, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+    move-result-object v2
+    const v3, 0x106000d
+    invoke-virtual {v2, v3}, Landroid/view/Window;->setBackgroundDrawableResource(I)V
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
     return-void
 .end method
 
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 5
+    if-nez p3, :not_device
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+    move-result-object v0
+    invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+    move-result-object v1
+    invoke-virtual {v0}, Ljava/util/Locale;->getDisplayCountry()Ljava/lang/String;
+    move-result-object v3
+    const-string v2, ""
+    iget-object v0, p0, Lcom/mod/RegionPicker;->codes:[Ljava/lang/String;
+    const/4 v4, 0x0
+    :find_device
+    array-length p1, v0
+    if-ge v4, p1, :save
+    aget-object p1, v0, v4
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result p1
+    if-nez p1, :device_found
+    add-int/lit8 v4, v4, 0x1
+    goto :find_device
+    :device_found
+    iget-object p1, p0, Lcom/mod/RegionPicker;->mccs:[Ljava/lang/String;
+    aget-object v2, p1, v4
+    goto :save
+    :not_device
+    const/4 v0, 0x1
+    if-eq p3, v0, :index_ready
+    const/4 v0, 0x2
+    if-ne p3, v0, :later_index
+    const/4 p3, 0x0
+    goto :index_ready
+    :later_index
+    add-int/lit8 p3, p3, -0x1
+    :index_ready
+    iget-object v0, p0, Lcom/mod/RegionPicker;->codes:[Ljava/lang/String;
+    aget-object v1, v0, p3
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
+    invoke-virtual {v1, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+    move-result-object v1
+    iget-object v0, p0, Lcom/mod/RegionPicker;->mccs:[Ljava/lang/String;
+    aget-object v2, v0, p3
+    iget-object v0, p0, Lcom/mod/RegionPicker;->names:[Ljava/lang/String;
+    aget-object v3, v0, p3
+    :save
+    invoke-direct {p0, v1, v2, v3}, Lcom/mod/RegionPicker;->save(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    return-void
+.end method
+
+.method public onClick(Landroid/view/View;)V
+    .locals 3
+    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    move-result-object v0
+    const-string v1, "region_reset"
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v0
+    if-eqz v0, :cancel
+    const-string v0, "NL"
+    const-string v1, "204"
+    const-string v2, "Netherlands"
+    invoke-direct {p0, v0, v1, v2}, Lcom/mod/RegionPicker;->save(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    return-void
+    :cancel
+    iget-object v0, p0, Lcom/mod/RegionPicker;->dialog:Landroid/app/Dialog;
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+    return-void
+.end method
+
+.method private save(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
     sget-object v0, Lhh/a;->a:Lhh/a$a;
     invoke-virtual {v0}, Lhh/a$a;->c()Lcom/tencent/mmkv/MMKV;
     move-result-object v0
     if-eqz v0, :done
-    const-string v1, ""
-    move-object v2, v1
-    move-object v3, v1
-    if-ltz p2, :save
-    iget-object v4, p0, Lcom/mod/RegionPicker;->codes:[Ljava/lang/String;
-    aget-object v1, v4, p2
-    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
-    invoke-virtual {v1, v4}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
-    move-result-object v1
-    iget-object v4, p0, Lcom/mod/RegionPicker;->mccs:[Ljava/lang/String;
-    aget-object v2, v4, p2
-    iget-object v4, p0, Lcom/mod/RegionPicker;->names:[Ljava/lang/String;
-    aget-object v3, v4, p2
-    :save
-    const-string v4, "mock_header_region"
-    invoke-virtual {v0, v4, v1}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-    const-string v4, "sp_code"
-    invoke-virtual {v0, v4, v2}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-    const-string v4, "mock_region_name"
-    invoke-virtual {v0, v4, v3}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    const-string v1, "mock_header_region"
+    invoke-virtual {v0, v1, p1}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    const-string v1, "sp_code"
+    invoke-virtual {v0, v1, p2}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    const-string v1, "mock_region_name"
+    invoke-virtual {v0, v1, p3}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
     iget-object v0, p0, Lcom/mod/RegionPicker;->activity:Landroid/app/Activity;
     invoke-static {v0}, Lcom/mod/RegionPicker;->update(Landroid/app/Activity;)V
     :done
+    iget-object v0, p0, Lcom/mod/RegionPicker;->dialog:Landroid/app/Dialog;
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
     return-void
 .end method
 
-.method public static update(Landroid/app/Activity;)V
+.method private static selectedName(Landroid/app/Activity;)Ljava/lang/String;
     .locals 4
-    const-string v0, "selected_region"
-    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
-    move-result-object v1
-    invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-    move-result-object v1
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
-    move-result-object v1
-    if-eqz v1, :done
-    check-cast v1, Landroid/widget/TextView;
     sget-object v0, Lhh/a;->a:Lhh/a$a;
     invoke-virtual {v0}, Lhh/a$a;->c()Lcom/tencent/mmkv/MMKV;
     move-result-object v0
@@ -128,11 +280,24 @@
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
     move-result v0
     if-eqz v0, :set
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-    move-result-object v0
-    invoke-virtual {v0}, Ljava/util/Locale;->getDisplayCountry()Ljava/lang/String;
-    move-result-object v2
+    const-string v2, "Netherlands"
     :set
+    return-object v2
+.end method
+
+.method public static update(Landroid/app/Activity;)V
+    .locals 4
+    const-string v0, "selected_region"
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+    move-result-object v1
+    invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    move-result-object v1
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+    move-result-object v1
+    if-eqz v1, :done
+    check-cast v1, Landroid/widget/TextView;
+    invoke-static {p0}, Lcom/mod/RegionPicker;->selectedName(Landroid/app/Activity;)Ljava/lang/String;
+    move-result-object v2
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
     :done
     return-void
