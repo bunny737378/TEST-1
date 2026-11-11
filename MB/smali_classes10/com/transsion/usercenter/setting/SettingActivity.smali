@@ -3075,21 +3075,18 @@
     return-void
 .end method
 
-# Open only the two requested Laboratory controls.
+# The picker reads all entries generated from local_mcc.json.
 .method public openCountrySelector(Landroid/view/View;)V
-    .locals 2
-    new-instance v0, Lcom/transsion/usercenter/laboratory/LabCountryDialog;
-    invoke-direct {v0}, Lcom/transsion/usercenter/laboratory/LabCountryDialog;-><init>()V
-    const-string v1, "country"
-    invoke-virtual {v0, p0, v1}, Lcom/transsion/baseui/dialog/BaseDialog;->l0(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 1
+    invoke-static {p0}, Lcom/mod/RegionPicker;->show(Landroid/app/Activity;)V
     return-void
 .end method
 
-.method public openLocationMock(Landroid/view/View;)V
+.method public openModeSelector(Landroid/view/View;)V
     .locals 2
-    new-instance v0, Lcom/transsion/usercenter/laboratory/LabLocationDialog;
-    invoke-direct {v0}, Lcom/transsion/usercenter/laboratory/LabLocationDialog;-><init>()V
-    const-string v1, "location"
+    new-instance v0, Lcom/transsion/usercenter/laboratory/LabContentModeDialog;
+    invoke-direct {v0}, Lcom/transsion/usercenter/laboratory/LabContentModeDialog;-><init>()V
+    const-string v1, "LabContentModeDialog"
     invoke-virtual {v0, p0, v1}, Lcom/transsion/baseui/dialog/BaseDialog;->l0(Landroid/content/Context;Ljava/lang/String;)V
     return-void
 .end method
@@ -3459,6 +3456,8 @@
     invoke-super {p0}, Lcom/transsion/baseui/activity/BaseActivity;->onResume()V
 
     invoke-direct {p0}, Lcom/transsion/usercenter/setting/SettingActivity;->B0()V
+
+    invoke-static {p0}, Lcom/mod/RegionPicker;->update(Landroid/app/Activity;)V
 
     return-void
 .end method
