@@ -1,0 +1,175 @@
+.class final Lcom/alibaba/fastjson2/writer/FieldWriterBoolField;
+.super Lcom/alibaba/fastjson2/writer/FieldWriterBoolean;
+.source "r8-map-id-7b0d3a73286e8dd5fc0e7e050cf78d6f8649ffc8585dc4090750e37e48bd1bd0"
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;IJLjava/lang/String;Ljava/lang/String;Ljava/lang/reflect/Field;Ljava/lang/reflect/Method;Ljava/lang/Class;)V
+    .locals 11
+
+    .line 1
+    .line 2
+    move-object/from16 v8, p9
+
+    .line 3
+    move-object v0, p0
+
+    .line 4
+    move-object v1, p1
+
+    .line 5
+    move v2, p2
+
+    .line 6
+    move-wide v3, p3
+
+    .line 7
+    .line 8
+    move-object/from16 v5, p5
+
+    .line 9
+    .line 10
+    move-object/from16 v6, p6
+
+    .line 11
+    .line 12
+    move-object/from16 v9, p7
+
+    .line 13
+    .line 14
+    move-object/from16 v10, p8
+
+    .line 15
+    .line 16
+    move-object/from16 v7, p9
+
+    .line 17
+    .line 18
+    .line 19
+    invoke-direct/range {v0 .. v10}, Lcom/alibaba/fastjson2/writer/FieldWriterBoolean;-><init>(Ljava/lang/String;IJLjava/lang/String;Ljava/lang/String;Ljava/lang/reflect/Type;Ljava/lang/Class;Ljava/lang/reflect/Field;Ljava/lang/reflect/Method;)V
+
+    .line 20
+    return-void
+.end method
+
+
+# virtual methods
+.method public getFieldValue(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 3
+
+    .line 1
+    .line 2
+    const-string v0, "field.get error, "
+
+    .line 3
+    .line 4
+    if-eqz p1, :cond_0
+
+    .line 5
+    .line 6
+    :try_start_0
+    iget-object v1, p0, Lcom/alibaba/fastjson2/writer/FieldWriter;->field:Ljava/lang/reflect/Field;
+
+    .line 7
+    .line 8
+    .line 9
+    invoke-virtual {v1, p1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 10
+    move-result-object p1
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 11
+    return-object p1
+
+    .line 12
+    :catch_0
+    move-exception p1
+
+    .line 13
+    goto :goto_0
+
+    .line 14
+    :catch_1
+    move-exception p1
+
+    .line 15
+    .line 16
+    :goto_0
+    new-instance v1, Lcom/alibaba/fastjson2/JSONException;
+
+    .line 17
+    .line 18
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    .line 19
+    .line 20
+    .line 21
+    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    .line 22
+    .line 23
+    iget-object v0, p0, Lcom/alibaba/fastjson2/writer/FieldWriter;->fieldName:Ljava/lang/String;
+
+    .line 24
+    .line 25
+    .line 26
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 27
+    .line 28
+    .line 29
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 30
+    move-result-object v0
+
+    .line 31
+    .line 32
+    .line 33
+    invoke-direct {v1, v0, p1}, Lcom/alibaba/fastjson2/JSONException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    .line 34
+    throw v1
+
+    .line 35
+    .line 36
+    :cond_0
+    new-instance p1, Lcom/alibaba/fastjson2/JSONException;
+
+    .line 37
+    .line 38
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    .line 39
+    .line 40
+    .line 41
+    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    .line 42
+    .line 43
+    iget-object v0, p0, Lcom/alibaba/fastjson2/writer/FieldWriter;->fieldName:Ljava/lang/String;
+
+    .line 44
+    .line 45
+    .line 46
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 47
+    .line 48
+    .line 49
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 50
+    move-result-object v0
+
+    .line 51
+    .line 52
+    .line 53
+    invoke-direct {p1, v0}, Lcom/alibaba/fastjson2/JSONException;-><init>(Ljava/lang/String;)V
+
+    .line 54
+    throw p1
+.end method
