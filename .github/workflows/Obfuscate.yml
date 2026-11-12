@@ -1,0 +1,33 @@
+name: Obfuscate APK from URL
+
+on:
+  workflow_dispatch:
+    inputs:
+      apk_url:
+        description: 'Direct download URL of the APK'
+        required: true
+        type: string
+
+jobs:
+  obfuscate-job:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Initialize Workspace
+        uses: actions/checkout@v4
+
+      - name: Download APK from URL
+        # Uses curl to download the file from your provided URL and saves it as app.apk
+        run: |
+          curl -L -o app.apk "${{ github.event.inputs.apk_url }}"
+
+      - name: Run Obfuscapk via Docker
+        run: |
+          docker pull claudiugeorgiu/obfuscapk
+          docker run --rm -v "${{ github.workspace }}:/workdir" claudiugeorgiu/obfuscapk -o RandomManifest -o Rebuild -o NewAlignment -o NewSignature "/workdir/app.apk"
+
+      - name: Upload Obfuscated APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: obfuscated-release
+          path: ${{ github.workspace }}/obfuscation_working_dir/app_obfuscated.apk
