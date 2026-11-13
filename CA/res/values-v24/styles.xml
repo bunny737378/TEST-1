@@ -1,209 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored" parent="@android:style/TextAppearance.Material.Widget.Button.Borderless.Colored" />
-    <style name="Base.TextAppearance.AppCompat.Widget.Button.Colored" parent="@android:style/TextAppearance.Material.Widget.Button.Colored" />
-    <style name="Base.Theme.Material3.Dark" parent="@style/Base.V24.Theme.Material3.Dark" />
-    <style name="Base.Theme.Material3.Dark.Dialog" parent="@style/Base.V24.Theme.Material3.Dark.Dialog" />
-    <style name="Base.Theme.Material3.Light" parent="@style/Base.V24.Theme.Material3.Light" />
-    <style name="Base.Theme.Material3.Light.Dialog" parent="@style/Base.V24.Theme.Material3.Light.Dialog" />
-    <style name="Base.V14.Theme.MaterialComponents" parent="@style/Base.V14.Theme.MaterialComponents.Bridge">
-        <item name="android:colorBackground">@color/design_dark_default_color_background</item>
-        <item name="android:buttonBarButtonStyle">?buttonBarButtonStyle</item>
-        <item name="android:timePickerDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog</item>
-        <item name="android:datePickerDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog</item>
-        <item name="android:contextPopupMenuStyle">@style/Widget.MaterialComponents.PopupMenu.ContextMenu</item>
-        <item name="actionBarPopupTheme">@style/ThemeOverlay.MaterialComponents.Dark</item>
-        <item name="actionBarSize">@dimen/mtrl_toolbar_default_height</item>
-        <item name="actionBarStyle">@style/Widget.MaterialComponents.ActionBar.Surface</item>
-        <item name="actionBarTheme">@style/ThemeOverlay.MaterialComponents.ActionBar.Surface</item>
-        <item name="actionModeStyle">@style/Widget.MaterialComponents.ActionMode</item>
-        <item name="actionOverflowMenuStyle">@style/Widget.MaterialComponents.PopupMenu.Overflow</item>
-        <item name="alertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert</item>
-        <item name="appBarLayoutStyle">@style/Widget.MaterialComponents.AppBarLayout.Surface</item>
-        <item name="borderlessButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
-        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView</item>
-        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.MaterialComponents.BottomSheetDialog</item>
-        <item name="buttonBarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
-        <item name="checkboxStyle">@style/Widget.MaterialComponents.CompoundButton.CheckBox</item>
-        <item name="colorAccent">?colorSecondary</item>
-        <item name="colorError">@color/design_dark_default_color_error</item>
-        <item name="colorPrimary">@color/design_dark_default_color_primary</item>
-        <item name="colorPrimaryDark">@color/design_dark_default_color_primary_dark</item>
-        <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
-        <item name="listPopupWindowStyle">@style/Widget.MaterialComponents.PopupMenu.ListPopupWindow</item>
-        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
-        <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen</item>
-        <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
-        <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar</item>
-        <item name="materialTimePickerTheme">@style/ThemeOverlay.MaterialComponents.TimePicker</item>
-        <item name="navigationViewStyle">@style/Widget.MaterialComponents.NavigationView</item>
-        <item name="popupMenuStyle">@style/Widget.MaterialComponents.PopupMenu</item>
-        <item name="radioButtonStyle">@style/Widget.MaterialComponents.CompoundButton.RadioButton</item>
-        <item name="snackbarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Snackbar</item>
-        <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar</item>
-        <item name="snackbarTextViewStyle">@style/Widget.MaterialComponents.Snackbar.TextView</item>
-        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
-        <item name="tabStyle">@style/Widget.MaterialComponents.TabLayout</item>
-        <item name="textAppearanceLargePopupMenu">?textAppearanceSubtitle1</item>
-        <item name="textAppearanceSmallPopupMenu">?textAppearanceSubtitle1</item>
-        <item name="textInputFilledDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense</item>
-        <item name="textInputFilledExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu</item>
-        <item name="textInputFilledStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
-        <item name="textInputOutlinedDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
-        <item name="textInputOutlinedExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu</item>
-        <item name="textInputOutlinedStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
-        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
-        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar</item>
-        <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
+    <style name="APKTOOL_RENAMED_0x7f130056" parent="@android:style/TextAppearance.Material.Widget.Button.Borderless.Colored" />
+    <style name="APKTOOL_RENAMED_0x7f130057" parent="@android:style/TextAppearance.Material.Widget.Button.Colored" />
+    <style name="APKTOOL_RENAMED_0x7f130075" parent="@style/APKTOOL_RENAMED_0x7f1300d0" />
+    <style name="APKTOOL_RENAMED_0x7f130077" parent="@style/APKTOOL_RENAMED_0x7f1300d1" />
+    <style name="APKTOOL_RENAMED_0x7f13007b" parent="@style/APKTOOL_RENAMED_0x7f1300d2" />
+    <style name="APKTOOL_RENAMED_0x7f13007d" parent="@style/APKTOOL_RENAMED_0x7f1300d3" />
+    <style name="APKTOOL_RENAMED_0x7f1300b0" parent="@style/APKTOOL_RENAMED_0x7f1300b1">
+        <item name="android:colorBackground">@color/APKTOOL_RENAMED_0x7f06006a</item>
+        <item name="android:buttonBarButtonStyle">?APKTOOL_RENAMED_0x7f040097</item>
+        <item name="android:timePickerDialogTheme">@style/APKTOOL_RENAMED_0x7f13034e</item>
+        <item name="android:datePickerDialogTheme">@style/APKTOOL_RENAMED_0x7f13034e</item>
+        <item name="android:contextPopupMenuStyle">@style/APKTOOL_RENAMED_0x7f1304bf</item>
+        <item name="APKTOOL_RENAMED_0x7f040002">@style/APKTOOL_RENAMED_0x7f13034b</item>
+        <item name="APKTOOL_RENAMED_0x7f040003">@dimen/APKTOOL_RENAMED_0x7f07033d</item>
+        <item name="APKTOOL_RENAMED_0x7f040005">@style/APKTOOL_RENAMED_0x7f13046c</item>
+        <item name="APKTOOL_RENAMED_0x7f040009">@style/APKTOOL_RENAMED_0x7f130342</item>
+        <item name="APKTOOL_RENAMED_0x7f04001c">@style/APKTOOL_RENAMED_0x7f13046d</item>
+        <item name="APKTOOL_RENAMED_0x7f040020">@style/APKTOOL_RENAMED_0x7f1304c1</item>
+        <item name="APKTOOL_RENAMED_0x7f04002f">@style/APKTOOL_RENAMED_0x7f13034f</item>
+        <item name="APKTOOL_RENAMED_0x7f04003d">@style/APKTOOL_RENAMED_0x7f130470</item>
+        <item name="APKTOOL_RENAMED_0x7f04007e">@style/APKTOOL_RENAMED_0x7f130482</item>
+        <item name="APKTOOL_RENAMED_0x7f040086">@style/APKTOOL_RENAMED_0x7f130479</item>
+        <item name="APKTOOL_RENAMED_0x7f040087">@style/APKTOOL_RENAMED_0x7f13034a</item>
+        <item name="APKTOOL_RENAMED_0x7f040097">@style/APKTOOL_RENAMED_0x7f130482</item>
+        <item name="APKTOOL_RENAMED_0x7f0400b6">@style/APKTOOL_RENAMED_0x7f130496</item>
+        <item name="APKTOOL_RENAMED_0x7f0400f3">?APKTOOL_RENAMED_0x7f040123</item>
+        <item name="APKTOOL_RENAMED_0x7f0400ff">@color/APKTOOL_RENAMED_0x7f06006b</item>
+        <item name="APKTOOL_RENAMED_0x7f04011a">@color/APKTOOL_RENAMED_0x7f060071</item>
+        <item name="APKTOOL_RENAMED_0x7f04011c">@color/APKTOOL_RENAMED_0x7f060072</item>
+        <item name="APKTOOL_RENAMED_0x7f04020a">@style/APKTOOL_RENAMED_0x7f13049b</item>
+        <item name="APKTOOL_RENAMED_0x7f040300">@style/APKTOOL_RENAMED_0x7f1304c0</item>
+        <item name="APKTOOL_RENAMED_0x7f040313">@style/APKTOOL_RENAMED_0x7f130353</item>
+        <item name="APKTOOL_RENAMED_0x7f04031c">@style/APKTOOL_RENAMED_0x7f13035b</item>
+        <item name="APKTOOL_RENAMED_0x7f040326">@style/APKTOOL_RENAMED_0x7f13049f</item>
+        <item name="APKTOOL_RENAMED_0x7f040327">@style/APKTOOL_RENAMED_0x7f13035a</item>
+        <item name="APKTOOL_RENAMED_0x7f04033e">@style/APKTOOL_RENAMED_0x7f130361</item>
+        <item name="APKTOOL_RENAMED_0x7f040387">@style/APKTOOL_RENAMED_0x7f1304bd</item>
+        <item name="APKTOOL_RENAMED_0x7f0403bf">@style/APKTOOL_RENAMED_0x7f1304be</item>
+        <item name="APKTOOL_RENAMED_0x7f0403ea">@style/APKTOOL_RENAMED_0x7f130497</item>
+        <item name="APKTOOL_RENAMED_0x7f04044a">@style/APKTOOL_RENAMED_0x7f130487</item>
+        <item name="APKTOOL_RENAMED_0x7f04044b">@style/APKTOOL_RENAMED_0x7f1304c5</item>
+        <item name="APKTOOL_RENAMED_0x7f04044c">@style/APKTOOL_RENAMED_0x7f1304c7</item>
+        <item name="APKTOOL_RENAMED_0x7f04048b">@style/APKTOOL_RENAMED_0x7f130498</item>
+        <item name="APKTOOL_RENAMED_0x7f0404a9">@style/APKTOOL_RENAMED_0x7f1304c8</item>
+        <item name="APKTOOL_RENAMED_0x7f0404c8">?APKTOOL_RENAMED_0x7f0404d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404d1">?APKTOOL_RENAMED_0x7f0404d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404da">@style/APKTOOL_RENAMED_0x7f1304d0</item>
+        <item name="APKTOOL_RENAMED_0x7f0404db">@style/APKTOOL_RENAMED_0x7f1304d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404dc">@style/APKTOOL_RENAMED_0x7f1304cf</item>
+        <item name="APKTOOL_RENAMED_0x7f0404de">@style/APKTOOL_RENAMED_0x7f1304d4</item>
+        <item name="APKTOOL_RENAMED_0x7f0404df">@style/APKTOOL_RENAMED_0x7f1304d6</item>
+        <item name="APKTOOL_RENAMED_0x7f0404e0">@style/APKTOOL_RENAMED_0x7f1304d3</item>
+        <item name="APKTOOL_RENAMED_0x7f0404e1">@style/APKTOOL_RENAMED_0x7f1304cf</item>
+        <item name="APKTOOL_RENAMED_0x7f040519">@style/APKTOOL_RENAMED_0x7f1304e2</item>
+        <item name="APKTOOL_RENAMED_0x7f040548">com.google.android.material.theme.MaterialComponentsViewInflater</item>
     </style>
-    <style name="Base.V14.Theme.MaterialComponents.Dialog" parent="@style/Base.V14.Theme.MaterialComponents.Dialog.Bridge">
-        <item name="android:colorBackground">@color/design_dark_default_color_background</item>
-        <item name="android:contextPopupMenuStyle">@style/Widget.MaterialComponents.PopupMenu.ContextMenu</item>
-        <item name="actionBarPopupTheme">@style/ThemeOverlay.MaterialComponents.Dark</item>
-        <item name="actionBarSize">@dimen/mtrl_toolbar_default_height</item>
-        <item name="actionBarStyle">@style/Widget.MaterialComponents.ActionBar.Surface</item>
-        <item name="actionBarTheme">@style/ThemeOverlay.MaterialComponents.ActionBar.Surface</item>
-        <item name="actionModeStyle">@style/Widget.MaterialComponents.ActionMode</item>
-        <item name="actionOverflowMenuStyle">@style/Widget.MaterialComponents.PopupMenu.Overflow</item>
-        <item name="alertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert</item>
-        <item name="appBarLayoutStyle">@style/Widget.MaterialComponents.AppBarLayout.Surface</item>
-        <item name="borderlessButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
-        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView</item>
-        <item name="buttonBarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Dialog.Flush</item>
-        <item name="checkboxStyle">@style/Widget.MaterialComponents.CompoundButton.CheckBox</item>
-        <item name="colorAccent">?colorSecondary</item>
-        <item name="colorError">@color/design_dark_default_color_error</item>
-        <item name="colorPrimary">@color/design_dark_default_color_primary</item>
-        <item name="colorPrimaryDark">@color/design_dark_default_color_primary_dark</item>
-        <item name="colorSecondary">@color/design_dark_default_color_secondary</item>
-        <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
-        <item name="listPopupWindowStyle">@style/Widget.MaterialComponents.PopupMenu.ListPopupWindow</item>
-        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
-        <item name="navigationViewStyle">@style/Widget.MaterialComponents.NavigationView</item>
-        <item name="popupMenuStyle">@style/Widget.MaterialComponents.PopupMenu</item>
-        <item name="radioButtonStyle">@style/Widget.MaterialComponents.CompoundButton.RadioButton</item>
-        <item name="snackbarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Snackbar</item>
-        <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar</item>
-        <item name="snackbarTextViewStyle">@style/Widget.MaterialComponents.Snackbar.TextView</item>
-        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
-        <item name="tabStyle">@style/Widget.MaterialComponents.TabLayout</item>
-        <item name="textAppearanceLargePopupMenu">?textAppearanceSubtitle1</item>
-        <item name="textAppearanceSmallPopupMenu">?textAppearanceSubtitle1</item>
-        <item name="textInputFilledDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense</item>
-        <item name="textInputFilledExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu</item>
-        <item name="textInputFilledStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
-        <item name="textInputOutlinedDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
-        <item name="textInputOutlinedExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu</item>
-        <item name="textInputOutlinedStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
-        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
-        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar</item>
-        <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
+    <style name="APKTOOL_RENAMED_0x7f1300b2" parent="@style/APKTOOL_RENAMED_0x7f1300b3">
+        <item name="android:colorBackground">@color/APKTOOL_RENAMED_0x7f06006a</item>
+        <item name="android:contextPopupMenuStyle">@style/APKTOOL_RENAMED_0x7f1304bf</item>
+        <item name="APKTOOL_RENAMED_0x7f040002">@style/APKTOOL_RENAMED_0x7f13034b</item>
+        <item name="APKTOOL_RENAMED_0x7f040003">@dimen/APKTOOL_RENAMED_0x7f07033d</item>
+        <item name="APKTOOL_RENAMED_0x7f040005">@style/APKTOOL_RENAMED_0x7f13046c</item>
+        <item name="APKTOOL_RENAMED_0x7f040009">@style/APKTOOL_RENAMED_0x7f130342</item>
+        <item name="APKTOOL_RENAMED_0x7f04001c">@style/APKTOOL_RENAMED_0x7f13046d</item>
+        <item name="APKTOOL_RENAMED_0x7f040020">@style/APKTOOL_RENAMED_0x7f1304c1</item>
+        <item name="APKTOOL_RENAMED_0x7f04002f">@style/APKTOOL_RENAMED_0x7f13034f</item>
+        <item name="APKTOOL_RENAMED_0x7f04003d">@style/APKTOOL_RENAMED_0x7f130470</item>
+        <item name="APKTOOL_RENAMED_0x7f04007e">@style/APKTOOL_RENAMED_0x7f130482</item>
+        <item name="APKTOOL_RENAMED_0x7f040086">@style/APKTOOL_RENAMED_0x7f130479</item>
+        <item name="APKTOOL_RENAMED_0x7f040097">@style/APKTOOL_RENAMED_0x7f130484</item>
+        <item name="APKTOOL_RENAMED_0x7f0400b6">@style/APKTOOL_RENAMED_0x7f130496</item>
+        <item name="APKTOOL_RENAMED_0x7f0400f3">?APKTOOL_RENAMED_0x7f040123</item>
+        <item name="APKTOOL_RENAMED_0x7f0400ff">@color/APKTOOL_RENAMED_0x7f06006b</item>
+        <item name="APKTOOL_RENAMED_0x7f04011a">@color/APKTOOL_RENAMED_0x7f060071</item>
+        <item name="APKTOOL_RENAMED_0x7f04011c">@color/APKTOOL_RENAMED_0x7f060072</item>
+        <item name="APKTOOL_RENAMED_0x7f040123">@color/APKTOOL_RENAMED_0x7f060074</item>
+        <item name="APKTOOL_RENAMED_0x7f04020a">@style/APKTOOL_RENAMED_0x7f13049b</item>
+        <item name="APKTOOL_RENAMED_0x7f040300">@style/APKTOOL_RENAMED_0x7f1304c0</item>
+        <item name="APKTOOL_RENAMED_0x7f040313">@style/APKTOOL_RENAMED_0x7f130353</item>
+        <item name="APKTOOL_RENAMED_0x7f040387">@style/APKTOOL_RENAMED_0x7f1304bd</item>
+        <item name="APKTOOL_RENAMED_0x7f0403bf">@style/APKTOOL_RENAMED_0x7f1304be</item>
+        <item name="APKTOOL_RENAMED_0x7f0403ea">@style/APKTOOL_RENAMED_0x7f130497</item>
+        <item name="APKTOOL_RENAMED_0x7f04044a">@style/APKTOOL_RENAMED_0x7f130487</item>
+        <item name="APKTOOL_RENAMED_0x7f04044b">@style/APKTOOL_RENAMED_0x7f1304c5</item>
+        <item name="APKTOOL_RENAMED_0x7f04044c">@style/APKTOOL_RENAMED_0x7f1304c7</item>
+        <item name="APKTOOL_RENAMED_0x7f04048b">@style/APKTOOL_RENAMED_0x7f130498</item>
+        <item name="APKTOOL_RENAMED_0x7f0404a9">@style/APKTOOL_RENAMED_0x7f1304c8</item>
+        <item name="APKTOOL_RENAMED_0x7f0404c8">?APKTOOL_RENAMED_0x7f0404d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404d1">?APKTOOL_RENAMED_0x7f0404d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404da">@style/APKTOOL_RENAMED_0x7f1304d0</item>
+        <item name="APKTOOL_RENAMED_0x7f0404db">@style/APKTOOL_RENAMED_0x7f1304d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404dc">@style/APKTOOL_RENAMED_0x7f1304cf</item>
+        <item name="APKTOOL_RENAMED_0x7f0404de">@style/APKTOOL_RENAMED_0x7f1304d4</item>
+        <item name="APKTOOL_RENAMED_0x7f0404df">@style/APKTOOL_RENAMED_0x7f1304d6</item>
+        <item name="APKTOOL_RENAMED_0x7f0404e0">@style/APKTOOL_RENAMED_0x7f1304d3</item>
+        <item name="APKTOOL_RENAMED_0x7f0404e1">@style/APKTOOL_RENAMED_0x7f1304cf</item>
+        <item name="APKTOOL_RENAMED_0x7f040519">@style/APKTOOL_RENAMED_0x7f1304e2</item>
+        <item name="APKTOOL_RENAMED_0x7f040548">com.google.android.material.theme.MaterialComponentsViewInflater</item>
     </style>
-    <style name="Base.V14.Theme.MaterialComponents.Light" parent="@style/Base.V14.Theme.MaterialComponents.Light.Bridge">
-        <item name="android:colorBackground">@color/design_default_color_background</item>
-        <item name="android:buttonBarButtonStyle">?buttonBarButtonStyle</item>
-        <item name="android:timePickerDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog</item>
-        <item name="android:datePickerDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog</item>
-        <item name="android:contextPopupMenuStyle">@style/Widget.MaterialComponents.PopupMenu.ContextMenu</item>
-        <item name="actionBarPopupTheme">@style/ThemeOverlay.MaterialComponents.Light</item>
-        <item name="actionBarSize">@dimen/mtrl_toolbar_default_height</item>
-        <item name="actionBarStyle">@style/Widget.MaterialComponents.Light.ActionBar.Solid</item>
-        <item name="actionModeStyle">@style/Widget.MaterialComponents.ActionMode</item>
-        <item name="actionOverflowMenuStyle">@style/Widget.MaterialComponents.PopupMenu.Overflow</item>
-        <item name="alertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert</item>
-        <item name="appBarLayoutStyle">@style/Widget.MaterialComponents.AppBarLayout.Primary</item>
-        <item name="borderlessButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
-        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView</item>
-        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.MaterialComponents.BottomSheetDialog</item>
-        <item name="buttonBarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
-        <item name="checkboxStyle">@style/Widget.MaterialComponents.CompoundButton.CheckBox</item>
-        <item name="colorAccent">?colorSecondary</item>
-        <item name="colorError">@color/design_default_color_error</item>
-        <item name="colorPrimary">@color/design_default_color_primary</item>
-        <item name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
-        <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
-        <item name="listPopupWindowStyle">@style/Widget.MaterialComponents.PopupMenu.ListPopupWindow</item>
-        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
-        <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen</item>
-        <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
-        <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar</item>
-        <item name="materialTimePickerTheme">@style/ThemeOverlay.MaterialComponents.TimePicker</item>
-        <item name="navigationViewStyle">@style/Widget.MaterialComponents.NavigationView</item>
-        <item name="popupMenuStyle">@style/Widget.MaterialComponents.PopupMenu</item>
-        <item name="radioButtonStyle">@style/Widget.MaterialComponents.CompoundButton.RadioButton</item>
-        <item name="snackbarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Snackbar</item>
-        <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar</item>
-        <item name="snackbarTextViewStyle">@style/Widget.MaterialComponents.Snackbar.TextView</item>
-        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
-        <item name="tabStyle">@style/Widget.MaterialComponents.TabLayout</item>
-        <item name="textAppearanceLargePopupMenu">?textAppearanceSubtitle1</item>
-        <item name="textAppearanceSmallPopupMenu">?textAppearanceSubtitle1</item>
-        <item name="textInputFilledDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense</item>
-        <item name="textInputFilledExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu</item>
-        <item name="textInputFilledStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
-        <item name="textInputOutlinedDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
-        <item name="textInputOutlinedExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu</item>
-        <item name="textInputOutlinedStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
-        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
-        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar</item>
-        <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
+    <style name="APKTOOL_RENAMED_0x7f1300b4" parent="@style/APKTOOL_RENAMED_0x7f1300b5">
+        <item name="android:colorBackground">@color/APKTOOL_RENAMED_0x7f060077</item>
+        <item name="android:buttonBarButtonStyle">?APKTOOL_RENAMED_0x7f040097</item>
+        <item name="android:timePickerDialogTheme">@style/APKTOOL_RENAMED_0x7f13034e</item>
+        <item name="android:datePickerDialogTheme">@style/APKTOOL_RENAMED_0x7f13034e</item>
+        <item name="android:contextPopupMenuStyle">@style/APKTOOL_RENAMED_0x7f1304bf</item>
+        <item name="APKTOOL_RENAMED_0x7f040002">@style/APKTOOL_RENAMED_0x7f130351</item>
+        <item name="APKTOOL_RENAMED_0x7f040003">@dimen/APKTOOL_RENAMED_0x7f07033d</item>
+        <item name="APKTOOL_RENAMED_0x7f040005">@style/APKTOOL_RENAMED_0x7f13049c</item>
+        <item name="APKTOOL_RENAMED_0x7f04001c">@style/APKTOOL_RENAMED_0x7f13046d</item>
+        <item name="APKTOOL_RENAMED_0x7f040020">@style/APKTOOL_RENAMED_0x7f1304c1</item>
+        <item name="APKTOOL_RENAMED_0x7f04002f">@style/APKTOOL_RENAMED_0x7f13034f</item>
+        <item name="APKTOOL_RENAMED_0x7f04003d">@style/APKTOOL_RENAMED_0x7f13046e</item>
+        <item name="APKTOOL_RENAMED_0x7f04007e">@style/APKTOOL_RENAMED_0x7f130482</item>
+        <item name="APKTOOL_RENAMED_0x7f040086">@style/APKTOOL_RENAMED_0x7f130479</item>
+        <item name="APKTOOL_RENAMED_0x7f040087">@style/APKTOOL_RENAMED_0x7f13034a</item>
+        <item name="APKTOOL_RENAMED_0x7f040097">@style/APKTOOL_RENAMED_0x7f130482</item>
+        <item name="APKTOOL_RENAMED_0x7f0400b6">@style/APKTOOL_RENAMED_0x7f130496</item>
+        <item name="APKTOOL_RENAMED_0x7f0400f3">?APKTOOL_RENAMED_0x7f040123</item>
+        <item name="APKTOOL_RENAMED_0x7f0400ff">@color/APKTOOL_RENAMED_0x7f060078</item>
+        <item name="APKTOOL_RENAMED_0x7f04011a">@color/APKTOOL_RENAMED_0x7f06007e</item>
+        <item name="APKTOOL_RENAMED_0x7f04011c">@color/APKTOOL_RENAMED_0x7f06007f</item>
+        <item name="APKTOOL_RENAMED_0x7f04020a">@style/APKTOOL_RENAMED_0x7f13049b</item>
+        <item name="APKTOOL_RENAMED_0x7f040300">@style/APKTOOL_RENAMED_0x7f1304c0</item>
+        <item name="APKTOOL_RENAMED_0x7f040313">@style/APKTOOL_RENAMED_0x7f130353</item>
+        <item name="APKTOOL_RENAMED_0x7f04031c">@style/APKTOOL_RENAMED_0x7f13035b</item>
+        <item name="APKTOOL_RENAMED_0x7f040326">@style/APKTOOL_RENAMED_0x7f13049f</item>
+        <item name="APKTOOL_RENAMED_0x7f040327">@style/APKTOOL_RENAMED_0x7f13035a</item>
+        <item name="APKTOOL_RENAMED_0x7f04033e">@style/APKTOOL_RENAMED_0x7f130361</item>
+        <item name="APKTOOL_RENAMED_0x7f040387">@style/APKTOOL_RENAMED_0x7f1304bd</item>
+        <item name="APKTOOL_RENAMED_0x7f0403bf">@style/APKTOOL_RENAMED_0x7f1304be</item>
+        <item name="APKTOOL_RENAMED_0x7f0403ea">@style/APKTOOL_RENAMED_0x7f130497</item>
+        <item name="APKTOOL_RENAMED_0x7f04044a">@style/APKTOOL_RENAMED_0x7f130487</item>
+        <item name="APKTOOL_RENAMED_0x7f04044b">@style/APKTOOL_RENAMED_0x7f1304c5</item>
+        <item name="APKTOOL_RENAMED_0x7f04044c">@style/APKTOOL_RENAMED_0x7f1304c7</item>
+        <item name="APKTOOL_RENAMED_0x7f04048b">@style/APKTOOL_RENAMED_0x7f130498</item>
+        <item name="APKTOOL_RENAMED_0x7f0404a9">@style/APKTOOL_RENAMED_0x7f1304c8</item>
+        <item name="APKTOOL_RENAMED_0x7f0404c8">?APKTOOL_RENAMED_0x7f0404d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404d1">?APKTOOL_RENAMED_0x7f0404d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404da">@style/APKTOOL_RENAMED_0x7f1304d0</item>
+        <item name="APKTOOL_RENAMED_0x7f0404db">@style/APKTOOL_RENAMED_0x7f1304d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404dc">@style/APKTOOL_RENAMED_0x7f1304cf</item>
+        <item name="APKTOOL_RENAMED_0x7f0404de">@style/APKTOOL_RENAMED_0x7f1304d4</item>
+        <item name="APKTOOL_RENAMED_0x7f0404df">@style/APKTOOL_RENAMED_0x7f1304d6</item>
+        <item name="APKTOOL_RENAMED_0x7f0404e0">@style/APKTOOL_RENAMED_0x7f1304d3</item>
+        <item name="APKTOOL_RENAMED_0x7f0404e1">@style/APKTOOL_RENAMED_0x7f1304cf</item>
+        <item name="APKTOOL_RENAMED_0x7f040519">@style/APKTOOL_RENAMED_0x7f1304e2</item>
+        <item name="APKTOOL_RENAMED_0x7f040548">com.google.android.material.theme.MaterialComponentsViewInflater</item>
     </style>
-    <style name="Base.V14.Theme.MaterialComponents.Light.Dialog" parent="@style/Base.V14.Theme.MaterialComponents.Light.Dialog.Bridge">
-        <item name="android:colorBackground">@color/design_default_color_background</item>
-        <item name="android:contextPopupMenuStyle">@style/Widget.MaterialComponents.PopupMenu.ContextMenu</item>
-        <item name="actionBarPopupTheme">@style/ThemeOverlay.MaterialComponents.Light</item>
-        <item name="actionBarSize">@dimen/mtrl_toolbar_default_height</item>
-        <item name="actionBarStyle">@style/Widget.MaterialComponents.Light.ActionBar.Solid</item>
-        <item name="actionModeStyle">@style/Widget.MaterialComponents.ActionMode</item>
-        <item name="actionOverflowMenuStyle">@style/Widget.MaterialComponents.PopupMenu.Overflow</item>
-        <item name="alertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert</item>
-        <item name="appBarLayoutStyle">@style/Widget.MaterialComponents.AppBarLayout.Primary</item>
-        <item name="borderlessButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
-        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView</item>
-        <item name="buttonBarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Dialog.Flush</item>
-        <item name="checkboxStyle">@style/Widget.MaterialComponents.CompoundButton.CheckBox</item>
-        <item name="colorAccent">?colorSecondary</item>
-        <item name="colorError">@color/design_default_color_error</item>
-        <item name="colorPrimary">@color/design_default_color_primary</item>
-        <item name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
-        <item name="colorSecondary">@color/design_default_color_secondary</item>
-        <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
-        <item name="listPopupWindowStyle">@style/Widget.MaterialComponents.PopupMenu.ListPopupWindow</item>
-        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
-        <item name="navigationViewStyle">@style/Widget.MaterialComponents.NavigationView</item>
-        <item name="popupMenuStyle">@style/Widget.MaterialComponents.PopupMenu</item>
-        <item name="radioButtonStyle">@style/Widget.MaterialComponents.CompoundButton.RadioButton</item>
-        <item name="snackbarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Snackbar</item>
-        <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar</item>
-        <item name="snackbarTextViewStyle">@style/Widget.MaterialComponents.Snackbar.TextView</item>
-        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
-        <item name="tabStyle">@style/Widget.MaterialComponents.TabLayout</item>
-        <item name="textAppearanceLargePopupMenu">?textAppearanceSubtitle1</item>
-        <item name="textAppearanceSmallPopupMenu">?textAppearanceSubtitle1</item>
-        <item name="textInputFilledDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense</item>
-        <item name="textInputFilledExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu</item>
-        <item name="textInputFilledStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
-        <item name="textInputOutlinedDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
-        <item name="textInputOutlinedExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu</item>
-        <item name="textInputOutlinedStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
-        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
-        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar</item>
-        <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
+    <style name="APKTOOL_RENAMED_0x7f1300b7" parent="@style/APKTOOL_RENAMED_0x7f1300b8">
+        <item name="android:colorBackground">@color/APKTOOL_RENAMED_0x7f060077</item>
+        <item name="android:contextPopupMenuStyle">@style/APKTOOL_RENAMED_0x7f1304bf</item>
+        <item name="APKTOOL_RENAMED_0x7f040002">@style/APKTOOL_RENAMED_0x7f130351</item>
+        <item name="APKTOOL_RENAMED_0x7f040003">@dimen/APKTOOL_RENAMED_0x7f07033d</item>
+        <item name="APKTOOL_RENAMED_0x7f040005">@style/APKTOOL_RENAMED_0x7f13049c</item>
+        <item name="APKTOOL_RENAMED_0x7f04001c">@style/APKTOOL_RENAMED_0x7f13046d</item>
+        <item name="APKTOOL_RENAMED_0x7f040020">@style/APKTOOL_RENAMED_0x7f1304c1</item>
+        <item name="APKTOOL_RENAMED_0x7f04002f">@style/APKTOOL_RENAMED_0x7f13034f</item>
+        <item name="APKTOOL_RENAMED_0x7f04003d">@style/APKTOOL_RENAMED_0x7f13046e</item>
+        <item name="APKTOOL_RENAMED_0x7f04007e">@style/APKTOOL_RENAMED_0x7f130482</item>
+        <item name="APKTOOL_RENAMED_0x7f040086">@style/APKTOOL_RENAMED_0x7f130479</item>
+        <item name="APKTOOL_RENAMED_0x7f040097">@style/APKTOOL_RENAMED_0x7f130484</item>
+        <item name="APKTOOL_RENAMED_0x7f0400b6">@style/APKTOOL_RENAMED_0x7f130496</item>
+        <item name="APKTOOL_RENAMED_0x7f0400f3">?APKTOOL_RENAMED_0x7f040123</item>
+        <item name="APKTOOL_RENAMED_0x7f0400ff">@color/APKTOOL_RENAMED_0x7f060078</item>
+        <item name="APKTOOL_RENAMED_0x7f04011a">@color/APKTOOL_RENAMED_0x7f06007e</item>
+        <item name="APKTOOL_RENAMED_0x7f04011c">@color/APKTOOL_RENAMED_0x7f06007f</item>
+        <item name="APKTOOL_RENAMED_0x7f040123">@color/APKTOOL_RENAMED_0x7f060081</item>
+        <item name="APKTOOL_RENAMED_0x7f04020a">@style/APKTOOL_RENAMED_0x7f13049b</item>
+        <item name="APKTOOL_RENAMED_0x7f040300">@style/APKTOOL_RENAMED_0x7f1304c0</item>
+        <item name="APKTOOL_RENAMED_0x7f040313">@style/APKTOOL_RENAMED_0x7f130353</item>
+        <item name="APKTOOL_RENAMED_0x7f040387">@style/APKTOOL_RENAMED_0x7f1304bd</item>
+        <item name="APKTOOL_RENAMED_0x7f0403bf">@style/APKTOOL_RENAMED_0x7f1304be</item>
+        <item name="APKTOOL_RENAMED_0x7f0403ea">@style/APKTOOL_RENAMED_0x7f130497</item>
+        <item name="APKTOOL_RENAMED_0x7f04044a">@style/APKTOOL_RENAMED_0x7f130487</item>
+        <item name="APKTOOL_RENAMED_0x7f04044b">@style/APKTOOL_RENAMED_0x7f1304c5</item>
+        <item name="APKTOOL_RENAMED_0x7f04044c">@style/APKTOOL_RENAMED_0x7f1304c7</item>
+        <item name="APKTOOL_RENAMED_0x7f04048b">@style/APKTOOL_RENAMED_0x7f130498</item>
+        <item name="APKTOOL_RENAMED_0x7f0404a9">@style/APKTOOL_RENAMED_0x7f1304c8</item>
+        <item name="APKTOOL_RENAMED_0x7f0404c8">?APKTOOL_RENAMED_0x7f0404d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404d1">?APKTOOL_RENAMED_0x7f0404d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404da">@style/APKTOOL_RENAMED_0x7f1304d0</item>
+        <item name="APKTOOL_RENAMED_0x7f0404db">@style/APKTOOL_RENAMED_0x7f1304d2</item>
+        <item name="APKTOOL_RENAMED_0x7f0404dc">@style/APKTOOL_RENAMED_0x7f1304cf</item>
+        <item name="APKTOOL_RENAMED_0x7f0404de">@style/APKTOOL_RENAMED_0x7f1304d4</item>
+        <item name="APKTOOL_RENAMED_0x7f0404df">@style/APKTOOL_RENAMED_0x7f1304d6</item>
+        <item name="APKTOOL_RENAMED_0x7f0404e0">@style/APKTOOL_RENAMED_0x7f1304d3</item>
+        <item name="APKTOOL_RENAMED_0x7f0404e1">@style/APKTOOL_RENAMED_0x7f1304cf</item>
+        <item name="APKTOOL_RENAMED_0x7f040519">@style/APKTOOL_RENAMED_0x7f1304e2</item>
+        <item name="APKTOOL_RENAMED_0x7f040548">com.google.android.material.theme.MaterialComponentsViewInflater</item>
     </style>
-    <style name="Base.V24.Theme.Material3.Dark" parent="@style/Base.V14.Theme.Material3.Dark">
-        <item name="android:contextPopupMenuStyle">@style/Widget.Material3.PopupMenu.ContextMenu</item>
+    <style name="APKTOOL_RENAMED_0x7f1300d0" parent="@style/APKTOOL_RENAMED_0x7f1300a8">
+        <item name="android:contextPopupMenuStyle">@style/APKTOOL_RENAMED_0x7f130441</item>
     </style>
-    <style name="Base.V24.Theme.Material3.Dark.Dialog" parent="@style/Base.V14.Theme.Material3.Dark.Dialog">
-        <item name="android:contextPopupMenuStyle">@style/Widget.Material3.PopupMenu.ContextMenu</item>
+    <style name="APKTOOL_RENAMED_0x7f1300d1" parent="@style/APKTOOL_RENAMED_0x7f1300aa">
+        <item name="android:contextPopupMenuStyle">@style/APKTOOL_RENAMED_0x7f130441</item>
     </style>
-    <style name="Base.V24.Theme.Material3.Light" parent="@style/Base.V14.Theme.Material3.Light">
-        <item name="android:contextPopupMenuStyle">@style/Widget.Material3.PopupMenu.ContextMenu</item>
+    <style name="APKTOOL_RENAMED_0x7f1300d2" parent="@style/APKTOOL_RENAMED_0x7f1300ac">
+        <item name="android:contextPopupMenuStyle">@style/APKTOOL_RENAMED_0x7f130441</item>
     </style>
-    <style name="Base.V24.Theme.Material3.Light.Dialog" parent="@style/Base.V14.Theme.Material3.Light.Dialog">
-        <item name="android:contextPopupMenuStyle">@style/Widget.Material3.PopupMenu.ContextMenu</item>
+    <style name="APKTOOL_RENAMED_0x7f1300d3" parent="@style/APKTOOL_RENAMED_0x7f1300ae">
+        <item name="android:contextPopupMenuStyle">@style/APKTOOL_RENAMED_0x7f130441</item>
     </style>
-    <style name="TextAppearance.Compat.Notification.Info.Media" parent="@style/TextAppearance.Compat.Notification.Info" />
-    <style name="TextAppearance.Compat.Notification.Media" parent="@style/TextAppearance.Compat.Notification" />
-    <style name="TextAppearance.Compat.Notification.Time.Media" parent="@style/TextAppearance.Compat.Notification.Time" />
-    <style name="TextAppearance.Compat.Notification.Title.Media" parent="@style/TextAppearance.Compat.Notification.Title" />
+    <style name="APKTOOL_RENAMED_0x7f13023d" parent="@style/APKTOOL_RENAMED_0x7f13023c" />
+    <style name="APKTOOL_RENAMED_0x7f130240" parent="@style/APKTOOL_RENAMED_0x7f13023b" />
+    <style name="APKTOOL_RENAMED_0x7f130242" parent="@style/APKTOOL_RENAMED_0x7f130241" />
+    <style name="APKTOOL_RENAMED_0x7f130244" parent="@style/APKTOOL_RENAMED_0x7f130243" />
 </resources>

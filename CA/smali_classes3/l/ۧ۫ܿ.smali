@@ -1,0 +1,26 @@
+.class public final Ll/ۧ۫ܿ;
+.super Ljava/lang/Object;
+.source "P77N"
+
+
+# instance fields
+.field public final ֨:[B
+
+.field public final ֫:Ll/۟ۡۚ;
+
+
+# direct methods
+.method public constructor <init>(Ll/۟ۡۚ;[B)V
+    .locals 0
+
+    .line 6000
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 6002
+    iput-object p1, p0, Ll/ۧ۫ܿ;->֫:Ll/۟ۡۚ;
+
+    .line 6003
+    iput-object p2, p0, Ll/ۧ۫ܿ;->֨:[B
+
+    return-void
+.end method

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<l.ۘ᩹֨ android:title="@string/APKTOOL_RENAMED_0x7f120b08"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <l.᩹ۛ֨ android:title="@string/APKTOOL_RENAMED_0x7f120b08" app:APKTOOL_RENAMED_0x7f04026c="false">
+        <l.ۘۜ֨ android:title="@string/APKTOOL_RENAMED_0x7f120c17" android:key="term_start_path" android:defaultValue="/sdcard" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.ۧۙۨ android:title="@string/APKTOOL_RENAMED_0x7f120400" android:key="term_text_font" app:APKTOOL_RENAMED_0x7f040221="@array/APKTOOL_RENAMED_0x7f030024" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.֨ۛ֨ android:entries="@array/APKTOOL_RENAMED_0x7f030023" android:title="@string/APKTOOL_RENAMED_0x7f120401" android:key="term_font_size" android:defaultValue="12" android:entryValues="@array/APKTOOL_RENAMED_0x7f030023" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.ۙۗ֨ android:title="@string/APKTOOL_RENAMED_0x7f120c0c" android:key="term_keep_dark" android:summary="@string/APKTOOL_RENAMED_0x7f120c0d" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.ۙۗ֨ android:title="@string/APKTOOL_RENAMED_0x7f120209" android:key="term_create_session_as_root" android:summary="@string/APKTOOL_RENAMED_0x7f12020a" android:defaultValue="false" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.ۙۗ֨ android:title="@string/APKTOOL_RENAMED_0x7f1202ca" android:key="term_double_confirm_to_exit" android:summary="@string/APKTOOL_RENAMED_0x7f1202cb" android:defaultValue="true" app:APKTOOL_RENAMED_0x7f04026c="false" />
+    </l.᩹ۛ֨>
+    <l.᩹ۛ֨ android:title="@string/APKTOOL_RENAMED_0x7f120bff" app:APKTOOL_RENAMED_0x7f04026c="false">
+        <l.᩵ۙۨ android:title="@string/APKTOOL_RENAMED_0x7f120bff" android:key="term_ex" android:summary="@string/APKTOOL_RENAMED_0x7f120c07" app:APKTOOL_RENAMED_0x7f04026c="false" />
+        <l.۟ܶۨ android:title="@string/APKTOOL_RENAMED_0x7f120c18" android:key="terminal_su2_help" android:summary="@string/APKTOOL_RENAMED_0x7f120c19" app:APKTOOL_RENAMED_0x7f04026c="false" />
+    </l.᩹ۛ֨>
+</l.ۘ᩹֨>

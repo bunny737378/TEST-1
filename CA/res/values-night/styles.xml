@@ -1,71 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Base.Theme.SplashScreen.DayNight" parent="@style/Base.Theme.SplashScreen" />
-    <style name="Theme.AppCompat.DayNight" parent="@style/Theme.AppCompat" />
-    <style name="Theme.AppCompat.DayNight.DarkActionBar" parent="@style/Theme.AppCompat" />
-    <style name="Theme.AppCompat.DayNight.Dialog" parent="@style/Theme.AppCompat.Dialog" />
-    <style name="Theme.AppCompat.DayNight.Dialog.Alert" parent="@style/Theme.AppCompat.Dialog.Alert" />
-    <style name="Theme.AppCompat.DayNight.Dialog.MinWidth" parent="@style/Theme.AppCompat.Dialog.MinWidth" />
-    <style name="Theme.AppCompat.DayNight.DialogWhenLarge" parent="@style/Theme.AppCompat.DialogWhenLarge" />
-    <style name="Theme.AppCompat.DayNight.NoActionBar" parent="@style/Theme.AppCompat.NoActionBar" />
-    <style name="Theme.Material3.DayNight" parent="@style/Theme.Material3.Dark" />
-    <style name="Theme.Material3.DayNight.BottomSheetDialog" parent="@style/Theme.Material3.Dark.BottomSheetDialog" />
-    <style name="Theme.Material3.DayNight.Dialog" parent="@style/Theme.Material3.Dark.Dialog" />
-    <style name="Theme.Material3.DayNight.Dialog.Alert" parent="@style/Theme.Material3.Dark.Dialog.Alert" />
-    <style name="Theme.Material3.DayNight.Dialog.MinWidth" parent="@style/Theme.Material3.Dark.Dialog.MinWidth" />
-    <style name="Theme.Material3.DayNight.DialogWhenLarge" parent="@style/Theme.Material3.Dark.DialogWhenLarge" />
-    <style name="Theme.Material3.DayNight.NoActionBar" parent="@style/Theme.Material3.Dark.NoActionBar" />
-    <style name="Theme.Material3.DayNight.SideSheetDialog" parent="@style/Theme.Material3.Dark.SideSheetDialog" />
-    <style name="Theme.Material3.DynamicColors.DayNight" parent="@style/Theme.Material3.DynamicColors.Dark" />
-    <style name="Theme.Material3.DynamicColors.DayNight.NoActionBar" parent="@style/Theme.Material3.DynamicColors.Dark.NoActionBar" />
-    <style name="Theme.MaterialComponents.DayNight" parent="@style/Theme.MaterialComponents" />
-    <style name="Theme.MaterialComponents.DayNight.BottomSheetDialog" parent="@style/Theme.MaterialComponents.BottomSheetDialog" />
-    <style name="Theme.MaterialComponents.DayNight.Bridge" parent="@style/Theme.MaterialComponents.Bridge" />
-    <style name="Theme.MaterialComponents.DayNight.DarkActionBar" parent="@style/Theme.MaterialComponents" />
-    <style name="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge" parent="@style/Theme.MaterialComponents.Bridge" />
-    <style name="Theme.MaterialComponents.DayNight.Dialog" parent="@style/Theme.MaterialComponents.Dialog" />
-    <style name="Theme.MaterialComponents.DayNight.Dialog.Alert" parent="@style/Theme.MaterialComponents.Dialog.Alert" />
-    <style name="Theme.MaterialComponents.DayNight.Dialog.Alert.Bridge" parent="@style/Theme.MaterialComponents.Dialog.Alert.Bridge" />
-    <style name="Theme.MaterialComponents.DayNight.Dialog.Bridge" parent="@style/Theme.MaterialComponents.Dialog.Bridge" />
-    <style name="Theme.MaterialComponents.DayNight.Dialog.FixedSize" parent="@style/Theme.MaterialComponents.Dialog.FixedSize" />
-    <style name="Theme.MaterialComponents.DayNight.Dialog.FixedSize.Bridge" parent="@style/Theme.MaterialComponents.Dialog.FixedSize.Bridge" />
-    <style name="Theme.MaterialComponents.DayNight.Dialog.MinWidth" parent="@style/Theme.MaterialComponents.Dialog.MinWidth" />
-    <style name="Theme.MaterialComponents.DayNight.Dialog.MinWidth.Bridge" parent="@style/Theme.MaterialComponents.Dialog.MinWidth.Bridge" />
-    <style name="Theme.MaterialComponents.DayNight.DialogWhenLarge" parent="@style/Theme.MaterialComponents.DialogWhenLarge" />
-    <style name="Theme.MaterialComponents.DayNight.NoActionBar" parent="@style/Theme.MaterialComponents.NoActionBar" />
-    <style name="Theme.MaterialComponents.DayNight.NoActionBar.Bridge" parent="@style/Theme.MaterialComponents.NoActionBar.Bridge" />
-    <style name="Theme.Miniapp" parent="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:statusBarColor">?colorPrimaryVariant</item>
-        <item name="colorOnPrimary">@color/mini_black</item>
-        <item name="colorOnSecondary">@color/mini_black</item>
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+    <style name="APKTOOL_RENAMED_0x7f130095" parent="@style/APKTOOL_RENAMED_0x7f130094">
+        <item name="APKTOOL_RENAMED_0x7f040280">false</item>
     </style>
-    <style name="Theme.Miniapp.NoActionBar" parent="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:windowBackground">@color/common_window_background_color</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:textViewStyle">@style/TextViewStyle.TextDirection</item>
-        <item name="android:adjustViewBounds">true</item>
-        <item name="android:includeFontPadding">false</item>
-        <item name="android:overScrollMode">never</item>
-        <item name="android:textAllCaps">false</item>
-        <item name="actionModeBackground">@color/common_primary_color</item>
-        <item name="colorPrimary">@color/common_primary_color</item>
-        <item name="colorPrimaryDark">@color/common_primary_color</item>
-        <item name="editTextStyle">@style/EditTextStyle.Alignment</item>
-        <item name="windowActionModeOverlay">true</item>
-    </style>
-    <style name="Theme.Subroom" parent="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="android:windowBackground">@color/bg_01</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <item name="colorPrimary">@color/main</item>
-        <item name="colorPrimaryVariant">@color/main</item>
-        <item name="colorSecondary">@color/main</item>
-        <item name="colorSecondaryVariant">@color/main</item>
-    </style>
-    <style name="ThemeOverlay.AppCompat.DayNight" parent="@style/ThemeOverlay.AppCompat.Dark" />
-    <style name="ThemeOverlay.Material3.DynamicColors.DayNight" parent="@style/ThemeOverlay.Material3.DynamicColors.Dark" />
+    <style name="APKTOOL_RENAMED_0x7f13028a" parent="@style/APKTOOL_RENAMED_0x7f130288" />
+    <style name="APKTOOL_RENAMED_0x7f13028b" parent="@style/APKTOOL_RENAMED_0x7f130288" />
+    <style name="APKTOOL_RENAMED_0x7f13028c" parent="@style/APKTOOL_RENAMED_0x7f130291" />
+    <style name="APKTOOL_RENAMED_0x7f13028d" parent="@style/APKTOOL_RENAMED_0x7f130292" />
+    <style name="APKTOOL_RENAMED_0x7f13028e" parent="@style/APKTOOL_RENAMED_0x7f130293" />
+    <style name="APKTOOL_RENAMED_0x7f13028f" parent="@style/APKTOOL_RENAMED_0x7f130294" />
+    <style name="APKTOOL_RENAMED_0x7f130290" parent="@style/APKTOOL_RENAMED_0x7f13029d" />
+    <style name="APKTOOL_RENAMED_0x7f1302ac" parent="@style/APKTOOL_RENAMED_0x7f1302a4" />
+    <style name="APKTOOL_RENAMED_0x7f1302ad" parent="@style/APKTOOL_RENAMED_0x7f1302a5" />
+    <style name="APKTOOL_RENAMED_0x7f1302ae" parent="@style/APKTOOL_RENAMED_0x7f1302a6" />
+    <style name="APKTOOL_RENAMED_0x7f1302af" parent="@style/APKTOOL_RENAMED_0x7f1302a7" />
+    <style name="APKTOOL_RENAMED_0x7f1302b0" parent="@style/APKTOOL_RENAMED_0x7f1302a8" />
+    <style name="APKTOOL_RENAMED_0x7f1302b1" parent="@style/APKTOOL_RENAMED_0x7f1302a9" />
+    <style name="APKTOOL_RENAMED_0x7f1302b2" parent="@style/APKTOOL_RENAMED_0x7f1302aa" />
+    <style name="APKTOOL_RENAMED_0x7f1302b3" parent="@style/APKTOOL_RENAMED_0x7f1302ab" />
+    <style name="APKTOOL_RENAMED_0x7f1302b6" parent="@style/APKTOOL_RENAMED_0x7f1302b4" />
+    <style name="APKTOOL_RENAMED_0x7f1302b7" parent="@style/APKTOOL_RENAMED_0x7f1302b5" />
+    <style name="APKTOOL_RENAMED_0x7f1302c6" parent="@style/APKTOOL_RENAMED_0x7f1302c2" />
+    <style name="APKTOOL_RENAMED_0x7f1302c7" parent="@style/APKTOOL_RENAMED_0x7f1302c3" />
+    <style name="APKTOOL_RENAMED_0x7f1302c8" parent="@style/APKTOOL_RENAMED_0x7f1302c4" />
+    <style name="APKTOOL_RENAMED_0x7f1302c9" parent="@style/APKTOOL_RENAMED_0x7f1302c2" />
+    <style name="APKTOOL_RENAMED_0x7f1302ca" parent="@style/APKTOOL_RENAMED_0x7f1302c4" />
+    <style name="APKTOOL_RENAMED_0x7f1302cb" parent="@style/APKTOOL_RENAMED_0x7f1302d6" />
+    <style name="APKTOOL_RENAMED_0x7f1302cc" parent="@style/APKTOOL_RENAMED_0x7f1302d7" />
+    <style name="APKTOOL_RENAMED_0x7f1302cd" parent="@style/APKTOOL_RENAMED_0x7f1302d8" />
+    <style name="APKTOOL_RENAMED_0x7f1302ce" parent="@style/APKTOOL_RENAMED_0x7f1302d9" />
+    <style name="APKTOOL_RENAMED_0x7f1302cf" parent="@style/APKTOOL_RENAMED_0x7f1302da" />
+    <style name="APKTOOL_RENAMED_0x7f1302d0" parent="@style/APKTOOL_RENAMED_0x7f1302db" />
+    <style name="APKTOOL_RENAMED_0x7f1302d1" parent="@style/APKTOOL_RENAMED_0x7f1302dc" />
+    <style name="APKTOOL_RENAMED_0x7f1302d2" parent="@style/APKTOOL_RENAMED_0x7f1302dd" />
+    <style name="APKTOOL_RENAMED_0x7f1302d3" parent="@style/APKTOOL_RENAMED_0x7f1302de" />
+    <style name="APKTOOL_RENAMED_0x7f1302d4" parent="@style/APKTOOL_RENAMED_0x7f1302ef" />
+    <style name="APKTOOL_RENAMED_0x7f1302d5" parent="@style/APKTOOL_RENAMED_0x7f1302f0" />
+    <style name="APKTOOL_RENAMED_0x7f1302f8" parent="@style/APKTOOL_RENAMED_0x7f1302f6" />
+    <style name="APKTOOL_RENAMED_0x7f13031c" parent="@style/APKTOOL_RENAMED_0x7f13031b" />
+    <style name="APKTOOL_RENAMED_0x7f13046a" parent="@style/APKTOOL_RENAMED_0x7f13046c" />
+    <style name="APKTOOL_RENAMED_0x7f13046f" parent="@style/APKTOOL_RENAMED_0x7f130470" />
+    <style name="APKTOOL_RENAMED_0x7f130478" parent="@style/APKTOOL_RENAMED_0x7f130476" />
+    <style name="APKTOOL_RENAMED_0x7f13047b" parent="@style/APKTOOL_RENAMED_0x7f130479" />
+    <style name="APKTOOL_RENAMED_0x7f1304bc" parent="@style/APKTOOL_RENAMED_0x7f1304b8" />
+    <style name="APKTOOL_RENAMED_0x7f1304ca" parent="@style/APKTOOL_RENAMED_0x7f1304c8" />
+    <style name="APKTOOL_RENAMED_0x7f1304e4" parent="@style/APKTOOL_RENAMED_0x7f1304e5" />
 </resources>

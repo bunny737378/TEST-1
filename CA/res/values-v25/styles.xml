@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Platform.AppCompat" parent="@style/Platform.V25.AppCompat" />
-    <style name="Platform.AppCompat.Light" parent="@style/Platform.V25.AppCompat.Light" />
-    <style name="Platform.V25.AppCompat" parent="@android:style/Theme.Material.NoActionBar" />
-    <style name="Platform.V25.AppCompat.Light" parent="@android:style/Theme.Material.Light.NoActionBar" />
+    <style name="APKTOOL_RENAMED_0x7f13018d" parent="@style/APKTOOL_RENAMED_0x7f130198" />
+    <style name="APKTOOL_RENAMED_0x7f13018e" parent="@style/APKTOOL_RENAMED_0x7f130199" />
+    <style name="APKTOOL_RENAMED_0x7f130198" parent="@android:style/Theme.Material.NoActionBar" />
+    <style name="APKTOOL_RENAMED_0x7f130199" parent="@android:style/Theme.Material.Light.NoActionBar" />
 </resources>
