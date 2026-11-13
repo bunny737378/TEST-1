@@ -1,6 +1,5 @@
 .class public Lcom/google/firebase/messaging/FirebaseMessagingRegistrar;
 .super Ljava/lang/Object;
-.source "r8-map-id-7b0d3a73286e8dd5fc0e7e050cf78d6f8649ffc8585dc4090750e37e48bd1bd0"
 
 # interfaces
 .implements Lcom/google/firebase/components/ComponentRegistrar;
@@ -10,171 +9,115 @@
 .annotation build Landroidx/annotation/Keep;
 .end annotation
 
+.annotation build Lcom/google/android/gms/common/annotation/KeepForSdk;
+.end annotation
+
 
 # static fields
-.field private static final LIBRARY_NAME:Ljava/lang/String; = "fire-fcm"
+.field private static LIBRARY_NAME:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 1
 
-    .line 1
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const-string v0, "fire-fcm"
 
-    .line 2
-    .line 3
-    .line 4
+    sput-object v0, Lcom/google/firebase/messaging/FirebaseMessagingRegistrar;->LIBRARY_NAME:Ljava/lang/String;
+
     return-void
 .end method
 
-.method public static synthetic a(Lyf/q;Lcom/google/firebase/sessions/t0;)Lcom/google/firebase/messaging/FirebaseMessaging;
+.method public constructor <init>()V
     .locals 0
 
-    .line 1
-    invoke-static {p0, p1}, Lcom/google/firebase/messaging/FirebaseMessagingRegistrar;->lambda$getComponents$0(Lyf/q;Lyf/b;)Lcom/google/firebase/messaging/FirebaseMessaging;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2
-    .line 3
-    .line 4
+    return-void
+.end method
+
+.method public static synthetic a(Lmb/b0;Lmb/e;)Lcom/google/firebase/messaging/FirebaseMessaging;
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/google/firebase/messaging/FirebaseMessagingRegistrar;->lambda$getComponents$0(Lmb/b0;Lmb/e;)Lcom/google/firebase/messaging/FirebaseMessaging;
+
     move-result-object p0
 
-    .line 5
     return-object p0
 .end method
 
-.method private static synthetic lambda$getComponents$0(Lyf/q;Lyf/b;)Lcom/google/firebase/messaging/FirebaseMessaging;
-    .locals 7
+.method private static synthetic lambda$getComponents$0(Lmb/b0;Lmb/e;)Lcom/google/firebase/messaging/FirebaseMessaging;
+    .locals 9
 
-    .line 1
-    new-instance v0, Lcom/google/firebase/messaging/FirebaseMessaging;
+    new-instance v8, Lcom/google/firebase/messaging/FirebaseMessaging;
 
-    .line 2
-    .line 3
-    const-class v1, Lqf/g;
+    const-class v0, Lcom/google/firebase/f;
 
-    .line 4
-    .line 5
-    invoke-interface {p1, v1}, Lyf/b;->a(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {p1, v0}, Lmb/e;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
-    .line 6
-    .line 7
-    .line 8
-    move-result-object v1
+    move-result-object v0
 
-    .line 9
-    check-cast v1, Lqf/g;
+    move-object v1, v0
 
-    .line 10
-    .line 11
-    const-class v2, Lwg/a;
+    check-cast v1, Lcom/google/firebase/f;
 
-    .line 12
-    .line 13
-    invoke-interface {p1, v2}, Lyf/b;->a(Ljava/lang/Class;)Ljava/lang/Object;
+    const-class v0, Lhc/a;
 
-    .line 14
-    .line 15
-    .line 16
-    move-result-object v2
+    invoke-interface {p1, v0}, Lmb/e;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
-    .line 17
-    if-nez v2, :cond_0
+    move-result-object v0
 
-    .line 18
-    .line 19
-    const-class v2, Lgh/b;
+    invoke-static {v0}, Landroid/support/v4/media/session/c;->a(Ljava/lang/Object;)V
 
-    .line 20
-    .line 21
-    invoke-interface {p1, v2}, Lyf/b;->f(Ljava/lang/Class;)Lxg/b;
+    const-class v0, Lxc/i;
 
-    .line 22
-    .line 23
-    .line 24
-    move-result-object v2
+    invoke-interface {p1, v0}, Lmb/e;->f(Ljava/lang/Class;)Lic/b;
 
-    .line 25
-    const-class v3, Lvg/g;
-
-    .line 26
-    .line 27
-    invoke-interface {p1, v3}, Lyf/b;->f(Ljava/lang/Class;)Lxg/b;
-
-    .line 28
-    .line 29
-    .line 30
     move-result-object v3
 
-    .line 31
-    const-class v4, Lyg/d;
+    const-class v0, Lcom/google/firebase/heartbeatinfo/HeartBeatInfo;
 
-    .line 32
-    .line 33
-    invoke-interface {p1, v4}, Lyf/b;->a(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {p1, v0}, Lmb/e;->f(Ljava/lang/Class;)Lic/b;
 
-    .line 34
-    .line 35
-    .line 36
     move-result-object v4
 
-    .line 37
-    check-cast v4, Lyg/d;
+    const-class v0, Ljc/e;
 
-    .line 38
-    .line 39
-    invoke-interface {p1, p0}, Lyf/b;->e(Lyf/q;)Lxg/b;
+    invoke-interface {p1, v0}, Lmb/e;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
-    .line 40
-    .line 41
-    .line 42
-    move-result-object v5
+    move-result-object v0
 
-    .line 43
-    const-class p0, Lug/c;
+    move-object v5, v0
 
-    .line 44
-    .line 45
-    invoke-interface {p1, p0}, Lyf/b;->a(Ljava/lang/Class;)Ljava/lang/Object;
+    check-cast v5, Ljc/e;
 
-    .line 46
-    .line 47
-    .line 48
+    invoke-interface {p1, p0}, Lmb/e;->g(Lmb/b0;)Lic/b;
+
+    move-result-object v6
+
+    const-class p0, Lfc/d;
+
+    invoke-interface {p1, p0}, Lmb/e;->a(Ljava/lang/Class;)Ljava/lang/Object;
+
     move-result-object p0
 
-    .line 49
-    move-object v6, p0
+    move-object v7, p0
 
-    .line 50
-    check-cast v6, Lug/c;
+    check-cast v7, Lfc/d;
 
-    .line 51
-    .line 52
-    invoke-direct/range {v0 .. v6}, Lcom/google/firebase/messaging/FirebaseMessaging;-><init>(Lqf/g;Lxg/b;Lxg/b;Lyg/d;Lxg/b;Lug/c;)V
+    const/4 v2, 0x0
 
-    .line 53
-    .line 54
-    .line 55
-    return-object v0
+    move-object v0, v8
 
-    .line 56
-    :cond_0
-    new-instance p0, Ljava/lang/ClassCastException;
+    invoke-direct/range {v0 .. v7}, Lcom/google/firebase/messaging/FirebaseMessaging;-><init>(Lcom/google/firebase/f;Lhc/a;Lic/b;Lic/b;Ljc/e;Lic/b;Lfc/d;)V
 
-    .line 57
-    .line 58
-    invoke-direct {p0}, Ljava/lang/ClassCastException;-><init>()V
-
-    .line 59
-    .line 60
-    .line 61
-    throw p0
+    return-object v8
 .end method
 
 
 # virtual methods
 .method public getComponents()Ljava/util/List;
-    .locals 7
+    .locals 4
     .annotation build Landroidx/annotation/Keep;
     .end annotation
 
@@ -182,234 +125,136 @@
         value = {
             "()",
             "Ljava/util/List<",
-            "Lyf/a;",
+            "Lmb/c;",
             ">;"
         }
     .end annotation
 
-    .line 1
-    new-instance v0, Lyf/q;
+    const-class v0, Lzb/b;
 
-    .line 2
-    .line 3
-    const-class v1, Log/b;
+    const-class v1, Lr8/i;
 
-    .line 4
-    .line 5
-    const-class v2, Lqb/g;
+    invoke-static {v0, v1}, Lmb/b0;->a(Ljava/lang/Class;Ljava/lang/Class;)Lmb/b0;
 
-    .line 6
-    .line 7
-    invoke-direct {v0, v1, v2}, Lyf/q;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
+    move-result-object v0
 
-    .line 8
-    .line 9
-    .line 10
     const-class v1, Lcom/google/firebase/messaging/FirebaseMessaging;
 
-    .line 11
-    .line 12
-    invoke-static {v1}, Lyf/a;->a(Ljava/lang/Class;)Ljs/a;
+    invoke-static {v1}, Lmb/c;->c(Ljava/lang/Class;)Lmb/c$b;
 
-    .line 13
-    .line 14
-    .line 15
     move-result-object v1
 
-    .line 16
     const-string v2, "fire-fcm"
 
-    .line 17
-    .line 18
-    iput-object v2, v1, Ljs/a;->c:Ljava/io/Serializable;
+    invoke-virtual {v1, v2}, Lmb/c$b;->h(Ljava/lang/String;)Lmb/c$b;
 
-    .line 19
-    .line 20
-    const-class v3, Lqf/g;
-
-    .line 21
-    .line 22
-    invoke-static {v3}, Lyf/h;->a(Ljava/lang/Class;)Lyf/h;
-
-    .line 23
-    .line 24
-    .line 25
-    move-result-object v3
-
-    .line 26
-    invoke-virtual {v1, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 27
-    .line 28
-    .line 29
-    new-instance v3, Lyf/h;
-
-    .line 30
-    .line 31
-    const/4 v4, 0x0
-
-    .line 32
-    const-class v5, Lwg/a;
-
-    .line 33
-    .line 34
-    invoke-direct {v3, v4, v4, v5}, Lyf/h;-><init>(IILjava/lang/Class;)V
-
-    .line 35
-    .line 36
-    .line 37
-    invoke-virtual {v1, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 38
-    .line 39
-    .line 40
-    new-instance v3, Lyf/h;
-
-    .line 41
-    .line 42
-    const/4 v5, 0x1
-
-    .line 43
-    const-class v6, Lgh/b;
-
-    .line 44
-    .line 45
-    invoke-direct {v3, v4, v5, v6}, Lyf/h;-><init>(IILjava/lang/Class;)V
-
-    .line 46
-    .line 47
-    .line 48
-    invoke-virtual {v1, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 49
-    .line 50
-    .line 51
-    new-instance v3, Lyf/h;
-
-    .line 52
-    .line 53
-    const-class v6, Lvg/g;
-
-    .line 54
-    .line 55
-    invoke-direct {v3, v4, v5, v6}, Lyf/h;-><init>(IILjava/lang/Class;)V
-
-    .line 56
-    .line 57
-    .line 58
-    invoke-virtual {v1, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 59
-    .line 60
-    .line 61
-    const-class v3, Lyg/d;
-
-    .line 62
-    .line 63
-    invoke-static {v3}, Lyf/h;->a(Ljava/lang/Class;)Lyf/h;
-
-    .line 64
-    .line 65
-    .line 66
-    move-result-object v3
-
-    .line 67
-    invoke-virtual {v1, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 68
-    .line 69
-    .line 70
-    new-instance v3, Lyf/h;
-
-    .line 71
-    .line 72
-    invoke-direct {v3, v0, v4, v5}, Lyf/h;-><init>(Lyf/q;II)V
-
-    .line 73
-    .line 74
-    .line 75
-    invoke-virtual {v1, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 76
-    .line 77
-    .line 78
-    const-class v3, Lug/c;
-
-    .line 79
-    .line 80
-    invoke-static {v3}, Lyf/h;->a(Ljava/lang/Class;)Lyf/h;
-
-    .line 81
-    .line 82
-    .line 83
-    move-result-object v3
-
-    .line 84
-    invoke-virtual {v1, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 85
-    .line 86
-    .line 87
-    new-instance v3, Leh/o;
-
-    .line 88
-    .line 89
-    invoke-direct {v3, v0, v4}, Leh/o;-><init>(Lyf/q;I)V
-
-    .line 90
-    .line 91
-    .line 92
-    iput-object v3, v1, Ljs/a;->f:Ljava/lang/Object;
-
-    .line 93
-    .line 94
-    invoke-virtual {v1, v5}, Ljs/a;->g(I)V
-
-    .line 95
-    .line 96
-    .line 97
-    invoke-virtual {v1}, Ljs/a;->b()Lyf/a;
-
-    .line 98
-    .line 99
-    .line 100
-    move-result-object v0
-
-    .line 101
-    const-string v1, "25.0.1"
-
-    .line 102
-    .line 103
-    invoke-static {v2, v1}, Lja/g;->b(Ljava/lang/String;Ljava/lang/String;)Lyf/a;
-
-    .line 104
-    .line 105
-    .line 106
     move-result-object v1
 
-    .line 107
-    const/4 v2, 0x2
+    const-class v3, Lcom/google/firebase/f;
 
-    .line 108
-    new-array v2, v2, [Lyf/a;
+    invoke-static {v3}, Lmb/r;->k(Ljava/lang/Class;)Lmb/r;
 
-    .line 109
-    .line 110
-    aput-object v0, v2, v4
+    move-result-object v3
 
-    .line 111
-    .line 112
-    aput-object v1, v2, v5
+    invoke-virtual {v1, v3}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
 
-    .line 113
-    .line 114
-    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    move-result-object v1
 
-    .line 115
-    .line 116
-    .line 117
+    const-class v3, Lhc/a;
+
+    invoke-static {v3}, Lmb/r;->h(Ljava/lang/Class;)Lmb/r;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v1
+
+    const-class v3, Lxc/i;
+
+    invoke-static {v3}, Lmb/r;->i(Ljava/lang/Class;)Lmb/r;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v1
+
+    const-class v3, Lcom/google/firebase/heartbeatinfo/HeartBeatInfo;
+
+    invoke-static {v3}, Lmb/r;->i(Ljava/lang/Class;)Lmb/r;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v1
+
+    const-class v3, Ljc/e;
+
+    invoke-static {v3}, Lmb/r;->k(Ljava/lang/Class;)Lmb/r;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v1
+
+    invoke-static {v0}, Lmb/r;->j(Lmb/b0;)Lmb/r;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v1
+
+    const-class v3, Lfc/d;
+
+    invoke-static {v3}, Lmb/r;->k(Ljava/lang/Class;)Lmb/r;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v1
+
+    new-instance v3, Lcom/google/firebase/messaging/c0;
+
+    invoke-direct {v3, v0}, Lcom/google/firebase/messaging/c0;-><init>(Lmb/b0;)V
+
+    invoke-virtual {v1, v3}, Lmb/c$b;->f(Lmb/h;)Lmb/c$b;
+
     move-result-object v0
 
-    .line 118
+    invoke-virtual {v0}, Lmb/c$b;->c()Lmb/c$b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lmb/c$b;->d()Lmb/c;
+
+    move-result-object v0
+
+    const-string v1, "25.0.1"
+
+    invoke-static {v2, v1}, Lxc/h;->b(Ljava/lang/String;Ljava/lang/String;)Lmb/c;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Lmb/c;
+
+    const/4 v3, 0x0
+
+    aput-object v0, v2, v3
+
+    const/4 v0, 0x1
+
+    aput-object v1, v2, v0
+
+    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
     return-object v0
 .end method

@@ -1,0 +1,498 @@
+.class public Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;
+.super Ljava/lang/Object;
+
+
+# instance fields
+.field private abTest:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lcom/cloud/hisavana/sdk/data/bean/response/AbTestDTO;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private adSeatType:Ljava/lang/String;
+
+.field private ads:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lcom/cloud/hisavana/sdk/data/bean/response/AdsDTO;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private cloudControlVersion:Ljava/lang/String;
+
+.field private codeSeatId:Ljava/lang/String;
+
+.field private codeSeatType:Ljava/lang/Integer;
+
+.field private extInfo:Ljava/lang/String;
+
+.field private fullScreenFlag:Ljava/lang/Integer;
+
+.field private gaid:Ljava/lang/String;
+
+.field private offlineAd:Ljava/lang/Boolean;
+
+.field private recommendInfos:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lcom/cloud/hisavana/sdk/common/bean/SSPWebRecommendInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private requestId:Ljava/lang/String;
+
+.field private scales:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field showTime:Ljava/lang/Integer;
+
+.field private testResponse:Ljava/lang/Boolean;
+
+.field private time:Ljava/lang/String;
+
+.field private trackingUrlBool:Ljava/lang/Boolean;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public getAbTest()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/cloud/hisavana/sdk/data/bean/response/AbTestDTO;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->abTest:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public getAdSeatType()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->adSeatType:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getAds()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/cloud/hisavana/sdk/data/bean/response/AdsDTO;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->ads:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public getCloudControlVersion()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->cloudControlVersion:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v0, ""
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public getCodeSeatId()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->codeSeatId:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v0, ""
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public getCodeSeatType()Ljava/lang/Integer;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->codeSeatType:Ljava/lang/Integer;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getExtInfo()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->extInfo:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v0, ""
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public getFullScreenFlag()Ljava/lang/Integer;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->fullScreenFlag:Ljava/lang/Integer;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getGaid()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->gaid:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v0, ""
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public getOfflineAd()Ljava/lang/Boolean;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->offlineAd:Ljava/lang/Boolean;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getRecommendInfos()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/cloud/hisavana/sdk/common/bean/SSPWebRecommendInfo;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->recommendInfos:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public getRequestId()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->requestId:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v0, ""
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public getScales()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->scales:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public getShowTime()Ljava/lang/Integer;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->showTime:Ljava/lang/Integer;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x4
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getTestResponse()Ljava/lang/Boolean;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->testResponse:Ljava/lang/Boolean;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getTime()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->time:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v0, ""
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public getTrackingUrlBool()Ljava/lang/Boolean;
+    .locals 1
+
+    iget-object v0, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->trackingUrlBool:Ljava/lang/Boolean;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public setAbTest(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/cloud/hisavana/sdk/data/bean/response/AbTestDTO;",
+            ">;)V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->abTest:Ljava/util/List;
+
+    return-void
+.end method
+
+.method public setAdSeatType(Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->adSeatType:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public setFullScreenFlag(Ljava/lang/Integer;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->fullScreenFlag:Ljava/lang/Integer;
+
+    return-void
+.end method
+
+.method public setOfflineAd(Ljava/lang/Boolean;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->offlineAd:Ljava/lang/Boolean;
+
+    return-void
+.end method
+
+.method public setRecommendInfos(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/cloud/hisavana/sdk/common/bean/SSPWebRecommendInfo;",
+            ">;)V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->recommendInfos:Ljava/util/List;
+
+    return-void
+.end method
+
+.method public setScales(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->scales:Ljava/util/List;
+
+    return-void
+.end method
+
+.method public setShowTime(Ljava/lang/Integer;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->showTime:Ljava/lang/Integer;
+
+    return-void
+.end method
+
+.method public setTestResponse(Ljava/lang/Boolean;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->testResponse:Ljava/lang/Boolean;
+
+    return-void
+.end method
+
+.method public setTrackingUrlBool(Ljava/lang/Boolean;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/cloud/hisavana/sdk/data/bean/response/DataDTO;->trackingUrlBool:Ljava/lang/Boolean;
+
+    return-void
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 1
+
+    const/16 v0, 0x3c4a
+
+    invoke-static/range {v0 .. v1}, Lnoxid/fox/sckit/VMPPBridge;->i__L(ILjava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+.end method

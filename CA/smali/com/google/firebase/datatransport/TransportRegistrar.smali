@@ -1,6 +1,5 @@
 .class public Lcom/google/firebase/datatransport/TransportRegistrar;
 .super Ljava/lang/Object;
-.source "r8-map-id-7b0d3a73286e8dd5fc0e7e050cf78d6f8649ffc8585dc4090750e37e48bd1bd0"
 
 # interfaces
 .implements Lcom/google/firebase/components/ComponentRegistrar;
@@ -12,215 +11,140 @@
 
 
 # static fields
-.field private static final LIBRARY_NAME:Ljava/lang/String; = "fire-transport"
+.field private static LIBRARY_NAME:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 1
 
-    .line 1
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const-string v0, "fire-transport"
 
-    .line 2
-    .line 3
-    .line 4
+    sput-object v0, Lcom/google/firebase/datatransport/TransportRegistrar;->LIBRARY_NAME:Ljava/lang/String;
+
     return-void
 .end method
 
-.method public static synthetic a(Lcom/google/firebase/sessions/t0;)Lqb/g;
+.method public constructor <init>()V
     .locals 0
 
-    .line 1
-    invoke-static {p0}, Lcom/google/firebase/datatransport/TransportRegistrar;->lambda$getComponents$2(Lyf/b;)Lqb/g;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2
-    .line 3
-    .line 4
-    move-result-object p0
-
-    .line 5
-    return-object p0
+    return-void
 .end method
 
-.method public static synthetic b(Lcom/google/firebase/sessions/t0;)Lqb/g;
+.method public static synthetic a(Lmb/e;)Lr8/i;
     .locals 0
 
-    .line 1
-    invoke-static {p0}, Lcom/google/firebase/datatransport/TransportRegistrar;->lambda$getComponents$1(Lyf/b;)Lqb/g;
+    invoke-static {p0}, Lcom/google/firebase/datatransport/TransportRegistrar;->lambda$getComponents$2(Lmb/e;)Lr8/i;
 
-    .line 2
-    .line 3
-    .line 4
     move-result-object p0
 
-    .line 5
     return-object p0
 .end method
 
-.method public static synthetic c(Lcom/google/firebase/sessions/t0;)Lqb/g;
+.method public static synthetic b(Lmb/e;)Lr8/i;
     .locals 0
 
-    .line 1
-    invoke-static {p0}, Lcom/google/firebase/datatransport/TransportRegistrar;->lambda$getComponents$0(Lyf/b;)Lqb/g;
+    invoke-static {p0}, Lcom/google/firebase/datatransport/TransportRegistrar;->lambda$getComponents$1(Lmb/e;)Lr8/i;
 
-    .line 2
-    .line 3
-    .line 4
     move-result-object p0
 
-    .line 5
     return-object p0
 .end method
 
-.method private static synthetic lambda$getComponents$0(Lyf/b;)Lqb/g;
-    .locals 1
+.method public static synthetic c(Lmb/e;)Lr8/i;
+    .locals 0
 
-    .line 1
-    const-class v0, Landroid/content/Context;
+    invoke-static {p0}, Lcom/google/firebase/datatransport/TransportRegistrar;->lambda$getComponents$0(Lmb/e;)Lr8/i;
 
-    .line 2
-    .line 3
-    invoke-interface {p0, v0}, Lyf/b;->a(Ljava/lang/Class;)Ljava/lang/Object;
-
-    .line 4
-    .line 5
-    .line 6
     move-result-object p0
 
-    .line 7
-    check-cast p0, Landroid/content/Context;
-
-    .line 8
-    .line 9
-    invoke-static {p0}, Ltb/s;->b(Landroid/content/Context;)V
-
-    .line 10
-    .line 11
-    .line 12
-    invoke-static {}, Ltb/s;->a()Ltb/s;
-
-    .line 13
-    .line 14
-    .line 15
-    move-result-object p0
-
-    .line 16
-    sget-object v0, Lrb/a;->f:Lrb/a;
-
-    .line 17
-    .line 18
-    invoke-virtual {p0, v0}, Ltb/s;->c(Ltb/n;)Ltb/r;
-
-    .line 19
-    .line 20
-    .line 21
-    move-result-object p0
-
-    .line 22
     return-object p0
 .end method
 
-.method private static synthetic lambda$getComponents$1(Lyf/b;)Lqb/g;
+.method private static synthetic lambda$getComponents$0(Lmb/e;)Lr8/i;
     .locals 1
 
-    .line 1
     const-class v0, Landroid/content/Context;
 
-    .line 2
-    .line 3
-    invoke-interface {p0, v0}, Lyf/b;->a(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {p0, v0}, Lmb/e;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
-    .line 4
-    .line 5
-    .line 6
     move-result-object p0
 
-    .line 7
     check-cast p0, Landroid/content/Context;
 
-    .line 8
-    .line 9
-    invoke-static {p0}, Ltb/s;->b(Landroid/content/Context;)V
+    invoke-static {p0}, Lcom/google/android/datatransport/runtime/t;->f(Landroid/content/Context;)V
 
-    .line 10
-    .line 11
-    .line 12
-    invoke-static {}, Ltb/s;->a()Ltb/s;
+    invoke-static {}, Lcom/google/android/datatransport/runtime/t;->c()Lcom/google/android/datatransport/runtime/t;
 
-    .line 13
-    .line 14
-    .line 15
     move-result-object p0
 
-    .line 16
-    sget-object v0, Lrb/a;->f:Lrb/a;
+    sget-object v0, Lcom/google/android/datatransport/cct/a;->h:Lcom/google/android/datatransport/cct/a;
 
-    .line 17
-    .line 18
-    invoke-virtual {p0, v0}, Ltb/s;->c(Ltb/n;)Ltb/r;
+    invoke-virtual {p0, v0}, Lcom/google/android/datatransport/runtime/t;->g(Lcom/google/android/datatransport/runtime/f;)Lr8/i;
 
-    .line 19
-    .line 20
-    .line 21
     move-result-object p0
 
-    .line 22
     return-object p0
 .end method
 
-.method private static synthetic lambda$getComponents$2(Lyf/b;)Lqb/g;
+.method private static synthetic lambda$getComponents$1(Lmb/e;)Lr8/i;
     .locals 1
 
-    .line 1
     const-class v0, Landroid/content/Context;
 
-    .line 2
-    .line 3
-    invoke-interface {p0, v0}, Lyf/b;->a(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {p0, v0}, Lmb/e;->a(Ljava/lang/Class;)Ljava/lang/Object;
 
-    .line 4
-    .line 5
-    .line 6
     move-result-object p0
 
-    .line 7
     check-cast p0, Landroid/content/Context;
 
-    .line 8
-    .line 9
-    invoke-static {p0}, Ltb/s;->b(Landroid/content/Context;)V
+    invoke-static {p0}, Lcom/google/android/datatransport/runtime/t;->f(Landroid/content/Context;)V
 
-    .line 10
-    .line 11
-    .line 12
-    invoke-static {}, Ltb/s;->a()Ltb/s;
+    invoke-static {}, Lcom/google/android/datatransport/runtime/t;->c()Lcom/google/android/datatransport/runtime/t;
 
-    .line 13
-    .line 14
-    .line 15
     move-result-object p0
 
-    .line 16
-    sget-object v0, Lrb/a;->e:Lrb/a;
+    sget-object v0, Lcom/google/android/datatransport/cct/a;->h:Lcom/google/android/datatransport/cct/a;
 
-    .line 17
-    .line 18
-    invoke-virtual {p0, v0}, Ltb/s;->c(Ltb/n;)Ltb/r;
+    invoke-virtual {p0, v0}, Lcom/google/android/datatransport/runtime/t;->g(Lcom/google/android/datatransport/runtime/f;)Lr8/i;
 
-    .line 19
-    .line 20
-    .line 21
     move-result-object p0
 
-    .line 22
+    return-object p0
+.end method
+
+.method private static synthetic lambda$getComponents$2(Lmb/e;)Lr8/i;
+    .locals 1
+
+    const-class v0, Landroid/content/Context;
+
+    invoke-interface {p0, v0}, Lmb/e;->a(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/google/android/datatransport/runtime/t;->f(Landroid/content/Context;)V
+
+    invoke-static {}, Lcom/google/android/datatransport/runtime/t;->c()Lcom/google/android/datatransport/runtime/t;
+
+    move-result-object p0
+
+    sget-object v0, Lcom/google/android/datatransport/cct/a;->g:Lcom/google/android/datatransport/cct/a;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/datatransport/runtime/t;->g(Lcom/google/android/datatransport/runtime/f;)Lr8/i;
+
+    move-result-object p0
+
     return-object p0
 .end method
 
 
 # virtual methods
 .method public getComponents()Ljava/util/List;
-    .locals 7
+    .locals 6
     .annotation build Landroidx/annotation/NonNull;
     .end annotation
 
@@ -228,246 +152,134 @@
         value = {
             "()",
             "Ljava/util/List<",
-            "Lyf/a;",
+            "Lmb/c;",
             ">;"
         }
     .end annotation
 
-    .line 1
-    const-class v0, Lqb/g;
+    const-class v0, Lr8/i;
 
-    .line 2
-    .line 3
-    invoke-static {v0}, Lyf/a;->a(Ljava/lang/Class;)Ljs/a;
+    invoke-static {v0}, Lmb/c;->c(Ljava/lang/Class;)Lmb/c$b;
 
-    .line 4
-    .line 5
-    .line 6
     move-result-object v1
 
-    .line 7
     const-string v2, "fire-transport"
 
-    .line 8
-    .line 9
-    iput-object v2, v1, Ljs/a;->c:Ljava/io/Serializable;
+    invoke-virtual {v1, v2}, Lmb/c$b;->h(Ljava/lang/String;)Lmb/c$b;
 
-    .line 10
-    .line 11
-    const-class v3, Landroid/content/Context;
-
-    .line 12
-    .line 13
-    invoke-static {v3}, Lyf/h;->a(Ljava/lang/Class;)Lyf/h;
-
-    .line 14
-    .line 15
-    .line 16
-    move-result-object v4
-
-    .line 17
-    invoke-virtual {v1, v4}, Ljs/a;->a(Lyf/h;)V
-
-    .line 18
-    .line 19
-    .line 20
-    new-instance v4, Lja/m;
-
-    .line 21
-    .line 22
-    const/16 v5, 0x9
-
-    .line 23
-    .line 24
-    invoke-direct {v4, v5}, Lja/m;-><init>(I)V
-
-    .line 25
-    .line 26
-    .line 27
-    iput-object v4, v1, Ljs/a;->f:Ljava/lang/Object;
-
-    .line 28
-    .line 29
-    invoke-virtual {v1}, Ljs/a;->b()Lyf/a;
-
-    .line 30
-    .line 31
-    .line 32
     move-result-object v1
 
-    .line 33
-    new-instance v4, Lyf/q;
+    const-class v3, Landroid/content/Context;
 
-    .line 34
-    .line 35
-    const-class v5, Log/a;
+    invoke-static {v3}, Lmb/r;->k(Ljava/lang/Class;)Lmb/r;
 
-    .line 36
-    .line 37
-    invoke-direct {v4, v5, v0}, Lyf/q;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
-
-    .line 38
-    .line 39
-    .line 40
-    invoke-static {v4}, Lyf/a;->b(Lyf/q;)Ljs/a;
-
-    .line 41
-    .line 42
-    .line 43
     move-result-object v4
 
-    .line 44
-    invoke-static {v3}, Lyf/h;->a(Ljava/lang/Class;)Lyf/h;
+    invoke-virtual {v1, v4}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
 
-    .line 45
-    .line 46
-    .line 47
+    move-result-object v1
+
+    new-instance v4, Lzb/c;
+
+    invoke-direct {v4}, Lzb/c;-><init>()V
+
+    invoke-virtual {v1, v4}, Lmb/c$b;->f(Lmb/h;)Lmb/c$b;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lmb/c$b;->d()Lmb/c;
+
+    move-result-object v1
+
+    const-class v4, Lzb/a;
+
+    invoke-static {v4, v0}, Lmb/b0;->a(Ljava/lang/Class;Ljava/lang/Class;)Lmb/b0;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lmb/c;->e(Lmb/b0;)Lmb/c$b;
+
+    move-result-object v4
+
+    invoke-static {v3}, Lmb/r;->k(Ljava/lang/Class;)Lmb/r;
+
     move-result-object v5
 
-    .line 48
-    invoke-virtual {v4, v5}, Ljs/a;->a(Lyf/h;)V
+    invoke-virtual {v4, v5}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
 
-    .line 49
-    .line 50
-    .line 51
-    new-instance v5, Lja/m;
-
-    .line 52
-    .line 53
-    const/16 v6, 0xa
-
-    .line 54
-    .line 55
-    invoke-direct {v5, v6}, Lja/m;-><init>(I)V
-
-    .line 56
-    .line 57
-    .line 58
-    iput-object v5, v4, Ljs/a;->f:Ljava/lang/Object;
-
-    .line 59
-    .line 60
-    invoke-virtual {v4}, Ljs/a;->b()Lyf/a;
-
-    .line 61
-    .line 62
-    .line 63
     move-result-object v4
 
-    .line 64
-    new-instance v5, Lyf/q;
+    new-instance v5, Lzb/d;
 
-    .line 65
-    .line 66
-    const-class v6, Log/b;
+    invoke-direct {v5}, Lzb/d;-><init>()V
 
-    .line 67
-    .line 68
-    invoke-direct {v5, v6, v0}, Lyf/q;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
+    invoke-virtual {v4, v5}, Lmb/c$b;->f(Lmb/h;)Lmb/c$b;
 
-    .line 69
-    .line 70
-    .line 71
-    invoke-static {v5}, Lyf/a;->b(Lyf/q;)Ljs/a;
+    move-result-object v4
 
-    .line 72
-    .line 73
-    .line 74
+    invoke-virtual {v4}, Lmb/c$b;->d()Lmb/c;
+
+    move-result-object v4
+
+    const-class v5, Lzb/b;
+
+    invoke-static {v5, v0}, Lmb/b0;->a(Ljava/lang/Class;Ljava/lang/Class;)Lmb/b0;
+
     move-result-object v0
 
-    .line 75
-    invoke-static {v3}, Lyf/h;->a(Ljava/lang/Class;)Lyf/h;
+    invoke-static {v0}, Lmb/c;->e(Lmb/b0;)Lmb/c$b;
 
-    .line 76
-    .line 77
-    .line 78
+    move-result-object v0
+
+    invoke-static {v3}, Lmb/r;->k(Ljava/lang/Class;)Lmb/r;
+
     move-result-object v3
 
-    .line 79
-    invoke-virtual {v0, v3}, Ljs/a;->a(Lyf/h;)V
+    invoke-virtual {v0, v3}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
 
-    .line 80
-    .line 81
-    .line 82
-    new-instance v3, Lja/m;
-
-    .line 83
-    .line 84
-    const/16 v5, 0xb
-
-    .line 85
-    .line 86
-    invoke-direct {v3, v5}, Lja/m;-><init>(I)V
-
-    .line 87
-    .line 88
-    .line 89
-    iput-object v3, v0, Ljs/a;->f:Ljava/lang/Object;
-
-    .line 90
-    .line 91
-    invoke-virtual {v0}, Ljs/a;->b()Lyf/a;
-
-    .line 92
-    .line 93
-    .line 94
     move-result-object v0
 
-    .line 95
+    new-instance v3, Lzb/e;
+
+    invoke-direct {v3}, Lzb/e;-><init>()V
+
+    invoke-virtual {v0, v3}, Lmb/c$b;->f(Lmb/h;)Lmb/c$b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lmb/c$b;->d()Lmb/c;
+
+    move-result-object v0
+
     const-string v3, "19.0.0"
 
-    .line 96
-    .line 97
-    invoke-static {v2, v3}, Lja/g;->b(Ljava/lang/String;Ljava/lang/String;)Lyf/a;
+    invoke-static {v2, v3}, Lxc/h;->b(Ljava/lang/String;Ljava/lang/String;)Lmb/c;
 
-    .line 98
-    .line 99
-    .line 100
     move-result-object v2
 
-    .line 101
     const/4 v3, 0x4
 
-    .line 102
-    new-array v3, v3, [Lyf/a;
+    new-array v3, v3, [Lmb/c;
 
-    .line 103
-    .line 104
     const/4 v5, 0x0
 
-    .line 105
     aput-object v1, v3, v5
 
-    .line 106
-    .line 107
     const/4 v1, 0x1
 
-    .line 108
     aput-object v4, v3, v1
 
-    .line 109
-    .line 110
     const/4 v1, 0x2
 
-    .line 111
     aput-object v0, v3, v1
 
-    .line 112
-    .line 113
     const/4 v0, 0x3
 
-    .line 114
     aput-object v2, v3, v0
 
-    .line 115
-    .line 116
     invoke-static {v3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    .line 117
-    .line 118
-    .line 119
     move-result-object v0
 
-    .line 120
     return-object v0
 .end method

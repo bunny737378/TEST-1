@@ -1,392 +1,332 @@
 .class public Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;
 .super Ljava/lang/Object;
-.source "r8-map-id-7b0d3a73286e8dd5fc0e7e050cf78d6f8649ffc8585dc4090750e37e48bd1bd0"
 
 # interfaces
 .implements Lcom/google/firebase/components/ComponentRegistrar;
 
 
-# static fields
-.field public static final synthetic d:I
-
-
 # instance fields
-.field public final a:Lyf/q;
+.field private final a:Lmb/b0;
 
-.field public final b:Lyf/q;
+.field private final b:Lmb/b0;
 
-.field public final c:Lyf/q;
+.field private final c:Lmb/b0;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .locals 1
 
-    .line 1
-    sget-object v0, Lcom/google/firebase/sessions/api/d;->a:Lcom/google/firebase/sessions/api/d;
+    sget-object v0, Lcom/google/firebase/sessions/api/SessionSubscriber$Name;->CRASHLYTICS:Lcom/google/firebase/sessions/api/SessionSubscriber$Name;
 
-    .line 2
-    .line 3
-    sget-object v1, Lcom/google/firebase/sessions/api/c;->b:Ljava/util/Map;
+    invoke-static {v0}, Lcom/google/firebase/sessions/api/FirebaseSessionsDependencies;->a(Lcom/google/firebase/sessions/api/SessionSubscriber$Name;)V
 
-    .line 4
-    .line 5
-    invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    .line 6
-    .line 7
-    .line 8
-    move-result v2
-
-    .line 9
-    if-eqz v2, :cond_0
-
-    .line 10
-    .line 11
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    .line 12
-    .line 13
-    .line 14
-    return-void
-
-    .line 15
-    :cond_0
-    new-instance v2, Lcom/google/firebase/sessions/api/a;
-
-    .line 16
-    .line 17
-    new-instance v3, Lor/c;
-
-    .line 18
-    .line 19
-    const/4 v4, 0x1
-
-    .line 20
-    invoke-direct {v3, v4}, Lor/c;-><init>(Z)V
-
-    .line 21
-    .line 22
-    .line 23
-    invoke-direct {v2, v3}, Lcom/google/firebase/sessions/api/a;-><init>(Lor/c;)V
-
-    .line 24
-    .line 25
-    .line 26
-    invoke-interface {v1, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 27
-    .line 28
-    .line 29
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    .line 30
-    .line 31
-    .line 32
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 3
+    .locals 2
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2
-    .line 3
-    .line 4
-    new-instance v0, Lyf/q;
+    const-class v0, Llb/a;
 
-    .line 5
-    .line 6
-    const-class v1, Luf/a;
+    const-class v1, Ljava/util/concurrent/ExecutorService;
 
-    .line 7
-    .line 8
-    const-class v2, Ljava/util/concurrent/ExecutorService;
+    invoke-static {v0, v1}, Lmb/b0;->a(Ljava/lang/Class;Ljava/lang/Class;)Lmb/b0;
 
-    .line 9
-    .line 10
-    invoke-direct {v0, v1, v2}, Lyf/q;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
+    move-result-object v0
 
-    .line 11
-    .line 12
-    .line 13
-    iput-object v0, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->a:Lyf/q;
+    iput-object v0, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->a:Lmb/b0;
 
-    .line 14
-    .line 15
-    new-instance v0, Lyf/q;
+    const-class v0, Llb/b;
 
-    .line 16
-    .line 17
-    const-class v1, Luf/b;
+    invoke-static {v0, v1}, Lmb/b0;->a(Ljava/lang/Class;Ljava/lang/Class;)Lmb/b0;
 
-    .line 18
-    .line 19
-    invoke-direct {v0, v1, v2}, Lyf/q;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
+    move-result-object v0
 
-    .line 20
-    .line 21
-    .line 22
-    iput-object v0, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->b:Lyf/q;
+    iput-object v0, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->b:Lmb/b0;
 
-    .line 23
-    .line 24
-    new-instance v0, Lyf/q;
+    const-class v0, Llb/c;
 
-    .line 25
-    .line 26
-    const-class v1, Luf/c;
+    invoke-static {v0, v1}, Lmb/b0;->a(Ljava/lang/Class;Ljava/lang/Class;)Lmb/b0;
 
-    .line 27
-    .line 28
-    invoke-direct {v0, v1, v2}, Lyf/q;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
+    move-result-object v0
 
-    .line 29
-    .line 30
-    .line 31
-    iput-object v0, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->c:Lyf/q;
+    iput-object v0, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->c:Lmb/b0;
 
-    .line 32
-    .line 33
     return-void
+.end method
+
+.method public static synthetic a(Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;Lmb/e;)Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->b(Lmb/e;)Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private b(Lmb/e;)Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
+    .locals 11
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Lcom/google/firebase/crashlytics/internal/concurrency/CrashlyticsWorkers;->f(Z)V
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    const-class v2, Lcom/google/firebase/f;
+
+    invoke-interface {p1, v2}, Lmb/e;->a(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object v3, v2
+
+    check-cast v3, Lcom/google/firebase/f;
+
+    const-class v2, Ljc/e;
+
+    invoke-interface {p1, v2}, Lmb/e;->a(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object v4, v2
+
+    check-cast v4, Ljc/e;
+
+    const-class v2, Lob/a;
+
+    invoke-interface {p1, v2}, Lmb/e;->i(Ljava/lang/Class;)Lic/a;
+
+    move-result-object v5
+
+    const-class v2, Lkb/a;
+
+    invoke-interface {p1, v2}, Lmb/e;->i(Ljava/lang/Class;)Lic/a;
+
+    move-result-object v6
+
+    const-class v2, Lad/a;
+
+    invoke-interface {p1, v2}, Lmb/e;->i(Ljava/lang/Class;)Lic/a;
+
+    move-result-object v7
+
+    iget-object v2, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->a:Lmb/b0;
+
+    invoke-interface {p1, v2}, Lmb/e;->c(Lmb/b0;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object v8, v2
+
+    check-cast v8, Ljava/util/concurrent/ExecutorService;
+
+    iget-object v2, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->b:Lmb/b0;
+
+    invoke-interface {p1, v2}, Lmb/e;->c(Lmb/b0;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object v9, v2
+
+    check-cast v9, Ljava/util/concurrent/ExecutorService;
+
+    iget-object v2, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->c:Lmb/b0;
+
+    invoke-interface {p1, v2}, Lmb/e;->c(Lmb/b0;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    move-object v10, p1
+
+    check-cast v10, Ljava/util/concurrent/ExecutorService;
+
+    invoke-static/range {v3 .. v10}, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->b(Lcom/google/firebase/f;Ljc/e;Lic/a;Lic/a;Lic/a;Ljava/util/concurrent/ExecutorService;Ljava/util/concurrent/ExecutorService;Ljava/util/concurrent/ExecutorService;)Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
+
+    move-result-object p1
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v2
+
+    sub-long/2addr v2, v0
+
+    const-wide/16 v0, 0x10
+
+    cmp-long v0, v2, v0
+
+    if-lez v0, :cond_0
+
+    invoke-static {}, Lob/g;->f()Lob/g;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {}, Lcom/community/oneroom/S579dbdf64ad210b71b2781f051b3265a;->sckitDecrypt10037()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v2, " ms"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lob/g;->b(Ljava/lang/String;)V
+
+    :cond_0
+    return-object p1
 .end method
 
 
 # virtual methods
-.method public final getComponents()Ljava/util/List;
-    .locals 7
+.method public getComponents()Ljava/util/List;
+    .locals 4
 
-    .line 1
-    const-class v0, Lag/d;
+    const-class v0, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
 
-    .line 2
-    .line 3
-    invoke-static {v0}, Lyf/a;->a(Ljava/lang/Class;)Ljs/a;
+    invoke-static {v0}, Lmb/c;->c(Ljava/lang/Class;)Lmb/c$b;
 
-    .line 4
-    .line 5
-    .line 6
     move-result-object v0
 
-    .line 7
     const-string v1, "fire-cls"
 
-    .line 8
-    .line 9
-    iput-object v1, v0, Ljs/a;->c:Ljava/io/Serializable;
+    invoke-virtual {v0, v1}, Lmb/c$b;->h(Ljava/lang/String;)Lmb/c$b;
 
-    .line 10
-    .line 11
-    const-class v2, Lqf/g;
-
-    .line 12
-    .line 13
-    invoke-static {v2}, Lyf/h;->a(Ljava/lang/Class;)Lyf/h;
-
-    .line 14
-    .line 15
-    .line 16
-    move-result-object v2
-
-    .line 17
-    invoke-virtual {v0, v2}, Ljs/a;->a(Lyf/h;)V
-
-    .line 18
-    .line 19
-    .line 20
-    const-class v2, Lyg/d;
-
-    .line 21
-    .line 22
-    invoke-static {v2}, Lyf/h;->a(Ljava/lang/Class;)Lyf/h;
-
-    .line 23
-    .line 24
-    .line 25
-    move-result-object v2
-
-    .line 26
-    invoke-virtual {v0, v2}, Ljs/a;->a(Lyf/h;)V
-
-    .line 27
-    .line 28
-    .line 29
-    new-instance v2, Lyf/h;
-
-    .line 30
-    .line 31
-    iget-object v3, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->a:Lyf/q;
-
-    .line 32
-    .line 33
-    const/4 v4, 0x1
-
-    .line 34
-    const/4 v5, 0x0
-
-    .line 35
-    invoke-direct {v2, v3, v4, v5}, Lyf/h;-><init>(Lyf/q;II)V
-
-    .line 36
-    .line 37
-    .line 38
-    invoke-virtual {v0, v2}, Ljs/a;->a(Lyf/h;)V
-
-    .line 39
-    .line 40
-    .line 41
-    new-instance v2, Lyf/h;
-
-    .line 42
-    .line 43
-    iget-object v3, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->b:Lyf/q;
-
-    .line 44
-    .line 45
-    invoke-direct {v2, v3, v4, v5}, Lyf/h;-><init>(Lyf/q;II)V
-
-    .line 46
-    .line 47
-    .line 48
-    invoke-virtual {v0, v2}, Ljs/a;->a(Lyf/h;)V
-
-    .line 49
-    .line 50
-    .line 51
-    new-instance v2, Lyf/h;
-
-    .line 52
-    .line 53
-    iget-object v3, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->c:Lyf/q;
-
-    .line 54
-    .line 55
-    invoke-direct {v2, v3, v4, v5}, Lyf/h;-><init>(Lyf/q;II)V
-
-    .line 56
-    .line 57
-    .line 58
-    invoke-virtual {v0, v2}, Ljs/a;->a(Lyf/h;)V
-
-    .line 59
-    .line 60
-    .line 61
-    new-instance v2, Lyf/h;
-
-    .line 62
-    .line 63
-    const/4 v3, 0x2
-
-    .line 64
-    const-class v6, Lbg/b;
-
-    .line 65
-    .line 66
-    invoke-direct {v2, v5, v3, v6}, Lyf/h;-><init>(IILjava/lang/Class;)V
-
-    .line 67
-    .line 68
-    .line 69
-    invoke-virtual {v0, v2}, Ljs/a;->a(Lyf/h;)V
-
-    .line 70
-    .line 71
-    .line 72
-    new-instance v2, Lyf/h;
-
-    .line 73
-    .line 74
-    const-class v6, Lsf/a;
-
-    .line 75
-    .line 76
-    invoke-direct {v2, v5, v3, v6}, Lyf/h;-><init>(IILjava/lang/Class;)V
-
-    .line 77
-    .line 78
-    .line 79
-    invoke-virtual {v0, v2}, Ljs/a;->a(Lyf/h;)V
-
-    .line 80
-    .line 81
-    .line 82
-    new-instance v2, Lyf/h;
-
-    .line 83
-    .line 84
-    const-class v6, Lhh/a;
-
-    .line 85
-    .line 86
-    invoke-direct {v2, v5, v3, v6}, Lyf/h;-><init>(IILjava/lang/Class;)V
-
-    .line 87
-    .line 88
-    .line 89
-    invoke-virtual {v0, v2}, Ljs/a;->a(Lyf/h;)V
-
-    .line 90
-    .line 91
-    .line 92
-    new-instance v2, Lag/c;
-
-    .line 93
-    .line 94
-    invoke-direct {v2, p0, v5}, Lag/c;-><init>(Ljava/lang/Object;I)V
-
-    .line 95
-    .line 96
-    .line 97
-    iput-object v2, v0, Ljs/a;->f:Ljava/lang/Object;
-
-    .line 98
-    .line 99
-    invoke-virtual {v0, v3}, Ljs/a;->g(I)V
-
-    .line 100
-    .line 101
-    .line 102
-    invoke-virtual {v0}, Ljs/a;->b()Lyf/a;
-
-    .line 103
-    .line 104
-    .line 105
     move-result-object v0
 
-    .line 106
-    const-string v2, "20.0.3"
+    const-class v2, Lcom/google/firebase/f;
 
-    .line 107
-    .line 108
-    invoke-static {v1, v2}, Lja/g;->b(Ljava/lang/String;Ljava/lang/String;)Lyf/a;
+    invoke-static {v2}, Lmb/r;->k(Ljava/lang/Class;)Lmb/r;
 
-    .line 109
-    .line 110
-    .line 111
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v0
+
+    const-class v2, Ljc/e;
+
+    invoke-static {v2}, Lmb/r;->k(Ljava/lang/Class;)Lmb/r;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->a:Lmb/b0;
+
+    invoke-static {v2}, Lmb/r;->l(Lmb/b0;)Lmb/r;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->b:Lmb/b0;
+
+    invoke-static {v2}, Lmb/r;->l(Lmb/b0;)Lmb/r;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;->c:Lmb/b0;
+
+    invoke-static {v2}, Lmb/r;->l(Lmb/b0;)Lmb/r;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v0
+
+    const-class v2, Lob/a;
+
+    invoke-static {v2}, Lmb/r;->a(Ljava/lang/Class;)Lmb/r;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v0
+
+    const-class v2, Lkb/a;
+
+    invoke-static {v2}, Lmb/r;->a(Ljava/lang/Class;)Lmb/r;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v0
+
+    const-class v2, Lad/a;
+
+    invoke-static {v2}, Lmb/r;->a(Ljava/lang/Class;)Lmb/r;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lmb/c$b;->b(Lmb/r;)Lmb/c$b;
+
+    move-result-object v0
+
+    new-instance v2, Lnb/f;
+
+    invoke-direct {v2, p0}, Lnb/f;-><init>(Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;)V
+
+    invoke-virtual {v0, v2}, Lmb/c$b;->f(Lmb/h;)Lmb/c$b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lmb/c$b;->e()Lmb/c$b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lmb/c$b;->d()Lmb/c;
+
+    move-result-object v0
+
+    const-string v2, "19.3.0"
+
+    invoke-static {v1, v2}, Lxc/h;->b(Ljava/lang/String;Ljava/lang/String;)Lmb/c;
+
     move-result-object v1
 
-    .line 112
-    new-array v2, v3, [Lyf/a;
+    const/4 v2, 0x2
 
-    .line 113
-    .line 114
-    aput-object v0, v2, v5
+    new-array v2, v2, [Lmb/c;
 
-    .line 115
-    .line 116
-    aput-object v1, v2, v4
+    const/4 v3, 0x0
 
-    .line 117
-    .line 118
+    aput-object v0, v2, v3
+
+    const/4 v0, 0x1
+
+    aput-object v1, v2, v0
+
     invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    .line 119
-    .line 120
-    .line 121
     move-result-object v0
 
-    .line 122
     return-object v0
 .end method

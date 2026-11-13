@@ -1,6 +1,5 @@
 .class public Lcom/google/protobuf/CodedOutputStream$OutOfSpaceException;
 .super Ljava/io/IOException;
-.source "r8-map-id-7b0d3a73286e8dd5fc0e7e050cf78d6f8649ffc8585dc4090750e37e48bd1bd0"
 
 
 # annotations
@@ -15,62 +14,90 @@
 
 
 # static fields
-.field private static final MESSAGE:Ljava/lang/String; = "CodedOutputStream was writing to a flat byte array and ran out of space."
+.field private static MESSAGE:Ljava/lang/String; = null
 
 .field private static final serialVersionUID:J = -0x606a6e83ad3191dbL
 
 
 # direct methods
-.method public constructor <init>()V
+.method static constructor <clinit>()V
     .locals 1
 
-    .line 1
-    const-string v0, "CodedOutputStream was writing to a flat byte array and ran out of space."
+    invoke-static {}, Lcom/community/oneroom/S579dbdf64ad210b71b2781f051b3265a;->sckitDecrypt10533()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/google/protobuf/CodedOutputStream$OutOfSpaceException;->MESSAGE:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method constructor <init>()V
+    .locals 1
+
+    invoke-static {}, Lcom/community/oneroom/S579dbdf64ad210b71b2781f051b3265a;->sckitDecrypt10533()Ljava/lang/String;
+
+    move-result-object v0
 
     invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+.method constructor <init>(Ljava/lang/String;)V
+    .locals 2
 
-    .line 2
-    const-string v0, "CodedOutputStream was writing to a flat byte array and ran out of space.: "
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    .line 3
-    invoke-static {v0, p1}, Lcom/secmtp/sdk/core/basead/mm/a;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {}, Lcom/community/oneroom/S579dbdf64ad210b71b2781f051b3265a;->sckitDecrypt10534()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 4
     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 1
+.method constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    .locals 2
 
-    .line 10
-    const-string v0, "CodedOutputStream was writing to a flat byte array and ran out of space.: "
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    .line 11
-    invoke-static {v0, p1}, Lcom/secmtp/sdk/core/basead/mm/a;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {}, Lcom/community/oneroom/S579dbdf64ad210b71b2781f051b3265a;->sckitDecrypt10534()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 12
     invoke-direct {p0, p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/Throwable;)V
+.method constructor <init>(Ljava/lang/Throwable;)V
     .locals 1
 
-    .line 9
-    const-string v0, "CodedOutputStream was writing to a flat byte array and ran out of space."
+    invoke-static {}, Lcom/community/oneroom/S579dbdf64ad210b71b2781f051b3265a;->sckitDecrypt10533()Ljava/lang/String;
+
+    move-result-object v0
 
     invoke-direct {p0, v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 

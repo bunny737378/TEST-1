@@ -1,6 +1,5 @@
 .class public Lcom/google/firebase/FirebaseCommonRegistrar;
 .super Ljava/lang/Object;
-.source "r8-map-id-7b0d3a73286e8dd5fc0e7e050cf78d6f8649ffc8585dc4090750e37e48bd1bd0"
 
 # interfaces
 .implements Lcom/google/firebase/components/ComponentRegistrar;
@@ -10,587 +9,388 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2
-    .line 3
-    .line 4
     return-void
 .end method
 
-.method public static a(Ljava/lang/String;)Ljava/lang/String;
+.method public static synthetic a(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/google/firebase/FirebaseCommonRegistrar;->h(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic b(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/google/firebase/FirebaseCommonRegistrar;->f(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic c(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/google/firebase/FirebaseCommonRegistrar;->e(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic d(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-static {p0}, Lcom/google/firebase/FirebaseCommonRegistrar;->g(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic e(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    iget p0, p0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+
+    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, ""
+
+    return-object p0
+.end method
+
+.method private static synthetic f(Landroid/content/Context;)Ljava/lang/String;
     .locals 2
 
-    .line 1
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x18
+
+    if-lt v0, v1, :cond_0
+
+    invoke-static {p0}, Lcom/bytedance/sdk/openadsdk/utils/b;->a(Landroid/content/pm/ApplicationInfo;)I
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, ""
+
+    return-object p0
+.end method
+
+.method private static synthetic g(Landroid/content/Context;)Ljava/lang/String;
+    .locals 3
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string v2, "android.hardware.type.television"
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string p0, "tv"
+
+    return-object p0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    invoke-static {}, Lcom/community/oneroom/S579dbdf64ad210b71b2781f051b3265a;->sckitDecrypt2420()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const-string p0, "watch"
+
+    return-object p0
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string v2, "android.hardware.type.automotive"
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    const-string p0, "auto"
+
+    return-object p0
+
+    :cond_2
+    const/16 v1, 0x1a
+
+    if-lt v0, v1, :cond_3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object p0
+
+    const-string v0, "android.hardware.type.embedded"
+
+    invoke-virtual {p0, v0}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_3
+
+    const-string p0, "embedded"
+
+    return-object p0
+
+    :cond_3
+    const-string p0, ""
+
+    return-object p0
+.end method
+
+.method private static synthetic h(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/content/pm/PackageManager;->getInstallerPackageName(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    invoke-static {p0}, Lcom/google/firebase/FirebaseCommonRegistrar;->i(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_0
+
+    :cond_0
+    const-string p0, ""
+
+    :goto_0
+    return-object p0
+.end method
+
+.method private static i(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
     const/16 v0, 0x20
 
-    .line 2
-    .line 3
     const/16 v1, 0x5f
 
-    .line 4
-    .line 5
     invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    .line 6
-    .line 7
-    .line 8
     move-result-object p0
 
-    .line 9
     const/16 v0, 0x2f
 
-    .line 10
-    .line 11
     invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    .line 12
-    .line 13
-    .line 14
     move-result-object p0
 
-    .line 15
     return-object p0
 .end method
 
 
 # virtual methods
-.method public final getComponents()Ljava/util/List;
-    .locals 10
+.method public getComponents()Ljava/util/List;
+    .locals 3
 
-    .line 1
     new-instance v0, Ljava/util/ArrayList;
 
-    .line 2
-    .line 3
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 4
-    .line 5
-    .line 6
-    const-class v1, Lgh/b;
+    invoke-static {}, Lxc/c;->b()Lmb/c;
 
-    .line 7
-    .line 8
-    invoke-static {v1}, Lyf/a;->a(Ljava/lang/Class;)Ljs/a;
-
-    .line 9
-    .line 10
-    .line 11
-    move-result-object v2
-
-    .line 12
-    new-instance v3, Lyf/h;
-
-    .line 13
-    .line 14
-    const/4 v4, 0x2
-
-    .line 15
-    const/4 v5, 0x0
-
-    .line 16
-    const-class v6, Lgh/a;
-
-    .line 17
-    .line 18
-    invoke-direct {v3, v4, v5, v6}, Lyf/h;-><init>(IILjava/lang/Class;)V
-
-    .line 19
-    .line 20
-    .line 21
-    invoke-virtual {v2, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 22
-    .line 23
-    .line 24
-    new-instance v3, Lac/f;
-
-    .line 25
-    .line 26
-    const/16 v6, 0xf
-
-    .line 27
-    .line 28
-    invoke-direct {v3, v6}, Lac/f;-><init>(I)V
-
-    .line 29
-    .line 30
-    .line 31
-    iput-object v3, v2, Ljs/a;->f:Ljava/lang/Object;
-
-    .line 32
-    .line 33
-    invoke-virtual {v2}, Ljs/a;->b()Lyf/a;
-
-    .line 34
-    .line 35
-    .line 36
-    move-result-object v2
-
-    .line 37
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 38
-    .line 39
-    .line 40
-    new-instance v2, Lyf/q;
-
-    .line 41
-    .line 42
-    const-class v3, Luf/a;
-
-    .line 43
-    .line 44
-    const-class v7, Ljava/util/concurrent/Executor;
-
-    .line 45
-    .line 46
-    invoke-direct {v2, v3, v7}, Lyf/q;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
-
-    .line 47
-    .line 48
-    .line 49
-    new-array v3, v4, [Ljava/lang/Class;
-
-    .line 50
-    .line 51
-    const-class v7, Lvg/e;
-
-    .line 52
-    .line 53
-    aput-object v7, v3, v5
-
-    .line 54
-    .line 55
-    const/4 v7, 0x1
-
-    .line 56
-    const-class v8, Lvg/g;
-
-    .line 57
-    .line 58
-    aput-object v8, v3, v7
-
-    .line 59
-    .line 60
-    new-instance v8, Ljs/a;
-
-    .line 61
-    .line 62
-    const-class v9, Lvg/c;
-
-    .line 63
-    .line 64
-    invoke-direct {v8, v9, v3}, Ljs/a;-><init>(Ljava/lang/Class;[Ljava/lang/Class;)V
-
-    .line 65
-    .line 66
-    .line 67
-    const-class v3, Landroid/content/Context;
-
-    .line 68
-    .line 69
-    invoke-static {v3}, Lyf/h;->a(Ljava/lang/Class;)Lyf/h;
-
-    .line 70
-    .line 71
-    .line 72
-    move-result-object v3
-
-    .line 73
-    invoke-virtual {v8, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 74
-    .line 75
-    .line 76
-    const-class v3, Lqf/g;
-
-    .line 77
-    .line 78
-    invoke-static {v3}, Lyf/h;->a(Ljava/lang/Class;)Lyf/h;
-
-    .line 79
-    .line 80
-    .line 81
-    move-result-object v3
-
-    .line 82
-    invoke-virtual {v8, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 83
-    .line 84
-    .line 85
-    new-instance v3, Lyf/h;
-
-    .line 86
-    .line 87
-    const-class v9, Lvg/d;
-
-    .line 88
-    .line 89
-    invoke-direct {v3, v4, v5, v9}, Lyf/h;-><init>(IILjava/lang/Class;)V
-
-    .line 90
-    .line 91
-    .line 92
-    invoke-virtual {v8, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 93
-    .line 94
-    .line 95
-    new-instance v3, Lyf/h;
-
-    .line 96
-    .line 97
-    invoke-direct {v3, v7, v7, v1}, Lyf/h;-><init>(IILjava/lang/Class;)V
-
-    .line 98
-    .line 99
-    .line 100
-    invoke-virtual {v8, v3}, Ljs/a;->a(Lyf/h;)V
-
-    .line 101
-    .line 102
-    .line 103
-    new-instance v1, Lyf/h;
-
-    .line 104
-    .line 105
-    invoke-direct {v1, v2, v7, v5}, Lyf/h;-><init>(Lyf/q;II)V
-
-    .line 106
-    .line 107
-    .line 108
-    invoke-virtual {v8, v1}, Ljs/a;->a(Lyf/h;)V
-
-    .line 109
-    .line 110
-    .line 111
-    new-instance v1, Leh/o;
-
-    .line 112
-    .line 113
-    invoke-direct {v1, v2, v7}, Leh/o;-><init>(Lyf/q;I)V
-
-    .line 114
-    .line 115
-    .line 116
-    iput-object v1, v8, Ljs/a;->f:Ljava/lang/Object;
-
-    .line 117
-    .line 118
-    invoke-virtual {v8}, Ljs/a;->b()Lyf/a;
-
-    .line 119
-    .line 120
-    .line 121
     move-result-object v1
 
-    .line 122
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 123
-    .line 124
-    .line 125
+    invoke-static {}, Lcom/google/firebase/heartbeatinfo/a;->g()Lmb/c;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    .line 126
-    .line 127
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    .line 128
-    .line 129
-    .line 130
     move-result-object v1
 
-    .line 131
     const-string v2, "fire-android"
 
-    .line 132
-    .line 133
-    invoke-static {v2, v1}, Lja/g;->b(Ljava/lang/String;Ljava/lang/String;)Lyf/a;
+    invoke-static {v2, v1}, Lxc/h;->b(Ljava/lang/String;Ljava/lang/String;)Lmb/c;
 
-    .line 134
-    .line 135
-    .line 136
     move-result-object v1
 
-    .line 137
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 138
-    .line 139
-    .line 140
     const-string v1, "fire-core"
 
-    .line 141
-    .line 142
     const-string v2, "22.0.1"
 
-    .line 143
-    .line 144
-    invoke-static {v1, v2}, Lja/g;->b(Ljava/lang/String;Ljava/lang/String;)Lyf/a;
+    invoke-static {v1, v2}, Lxc/h;->b(Ljava/lang/String;Ljava/lang/String;)Lmb/c;
 
-    .line 145
-    .line 146
-    .line 147
     move-result-object v1
 
-    .line 148
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 149
-    .line 150
-    .line 151
     sget-object v1, Landroid/os/Build;->PRODUCT:Ljava/lang/String;
 
-    .line 152
-    .line 153
-    invoke-static {v1}, Lcom/google/firebase/FirebaseCommonRegistrar;->a(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/google/firebase/FirebaseCommonRegistrar;->i(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 154
-    .line 155
-    .line 156
     move-result-object v1
 
-    .line 157
     const-string v2, "device-name"
 
-    .line 158
-    .line 159
-    invoke-static {v2, v1}, Lja/g;->b(Ljava/lang/String;Ljava/lang/String;)Lyf/a;
+    invoke-static {v2, v1}, Lxc/h;->b(Ljava/lang/String;Ljava/lang/String;)Lmb/c;
 
-    .line 160
-    .line 161
-    .line 162
     move-result-object v1
 
-    .line 163
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 164
-    .line 165
-    .line 166
     sget-object v1, Landroid/os/Build;->DEVICE:Ljava/lang/String;
 
-    .line 167
-    .line 168
-    invoke-static {v1}, Lcom/google/firebase/FirebaseCommonRegistrar;->a(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/google/firebase/FirebaseCommonRegistrar;->i(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 169
-    .line 170
-    .line 171
     move-result-object v1
 
-    .line 172
     const-string v2, "device-model"
 
-    .line 173
-    .line 174
-    invoke-static {v2, v1}, Lja/g;->b(Ljava/lang/String;Ljava/lang/String;)Lyf/a;
+    invoke-static {v2, v1}, Lxc/h;->b(Ljava/lang/String;Ljava/lang/String;)Lmb/c;
 
-    .line 175
-    .line 176
-    .line 177
     move-result-object v1
 
-    .line 178
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 179
-    .line 180
-    .line 181
     sget-object v1, Landroid/os/Build;->BRAND:Ljava/lang/String;
 
-    .line 182
-    .line 183
-    invoke-static {v1}, Lcom/google/firebase/FirebaseCommonRegistrar;->a(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/google/firebase/FirebaseCommonRegistrar;->i(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 184
-    .line 185
-    .line 186
     move-result-object v1
 
-    .line 187
     const-string v2, "device-brand"
 
-    .line 188
-    .line 189
-    invoke-static {v2, v1}, Lja/g;->b(Ljava/lang/String;Ljava/lang/String;)Lyf/a;
+    invoke-static {v2, v1}, Lxc/h;->b(Ljava/lang/String;Ljava/lang/String;)Lmb/c;
 
-    .line 190
-    .line 191
-    .line 192
     move-result-object v1
 
-    .line 193
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 194
-    .line 195
-    .line 196
-    new-instance v1, Lja/m;
+    new-instance v1, Lcom/google/firebase/h;
 
-    .line 197
-    .line 198
-    const/16 v2, 0xc
+    invoke-direct {v1}, Lcom/google/firebase/h;-><init>()V
 
-    .line 199
-    .line 200
-    invoke-direct {v1, v2}, Lja/m;-><init>(I)V
-
-    .line 201
-    .line 202
-    .line 203
     const-string v2, "android-target-sdk"
 
-    .line 204
-    .line 205
-    invoke-static {v2, v1}, Lja/g;->e(Ljava/lang/String;Lja/m;)Lyf/a;
+    invoke-static {v2, v1}, Lxc/h;->c(Ljava/lang/String;Lxc/h$a;)Lmb/c;
 
-    .line 206
-    .line 207
-    .line 208
     move-result-object v1
 
-    .line 209
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 210
-    .line 211
-    .line 212
-    new-instance v1, Lja/m;
+    new-instance v1, Lcom/google/firebase/i;
 
-    .line 213
-    .line 214
-    const/16 v2, 0xd
+    invoke-direct {v1}, Lcom/google/firebase/i;-><init>()V
 
-    .line 215
-    .line 216
-    invoke-direct {v1, v2}, Lja/m;-><init>(I)V
-
-    .line 217
-    .line 218
-    .line 219
     const-string v2, "android-min-sdk"
 
-    .line 220
-    .line 221
-    invoke-static {v2, v1}, Lja/g;->e(Ljava/lang/String;Lja/m;)Lyf/a;
+    invoke-static {v2, v1}, Lxc/h;->c(Ljava/lang/String;Lxc/h$a;)Lmb/c;
 
-    .line 222
-    .line 223
-    .line 224
     move-result-object v1
 
-    .line 225
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 226
-    .line 227
-    .line 228
-    new-instance v1, Lja/m;
+    new-instance v1, Lcom/google/firebase/j;
 
-    .line 229
-    .line 230
-    const/16 v2, 0xe
+    invoke-direct {v1}, Lcom/google/firebase/j;-><init>()V
 
-    .line 231
-    .line 232
-    invoke-direct {v1, v2}, Lja/m;-><init>(I)V
-
-    .line 233
-    .line 234
-    .line 235
     const-string v2, "android-platform"
 
-    .line 236
-    .line 237
-    invoke-static {v2, v1}, Lja/g;->e(Ljava/lang/String;Lja/m;)Lyf/a;
+    invoke-static {v2, v1}, Lxc/h;->c(Ljava/lang/String;Lxc/h$a;)Lmb/c;
 
-    .line 238
-    .line 239
-    .line 240
     move-result-object v1
 
-    .line 241
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 242
-    .line 243
-    .line 244
-    new-instance v1, Lja/m;
+    new-instance v1, Lcom/google/firebase/k;
 
-    .line 245
-    .line 246
-    invoke-direct {v1, v6}, Lja/m;-><init>(I)V
+    invoke-direct {v1}, Lcom/google/firebase/k;-><init>()V
 
-    .line 247
-    .line 248
-    .line 249
     const-string v2, "android-installer"
 
-    .line 250
-    .line 251
-    invoke-static {v2, v1}, Lja/g;->e(Ljava/lang/String;Lja/m;)Lyf/a;
+    invoke-static {v2, v1}, Lxc/h;->c(Ljava/lang/String;Lxc/h$a;)Lmb/c;
 
-    .line 252
-    .line 253
-    .line 254
     move-result-object v1
 
-    .line 255
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 256
-    .line 257
-    .line 258
-    :try_start_0
-    sget-object v1, Lep/f;->e:Lep/f;
+    invoke-static {}, Lxc/e;->a()Ljava/lang/String;
 
-    .line 259
-    .line 260
-    invoke-virtual {v1}, Lep/f;->toString()Ljava/lang/String;
-
-    .line 261
-    .line 262
-    .line 263
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NoClassDefFoundError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 264
-    goto :goto_0
-
-    .line 265
-    :catch_0
-    const/4 v1, 0x0
-
-    .line 266
-    :goto_0
     if-eqz v1, :cond_0
 
-    .line 267
-    .line 268
     const-string v2, "kotlin"
 
-    .line 269
-    .line 270
-    invoke-static {v2, v1}, Lja/g;->b(Ljava/lang/String;Ljava/lang/String;)Lyf/a;
+    invoke-static {v2, v1}, Lxc/h;->b(Ljava/lang/String;Ljava/lang/String;)Lmb/c;
 
-    .line 271
-    .line 272
-    .line 273
     move-result-object v1
 
-    .line 274
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 275
-    .line 276
-    .line 277
     :cond_0
     return-object v0
 .end method

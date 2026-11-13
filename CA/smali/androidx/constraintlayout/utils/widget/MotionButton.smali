@@ -1,257 +1,433 @@
 .class public Landroidx/constraintlayout/utils/widget/MotionButton;
 .super Landroidx/appcompat/widget/AppCompatButton;
-.source "r8-map-id-7b0d3a73286e8dd5fc0e7e050cf78d6f8649ffc8585dc4090750e37e48bd1bd0"
 
 
 # instance fields
-.field public d:F
+.field private a:F
 
-.field public e:F
+.field private b:F
+
+.field private c:Landroid/graphics/Path;
+
+.field d:Landroid/view/ViewOutlineProvider;
+
+.field e:Landroid/graphics/RectF;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
+
+    invoke-direct {p0, p1}, Landroidx/appcompat/widget/AppCompatButton;-><init>(Landroid/content/Context;)V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->a:F
+
+    const/high16 v0, 0x7fc00000    # Float.NaN
+
+    iput v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->b:F
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Landroidx/constraintlayout/utils/widget/MotionButton;->init(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    .locals 1
+
+    invoke-direct {p0, p1, p2}, Landroidx/appcompat/widget/AppCompatButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->a:F
+
+    const/high16 v0, 0x7fc00000    # Float.NaN
+
+    iput v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->b:F
+
+    invoke-direct {p0, p1, p2}, Landroidx/constraintlayout/utils/widget/MotionButton;->init(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Landroidx/appcompat/widget/AppCompatButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    const/4 p3, 0x0
+
+    iput p3, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->a:F
+
+    const/high16 p3, 0x7fc00000    # Float.NaN
+
+    iput p3, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->b:F
+
+    invoke-direct {p0, p1, p2}, Landroidx/constraintlayout/utils/widget/MotionButton;->init(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    return-void
+.end method
+
+.method static synthetic a(Landroidx/constraintlayout/utils/widget/MotionButton;)F
+    .locals 0
+
+    iget p0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->a:F
+
+    return p0
+.end method
+
+.method static synthetic b(Landroidx/constraintlayout/utils/widget/MotionButton;)F
+    .locals 0
+
+    iget p0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->b:F
+
+    return p0
+.end method
+
+.method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    .locals 4
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1, p1, p1, p1}, Landroid/view/View;->setPadding(IIII)V
+
+    if-eqz p2, :cond_3
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    sget-object v1, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView:[I
+
+    invoke-virtual {v0, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Landroid/content/res/TypedArray;->getIndexCount()I
+
+    move-result v0
+
+    :goto_0
+    if-ge p1, v0, :cond_2
+
+    invoke-virtual {p2, p1}, Landroid/content/res/TypedArray;->getIndex(I)I
+
+    move-result v1
+
+    sget v2, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_round:I
+
+    const/4 v3, 0x0
+
+    if-ne v1, v2, :cond_0
+
+    invoke-virtual {p2, v1, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Landroidx/constraintlayout/utils/widget/MotionButton;->setRound(F)V
+
+    goto :goto_1
+
+    :cond_0
+    sget v2, Landroidx/constraintlayout/widget/R$styleable;->ImageFilterView_roundPercent:I
+
+    if-ne v1, v2, :cond_1
+
+    invoke-virtual {p2, v1, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Landroidx/constraintlayout/utils/widget/MotionButton;->setRoundPercent(F)V
+
+    :cond_1
+    :goto_1
+    add-int/lit8 p1, p1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
+
+    :cond_3
+    return-void
+.end method
 
 
 # virtual methods
+.method public draw(Landroid/graphics/Canvas;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/widget/Button;->draw(Landroid/graphics/Canvas;)V
+
+    return-void
+.end method
+
 .method public getRound()F
     .locals 1
 
-    .line 1
-    .line 2
-    iget v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:F
+    iget v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->b:F
 
-    .line 3
     return v0
 .end method
 
 .method public getRoundPercent()F
     .locals 1
 
-    .line 1
-    .line 2
-    iget v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->d:F
+    iget v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->a:F
 
-    .line 3
     return v0
 .end method
 
 .method public setRound(F)V
     .locals 4
 
-    .line 1
-    .line 2
-    .line 3
     invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
 
-    .line 4
     move-result v0
 
-    .line 5
-    .line 6
     if-eqz v0, :cond_0
 
-    .line 7
-    .line 8
-    iput p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:F
+    iput p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->b:F
 
-    .line 9
-    .line 10
-    iget p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->d:F
+    iget p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->a:F
 
-    .line 11
-    .line 12
     const/high16 v0, -0x40800000    # -1.0f
 
-    .line 13
-    .line 14
-    iput v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->d:F
+    iput v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->a:F
 
-    .line 15
-    .line 16
-    .line 17
     invoke-virtual {p0, p1}, Landroidx/constraintlayout/utils/widget/MotionButton;->setRoundPercent(F)V
 
-    .line 18
     return-void
 
-    .line 19
-    .line 20
     :cond_0
-    iget v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:F
+    iget v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->b:F
 
-    .line 21
-    .line 22
     cmpl-float v0, v0, p1
 
-    .line 23
     const/4 v1, 0x0
 
-    .line 24
     const/4 v2, 0x1
 
-    .line 25
-    .line 26
     if-eqz v0, :cond_1
 
-    .line 27
     move v0, v2
 
-    .line 28
     goto :goto_0
 
-    .line 29
     :cond_1
     move v0, v1
 
-    .line 30
-    .line 31
     :goto_0
-    iput p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:F
+    iput p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->b:F
 
-    .line 32
     const/4 v3, 0x0
 
-    .line 33
-    .line 34
     cmpl-float p1, p1, v3
 
-    .line 35
-    .line 36
+    if-eqz p1, :cond_5
+
+    iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->c:Landroid/graphics/Path;
+
+    if-nez p1, :cond_2
+
+    new-instance p1, Landroid/graphics/Path;
+
+    invoke-direct {p1}, Landroid/graphics/Path;-><init>()V
+
+    iput-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->c:Landroid/graphics/Path;
+
+    :cond_2
+    iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:Landroid/graphics/RectF;
+
     if-nez p1, :cond_3
 
-    .line 37
-    .line 38
-    .line 39
-    invoke-virtual {p0, v1}, Landroid/view/View;->setClipToOutline(Z)V
+    new-instance p1, Landroid/graphics/RectF;
 
-    .line 40
-    .line 41
-    if-eqz v0, :cond_2
+    invoke-direct {p1}, Landroid/graphics/RectF;-><init>()V
 
-    .line 42
-    .line 43
-    .line 44
-    invoke-virtual {p0}, Landroid/view/View;->invalidateOutline()V
+    iput-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:Landroid/graphics/RectF;
 
-    .line 45
-    :cond_2
-    return-void
-
-    .line 46
-    .line 47
-    .line 48
     :cond_3
+    iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->d:Landroid/view/ViewOutlineProvider;
+
+    if-nez p1, :cond_4
+
+    new-instance p1, Landroidx/constraintlayout/utils/widget/MotionButton$b;
+
+    invoke-direct {p1, p0}, Landroidx/constraintlayout/utils/widget/MotionButton$b;-><init>(Landroidx/constraintlayout/utils/widget/MotionButton;)V
+
+    iput-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->d:Landroid/view/ViewOutlineProvider;
+
+    invoke-virtual {p0, p1}, Landroid/view/View;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
+
+    :cond_4
     invoke-virtual {p0, v2}, Landroid/view/View;->setClipToOutline(Z)V
 
-    .line 49
-    .line 50
-    .line 51
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
-    .line 52
-    .line 53
-    .line 54
+    move-result p1
+
     invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
-    .line 55
-    const/4 p1, 0x0
+    move-result v1
 
-    .line 56
-    throw p1
+    iget-object v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:Landroid/graphics/RectF;
+
+    int-to-float p1, p1
+
+    int-to-float v1, v1
+
+    invoke-virtual {v2, v3, v3, p1, v1}, Landroid/graphics/RectF;->set(FFFF)V
+
+    iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->c:Landroid/graphics/Path;
+
+    invoke-virtual {p1}, Landroid/graphics/Path;->reset()V
+
+    iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->c:Landroid/graphics/Path;
+
+    iget-object v1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:Landroid/graphics/RectF;
+
+    iget v2, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->b:F
+
+    sget-object v3, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
+
+    invoke-virtual {p1, v1, v2, v2, v3}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
+
+    goto :goto_1
+
+    :cond_5
+    invoke-virtual {p0, v1}, Landroid/view/View;->setClipToOutline(Z)V
+
+    :goto_1
+    if-eqz v0, :cond_6
+
+    invoke-virtual {p0}, Landroid/view/View;->invalidateOutline()V
+
+    :cond_6
+    return-void
 .end method
 
 .method public setRoundPercent(F)V
-    .locals 4
+    .locals 5
 
-    .line 1
-    .line 2
-    iget v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->d:F
+    iget v0, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->a:F
 
-    .line 3
-    .line 4
     cmpl-float v0, v0, p1
 
-    .line 5
     const/4 v1, 0x0
 
-    .line 6
     const/4 v2, 0x1
 
-    .line 7
-    .line 8
     if-eqz v0, :cond_0
 
-    .line 9
     move v0, v2
 
-    .line 10
     goto :goto_0
 
-    .line 11
     :cond_0
     move v0, v1
 
-    .line 12
-    .line 13
     :goto_0
-    iput p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->d:F
+    iput p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->a:F
 
-    .line 14
     const/4 v3, 0x0
 
-    .line 15
-    .line 16
     cmpl-float p1, p1, v3
 
-    .line 17
-    .line 18
+    if-eqz p1, :cond_4
+
+    iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->c:Landroid/graphics/Path;
+
+    if-nez p1, :cond_1
+
+    new-instance p1, Landroid/graphics/Path;
+
+    invoke-direct {p1}, Landroid/graphics/Path;-><init>()V
+
+    iput-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->c:Landroid/graphics/Path;
+
+    :cond_1
+    iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:Landroid/graphics/RectF;
+
     if-nez p1, :cond_2
 
-    .line 19
-    .line 20
-    .line 21
-    invoke-virtual {p0, v1}, Landroid/view/View;->setClipToOutline(Z)V
+    new-instance p1, Landroid/graphics/RectF;
 
-    .line 22
-    .line 23
-    if-eqz v0, :cond_1
+    invoke-direct {p1}, Landroid/graphics/RectF;-><init>()V
 
-    .line 24
-    .line 25
-    .line 26
-    invoke-virtual {p0}, Landroid/view/View;->invalidateOutline()V
+    iput-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:Landroid/graphics/RectF;
 
-    .line 27
-    :cond_1
-    return-void
-
-    .line 28
-    .line 29
-    .line 30
     :cond_2
+    iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->d:Landroid/view/ViewOutlineProvider;
+
+    if-nez p1, :cond_3
+
+    new-instance p1, Landroidx/constraintlayout/utils/widget/MotionButton$a;
+
+    invoke-direct {p1, p0}, Landroidx/constraintlayout/utils/widget/MotionButton$a;-><init>(Landroidx/constraintlayout/utils/widget/MotionButton;)V
+
+    iput-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->d:Landroid/view/ViewOutlineProvider;
+
+    invoke-virtual {p0, p1}, Landroid/view/View;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
+
+    :cond_3
     invoke-virtual {p0, v2}, Landroid/view/View;->setClipToOutline(Z)V
 
-    .line 31
-    .line 32
-    .line 33
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
-    .line 34
     move-result p1
 
-    .line 35
-    .line 36
-    .line 37
     invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
-    .line 38
-    move-result v0
+    move-result v1
 
-    .line 39
-    .line 40
-    .line 41
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
+    invoke-static {p1, v1}, Ljava/lang/Math;->min(II)I
 
-    .line 42
-    const/4 p1, 0x0
+    move-result v2
 
-    .line 43
-    throw p1
+    int-to-float v2, v2
+
+    iget v4, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->a:F
+
+    mul-float/2addr v2, v4
+
+    const/high16 v4, 0x40000000    # 2.0f
+
+    div-float/2addr v2, v4
+
+    iget-object v4, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:Landroid/graphics/RectF;
+
+    int-to-float p1, p1
+
+    int-to-float v1, v1
+
+    invoke-virtual {v4, v3, v3, p1, v1}, Landroid/graphics/RectF;->set(FFFF)V
+
+    iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->c:Landroid/graphics/Path;
+
+    invoke-virtual {p1}, Landroid/graphics/Path;->reset()V
+
+    iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->c:Landroid/graphics/Path;
+
+    iget-object v1, p0, Landroidx/constraintlayout/utils/widget/MotionButton;->e:Landroid/graphics/RectF;
+
+    sget-object v3, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
+
+    invoke-virtual {p1, v1, v2, v2, v3}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
+
+    goto :goto_1
+
+    :cond_4
+    invoke-virtual {p0, v1}, Landroid/view/View;->setClipToOutline(Z)V
+
+    :goto_1
+    if-eqz v0, :cond_5
+
+    invoke-virtual {p0}, Landroid/view/View;->invalidateOutline()V
+
+    :cond_5
+    return-void
 .end method
