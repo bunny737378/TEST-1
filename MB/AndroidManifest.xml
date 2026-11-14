@@ -22,19 +22,7 @@
             <action android:name="android.speech.RecognitionService"/>
         </intent>
         <package android:name="com.whatsapp"/>
-        <package android:name="com.whatsapp.w4b"/>
-        <package android:name="com.gbwhatsapp"/>
-        <package android:name="com.instagram.android"/>
-        <package android:name="com.infinix.xshare"/>
-        <package android:name="com.talpa.share"/>
-        <package android:name="cn.xender"/>
-        <package android:name="com.google.android.youtube"/>
         <package android:name="org.telegram.messenger.web"/>
-        <provider android:authorities="com.transsion.XOSauncher.unreadprovider"/>
-        <provider android:authorities="com.transsion.hilaauncher.unreadprovider"/>
-        <provider android:authorities="com.transsion.itel.launcher.unreadprovider"/>
-        <provider android:authorities="com.transsion.walauncher.unreadprovider"/>
-        <provider android:authorities="com.com.transsion.appmarket.data"/>
         <intent>
             <action android:name="android.intent.action.VIEW"/>
             <data android:scheme="http"/>
@@ -50,14 +38,12 @@
             <action android:name="android.intent.action.VIEW"/>
         </intent>
         <package android:name="com.transsnet.store"/>
-        <package android:name="com.community.oneroom"/>
         <intent>
             <action android:name="com.android.vending.billing.InAppBillingService.BIND"/>
         </intent>
     </queries>
     <uses-permission android:name="android.permission.READ_CALENDAR"/>
     <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
-    <uses-permission android:name="android.permission.FPOST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
     <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
