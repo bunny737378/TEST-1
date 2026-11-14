@@ -1,0 +1,21 @@
+version: 3.0.3
+apkFileName: input.apk
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: 23
+  targetSdkVersion: 35
+versionInfo:
+  versionCode: 50040021
+  versionName: 1.2.2.1109.03
+resourcesInfo:
+  packageId: 127
+doNotCompress:
+- arsc
+- gif
+- ogg
+- png
+- webp
+- assets/dexopt/baseline.prof
+- assets/dexopt/baseline.profm

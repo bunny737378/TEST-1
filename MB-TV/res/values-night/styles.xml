@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AppCompat.DayNight" parent="@style/Theme.AppCompat" />
+    <style name="Theme.AppCompat.DayNight.DarkActionBar" parent="@style/Theme.AppCompat" />
+    <style name="Theme.AppCompat.DayNight.Dialog" parent="@style/Theme.AppCompat.Dialog" />
+    <style name="Theme.AppCompat.DayNight.Dialog.Alert" parent="@style/Theme.AppCompat.Dialog.Alert" />
+    <style name="Theme.AppCompat.DayNight.Dialog.MinWidth" parent="@style/Theme.AppCompat.Dialog.MinWidth" />
+    <style name="Theme.AppCompat.DayNight.DialogWhenLarge" parent="@style/Theme.AppCompat.DialogWhenLarge" />
+    <style name="Theme.AppCompat.DayNight.NoActionBar" parent="@style/Theme.AppCompat.NoActionBar" />
+    <style name="Theme.MaterialComponents.DayNight" parent="@style/Theme.MaterialComponents" />
+    <style name="Theme.MaterialComponents.DayNight.BottomSheetDialog" parent="@style/Theme.MaterialComponents.BottomSheetDialog" />
+    <style name="Theme.MaterialComponents.DayNight.Bridge" parent="@style/Theme.MaterialComponents.Bridge" />
+    <style name="Theme.MaterialComponents.DayNight.DarkActionBar" parent="@style/Theme.MaterialComponents" />
+    <style name="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge" parent="@style/Theme.MaterialComponents.Bridge" />
+    <style name="Theme.MaterialComponents.DayNight.Dialog" parent="@style/Theme.MaterialComponents.Dialog" />
+    <style name="Theme.MaterialComponents.DayNight.Dialog.Alert" parent="@style/Theme.MaterialComponents.Dialog.Alert" />
+    <style name="Theme.MaterialComponents.DayNight.Dialog.Alert.Bridge" parent="@style/Theme.MaterialComponents.Dialog.Alert.Bridge" />
+    <style name="Theme.MaterialComponents.DayNight.Dialog.Bridge" parent="@style/Theme.MaterialComponents.Dialog.Bridge" />
+    <style name="Theme.MaterialComponents.DayNight.Dialog.FixedSize" parent="@style/Theme.MaterialComponents.Dialog.FixedSize" />
+    <style name="Theme.MaterialComponents.DayNight.Dialog.FixedSize.Bridge" parent="@style/Theme.MaterialComponents.Dialog.FixedSize.Bridge" />
+    <style name="Theme.MaterialComponents.DayNight.Dialog.MinWidth" parent="@style/Theme.MaterialComponents.Dialog.MinWidth" />
+    <style name="Theme.MaterialComponents.DayNight.Dialog.MinWidth.Bridge" parent="@style/Theme.MaterialComponents.Dialog.MinWidth.Bridge" />
+    <style name="Theme.MaterialComponents.DayNight.DialogWhenLarge" parent="@style/Theme.MaterialComponents.DialogWhenLarge" />
+    <style name="Theme.MaterialComponents.DayNight.NoActionBar" parent="@style/Theme.MaterialComponents.NoActionBar" />
+    <style name="Theme.MaterialComponents.DayNight.NoActionBar.Bridge" parent="@style/Theme.MaterialComponents.NoActionBar.Bridge" />
+    <style name="Theme.Subroom" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/bg_01</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorPrimaryVariant">@color/main</item>
+        <item name="colorSecondary">@color/main</item>
+        <item name="colorSecondaryVariant">@color/main</item>
+        <item name="modeAccent">@color/brand</item>
+        <item name="modeButtonFocusBackground">@color/white_100</item>
+        <item name="modeCardBackgroundEnd">@color/white_10</item>
+        <item name="modeCardBackgroundStart">@color/white_6</item>
+        <item name="modeContentCardFocusStroke">@color/white_100</item>
+        <item name="modeContentCardFocusTitleBackground">@color/white_100</item>
+        <item name="modeContentCardFocusTitleText">@color/text_01</item>
+        <item name="modeContentPlayAction">@drawable/mode_content_play_action_family</item>
+        <item name="modeDialogSurface">@color/gray_dark_20</item>
+        <item name="modeDivider">@color/white_20</item>
+        <item name="modeEmptyStateIcon">@drawable/base_ic_state_empty_tv</item>
+        <item name="modeFocusStroke">@color/white_100</item>
+        <item name="modeHomeModeEntryIcon">@drawable/ic_main_mode_entry</item>
+        <item name="modeHomeModeEntryIconSize">@dimen/tv_main_top_nav_action_icon_size</item>
+        <item name="modeHomeTopBackground">@android:color/transparent</item>
+        <item name="modeIconPrimary">@color/white_100</item>
+        <item name="modeIconSecondary">@color/white_80</item>
+        <item name="modeNetworkStateIcon">@drawable/base_ic_state_network_tv</item>
+        <item name="modePageBackground">@color/gray_dark_00</item>
+        <item name="modeSurfaceFocused">@color/white_100</item>
+        <item name="modeSurfaceSelected">@color/white_20</item>
+        <item name="modeSurfaceSelectedFocused">@color/white_100</item>
+        <item name="modeSurfaceUnfocused">@color/white_10</item>
+        <item name="modeTextBrandSelected">@color/brand_new_50</item>
+        <item name="modeTextOnFocus">@color/gray_dark_00</item>
+        <item name="modeTextOnSelected">@color/white_100</item>
+        <item name="modeTextOnSelectedFocused">@color/gray_dark_00</item>
+        <item name="modeTextPrimary">@color/white_100</item>
+        <item name="modeTextSecondary">@color/white_80</item>
+        <item name="modeTextTertiary">@color/white_60</item>
+    </style>
+</resources>

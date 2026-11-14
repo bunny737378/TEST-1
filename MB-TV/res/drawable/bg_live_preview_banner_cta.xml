@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <gradient android:startColor="@color/tv_vip_pay_sku_selected_start" android:endColor="@color/tv_vip_pay_sku_selected_end" android:angle="315.0" />
+            <corners android:radius="100.0dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:startColor="@color/tv_live_preview_banner_cta_unfocused_start" android:endColor="@color/tv_live_preview_banner_cta_unfocused_end" android:angle="270.0" />
+            <corners android:radius="100.0dp" />
+        </shape>
+    </item>
+</selector>

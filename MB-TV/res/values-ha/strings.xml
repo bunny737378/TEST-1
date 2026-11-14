@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="upgrade_sdk_text_details">Cikakken bayani</string>
+    <string name="upgrade_sdk_text_later">Daga Baya</string>
+    <string name="upgrade_sdk_text_later_force">Fita Aikace-aikace</string>
+    <string name="upgrade_sdk_text_new_version">Akwai Sabuwar Siga</string>
+    <string name="upgrade_sdk_text_size">Girma</string>
+    <string name="upgrade_sdk_text_update">Sabunta</string>
+    <string name="upgrade_sdk_text_version">version</string>
+</resources>
