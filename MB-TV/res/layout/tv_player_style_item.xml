@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@drawable/bg_setting_option_normal" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="220.0dp" android:layout_height="48.0dp" android:contentDescription="@string/tv_player_subtitle_style" android:paddingStart="16.0dp" android:paddingEnd="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/styleTextContainer" android:layout_width="0.0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/ivStyleArrow" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <TextView android:textSize="16.0sp" android:textColor="@color/base_color_white" android:gravity="start" android:id="@id/tvStyleLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAlignment="viewStart" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white_60" android:gravity="start" android:id="@id/tvStyleValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:textAlignment="viewStart" />
+    </LinearLayout>
+    <ImageView android:id="@id/ivStyleArrow" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/ic_arrow_right" android:contentDescription="@null" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
