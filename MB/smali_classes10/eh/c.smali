@@ -63,6 +63,21 @@
 
     invoke-virtual {p1, v0, p2}, Lokhttp3/Request$Builder;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
+    invoke-static {}, Lcom/mod/VersionHelper;->getUserAgent()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "User-Agent"
+
+    invoke-virtual {p1, v1, v0}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+
+    :cond_0
     invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
     move-result-object p1

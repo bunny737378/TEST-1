@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="35" android:compileSdkVersionCodename="15" package="com.community.oneroom" platformBuildVersionCode="35" platformBuildVersionName="15">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="35" android:compileSdkVersionCodename="15" package="wot.community.oneroom" platformBuildVersionCode="35" platformBuildVersionName="15">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="wot.community.oneroom_com.google.android.gms.permission.AD_ID"/>
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW"/>
@@ -22,19 +22,7 @@
             <action android:name="android.speech.RecognitionService"/>
         </intent>
         <package android:name="com.whatsapp"/>
-        <package android:name="com.whatsapp.w4b"/>
-        <package android:name="com.gbwhatsapp"/>
-        <package android:name="com.instagram.android"/>
-        <package android:name="com.infinix.xshare"/>
-        <package android:name="com.talpa.share"/>
-        <package android:name="cn.xender"/>
-        <package android:name="com.google.android.youtube"/>
         <package android:name="org.telegram.messenger.web"/>
-        <provider android:authorities="com.transsion.XOSauncher.unreadprovider"/>
-        <provider android:authorities="com.transsion.hilaauncher.unreadprovider"/>
-        <provider android:authorities="com.transsion.itel.launcher.unreadprovider"/>
-        <provider android:authorities="com.transsion.walauncher.unreadprovider"/>
-        <provider android:authorities="com.com.transsion.appmarket.data"/>
         <intent>
             <action android:name="android.intent.action.VIEW"/>
             <data android:scheme="http"/>
@@ -50,14 +38,12 @@
             <action android:name="android.intent.action.VIEW"/>
         </intent>
         <package android:name="com.transsnet.store"/>
-        <package android:name="com.community.oneroom"/>
         <intent>
             <action android:name="com.android.vending.billing.InAppBillingService.BIND"/>
         </intent>
     </queries>
     <uses-permission android:name="android.permission.READ_CALENDAR"/>
     <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
-    <uses-permission android:name="android.permission.FPOST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
     <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -94,23 +80,23 @@
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
     <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
     <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
-    <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON"/>
+    <uses-permission android:name="wot.community.oneroom_com.vivo.notification.permission.BADGE_ICON"/>
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
-    <uses-permission android:name="com.transsion.tpush.permission.WRITE_PROVIDER"/>
-    <uses-permission android:name="com.transsion.tpush.permission.READ_PROVIDER"/>
-    <uses-permission android:name="com.transsion.dataservice.permission.READ"/>
-    <uses-permission android:name="com.transsion.dataservice.permission.WRITE"/>
+    <uses-permission android:name="wot.community.oneroom_com.transsion.tpush.permission.WRITE_PROVIDER"/>
+    <uses-permission android:name="wot.community.oneroom_com.transsion.tpush.permission.READ_PROVIDER"/>
+    <uses-permission android:name="wot.community.oneroom_com.transsion.dataservice.permission.READ"/>
+    <uses-permission android:name="wot.community.oneroom_com.transsion.dataservice.permission.WRITE"/>
     <meta-data android:name="tran_athena_version" android:value="3.1.1.4"/>
     <uses-permission android:name="com.android.vending.BILLING"/>
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
-    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="wot.community.oneroom_com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="wot.community.oneroom_com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
     <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION"/>
     <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID"/>
     <uses-feature android:glEsVersion="0x20000" android:required="true"/>
-    <permission android:name="com.community.oneroom.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
-    <uses-permission android:name="com.community.oneroom.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <permission android:name="wot.community.oneroom.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="wot.community.oneroom.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <uses-permission android:name="wot.community.oneroom_com.google.android.providers.gsf.permission.READ_GSERVICES"/>
     <meta-data android:name="tran_http_version" android:value="1.0.53.01"/>
     <meta-data android:name="tran_gslb_version" android:value="1.0.3.2"/>
     <meta-data android:name="tran_coreutil_version" android:value="1.0.61.09"/>
@@ -196,7 +182,7 @@
             <meta-data android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
             <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
         </service>
-        <provider android:authorities="com.community.oneroom.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+        <provider android:authorities="wot.community.oneroom.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
             <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
             <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
             <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
@@ -353,7 +339,7 @@
             </intent-filter>
         </service>
         <service android:name="com.transsnet.downloader.core.ForegroundService"/>
-        <provider android:authorities="com.community.oneroom.download.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+        <provider android:authorities="wot.community.oneroom.download.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
         </provider>
         <activity android:exported="false" android:name="com.transsion.ninegridview.preview.GifImagePreviewActivity" android:theme="@style/Theme.AppCompat.Translucent">
@@ -397,8 +383,8 @@
             </intent-filter>
             <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_adapter"/>
         </service>
-        <provider android:authorities="com.community.oneroom.storage.account.sync" android:name="com.transsion.al.ka.AccountSyncContentProvider"/>
-        <provider android:authorities="com.community.oneroom.storage.contacts.sync" android:enabled="true" android:exported="true" android:name="com.transsion.al.ka.FastCleanerProvider" android:syncable="true">
+        <provider android:authorities="wot.community.oneroom.storage.account.sync" android:name="com.transsion.al.ka.AccountSyncContentProvider"/>
+        <provider android:authorities="wot.community.oneroom.storage.contacts.sync" android:enabled="true" android:exported="true" android:name="com.transsion.al.ka.FastCleanerProvider" android:syncable="true">
             <meta-data android:name="android.content.ContactDirectory" android:value="true"/>
         </provider>
         <receiver android:exported="true" android:name="com.transsion.al.ka.BootReceiver">
@@ -480,7 +466,7 @@
         <service android:name="com.cloud.h5update.service.LocalH5UpdateJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloud.tmc.miniutils.util.UtilsTransActivity4MainProcess" android:theme="@style/ActivityTranslucent" android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:multiprocess="true" android:name="com.cloud.tmc.miniutils.util.UtilsTransActivity" android:theme="@style/ActivityTranslucent" android:windowSoftInputMode="stateAlwaysHidden"/>
-        <provider android:authorities="com.community.oneroom.therouter.TheRouteContentProvider" android:exported="false" android:name="com.therouter.InnerTheRouterContentProvider"/>
+        <provider android:authorities="wot.community.oneroom.therouter.TheRouteContentProvider" android:exported="false" android:name="com.therouter.InnerTheRouterContentProvider"/>
         <activity android:exported="false" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteOverlay" android:windowSoftInputMode="adjustResize"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.transsion.ad.test.ad_config.TestAdMccActivity"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.transsion.ad.test.ad_example.TestViewMeasureActivity"/>
@@ -515,7 +501,7 @@
         <activity android:exported="false" android:launchMode="singleTask" android:name="com.transsion.ad.bidding.splash.BiddingHisavanaSplashActivity"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.blankj.utilcode.util.UtilsTransActivity4MainProcess" android:theme="@style/ActivityTranslucent" android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:multiprocess="true" android:name="com.blankj.utilcode.util.UtilsTransActivity" android:theme="@style/ActivityTranslucent" android:windowSoftInputMode="stateAlwaysHidden"/>
-        <provider android:authorities="com.community.oneroom.utilcode.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.blankj.utilcode.util.UtilsFileProvider">
+        <provider android:authorities="wot.community.oneroom.utilcode.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.blankj.utilcode.util.UtilsFileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/util_code_provider_paths"/>
         </provider>
         <service android:exported="false" android:name="com.blankj.utilcode.util.MessengerUtils$ServerService">
@@ -524,7 +510,7 @@
             </intent-filter>
         </service>
         <meta-data android:name="tran_hisavana_version" android:value="3.6.3.0"/>
-        <provider android:authorities="com.community.oneroom.HisavanaConfigContentProvider" android:exported="false" android:name="com.hisavana.mediation.config.ConfigContentProvider"/>
+        <provider android:authorities="wot.community.oneroom.HisavanaConfigContentProvider" android:exported="false" android:name="com.hisavana.mediation.config.ConfigContentProvider"/>
         <activity android:exported="false" android:name="com.cloud.hisavana.sdk.common.activity.AdvertiserLinkActivity" android:screenOrientation="behind" android:theme="@style/NoTranslucentStatusBar"/>
         <activity android:exported="false" android:multiprocess="true" android:name="com.cloud.hisavana.sdk.common.activity.PersonalCloseAdActivity" android:screenOrientation="behind" android:theme="@style/NoTranslucentStatusBar"/>
         <activity android:exported="false" android:name="com.cloud.hisavana.sdk.common.activity.OfflineLandingActivity" android:screenOrientation="behind" android:theme="@style/NoTranslucentStatusBar"/>
@@ -540,8 +526,8 @@
         <activity android:configChanges="locale|orientation|uiMode|screenSize|layoutDirection" android:exported="false" android:launchMode="singleTask" android:multiprocess="true" android:name="com.cloud.hisavana.sdk.common.activity.HisavanaInterstitialRewardedActivity" android:screenOrientation="behind" android:theme="@style/NoTranslucentStatusBar"/>
         <activity android:configChanges="locale|keyboardHidden|orientation|uiMode|screenSize|layoutDirection" android:exported="false" android:launchMode="singleTask" android:multiprocess="true" android:name="com.cloud.hisavana.sdk.common.activity.HisavanaInterstitialTemplateActivity" android:theme="@style/InterstitialStyle"/>
         <activity android:configChanges="locale|keyboardHidden|orientation|uiMode|screenSize|layoutDirection" android:exported="false" android:launchMode="singleTask" android:multiprocess="true" android:name="com.cloud.hisavana.sdk.common.activity.HisavanaRewardedTemplateActivity" android:theme="@style/NoTranslucentStatusBar"/>
-        <provider android:authorities="com.community.oneroom.HisavanaContentProvider" android:exported="false" android:name="com.cloud.hisavana.sdk.database.HisavanaContentProvider"/>
-        <provider android:authorities="com.community.oneroom.HisavanaFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.cloud.hisavana.sdk.common.HisavanaFileProvider">
+        <provider android:authorities="wot.community.oneroom.HisavanaContentProvider" android:exported="false" android:name="com.cloud.hisavana.sdk.database.HisavanaContentProvider"/>
+        <provider android:authorities="wot.community.oneroom.HisavanaFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.cloud.hisavana.sdk.common.HisavanaFileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/hisavana_provider_paths"/>
         </provider>
         <activity android:excludeFromRecents="true" android:exported="false" android:name="com.transsion.pushui.activity.TransparentActivity" android:taskAffinity="com.transsion.pushui" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
@@ -615,7 +601,7 @@
         </service>
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <provider android:authorities="com.community.oneroom.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="wot.community.oneroom.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
         <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
         <uses-library android:name="androidx.window.extensions" android:required="false"/>
         <uses-library android:name="androidx.window.sidecar" android:required="false"/>
@@ -626,7 +612,7 @@
         <service android:name="com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTAdActivity" android:theme="@style/tt_full_screen_new"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.vungle.ads.internal.ui.VungleActivity"/>
-        <provider android:authorities="com.community.oneroom.vungle-provider" android:exported="false" android:initOrder="102" android:name="com.vungle.ads.VungleProvider"/>
+        <provider android:authorities="wot.community.oneroom.vungle-provider" android:exported="false" android:initOrder="102" android:name="com.vungle.ads.VungleProvider"/>
         <service android:exported="true" android:name="com.cloud.tmc.component_api_ps.ipc.service.MiniAppProtocolMainService"/>
         <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
             <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
@@ -668,7 +654,7 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.transsion.shorttv._channel.ui.activity.ShortTvPlayListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.transsion.shorttv._channel.ui.activity.ShortTvMovieFilterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.transsion.shorttv._channel.ui.activity.ShortTvCategoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
-        <provider android:authorities="com.community.oneroom.backgroundLibrary" android:exported="false" android:multiprocess="true" android:name="com.noober.background.BackgroundContentProvider"/>
+        <provider android:authorities="wot.community.oneroom.backgroundLibrary" android:exported="false" android:multiprocess="true" android:name="com.noober.background.BackgroundContentProvider"/>
         <service android:enabled="true" android:exported="false" android:name="com.tencent.tinker.lib.service.TinkerPatchForeService" android:process=":patch"/>
         <service android:exported="false" android:name="com.tencent.tinker.lib.service.TinkerPatchService$InnerService" android:process=":patch"/>
         <service android:exported="false" android:name="com.tencent.tinker.lib.service.DefaultTinkerResultService" android:permission="android.permission.BIND_JOB_SERVICE"/>
