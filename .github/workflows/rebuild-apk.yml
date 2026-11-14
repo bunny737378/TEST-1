@@ -1,6 +1,9 @@
-name: Rebuild APK
+name: Rebuild and Sign APK
 
 on:
+  push:
+    branches:
+      - 'arena/**'
   workflow_dispatch:
     inputs:
       folder_name:
@@ -12,13 +15,23 @@ on:
       folder_name:
         required: true
         type: string
+    secrets:
+      KEYSTORE_BASE64:
+        required: true
+      KEYSTORE_PASSWORD:
+        required: true
+      KEY_ALIAS:
+        required: true
+      KEY_PASSWORD:
+        required: true
 
 permissions:
   contents: read
 
 jobs:
   rebuild:
-    runs-on: ubuntu-latest
+    # This image includes the Android SDK and Build Tools 36.0.0.
+    runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:
       - name: Check out the selected branch
@@ -36,7 +49,21 @@ jobs:
           import os
           from pathlib import Path
 
-          name = os.environ['APP_FOLDER'].strip()
+          workspace = Path(os.environ['GITHUB_WORKSPACE'])
+          name = os.environ.get('APP_FOLDER', '').strip()
+          if not name:
+              if os.environ.get('GITHUB_EVENT_NAME') != 'push':
+                  raise SystemExit('Enter the decompiled app folder name.')
+              # The same project is named MB on main and Mb on some branches.
+              candidates = [p for p in workspace.iterdir()
+                            if p.name.casefold() == 'mb' and not p.is_symlink()
+                            and p.is_dir() and (p / 'apktool.yml').is_file()]
+              if len(candidates) != 1:
+                  raise SystemExit('Push builds need exactly one Mb/MB Apktool project; '
+                                   'otherwise run the workflow manually with a folder name.')
+              name = candidates[0].name
+              print(f'No input folder; using {name}')
+
           forbidden = set('/\\:*?"<>|')
           reserved = {'CON', 'PRN', 'AUX', 'NUL'} | {
               f'{prefix}{number}' for prefix in ('COM', 'LPT') for number in range(1, 10)
@@ -46,7 +73,7 @@ jobs:
                   or not all(c.isprintable() and c not in forbidden for c in name)
                   or name.split('.', 1)[0].upper() in reserved):
               raise SystemExit('Enter a safe folder name, not a path.')
-          folder = Path(os.environ['GITHUB_WORKSPACE']) / name
+          folder = workspace / name
           if folder.is_symlink() or not folder.is_dir() or not (folder / 'apktool.yml').is_file():
               raise SystemExit(f'{name!r} is not a decompiled Apktool project in this branch.')
           with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
@@ -60,6 +87,38 @@ jobs:
           distribution: temurin
           java-version: '21'
 
+      - name: Prepare and validate the signing key
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          umask 077
+          for secret in KEYSTORE_BASE64 KEYSTORE_PASSWORD KEY_ALIAS KEY_PASSWORD; do
+            if [[ -z "${!secret}" ]]; then
+              echo "::error::$secret is missing. Configure the signing secrets before rebuilding."
+              exit 1
+            fi
+          done
+
+          keystore="$RUNNER_TEMP/signing-key.jks"
+          if ! printf '%s' "$KEYSTORE_BASE64" | base64 --decode > "$keystore"; then
+            echo '::error::KEYSTORE_BASE64 is not valid base64.'
+            exit 1
+          fi
+          if [[ ! -s "$keystore" ]]; then
+            echo '::error::The decoded keystore is empty.'
+            exit 1
+          fi
+          if ! keytool -list -keystore "$keystore" \
+              -storepass:env KEYSTORE_PASSWORD -alias "$KEY_ALIAS" > /dev/null; then
+            echo '::error::Could not open the keystore or find the alias. Check KEYSTORE_PASSWORD and KEY_ALIAS.'
+            exit 1
+          fi
+          echo 'Signing key and alias are ready.'
+
       - name: Download the latest stable Apktool
         env:
           GH_TOKEN: ${{ github.token }}
@@ -68,7 +127,7 @@ jobs:
           asset="$(gh api repos/iBotPeaches/Apktool/releases/latest \
             --jq '[.assets[] | select(.name | test("^apktool_[0-9].*\\.jar$"))][0] // empty')"
           if [[ -z "$asset" ]]; then
-            echo "::error::Could not find the Apktool JAR in the latest release."
+            echo '::error::Could not find the Apktool JAR in the latest release.'
             exit 1
           fi
           url="$(jq -r '.browser_download_url' <<< "$asset")"
@@ -77,30 +136,128 @@ jobs:
             "$url" --output "$RUNNER_TEMP/apktool.jar"
           if [[ -n "$digest" ]]; then
             if [[ ! "$digest" =~ ^sha256:[0-9a-f]{64}$ ]]; then
-              echo "::error::Unexpected Apktool release checksum."
+              echo '::error::Unexpected Apktool release checksum.'
               exit 1
             fi
             printf '%s  %s\n' "${digest#sha256:}" "$RUNNER_TEMP/apktool.jar" | sha256sum --check
           else
-            echo "::warning::The Apktool release did not provide a checksum."
+            echo '::warning::The Apktool release did not provide a checksum.'
           fi
           java -jar "$RUNNER_TEMP/apktool.jar" --version
+
+      - name: Locate Android Build Tools
+        run: |
+          set -euo pipefail
+          sdk_root="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-}}"
+          if [[ -z "$sdk_root" || ! -d "$sdk_root" ]]; then
+            echo '::error::The Android SDK is not available on this runner.'
+            exit 1
+          fi
+          build_tools="$sdk_root/build-tools/36.0.0"
+          if [[ ! -x "$build_tools/zipalign" || ! -x "$build_tools/apksigner" ]]; then
+            echo 'Build Tools 36.0.0 are missing; attempting installation with the preinstalled sdkmanager.'
+            sdkmanager=''
+            for candidate in "$sdk_root"/cmdline-tools/*/bin/sdkmanager; do
+              if [[ -x "$candidate" ]]; then
+                sdkmanager="$candidate"
+                break
+              fi
+            done
+            if [[ -z "$sdkmanager" ]]; then
+              echo '::error::Build Tools 36.0.0 and sdkmanager are unavailable.'
+              exit 1
+            fi
+            # yes can receive SIGPIPE after sdkmanager exits; check sdkmanager's status.
+            set +e
+            yes | "$sdkmanager" --sdk_root="$sdk_root" --licenses > /dev/null
+            license_status=${PIPESTATUS[1]}
+            set -e
+            if (( license_status != 0 )); then
+              echo '::error::Could not accept Android SDK licenses.'
+              exit "$license_status"
+            fi
+            "$sdkmanager" --sdk_root="$sdk_root" 'build-tools;36.0.0'
+          fi
+          if [[ ! -x "$build_tools/zipalign" || ! -x "$build_tools/apksigner" ]]; then
+            echo '::error::Build Tools 36.0.0 must contain executable zipalign and apksigner.'
+            exit 1
+          fi
+          echo "BUILD_TOOLS=$build_tools" >> "$GITHUB_ENV"
+          echo "Using Android Build Tools 36.0.0 from $build_tools"
 
       - name: Rebuild the APK
         env:
           APP_FOLDER: ${{ steps.folder.outputs.name }}
         run: |
           set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/apk-output"
+          mkdir -p "$RUNNER_TEMP/apk-work"
+          set +e
           java -jar "$RUNNER_TEMP/apktool.jar" build "$APP_FOLDER" \
-            --output "$RUNNER_TEMP/apk-output/$APP_FOLDER.apk"
-          # Fail instead of uploading an empty or corrupt file.
-          unzip -tq "$RUNNER_TEMP/apk-output/$APP_FOLDER.apk"
-          printf 'Rebuilt APK: `%s.apk` (unsigned)\n' "$APP_FOLDER" >> "$GITHUB_STEP_SUMMARY"
+            --output "$RUNNER_TEMP/apk-work/unsigned.apk" 2>&1 \
+            | tee "$RUNNER_TEMP/apktool-build.log"
+          rc=${PIPESTATUS[0]}
+          set -e
+          if (( rc != 0 )); then
+            echo '::error::Apktool rebuild failed.'
+            tail -c 12000 "$RUNNER_TEMP/apktool-build.log"
+            exit "$rc"
+          fi
+          if [[ ! -s "$RUNNER_TEMP/apk-work/unsigned.apk" ]]; then
+            echo '::error::Rebuilt APK is empty.'
+            exit 1
+          fi
+          unzip -tq "$RUNNER_TEMP/apk-work/unsigned.apk"
 
-      - name: Upload the APK artifact
+      - name: Align the APK
+        run: |
+          set -euo pipefail
+          "$BUILD_TOOLS/zipalign" -P 16 -f 4 \
+            "$RUNNER_TEMP/apk-work/unsigned.apk" "$RUNNER_TEMP/apk-work/aligned.apk"
+          "$BUILD_TOOLS/zipalign" -c -P 16 4 "$RUNNER_TEMP/apk-work/aligned.apk"
+          echo 'APK alignment verified.'
+
+      - name: Sign the APK with the custom key
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          APP_FOLDER: ${{ steps.folder.outputs.name }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/signed-apk"
+          signed_apk="$RUNNER_TEMP/signed-apk/${APP_FOLDER}-signed.apk"
+          "$BUILD_TOOLS/apksigner" sign \
+            --ks "$RUNNER_TEMP/signing-key.jks" \
+            --ks-key-alias "$KEY_ALIAS" \
+            --ks-pass env:KEYSTORE_PASSWORD \
+            --key-pass env:KEY_PASSWORD \
+            --out "$signed_apk" \
+            "$RUNNER_TEMP/apk-work/aligned.apk"
+          if [[ ! -s "$signed_apk" ]]; then
+            echo '::error::Signed APK was not generated.'
+            exit 1
+          fi
+
+      - name: Verify the signed APK
+        env:
+          APP_FOLDER: ${{ steps.folder.outputs.name }}
+        run: |
+          set -euo pipefail
+          signed_apk="$RUNNER_TEMP/signed-apk/${APP_FOLDER}-signed.apk"
+          "$BUILD_TOOLS/apksigner" verify --verbose --print-certs "$signed_apk"
+          "$BUILD_TOOLS/zipalign" -c -P 16 4 "$signed_apk"
+          unzip -tq "$signed_apk"
+          sha256sum "$signed_apk"
+          printf '## APK rebuilt and signed\n\n- App: %s\n- Signing: custom keystore\n- File: %s-signed.apk\n' \
+            "$APP_FOLDER" "$APP_FOLDER" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload only the signed APK
         uses: actions/upload-artifact@v7
         with:
-          path: ${{ runner.temp }}/apk-output/
+          path: ${{ runner.temp }}/signed-apk/*-signed.apk
           if-no-files-found: error
           archive: false
+
+      - name: Remove the temporary signing key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/signing-key.jks"
