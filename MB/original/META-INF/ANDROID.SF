@@ -1,6 +1,6 @@
 Signature-Version: 1.0
 Created-By: Android Gradle 8.0.2
-SHA-256-Digest-Manifest: icf7pCa9bwZ909SvatF4KQ7ihK8/VXwpoQiAhR48qxQ=
+SHA-256-Digest-Manifest: qYBJntOY02gC4NoHfc4MMZ4XfzauRz0KbXALgu2PoyQ=
 X-Android-APK-Signed: 2,3
 
 Name: AndroidManifest.xml
@@ -768,10 +768,10 @@ Name: assets/watch_info.js
 SHA-256-Digest: H1/y3lpqZFhiBT1ciWS6u3CUFR65CHwhqmDh8BxSf0s=
 
 Name: classes.dex
-SHA-256-Digest: jyDT/+dxC/DRA5humi3CUH53BQdFviRwVGaTljgBsbY=
+SHA-256-Digest: urmPsUhowdq2pzrsdy8iSgIyKKyljNQOu0v1DqlqNZ0=
 
 Name: classes10.dex
-SHA-256-Digest: qZD9vdKeQ8TWciuBAVAe/uIEy89DxAF1aS9zDecMxfI=
+SHA-256-Digest: Y/F/5zmJqUkHtU9jtQOa5SEJ2c07YJC2GcHr+iD0DHY=
 
 Name: classes2.dex
 SHA-256-Digest: gDGNQbJt5I2eIZSFbMmyg2LzRTlu/QhTwFJ4kpQroxs=
@@ -789,10 +789,10 @@ Name: classes6.dex
 SHA-256-Digest: tdFaDv/5FpQTYw2FFux4i5p/V45fvli2cUESFGQP5m8=
 
 Name: classes7.dex
-SHA-256-Digest: AxeJ/3xzBe4A0l+P8UKxMNCMzHMYuc+97Hd6fa2qWhg=
+SHA-256-Digest: dhkaXjcKJACIZld7Szr9RSkDEjFBTX3Ej+cSV0/wg8o=
 
 Name: classes8.dex
-SHA-256-Digest: UXfYbz86IoBs7IYXr9UJpB+NqCzTRz7DoXOwcAz1seg=
+SHA-256-Digest: Avc+Ar5LoBTOkwWVBiw0CS2B7o0fJDeRHZW+BKObprE=
 
 Name: classes9.dex
 SHA-256-Digest: wdoUOFO33kpp7moVPtnwT06uDJgzRYaIbp9A5exqL+o=
@@ -11640,16 +11640,16 @@ Name: res/layout/dialog_lab_channel_layout.xml
 SHA-256-Digest: KjGLhxfDKry7gEcbF7StU5O9BnrMvlTR20MR7f+dw8I=
 
 Name: res/layout/dialog_lab_content_mode.xml
-SHA-256-Digest: ym1V2Xbw3IEr3QdCm+X6WNNNuSwye6WaEpgLdZ0fI7E=
+SHA-256-Digest: pevzC1k2lDykptEVsTEWLpK65NZGaypDETqXmDUx9jg=
 
 Name: res/layout/dialog_lab_country.xml
-SHA-256-Digest: IXKP0gF0gP/Fbb4Oz6kjaTTWjisdhFFGW0i3tt9SXIE=
+SHA-256-Digest: qsyE54Wqc8nWJSwfSzywOxTyQybURZyJ43PFM3p4zUY=
 
 Name: res/layout/dialog_lab_fps_layout.xml
 SHA-256-Digest: S50i+lrwNZaM5cNJ/LsPHik3A3kU+k/88a4TXJeKJQw=
 
 Name: res/layout/dialog_lab_http_host.xml
-SHA-256-Digest: 26lzMyH2BYJaf2gSL1T6Qs6izMu2O+yyPlerL4nVJTM=
+SHA-256-Digest: nH82kLD5MRlBCHLHEfIfem0TSI84euBknBh9CRCqQ2E=
 
 Name: res/layout/dialog_lab_info.xml
 SHA-256-Digest: Y3bg1jaO+l4jQtldnMG/jAZUDzisScZKMEVRWj/ZACk=
@@ -14310,6 +14310,12 @@ SHA-256-Digest: J3fQ58vI1axJCph3szD5LJkLE3FC3LM+cORGpAkKm5g=
 Name: res/layout/miniapp_view_toast.xml
 SHA-256-Digest: bV2cMPC1LfQLxcbF2PV8fhM+T1ykq9WusrEDf93W4lI=
 
+Name: res/layout/mod_region_dialog.xml
+SHA-256-Digest: pjBJDcUjEaZupYJyv9x5Fz5l4QvkC3gFtlNwuOa+Fnw=
+
+Name: res/layout/mod_region_item.xml
+SHA-256-Digest: jIexdLol6fGwro/Q8gnIQH44D7M0LFa44SVS95dcrwk=
+
 Name: res/layout/movie_detail_item_audio.xml
 SHA-256-Digest: KMBxl0uKGkD9EfOsTC3sP0s6cBUZjrNclpmlVIi/EzU=
 
@@ -15575,7 +15581,7 @@ Name: res/layout/user_activity_message.xml
 SHA-256-Digest: cfAljH5U5irZKyLG64oZAnrhb+paksY9fTc/AFyUboU=
 
 Name: res/layout/user_activity_setting.xml
-SHA-256-Digest: 8aIAUhHrC8txzSK0GnevcW/6ZWXWIfklt2QejOPOjkc=
+SHA-256-Digest: iMfSXHs+D8kDz1gaXxIMCpJAQVKQsyee5eI/l8eyODc=
 
 Name: res/layout/user_activity_setting_about_us.xml
 SHA-256-Digest: hF73JKQbnOzOv1v5fRuJfeASLF+ATHEhmrs7AbFbAfw=
@@ -18645,5 +18651,5 @@ Name: res/xml/widget_schedule_sport.xml
 SHA-256-Digest: r6c0RFwbKDbhQdJe/J4F4UanKH1jQXiU/wgz9d96PkA=
 
 Name: resources.arsc
-SHA-256-Digest: 5nGQ+b2xr8hSqKH9rTWKyJnBId89S8wOBTGEnc4Hwr4=
+SHA-256-Digest: 1ZksjI0b0kY4AeMoiKPYcJ7V/V+WfRYoVmaBHLQ0dow=
 

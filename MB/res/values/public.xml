@@ -160,6 +160,9 @@
     <public type="array" name="long_vod_analysing_array" id="0x7f030004" />
     <public type="array" name="ls_calendar_weekdays" id="0x7f030005" />
     <public type="array" name="subtitle_items" id="0x7f030006" />
+    <public type="array" name="region_codes" id="0x7f030007" />
+    <public type="array" name="region_mccs" id="0x7f030008" />
+    <public type="array" name="region_names" id="0x7f030009" />
     <public type="attr" name="CustomHorizontalMargin" id="0x7f040000" />
     <public type="attr" name="CustomIndicatorSize" id="0x7f040001" />
     <public type="attr" name="CustomSelectedIndex" id="0x7f040002" />
@@ -12983,6 +12986,7 @@
     <public type="interpolator" name="mtrl_linear" id="0x7f0c0010" />
     <public type="interpolator" name="mtrl_linear_out_slow_in" id="0x7f0c0011" />
     <public type="layout" name="abc_action_bar_title_item" id="0x7f0d0000" />
+    <public type="layout" name="mod_region_dialog" id="0x7f0d0001" />
     <public type="layout" name="abc_action_menu_item_layout" id="0x7f0d0002" />
     <public type="layout" name="abc_action_menu_layout" id="0x7f0d0003" />
     <public type="layout" name="abc_action_mode_bar" id="0x7f0d0004" />
@@ -13394,6 +13398,7 @@
     <public type="layout" name="feedback_option_list_footer" id="0x7f0d019a" />
     <public type="layout" name="feedback_option_list_header" id="0x7f0d019b" />
     <public type="layout" name="fission_activity_invitation_code" id="0x7f0d019c" />
+    <public type="layout" name="mod_region_item" id="0x7f0d019d" />
     <public type="layout" name="fission_dialog_invite_code_help" id="0x7f0d019e" />
     <public type="layout" name="footer_download_other_subtitle_layout" id="0x7f0d019f" />
     <public type="layout" name="fragment_aha_game_all_layout" id="0x7f0d01a0" />

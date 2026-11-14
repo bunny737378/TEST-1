@@ -2970,6 +2970,8 @@
 .method private final J1(Lcom/transsion/home/bean/AppTab;)V
     .locals 4
 
+    invoke-static {p1}, Lcom/mod/BottomTabs;->removePremium(Lcom/transsion/home/bean/AppTab;)V
+
     .line 1
     iput-object p1, p0, Lcom/transsion/subroom/activity/MainActivity;->q:Lcom/transsion/home/bean/AppTab;
 

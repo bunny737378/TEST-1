@@ -767,10 +767,10 @@ Name: assets/watch_info.js
 SHA-256-Digest: s5H7rznDCnIAiAq5A9YKnzpxO/UB0zI596ap97LPapk=
 
 Name: classes.dex
-SHA-256-Digest: cfmkPvOvZlJIcPW7tW4rXdENrSnqym5TDZRYrS4s8Wk=
+SHA-256-Digest: B+0tso88jkNiT6Vg/bZAFujdDfs7vAv4IqBhMI8c2rA=
 
 Name: classes10.dex
-SHA-256-Digest: N6tNkMYkxKNqCGqFiSMdYPkUEHR00wZja+jIJ26c2vw=
+SHA-256-Digest: fYDDQ51f+Wp6kUaBenPlV988dH2zLJBn1l4kNgfjv18=
 
 Name: classes2.dex
 SHA-256-Digest: 7rjOFxjLccB2BT6MdKUfZ7Hy2ffYa4JrhsftewxBSNc=
@@ -788,10 +788,10 @@ Name: classes6.dex
 SHA-256-Digest: Ht25Gfn2VDx5UOSbwZjvKCBAYVGwSrNq5HSqPrAhFwQ=
 
 Name: classes7.dex
-SHA-256-Digest: eb4AMtd+sNnIdl6ZLw1MlJGI/gWIwZEGbqWkSu7R0+g=
+SHA-256-Digest: XWewiZH7/VvyRN1yW9yP0StgZMHKpCN+hnv4vUjdec8=
 
 Name: classes8.dex
-SHA-256-Digest: 5Yrs6N4mILi31fG+mWqlWu71CCqY0h0efSC357ZbL9w=
+SHA-256-Digest: TPh5cNET0jVVKJz6iuSPUHX0QTJ1bxzrG3+iJ2ZQy9o=
 
 Name: classes9.dex
 SHA-256-Digest: BlO/bjQskHteAUjVtyukAY/skkS/zTtw7ySSl+cEjI8=
@@ -11639,16 +11639,16 @@ Name: res/layout/dialog_lab_channel_layout.xml
 SHA-256-Digest: nMUKgR2vhhpDcjf2ioFmeEEF/EGQrNFXjSwbPt+HqdE=
 
 Name: res/layout/dialog_lab_content_mode.xml
-SHA-256-Digest: kPod4R8NwyXgLDGUmbTFviX7n1bkL8W6nbwtKayGPI8=
+SHA-256-Digest: /IKhTERNLdeqirpmDxPt21q4ByssUHkTH+kKYiQqPiM=
 
 Name: res/layout/dialog_lab_country.xml
-SHA-256-Digest: NNEXqhgweukPy0F0XoRJOj2Z9f8pnPbflviu/Rc6Fkw=
+SHA-256-Digest: pjqaWhmPYarWoSNI0ZsyhOYLbhKJhM09m4uKQU05Ji0=
 
 Name: res/layout/dialog_lab_fps_layout.xml
 SHA-256-Digest: TacjSQf+2LUmdqNR6W6S2butM3BbbhPMTDIeHnkbaaU=
 
 Name: res/layout/dialog_lab_http_host.xml
-SHA-256-Digest: pDUVjMlTUHcf+bSfcqx0MVS2LD+Pe0toCmVNWhIhKrc=
+SHA-256-Digest: 9/QqSyNxCCKlPQ/qaep4fi9fczudEe7qEb9CE3Canjw=
 
 Name: res/layout/dialog_lab_info.xml
 SHA-256-Digest: BaK9YCPcZPOWaJxz5vFREWzmKNe88gJIh8W2bHlotgE=
@@ -14309,6 +14309,12 @@ SHA-256-Digest: U8rnuJ3HaNXMFb09+VMVbEkKxIWV1q/3NsukChqFP8k=
 Name: res/layout/miniapp_view_toast.xml
 SHA-256-Digest: t1t/MVVRxL/8/NG+OStsD4k6IgOqVYauJSgoKLBH8NA=
 
+Name: res/layout/mod_region_dialog.xml
+SHA-256-Digest: IWBFs5tfrAUELe8dxWDg08tSbUXm8G0AF5JDnckN0Vk=
+
+Name: res/layout/mod_region_item.xml
+SHA-256-Digest: l4wKpdrapVTtMg9HsNONf/iAAtmdZYQPDXZWqDdPOow=
+
 Name: res/layout/movie_detail_item_audio.xml
 SHA-256-Digest: HfnBFSPVDYR57e6i71W3vf4/IxqPItCSY2MiG6bWH4w=
 
@@ -15574,7 +15580,7 @@ Name: res/layout/user_activity_message.xml
 SHA-256-Digest: YzIzZhhQWe6AA4+E1vPz5cJkRZ4Y4XKv9G6RW9TvLC0=
 
 Name: res/layout/user_activity_setting.xml
-SHA-256-Digest: pTbzrGVyoCXj9dEi7yy4aIMcw0WVV1M7ZYNUVPBCroM=
+SHA-256-Digest: ZLMByedHrQPWGq0ezPOpKbUk8GCxEQyK6GNfLFXg2DE=
 
 Name: res/layout/user_activity_setting_about_us.xml
 SHA-256-Digest: EXuvnzOzbUi6Vx0WF/NUWt1iWQvoKfBROujDzu1LavQ=
@@ -18644,5 +18650,5 @@ Name: res/xml/widget_schedule_sport.xml
 SHA-256-Digest: DV4t96B3ybbU0/HHxOROsd6/GTSpBfkWdB9zIjvv5LY=
 
 Name: resources.arsc
-SHA-256-Digest: dtB6JTTd5/vmmNHZ5yqW0xYT64Ll+S5gvcOk5yK5KMU=
+SHA-256-Digest: vHovM3l1kuanQE5V1CP8iGu9ZENDwaHC2YA9yKL5u1A=
 

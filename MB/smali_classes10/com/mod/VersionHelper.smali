@@ -45,6 +45,107 @@
     return-void
 .end method
 
+.method private static applyRegionSettings(Lorg/json/JSONObject;)V
+    .locals 4
+
+    :try_start_0
+    const-string v0, "NL"
+
+    sget-object v1, Lhh/a;->a:Lhh/a$a;
+
+    invoke-virtual {v1}, Lhh/a$a;->c()Lcom/tencent/mmkv/MMKV;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    const-string v2, "mock_header_region"
+
+    const-string v3, ""
+
+    invoke-virtual {v1, v2, v3}, Lcom/tencent/mmkv/MMKV;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const-string v2, "mock_header_region"
+
+    const-string v3, "NL"
+
+    invoke-virtual {v1, v2, v3}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    const-string v2, "sp_code"
+
+    const-string v3, "204"
+
+    invoke-virtual {v1, v2, v3}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    goto :goto_0
+
+    :cond_0
+    move-object v0, v2
+
+    :cond_1
+    :goto_0
+    const-string v2, "region"
+
+    invoke-virtual {p0, v2, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    const-string v2, "timezone"
+
+    invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v2, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    const-string v0, ""
+
+    if-eqz v1, :cond_2
+
+    const-string v2, "sp_code"
+
+    invoke-virtual {v1, v2, v0}, Lcom/tencent/mmkv/MMKV;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_2
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    sget-object v1, Loh/b;->a:Loh/b;
+
+    invoke-virtual {v1}, Loh/b;->o()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_3
+    const-string v1, "sp_code"
+
+    invoke-virtual {p0, v1, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    return-void
+.end method
+
 .method private static compareVer([J[J)I
     .locals 9
 
@@ -80,6 +181,37 @@
     sub-int v0, v0, v1
 
     return v0
+.end method
+
+.method private static currentPlayMode()Ljava/lang/String;
+    .locals 1
+
+    :try_start_0
+    sget-object v0, Lkk/t;->a:Lkk/t;
+
+    invoke-virtual {v0}, Lkk/t;->b()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    const-string v0, "2"
+
+    return-object v0
+
+    :cond_0
+    const-string v0, "1"
+
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    const-string v0, "2"
+
+    return-object v0
 .end method
 
 .method private static fetchAndSaveLatest()Ljava/lang/String;
@@ -280,7 +412,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, "\",\"brand\":\"Samsung\",\"model\":\"SM-S928B\",\"system_language\":\"en\",\"net\":\"WIFI\",\"region\":\"IN\",\"timezone\":\"Asia/Kolkata\",\"sp_code\":\"405863\",\"X-Play-Mode\":\"2\",\"X-Idle-Data\":\"1\",\"X-Family-Mode\":\"0\",\"X-Content-Mode\":\"0\"}"
+    const-string v5, "\",\"brand\":\"Samsung\",\"model\":\"SM-S928B\",\"system_language\":\"en\",\"net\":\"WIFI\",\"region\":\"\",\"timezone\":\"\",\"sp_code\":\"\",\"X-Play-Mode\":\"2\",\"X-Idle-Data\":\"0\",\"X-Family-Mode\":\"0\",\"X-Content-Mode\":\"0\"}"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -664,6 +796,22 @@
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    const-string v1, "X-Idle-Data"
+
+    const-string v2, "0"
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    invoke-static {}, Lcom/mod/VersionHelper;->currentPlayMode()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v1, "X-Play-Mode"
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    invoke-static {v0}, Lcom/mod/VersionHelper;->applyRegionSettings(Lorg/json/JSONObject;)V
 
     const-string v1, "X-Client-Build"
 
