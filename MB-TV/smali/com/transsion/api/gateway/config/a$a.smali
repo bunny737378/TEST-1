@@ -201,10 +201,7 @@
 
     .line 8
     .line 9
-    iget-boolean v0, p1, Lcom/transsion/api/gateway/bean/RemoteConfig;->activateTracking:Z
-
-    .line 10
-    .line 11
+    const/4 v0, 0x0
     iput-boolean v0, p0, Lcom/transsion/api/gateway/config/a$a;->c:Z
 
     .line 12

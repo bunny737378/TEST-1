@@ -820,25 +820,9 @@
     .line 221
     .line 222
     const-string v5, "region"
-
-    .line 223
-    .line 224
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-
-    .line 225
-    .line 226
-    .line 227
+    sget-object v6, Lcom/transsion/baselib/locale/c;->a:Lcom/transsion/baselib/locale/c;
+    invoke-virtual {v6}, Lcom/transsion/baselib/locale/c;->a()Ljava/lang/String;
     move-result-object v6
-
-    .line 228
-    invoke-virtual {v6}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    .line 229
-    .line 230
-    .line 231
-    move-result-object v6
-
-    .line 232
     invoke-interface {v2, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 233

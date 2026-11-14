@@ -882,59 +882,12 @@
 .end method
 
 .method public log(Ljava/lang/String;)V
-    .locals 1
-
-    .line 1
-    iget-object v0, p0, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->a:Lcom/google/firebase/crashlytics/internal/common/x;
-
-    .line 2
-    .line 3
-    invoke-virtual {v0, p1}, Lcom/google/firebase/crashlytics/internal/common/x;->B(Ljava/lang/String;)V
-
-    .line 4
-    .line 5
-    .line 6
+    .locals 0
     return-void
 .end method
 
 .method public recordException(Ljava/lang/Throwable;)V
-    .locals 1
-
-    .line 1
-    if-nez p1, :cond_0
-
-    .line 2
-    .line 3
-    invoke-static {}, Lgc/g;->f()Lgc/g;
-
-    .line 4
-    .line 5
-    .line 6
-    move-result-object p1
-
-    .line 7
-    const-string v0, "A null value was passed to recordException. Ignoring."
-
-    .line 8
-    .line 9
-    invoke-virtual {p1, v0}, Lgc/g;->k(Ljava/lang/String;)V
-
-    .line 10
-    .line 11
-    .line 12
-    return-void
-
-    .line 13
-    :cond_0
-    iget-object v0, p0, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->a:Lcom/google/firebase/crashlytics/internal/common/x;
-
-    .line 14
-    .line 15
-    invoke-virtual {v0, p1}, Lcom/google/firebase/crashlytics/internal/common/x;->C(Ljava/lang/Throwable;)V
-
-    .line 16
-    .line 17
-    .line 18
+    .locals 0
     return-void
 .end method
 
@@ -955,28 +908,12 @@
 .end method
 
 .method public setCrashlyticsCollectionEnabled(Ljava/lang/Boolean;)V
-    .locals 1
-
-    .line 2
-    iget-object v0, p0, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->a:Lcom/google/firebase/crashlytics/internal/common/x;
-
-    invoke-virtual {v0, p1}, Lcom/google/firebase/crashlytics/internal/common/x;->H(Ljava/lang/Boolean;)V
-
+    .locals 0
     return-void
 .end method
 
 .method public setCrashlyticsCollectionEnabled(Z)V
-    .locals 1
-
-    .line 1
-    iget-object v0, p0, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->a:Lcom/google/firebase/crashlytics/internal/common/x;
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p1
-
-    invoke-virtual {v0, p1}, Lcom/google/firebase/crashlytics/internal/common/x;->H(Ljava/lang/Boolean;)V
-
+    .locals 0
     return-void
 .end method
 
@@ -1077,17 +1014,6 @@
 .end method
 
 .method public setUserId(Ljava/lang/String;)V
-    .locals 1
-
-    .line 1
-    iget-object v0, p0, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->a:Lcom/google/firebase/crashlytics/internal/common/x;
-
-    .line 2
-    .line 3
-    invoke-virtual {v0, p1}, Lcom/google/firebase/crashlytics/internal/common/x;->J(Ljava/lang/String;)V
-
-    .line 4
-    .line 5
-    .line 6
+    .locals 0
     return-void
 .end method

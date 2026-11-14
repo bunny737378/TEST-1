@@ -19,7 +19,7 @@
           "tabId": 27,
           "name": "Club Cup Live",
           "type": "H5Tab",
-          "url": "https://moviebox.ng/live/list?from=home_top_tab&utm_source=mb_app_inner",
+          "url": "https://moviebox.ng/live/list",
           "tabCode": "Live",
           "nameImage": {
             "url": "https://pacdn.aoneroom.com/image/2025/02/19/813cd52a88f0076811fb435382c91c07.gif",
