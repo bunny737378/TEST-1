@@ -935,7 +935,7 @@
 
     .line 41
     .line 42
-    const-string v3, "oneroom://com.community.oneroom?type="
+    const-string v3, "oneroom://wot.community.oneroom?type="
 
     .line 43
     .line 44

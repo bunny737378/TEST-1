@@ -9303,7 +9303,7 @@
 
     .line 21
     .line 22
-    const-string v3, "oneroom://com.community.oneroom?type="
+    const-string v3, "oneroom://wot.community.oneroom?type="
 
     .line 23
     .line 24

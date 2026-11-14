@@ -2697,7 +2697,7 @@
     const/4 v10, 0x0
 
     .line 9
-    const-string v4, "oneroom://com.community.oneroom?type=/main/tab&bottomTab=home&channel=desk_widget"
+    const-string v4, "oneroom://wot.community.oneroom?type=/main/tab&bottomTab=home&channel=desk_widget"
 
     .line 10
     .line 11
@@ -3137,7 +3137,7 @@
     const/4 v10, 0x0
 
     .line 9
-    const-string v4, "oneroom://com.community.oneroom?type=/main/tab&bottomTab=home&channel=desk_widget"
+    const-string v4, "oneroom://wot.community.oneroom?type=/main/tab&bottomTab=home&channel=desk_widget"
 
     .line 10
     .line 11
@@ -3195,7 +3195,7 @@
     const/4 v10, 0x0
 
     .line 9
-    const-string v4, "oneroom://com.community.oneroom?type=/search/activity/search_manager&type=3&channel=desk_widget"
+    const-string v4, "oneroom://wot.community.oneroom?type=/search/activity/search_manager&type=3&channel=desk_widget"
 
     .line 10
     .line 11
@@ -4203,7 +4203,7 @@
     .line 9
     .line 10
     .line 11
-    const-string v1, "oneroom://com.community.oneroom?type=/movie/detail&channel=desk_widget&id="
+    const-string v1, "oneroom://wot.community.oneroom?type=/movie/detail&channel=desk_widget&id="
 
     .line 12
     .line 13

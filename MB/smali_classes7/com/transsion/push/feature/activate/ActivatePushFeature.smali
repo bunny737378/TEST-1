@@ -1692,7 +1692,7 @@
     .line 103
     .line 104
     :cond_1
-    const-string v0, "oneroom://com.community.oneroom?type=/main/tab&channel=activate_push&utm_source=activate_push"
+    const-string v0, "oneroom://wot.community.oneroom?type=/main/tab&channel=activate_push&utm_source=activate_push"
 
     .line 105
     .line 106

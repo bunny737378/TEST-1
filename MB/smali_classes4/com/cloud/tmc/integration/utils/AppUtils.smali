@@ -3225,7 +3225,7 @@
     move-result v0
 
     .line 24
-    const-string v1, "com.community.oneroom"
+    const-string v1, "wot.community.oneroom"
 
     .line 25
     .line 26
@@ -4350,7 +4350,7 @@
 
     .line 16
     :goto_0
-    const-string v1, "com.community.oneroom"
+    const-string v1, "wot.community.oneroom"
 
     .line 17
     .line 18

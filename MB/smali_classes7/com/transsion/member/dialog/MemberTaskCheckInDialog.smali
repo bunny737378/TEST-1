@@ -311,7 +311,7 @@
     .line 29
     .line 30
     .line 31
-    const-string v3, "oneroom://com.community.oneroom?type=/main/tab&tabIndex="
+    const-string v3, "oneroom://wot.community.oneroom?type=/main/tab&tabIndex="
 
     .line 32
     .line 33

@@ -2221,7 +2221,7 @@
     .line 493
     .line 494
     .line 495
-    const-string v8, "oneroom://com.community.oneroom"
+    const-string v8, "oneroom://wot.community.oneroom"
 
     .line 496
     .line 497
@@ -2495,7 +2495,7 @@
 
     .line 634
     .line 635
-    const-string v6, "oneroom://com.community.oneroom/room/list"
+    const-string v6, "oneroom://wot.community.oneroom/room/list"
 
     .line 636
     .line 637
@@ -2508,7 +2508,7 @@
 
     .line 640
     :cond_1d
-    const-string v6, "oneroom://com.community.oneroom/room/list?index=1"
+    const-string v6, "oneroom://wot.community.oneroom/room/list?index=1"
 
     .line 641
     .line 642
@@ -2713,7 +2713,7 @@
     const/4 v8, 0x0
 
     .line 744
-    const-string v9, "oneroom://com.community.oneroom/profile/setting"
+    const-string v9, "oneroom://wot.community.oneroom/profile/setting"
 
     .line 745
     .line 746
@@ -3106,7 +3106,7 @@
     const/4 v7, 0x0
 
     .line 927
-    const-string v8, "oneroom://com.community.oneroom/profile/user_center_labels_feedback"
+    const-string v8, "oneroom://wot.community.oneroom/profile/user_center_labels_feedback"
 
     .line 928
     .line 929

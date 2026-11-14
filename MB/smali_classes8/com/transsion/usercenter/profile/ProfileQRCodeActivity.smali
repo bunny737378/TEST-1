@@ -300,7 +300,7 @@
     .line 4
     .line 5
     .line 6
-    const-string v1, "oneroom://com.community.oneroom"
+    const-string v1, "oneroom://wot.community.oneroom"
 
     .line 7
     .line 8

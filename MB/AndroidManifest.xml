@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="35" android:compileSdkVersionCodename="15" package="com.community.oneroom" platformBuildVersionCode="35" platformBuildVersionName="15">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="35" android:compileSdkVersionCodename="15" package="wot.community.oneroom" platformBuildVersionCode="35" platformBuildVersionName="15">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -90,8 +90,8 @@
     <uses-permission android:name="com.android.vending.BILLING"/>
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
     <uses-feature android:glEsVersion="0x20000" android:required="true"/>
-    <permission android:name="com.community.oneroom.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
-    <uses-permission android:name="com.community.oneroom.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <permission android:name="wot.community.oneroom.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="wot.community.oneroom.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
     <meta-data android:name="tran_http_version" android:value="1.0.53.01"/>
     <meta-data android:name="tran_gslb_version" android:value="1.0.3.2"/>
@@ -124,7 +124,7 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="com.community.oneroom" android:scheme="oneroom"/>
+                <data android:host="wot.community.oneroom" android:scheme="oneroom"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -182,7 +182,7 @@
             <meta-data android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
             <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
         </service>
-        <provider android:authorities="com.community.oneroom.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+        <provider android:authorities="wot.community.oneroom.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
             <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
             <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
             <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
@@ -339,7 +339,7 @@
             </intent-filter>
         </service>
         <service android:name="com.transsnet.downloader.core.ForegroundService"/>
-        <provider android:authorities="com.community.oneroom.download.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+        <provider android:authorities="wot.community.oneroom.download.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
         </provider>
         <activity android:exported="false" android:name="com.transsion.ninegridview.preview.GifImagePreviewActivity" android:theme="@style/Theme.AppCompat.Translucent">
@@ -383,8 +383,8 @@
             </intent-filter>
             <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_adapter"/>
         </service>
-        <provider android:authorities="com.community.oneroom.storage.account.sync" android:name="com.transsion.al.ka.AccountSyncContentProvider"/>
-        <provider android:authorities="com.community.oneroom.storage.contacts.sync" android:enabled="true" android:exported="true" android:name="com.transsion.al.ka.FastCleanerProvider" android:syncable="true">
+        <provider android:authorities="wot.community.oneroom.storage.account.sync" android:name="com.transsion.al.ka.AccountSyncContentProvider"/>
+        <provider android:authorities="wot.community.oneroom.storage.contacts.sync" android:enabled="true" android:exported="true" android:name="com.transsion.al.ka.FastCleanerProvider" android:syncable="true">
             <meta-data android:name="android.content.ContactDirectory" android:value="true"/>
         </provider>
         <receiver android:exported="true" android:name="com.transsion.al.ka.BootReceiver">
@@ -430,7 +430,7 @@
         <meta-data android:name="CONFIG_DEV_MODE" android:value="false"/>
         <meta-data android:name="MINI_APP_STATIC_URL" android:value="https://api-static.byte-app.com/"/>
         <meta-data android:name="com.google.android.gms.ads.INTEGRATION_MANAGER" android:value="webview"/>
-        <activity android:documentLaunchMode="always" android:excludeFromRecents="true" android:exported="true" android:launchMode="standard" android:name="com.cloud.tmc.miniapp.ui.MiniSchemaFilterActivity" android:process=":mini" android:taskAffinity="com.community.oneroom.miniapp.ui.MiniSchemaFilterActivity" android:theme="@style/Theme.Miniapp.NoActionBar"/>
+        <activity android:documentLaunchMode="always" android:excludeFromRecents="true" android:exported="true" android:launchMode="standard" android:name="com.cloud.tmc.miniapp.ui.MiniSchemaFilterActivity" android:process=":mini" android:taskAffinity="wot.community.oneroom.miniapp.ui.MiniSchemaFilterActivity" android:theme="@style/Theme.Miniapp.NoActionBar"/>
         <activity android:exported="false" android:multiprocess="true" android:name="com.cloud.tmc.miniapp.ui.ImagePreviewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Miniapp.NoActionBar.PhotoTheme"/>
         <activity android:exported="false" android:multiprocess="true" android:name="com.cloud.tmc.miniapp.ui.ImageSelectActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Miniapp.NoActionBar.PhotoTheme"/>
         <activity android:exported="false" android:multiprocess="true" android:name="com.cloud.tmc.miniapp.ui.WebViewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Miniapp.NoActionBar"/>
@@ -439,10 +439,10 @@
         <activity android:exported="false" android:multiprocess="true" android:name="com.cloud.tmc.miniapp.ad.WebviewPersonalizationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Miniapp.NoActionBar"/>
         <activity android:name="com.cloud.tmc.miniapp.ui.AppBrandProfileActivity" android:process=":mini" android:screenOrientation="portrait" android:theme="@style/Theme.Miniapp.NoActionBar"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:launchMode="standard" android:name="com.cloud.tmc.miniapp.ui.multiprogress.MiniAppMiniProcessActivity" android:process=":mini" android:screenOrientation="portrait" android:theme="@style/Theme.Miniapp.NoActionBar" android:windowSoftInputMode="stateHidden"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:label="@string/mini_app_name" android:launchMode="singleTask" android:name="com.cloud.tmc.miniapp.ui.multiprogress.MiniSubActivity1" android:process=":mini" android:screenOrientation="portrait" android:taskAffinity="com.community.oneroom.miniapp.mini1" android:theme="@style/Theme.Miniapp.NoActionBar" android:windowSoftInputMode="stateHidden"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:label="@string/mini_app_name" android:launchMode="singleTask" android:name="com.cloud.tmc.miniapp.ui.multiprogress.MiniSubActivity2" android:process=":mini" android:screenOrientation="portrait" android:taskAffinity="com.community.oneroom.miniapp.mini2" android:theme="@style/Theme.Miniapp.NoActionBar" android:windowSoftInputMode="stateHidden"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:label="@string/mini_app_name" android:launchMode="singleTask" android:name="com.cloud.tmc.miniapp.ui.multiprogress.MiniSubActivity3" android:process=":mini" android:screenOrientation="portrait" android:taskAffinity="com.community.oneroom.miniapp.mini3" android:theme="@style/Theme.Miniapp.NoActionBar" android:windowSoftInputMode="stateHidden"/>
-        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:label="@string/mini_app_name" android:launchMode="singleTask" android:name="com.cloud.tmc.miniapp.ui.multiprogress.MiniSubActivity4" android:process=":mini" android:screenOrientation="portrait" android:taskAffinity="com.community.oneroom.miniapp.mini4" android:theme="@style/Theme.Miniapp.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:label="@string/mini_app_name" android:launchMode="singleTask" android:name="com.cloud.tmc.miniapp.ui.multiprogress.MiniSubActivity1" android:process=":mini" android:screenOrientation="portrait" android:taskAffinity="wot.community.oneroom.miniapp.mini1" android:theme="@style/Theme.Miniapp.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:label="@string/mini_app_name" android:launchMode="singleTask" android:name="com.cloud.tmc.miniapp.ui.multiprogress.MiniSubActivity2" android:process=":mini" android:screenOrientation="portrait" android:taskAffinity="wot.community.oneroom.miniapp.mini2" android:theme="@style/Theme.Miniapp.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:label="@string/mini_app_name" android:launchMode="singleTask" android:name="com.cloud.tmc.miniapp.ui.multiprogress.MiniSubActivity3" android:process=":mini" android:screenOrientation="portrait" android:taskAffinity="wot.community.oneroom.miniapp.mini3" android:theme="@style/Theme.Miniapp.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:label="@string/mini_app_name" android:launchMode="singleTask" android:name="com.cloud.tmc.miniapp.ui.multiprogress.MiniSubActivity4" android:process=":mini" android:screenOrientation="portrait" android:taskAffinity="wot.community.oneroom.miniapp.mini4" android:theme="@style/Theme.Miniapp.NoActionBar" android:windowSoftInputMode="stateHidden"/>
         <service android:exported="false" android:name="com.cloud.tmc.miniapp.ipc.multiprogress.IpcMiniProcessClientService" android:process=":mini"/>
         <service android:exported="true" android:name="com.cloud.tmc.miniapp.ipc.IpcMiniLauncherService" android:process=":mini"/>
         <service android:exported="false" android:name="com.cloud.tmc.miniapp.ipc.multiprogress.IpcMainProcessClientService"/>
@@ -466,7 +466,7 @@
         <service android:name="com.cloud.h5update.service.LocalH5UpdateJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.cloud.tmc.miniutils.util.UtilsTransActivity4MainProcess" android:theme="@style/ActivityTranslucent" android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:multiprocess="true" android:name="com.cloud.tmc.miniutils.util.UtilsTransActivity" android:theme="@style/ActivityTranslucent" android:windowSoftInputMode="stateAlwaysHidden"/>
-        <provider android:authorities="com.community.oneroom.therouter.TheRouteContentProvider" android:exported="false" android:name="com.therouter.InnerTheRouterContentProvider"/>
+        <provider android:authorities="wot.community.oneroom.therouter.TheRouteContentProvider" android:exported="false" android:name="com.therouter.InnerTheRouterContentProvider"/>
         <activity android:exported="false" android:label="@string/places_autocomplete_label" android:name="com.google.android.libraries.places.widget.AutocompleteActivity" android:theme="@style/PlacesAutocompleteOverlay" android:windowSoftInputMode="adjustResize"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.transsion.ad.test.ad_config.TestAdMccActivity"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.transsion.ad.test.ad_example.TestViewMeasureActivity"/>
@@ -501,12 +501,12 @@
         <activity android:exported="false" android:launchMode="singleTask" android:name="com.transsion.ad.bidding.splash.BiddingHisavanaSplashActivity"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.blankj.utilcode.util.UtilsTransActivity4MainProcess" android:theme="@style/ActivityTranslucent" android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:multiprocess="true" android:name="com.blankj.utilcode.util.UtilsTransActivity" android:theme="@style/ActivityTranslucent" android:windowSoftInputMode="stateAlwaysHidden"/>
-        <provider android:authorities="com.community.oneroom.utilcode.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.blankj.utilcode.util.UtilsFileProvider">
+        <provider android:authorities="wot.community.oneroom.utilcode.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.blankj.utilcode.util.UtilsFileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/util_code_provider_paths"/>
         </provider>
         <service android:exported="false" android:name="com.blankj.utilcode.util.MessengerUtils$ServerService">
             <intent-filter>
-                <action android:name="com.community.oneroom.messenger"/>
+                <action android:name="wot.community.oneroom.messenger"/>
             </intent-filter>
         </service>
         <meta-data android:name="tran_hisavana_version" android:value="3.6.3.0"/>
@@ -525,8 +525,8 @@
         <activity android:configChanges="locale|orientation|uiMode|screenSize|layoutDirection" android:exported="false" android:launchMode="singleTask" android:multiprocess="true" android:name="com.cloud.hisavana.sdk.common.activity.HisavanaInterstitialRewardedActivity" android:screenOrientation="behind" android:theme="@style/NoTranslucentStatusBar"/>
         <activity android:configChanges="locale|keyboardHidden|orientation|uiMode|screenSize|layoutDirection" android:exported="false" android:launchMode="singleTask" android:multiprocess="true" android:name="com.cloud.hisavana.sdk.common.activity.HisavanaInterstitialTemplateActivity" android:theme="@style/InterstitialStyle"/>
         <activity android:configChanges="locale|keyboardHidden|orientation|uiMode|screenSize|layoutDirection" android:exported="false" android:launchMode="singleTask" android:multiprocess="true" android:name="com.cloud.hisavana.sdk.common.activity.HisavanaRewardedTemplateActivity" android:theme="@style/NoTranslucentStatusBar"/>
-        <provider android:authorities="com.community.oneroom.HisavanaContentProvider" android:exported="false" android:name="com.cloud.hisavana.sdk.database.HisavanaContentProvider"/>
-        <provider android:authorities="com.community.oneroom.HisavanaFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.cloud.hisavana.sdk.common.HisavanaFileProvider">
+        <provider android:authorities="wot.community.oneroom.HisavanaContentProvider" android:exported="false" android:name="com.cloud.hisavana.sdk.database.HisavanaContentProvider"/>
+        <provider android:authorities="wot.community.oneroom.HisavanaFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.cloud.hisavana.sdk.common.HisavanaFileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/hisavana_provider_paths"/>
         </provider>
         <activity android:excludeFromRecents="true" android:exported="false" android:name="com.transsion.pushui.activity.TransparentActivity" android:taskAffinity="com.transsion.pushui" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
@@ -599,7 +599,7 @@
         </service>
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <provider android:authorities="com.community.oneroom.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <provider android:authorities="wot.community.oneroom.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
         <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
         <uses-library android:name="androidx.window.extensions" android:required="false"/>
         <uses-library android:name="androidx.window.sidecar" android:required="false"/>
@@ -610,7 +610,7 @@
         <service android:name="com.bytedance.sdk.openadsdk.multipro.aidl.BinderPoolService"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="standard" android:name="com.bytedance.sdk.openadsdk.activity.TTAdActivity" android:theme="@style/tt_full_screen_new"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.vungle.ads.internal.ui.VungleActivity"/>
-        <provider android:authorities="com.community.oneroom.vungle-provider" android:exported="false" android:initOrder="102" android:name="com.vungle.ads.VungleProvider"/>
+        <provider android:authorities="wot.community.oneroom.vungle-provider" android:exported="false" android:initOrder="102" android:name="com.vungle.ads.VungleProvider"/>
         <service android:exported="true" android:name="com.cloud.tmc.component_api_ps.ipc.service.MiniAppProtocolMainService"/>
         <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
             <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
@@ -652,7 +652,7 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.transsion.shorttv._channel.ui.activity.ShortTvPlayListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.transsion.shorttv._channel.ui.activity.ShortTvMovieFilterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.transsion.shorttv._channel.ui.activity.ShortTvCategoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
-        <provider android:authorities="com.community.oneroom.backgroundLibrary" android:exported="false" android:multiprocess="true" android:name="com.noober.background.BackgroundContentProvider"/>
+        <provider android:authorities="wot.community.oneroom.backgroundLibrary" android:exported="false" android:multiprocess="true" android:name="com.noober.background.BackgroundContentProvider"/>
         <service android:enabled="true" android:exported="false" android:name="com.tencent.tinker.lib.service.TinkerPatchForeService" android:process=":patch"/>
         <service android:exported="false" android:name="com.tencent.tinker.lib.service.TinkerPatchService$InnerService" android:process=":patch"/>
         <service android:exported="false" android:name="com.tencent.tinker.lib.service.DefaultTinkerResultService" android:permission="android.permission.BIND_JOB_SERVICE"/>

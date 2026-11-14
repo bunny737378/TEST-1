@@ -580,7 +580,7 @@
 
     .line 26
     .line 27
-    const-string v4, "oneroom://com.community.oneroom?type="
+    const-string v4, "oneroom://wot.community.oneroom?type="
 
     .line 28
     .line 29

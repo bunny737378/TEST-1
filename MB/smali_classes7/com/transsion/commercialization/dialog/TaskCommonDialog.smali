@@ -518,7 +518,7 @@
 
     .line 45
     .line 46
-    const-string v4, "oneroom://com.community.oneroom?type="
+    const-string v4, "oneroom://wot.community.oneroom?type="
 
     .line 47
     .line 48

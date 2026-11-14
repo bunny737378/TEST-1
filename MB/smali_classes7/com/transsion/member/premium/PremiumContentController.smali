@@ -176,7 +176,7 @@
     const/4 v1, 0x1
 
     .line 3
-    const-string v2, "oneroom://com.community.oneroom/profile/user_center_labels_feedback"
+    const-string v2, "oneroom://wot.community.oneroom/profile/user_center_labels_feedback"
 
     .line 4
     .line 5

@@ -320,7 +320,7 @@
 
     .line 15
     .line 16
-    const-string v1, "oneroom://com.community.oneroom?type=/home/playlist&category=TVSHOW&recType=OPT&label=fresh-releases-list"
+    const-string v1, "oneroom://wot.community.oneroom?type=/home/playlist&category=TVSHOW&recType=OPT&label=fresh-releases-list"
 
     .line 17
     .line 18
@@ -443,7 +443,7 @@
 
     .line 76
     :cond_0
-    const-string p0, "Invalid deeplink for oneroom://com.community.oneroom?type=/home/playlist&category=TVSHOW&recType=OPT&label=fresh-releases-list"
+    const-string p0, "Invalid deeplink for oneroom://wot.community.oneroom?type=/home/playlist&category=TVSHOW&recType=OPT&label=fresh-releases-list"
 
     .line 77
     .line 78
@@ -496,7 +496,7 @@
 
     .line 15
     .line 16
-    const-string v1, "oneroom://com.community.oneroom?type=/home/playlist&category=TVSHOW&recType=OPT&label=must-watch-list"
+    const-string v1, "oneroom://wot.community.oneroom?type=/home/playlist&category=TVSHOW&recType=OPT&label=must-watch-list"
 
     .line 17
     .line 18
@@ -619,7 +619,7 @@
 
     .line 76
     :cond_0
-    const-string p0, "Invalid deeplink for oneroom://com.community.oneroom?type=/home/playlist&category=TVSHOW&recType=OPT&label=must-watch-list"
+    const-string p0, "Invalid deeplink for oneroom://wot.community.oneroom?type=/home/playlist&category=TVSHOW&recType=OPT&label=must-watch-list"
 
     .line 77
     .line 78

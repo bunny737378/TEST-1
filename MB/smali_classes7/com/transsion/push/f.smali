@@ -647,7 +647,7 @@
 
     .line 111
     .line 112
-    const-string v4, "oneroom://com.community.oneroom?type=/main/tab"
+    const-string v4, "oneroom://wot.community.oneroom?type=/main/tab"
 
     .line 113
     .line 114
@@ -705,7 +705,7 @@
 
     .line 141
     .line 142
-    const-string v6, "oneroom://com.community.oneroom?type=/main/tab"
+    const-string v6, "oneroom://wot.community.oneroom?type=/main/tab"
 
     .line 143
     .line 144

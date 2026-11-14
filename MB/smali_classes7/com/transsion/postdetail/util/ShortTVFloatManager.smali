@@ -912,7 +912,7 @@
     .line 47
     .line 48
     .line 49
-    const-string v4, "oneroom://com.community.oneroom?type=/shorts/detail&id="
+    const-string v4, "oneroom://wot.community.oneroom?type=/shorts/detail&id="
 
     .line 50
     .line 51

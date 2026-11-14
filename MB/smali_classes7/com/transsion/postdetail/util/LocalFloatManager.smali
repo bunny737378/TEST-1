@@ -222,7 +222,7 @@
 
     .line 2
     .line 3
-    const-string v1, "oneroom://com.community.oneroom?type="
+    const-string v1, "oneroom://wot.community.oneroom?type="
 
     .line 4
     .line 5

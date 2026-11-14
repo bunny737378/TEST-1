@@ -3577,7 +3577,7 @@
 
     .line 25
     .line 26
-    const-string p1, "oneroom://com.community.oneroom?type=/main/tab"
+    const-string p1, "oneroom://wot.community.oneroom?type=/main/tab"
 
     .line 27
     .line 28
@@ -3598,7 +3598,7 @@
 
     .line 35
     :cond_1
-    const-string p1, "oneroom://com.community.oneroom?type=/profile/setting_notice"
+    const-string p1, "oneroom://wot.community.oneroom?type=/profile/setting_notice"
 
     .line 36
     .line 37
@@ -3606,7 +3606,7 @@
 
     .line 38
     :cond_2
-    const-string p1, "oneroom://com.community.oneroom?type=/rank/all"
+    const-string p1, "oneroom://wot.community.oneroom?type=/rank/all"
 
     .line 39
     .line 40
@@ -3614,7 +3614,7 @@
 
     .line 41
     :cond_3
-    const-string p1, "oneroom://com.community.oneroom?type=/search/activity/search_manager&channel=os_search&type=3"
+    const-string p1, "oneroom://wot.community.oneroom?type=/search/activity/search_manager&channel=os_search&type=3"
 
     .line 42
     .line 43

@@ -4,9 +4,9 @@
 
 
 # static fields
-.field public static final ACCOUNT_TYPE:Ljava/lang/String; = "com.community.oneroom.accounttype"
+.field public static final ACCOUNT_TYPE:Ljava/lang/String; = "wot.community.oneroom.accounttype"
 
-.field public static final AUTHORITIES:Ljava/lang/String; = "com.community.oneroom.account.sync"
+.field public static final AUTHORITIES:Ljava/lang/String; = "wot.community.oneroom.account.sync"
 
 
 # direct methods
@@ -26,7 +26,7 @@
     .locals 5
 
     .line 1
-    const-string v0, "com.community.oneroom.account.sync"
+    const-string v0, "wot.community.oneroom.account.sync"
 
     .line 2
     .line 3
@@ -71,7 +71,7 @@
     move-result-object p0
 
     .line 23
-    const-string v3, "com.community.oneroom.accounttype"
+    const-string v3, "wot.community.oneroom.accounttype"
 
     .line 24
     .line 25

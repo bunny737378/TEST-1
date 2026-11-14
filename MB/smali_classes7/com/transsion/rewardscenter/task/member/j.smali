@@ -229,7 +229,7 @@
     .line 34
     :cond_2
     :goto_1
-    const-string p1, "oneroom://com.community.oneroom?type=/commercial/gamecenter&fromTask=true"
+    const-string p1, "oneroom://wot.community.oneroom?type=/commercial/gamecenter&fromTask=true"
 
     .line 35
     .line 36

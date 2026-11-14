@@ -169,7 +169,7 @@
     .line 38
     .line 39
     .line 40
-    const-string v0, "oneroom://com.community.oneroom?type=/web/web&url="
+    const-string v0, "oneroom://wot.community.oneroom?type=/web/web&url="
 
     .line 41
     .line 42

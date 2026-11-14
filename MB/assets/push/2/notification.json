@@ -7,7 +7,7 @@
         "type":"1",
         "style":"1",
         "builtIn": "true",
-        "deeplink":"oneroom://com.community.oneroom?type=/movie/detail\u0026id=8150912640697650432\u0026channel=push\u0026msg_type=LocalPush",
+        "deeplink":"oneroom://wot.community.oneroom?type=/movie/detail\u0026id=8150912640697650432\u0026channel=push\u0026msg_type=LocalPush",
         "imageList":"push/2/image/537a7c610cf01167b23a8bb2c5cba9e9.jpeg"
     },{
         "messageId":"7228542665552712496",
@@ -17,7 +17,7 @@
         "type":"1",
         "style":"1",
         "builtIn": "true",
-        "deeplink":"oneroom://com.community.oneroom?type=/movie/detail\u0026id=3123220378504545312\u0026channel=push\u0026msg_type=LocalPush",
+        "deeplink":"oneroom://wot.community.oneroom?type=/movie/detail\u0026id=3123220378504545312\u0026channel=push\u0026msg_type=LocalPush",
         "imageList":"push/2/image/e6adb2d7f7b6420178286af905b2f1f0.jpeg"
     },{
         "messageId":"6031499958346470192",
@@ -27,7 +27,7 @@
         "type":"1",
         "style":"1",
         "builtIn": "true",
-        "deeplink":"oneroom://com.community.oneroom?type=/movie/detail\u0026id=5765161664010146848\u0026channel=push\u0026msg_type=LocalPush",
+        "deeplink":"oneroom://wot.community.oneroom?type=/movie/detail\u0026id=5765161664010146848\u0026channel=push\u0026msg_type=LocalPush",
         "imageList":"push/2/image/e1338f849885c0cd18ba3f354ab8fe99.jpeg"
     },{
         "messageId":"6675831364409249832",
@@ -37,7 +37,7 @@
         "type":"1",
         "style":"1",
         "builtIn": "true",
-        "deeplink":"oneroom://com.community.oneroom?type=/movie/detail\u0026id=585133687138833176\u0026channel=push\u0026msg_type=LocalPush",
+        "deeplink":"oneroom://wot.community.oneroom?type=/movie/detail\u0026id=585133687138833176\u0026channel=push\u0026msg_type=LocalPush",
         "imageList":"push/2/image/cbcc2d816848193ddd20011005f11859.jpeg"
     },{
         "messageId":"469220167009063728",
@@ -47,7 +47,7 @@
         "type":"1",
         "style":"1",
         "builtIn": "true",
-        "deeplink":"oneroom://com.community.oneroom?type=/movie/detail\u0026id=3977268234402808864\u0026channel=push\u0026msg_type=LocalPush",
+        "deeplink":"oneroom://wot.community.oneroom?type=/movie/detail\u0026id=3977268234402808864\u0026channel=push\u0026msg_type=LocalPush",
         "imageList":"push/2/image/71f1566689c769d7cad2dfd4922e32ef.jpeg"
     },{
         "messageId":"2047191976193184560",
@@ -57,7 +57,7 @@
         "type":"1",
         "style":"1",
         "builtIn": "true",
-        "deeplink":"oneroom://com.community.oneroom?type=/movie/detail\u0026id=3649428907490692312\u0026channel=push\u0026msg_type=LocalPush",
+        "deeplink":"oneroom://wot.community.oneroom?type=/movie/detail\u0026id=3649428907490692312\u0026channel=push\u0026msg_type=LocalPush",
         "imageList":"push/2/image/1eed0e7ed4da6d23d76e1ca1fff42821.jpeg"
     },{
         "messageId":"194805154460356648",
@@ -67,7 +67,7 @@
         "type":"1",
         "style":"1",
         "builtIn": "true",
-        "deeplink":"oneroom://com.community.oneroom?type=/movie/detail\u0026id=5080676093300986648\u0026channel=push\u0026msg_type=LocalPush",
+        "deeplink":"oneroom://wot.community.oneroom?type=/movie/detail\u0026id=5080676093300986648\u0026channel=push\u0026msg_type=LocalPush",
         "imageList":"push/2/image/b13e34b71166ada0475bc9aace2ef519.jpeg"
     },{
         "messageId":"4266006441045152560",
@@ -77,7 +77,7 @@
         "type":"1",
         "style":"1",
         "builtIn": "true",
-        "deeplink":"oneroom://com.community.oneroom?type=/movie/detail\u0026id=3600434375151735840\u0026channel=push\u0026msg_type=LocalPush",
+        "deeplink":"oneroom://wot.community.oneroom?type=/movie/detail\u0026id=3600434375151735840\u0026channel=push\u0026msg_type=LocalPush",
         "imageList":"push/2/image/a2d566f3f6044dc8d68bec4d6229a593.jpeg"
     }],
   "config": {

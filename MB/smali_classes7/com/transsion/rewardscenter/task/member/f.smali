@@ -345,7 +345,7 @@
     .line 88
     :cond_4
     :goto_2
-    const-string p1, "oneroom://com.community.oneroom?type=/main/tab&bottomTab=home&topTab=Game"
+    const-string p1, "oneroom://wot.community.oneroom?type=/main/tab&bottomTab=home&topTab=Game"
 
     .line 89
     .line 90

@@ -197,7 +197,7 @@
     .line 8
     new-instance p2, Ljava/lang/StringBuilder;
 
-    const-string v0, "oneroom://com.community.oneroom?type="
+    const-string v0, "oneroom://wot.community.oneroom?type="
 
     invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
@@ -1718,7 +1718,7 @@
 
     .line 65
     .line 66
-    const-string v0, "oneroom://com.community.oneroom?type=/movie/detail"
+    const-string v0, "oneroom://wot.community.oneroom?type=/movie/detail"
 
     .line 67
     .line 68
@@ -2003,7 +2003,7 @@
 
     .line 65
     .line 66
-    const-string v0, "oneroom://com.community.oneroom?type="
+    const-string v0, "oneroom://wot.community.oneroom?type="
 
     .line 67
     .line 68
@@ -2443,7 +2443,7 @@
 
     .line 26
     .line 27
-    const-string v4, "oneroom://com.community.oneroom?type="
+    const-string v4, "oneroom://wot.community.oneroom?type="
 
     .line 28
     .line 29

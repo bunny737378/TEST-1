@@ -344,7 +344,7 @@
 
     .line 13
     .line 14
-    const-string v3, "oneroom://com.community.oneroom?type="
+    const-string v3, "oneroom://wot.community.oneroom?type="
 
     .line 15
     .line 16

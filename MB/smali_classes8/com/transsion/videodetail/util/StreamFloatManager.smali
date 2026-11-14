@@ -369,7 +369,7 @@
 
     .line 13
     .line 14
-    const-string v3, "oneroom://com.community.oneroom?type="
+    const-string v3, "oneroom://wot.community.oneroom?type="
 
     .line 15
     .line 16
@@ -2014,7 +2014,7 @@
 
     .line 18
     .line 19
-    const-string v0, "oneroom://com.community.oneroom?type=/playvideo/detail"
+    const-string v0, "oneroom://wot.community.oneroom?type=/playvideo/detail"
 
     .line 20
     .line 21

@@ -27,7 +27,7 @@
 
     .line 7
     .line 8
-    const-string v0, "https://play.google.com/store/apps/details?id=com.community.oneroom"
+    const-string v0, "https://play.google.com/store/apps/details?id=wot.community.oneroom"
 
     .line 9
     .line 10

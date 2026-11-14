@@ -1044,7 +1044,7 @@
 
 .field public static final PACKAGE_HI_BROWSER:Ljava/lang/String; = "com.talpa.hibrowser"
 
-.field public static final PACKAGE_MOVIE_BOX_1:Ljava/lang/String; = "com.community.oneroom"
+.field public static final PACKAGE_MOVIE_BOX_1:Ljava/lang/String; = "wot.community.oneroom"
 
 .field public static final PACKAGE_MOVIE_BOX_10:Ljava/lang/String; = "com.community.mbox.ng"
 

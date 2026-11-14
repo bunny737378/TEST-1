@@ -78,7 +78,7 @@
     .line 19
     .line 20
     .line 21
-    const-string v2, "oneroom://com.community.oneroom?type=/movie/detail&id="
+    const-string v2, "oneroom://wot.community.oneroom?type=/movie/detail&id="
 
     .line 22
     .line 23

@@ -2446,7 +2446,7 @@
 
     .line 13
     .line 14
-    const-string v2, "oneroom://com.community.oneroom?type="
+    const-string v2, "oneroom://wot.community.oneroom?type="
 
     .line 15
     .line 16
