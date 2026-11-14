@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:paddingTop="40.0dp" android:paddingBottom="25.0dp" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView android:textSize="20.0sp" android:textColor="@color/white_100" android:ellipsize="end" android:gravity="start" android:id="@id/tvWorkSectionTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tv_actor_filmography" android:singleLine="true" android:textAlignment="viewStart" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/style_medium_text" />
-</androidx.constraintlayout.widget.ConstraintLayout>

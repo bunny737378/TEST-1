@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
-        <ImageView android:id="@id/errorIcon" android:layout_width="300.0dp" android:layout_height="180.0dp" android:src="?modeNetworkStateIcon" />
-        <TextView android:textSize="14.0sp" android:textColor="?modeTextTertiary" android:gravity="center" android:id="@id/errorText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/base_network_fail" android:textAlignment="center" style="@style/style_regular_text" />
-        <com.noober.background.view.BLTextView android:textSize="16.0sp" android:textColor="?modeTextSecondary" android:gravity="center" android:id="@id/retryAction" android:focusable="true" android:focusableInTouchMode="true" android:nextFocusLeft="@id/retryAction" android:nextFocusRight="@id/retryAction" android:layout_width="156.0dp" android:layout_height="44.0dp" android:layout_marginTop="12.0dp" android:text="@string/retry_text" android:contentDescription="@string/retry_text" app:bl_corners_radius="100.0dp" app:bl_selected_solid_color="?modeButtonFocusBackground" app:bl_selected_textColor="?modeTextOnFocus" app:bl_unSelected_solid_color="?modeSurfaceUnfocused" app:bl_unSelected_textColor="?modeTextSecondary" style="@style/style_medium_text" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>

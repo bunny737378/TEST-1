@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="end|center" android:orientation="horizontal" android:id="@id/ls_ll_match_calendar_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/ls_dp_24"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/ls_iv_match_calendar_selector_icon" android:layout_width="@dimen/ls_dp_20" android:layout_height="@dimen/ls_dp_20" android:src="@drawable/ls_ic_calendar" android:scaleType="centerInside" android:importantForAccessibility="no" />
-    <TextView android:textSize="@dimen/ls_text_size_12" android:textColor="@color/ls_brand_gradient_end" android:id="@id/ls_tv_match_calendar_selector_date" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:fontFamily="@font/mulish_semi_bold" android:layout_marginStart="@dimen/ls_dp_4" />
-    <ImageView android:id="@id/ls_iv_match_calendar_selector_arrow" android:visibility="gone" android:layout_width="@dimen/ls_dp_12" android:layout_height="@dimen/ls_dp_12" android:src="@drawable/ls_ic_calendar_selector_arrow" android:scaleType="centerInside" android:importantForAccessibility="no" android:layout_marginStart="@dimen/ls_dp_4" />
-</LinearLayout>

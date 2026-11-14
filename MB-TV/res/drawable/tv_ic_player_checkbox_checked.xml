@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vector android:height="16.0dp" android:width="16.0dp" android:viewportWidth="16.0" android:viewportHeight="16.0"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <path android:fillColor="@color/player_selected_text" android:pathData="M8,0C12.418,0 16,3.582 16,8C16,12.418 12.418,16 8,16C3.582,16 0,12.418 0,8C0,3.582 3.582,0 8,0Z" />
-    <path android:fillColor="@color/base_tv_dark_text" android:pathData="M6.6,11.2C6.41,11.2 6.23,11.13 6.1,11L3.9,8.82C3.64,8.56 3.64,8.14 3.9,7.88C4.16,7.62 4.58,7.62 4.84,7.88L6.6,9.64L10.96,5.28C11.22,5.02 11.64,5.02 11.9,5.28C12.16,5.54 12.16,5.96 11.9,6.22L7.1,11C6.97,11.13 6.79,11.2 6.6,11.2Z" />
-</vector>
