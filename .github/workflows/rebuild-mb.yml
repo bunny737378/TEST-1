@@ -1,0 +1,16 @@
+name: Rebuild and Sign MB
+
+on:
+  push:
+    branches:
+      - 'arena/**'
+
+permissions:
+  contents: read
+
+jobs:
+  rebuild-mb:
+    uses: ./.github/workflows/rebuild-apk.yml
+    with:
+      folder_name: MB
+    secrets: inherit
