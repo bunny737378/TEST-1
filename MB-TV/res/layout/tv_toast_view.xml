@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="#101114" android:ellipsize="end" android:gravity="center" android:id="@id/tvToastMessage" android:background="@drawable/bg_tv_toast" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:paddingStart="24.0dp" android:paddingEnd="24.0dp" android:elevation="4.0dp" app:autoSizeMaxTextSize="16.0sp" app:autoSizeMinTextSize="14.0sp" app:autoSizeStepGranularity="1.0sp" app:autoSizeTextType="uniform"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

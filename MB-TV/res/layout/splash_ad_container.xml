@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/splashAdContainer" android:background="@android:color/black" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.transsion.ad.view.native_ad.NativeWrapperAdView android:id="@id/splashNativeAdView" android:layout_width="match_parent" android:layout_height="match_parent" android:contentDescription="@string/ad_media_content" />
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="end|top" android:orientation="horizontal" android:id="@id/splashAdCountdownArea" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="24.0dp">
+        <com.tn.lib.widget.TnTextView android:textSize="18.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/splashAdCountdown" android:background="@drawable/bg_ad_close_button" android:layout_width="36.0dp" android:layout_height="36.0dp" android:contentDescription="@string/close_ad" android:textAlignment="center" style="@style/style_import_text" />
+        <com.tn.lib.widget.TnTextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/splashAdSkipHint" android:background="@drawable/bg_ad_close_button" android:paddingLeft="12.0dp" android:paddingRight="12.0dp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="36.0dp" android:layout_marginStart="12.0dp" android:paddingHorizontal="12.0dp" style="@style/style_regular_text" />
+    </LinearLayout>
+</FrameLayout>

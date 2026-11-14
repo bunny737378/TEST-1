@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="4.0dp" />
+    <gradient android:startColor="@color/tv_vip_pay_countdown_bg_start" android:endColor="@color/tv_vip_pay_countdown_bg_end" android:angle="0.0" />
+</shape>

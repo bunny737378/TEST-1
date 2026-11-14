@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:id="@id/favoriteTipRoot" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="wrap_content" android:layout_height="32.0dp" android:importantForAccessibility="noHideDescendants"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/favoriteTipArrowContainer" android:clipChildren="false" android:clipToPadding="false" android:layout_width="8.0dp" android:layout_height="20.0dp" android:importantForAccessibility="no" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/favoriteTipArrow" android:layout_width="20.0dp" android:layout_height="8.0dp" android:src="@drawable/ic_episode_tip_arrow" android:scaleType="fitCenter" android:rotation="90.0" android:importantForAccessibility="no" />
+    </FrameLayout>
+    <com.noober.background.view.BLFrameLayout android:id="@id/favoriteTipBody" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:layout_width="wrap_content" android:layout_height="32.0dp" android:minWidth="115.0dp" android:paddingStart="12.0dp" android:paddingEnd="12.0dp" app:bl_corners_radius="4.0dp" app:bl_solid_color="@color/white_100" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@id/favoriteTipArrowContainer" app:layout_constraintTop_toTopOf="parent">
+        <TextView android:textSize="14.0sp" android:textColor="@color/gray_dark_00" android:gravity="start" android:layout_gravity="start|center" android:id="@id/favoriteTipText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" android:textAlignment="viewStart" style="@style/style_medium_text" />
+    </com.noober.background.view.BLFrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
