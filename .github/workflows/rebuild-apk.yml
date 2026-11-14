@@ -53,10 +53,10 @@ jobs:
           name = os.environ['APP_FOLDER'].strip()
           if os.environ['GITHUB_EVENT_NAME'] == 'push' and not name:
               projects = [p for p in workspace.iterdir()
-                          if p.name.casefold() == 'mb' and not p.is_symlink()
+                          if p.name.casefold() == 'mb-tv' and not p.is_symlink()
                           and p.is_dir() and (p / 'apktool.yml').is_file()]
               if len(projects) != 1:
-                  raise SystemExit('Push builds require exactly one Mb/MB Apktool project.')
+                  raise SystemExit('Push builds require exactly one MB-TV Apktool project.')
               name = projects[0].name
 
           forbidden = set('/\\:*?"<>|')
