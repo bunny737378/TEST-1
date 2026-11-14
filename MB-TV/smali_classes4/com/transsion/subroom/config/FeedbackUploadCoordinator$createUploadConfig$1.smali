@@ -92,6 +92,10 @@
     .line 6
     move-result-object v0
 
+    invoke-static {v0}, Lcom/mod/VersionHelper;->updateClientInfo(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
     .line 7
     return-object v0
 .end method

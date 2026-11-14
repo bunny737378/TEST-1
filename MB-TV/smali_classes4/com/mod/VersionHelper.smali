@@ -208,6 +208,8 @@
     :entries_done
     if-eqz v2, :empty_result
 
+    invoke-static {v2, v0, v1}, Lcom/mod/VersionHelper;->writeVersionInfo(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -266,6 +268,267 @@
     const-string v0, ""
 
     return-object v0
+.end method
+
+.method public static updateClientInfo(Ljava/lang/String;)Ljava/lang/String;
+    .locals 5
+
+    if-eqz p0, :client_info_unchanged
+
+    invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :client_info_unchanged
+
+    :try_start_client_info
+    invoke-static {}, Lcom/mod/VersionHelper;->getVersionInfo()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :client_info_unchanged
+
+    new-instance v1, Lorg/json/JSONObject;
+
+    invoke-direct {v1, p0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    new-instance v2, Lorg/json/JSONObject;
+
+    invoke-direct {v2, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "package_name"
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    move-result-object v1
+
+    const-string v3, "version_name"
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    move-result-object v1
+
+    const-string v3, "version_code"
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v3
+
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    const-string v4, "version_code"
+
+    invoke-virtual {v1, v4, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object p0
+    :try_end_client_info
+    .catch Ljava/lang/Exception; {:try_start_client_info .. :try_end_client_info} :catch_client_info
+
+    :client_info_unchanged
+    return-object p0
+
+    :catch_client_info
+    move-exception v0
+
+    return-object p0
+.end method
+
+.method private static getVersionInfo()Ljava/lang/String;
+    .locals 1
+
+    invoke-static {}, Lcom/mod/VersionHelper;->readVersionInfo()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :version_info_ready
+
+    invoke-static {}, Lcom/mod/VersionHelper;->fetchAndCacheUserAgent()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/mod/VersionHelper;->cachedUserAgent:Ljava/lang/String;
+
+    :version_info_ready
+    invoke-static {}, Lcom/mod/VersionHelper;->readVersionInfo()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private static getVersionInfoFile()Ljava/io/File;
+    .locals 3
+
+    :try_start_version_file
+    invoke-static {}, Landroid/app/ActivityThread;->currentApplication()Landroid/app/Application;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/io/File;
+
+    const-string v2, "tv_app_version_v1.json"
+
+    invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    :try_end_version_file
+    .catch Ljava/lang/Exception; {:try_start_version_file .. :try_end_version_file} :catch_version_file
+
+    return-object v1
+
+    :catch_version_file
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method private static readVersionInfo()Ljava/lang/String;
+    .locals 3
+
+    :try_start_read_version
+    invoke-static {}, Lcom/mod/VersionHelper;->getVersionInfoFile()Ljava/io/File;
+
+    move-result-object v0
+
+    if-eqz v0, :version_info_empty
+
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v1
+
+    if-nez v1, :version_info_read
+
+    goto :version_info_empty
+
+    :version_info_read
+    new-instance v1, Ljava/io/BufferedReader;
+
+    new-instance v2, Ljava/io/FileReader;
+
+    invoke-direct {v2, v0}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+
+    invoke-direct {v1, v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    :version_info_read_loop
+    invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :version_info_read_done
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :version_info_read_loop
+
+    :version_info_read_done
+    invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_read_version
+    .catch Ljava/lang/Exception; {:try_start_read_version .. :try_end_read_version} :catch_read_version
+
+    return-object v0
+
+    :catch_read_version
+    :version_info_empty
+    const-string v0, ""
+
+    return-object v0
+.end method
+
+.method private static writeVersionInfo(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 4
+
+    :try_start_write_version
+    new-instance v0, Lorg/json/JSONObject;
+
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+
+    const-string v1, "package_name"
+
+    invoke-virtual {v0, v1, p0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    const-string v1, "version_name"
+
+    invoke-virtual {v0, v1, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    invoke-static {p2}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v2
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v2
+
+    const-string v1, "version_code"
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/mod/VersionHelper;->getVersionInfoFile()Ljava/io/File;
+
+    move-result-object v1
+
+    if-eqz v1, :write_version_done
+
+    new-instance v2, Ljava/io/FileWriter;
+
+    invoke-direct {v2, v1}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+
+    invoke-virtual {v2, v0}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/FileWriter;->flush()V
+
+    invoke-virtual {v2}, Ljava/io/FileWriter;->close()V
+    :try_end_write_version
+    .catch Ljava/lang/Exception; {:try_start_write_version .. :try_end_write_version} :catch_write_version
+
+    :write_version_done
+    return-void
+
+    :catch_write_version
+    move-exception v0
+
+    return-void
 .end method
 
 .method private static getCacheFile()Ljava/io/File;
