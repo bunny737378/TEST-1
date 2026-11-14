@@ -1,0 +1,14 @@
+.class abstract synthetic Lv10/e$a;
+.super Ljava/lang/Object;
+.source "source.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lv10/e;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1008
+    name = null
+.end annotation

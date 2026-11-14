@@ -1,0 +1,73 @@
+.class public final Lcom/transsion/baselib/db/AppDatabase$a1;
+.super Ly3/c;
+.source "source.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/transsion/baselib/db/AppDatabase;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 2
+
+    .line 1
+    const/16 v0, 0x3a
+
+    .line 2
+    .line 3
+    const/16 v1, 0x3b
+
+    .line 4
+    .line 5
+    invoke-direct {p0, v0, v1}, Ly3/c;-><init>(II)V
+
+    .line 6
+    .line 7
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(La4/d;)V
+    .locals 1
+
+    .line 1
+    const-string v0, "db"
+
+    .line 2
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    invoke-static {p1}, Lcom/transsion/baselib/db/migration/AppDatabaseLegacyMigrationKt;->m(La4/d;)V
+
+    .line 7
+    .line 8
+    .line 9
+    invoke-static {p1}, Lcom/transsion/baselib/db/migration/AppDatabaseLegacyMigrationKt;->h(La4/d;)V
+
+    .line 10
+    .line 11
+    .line 12
+    const-string v0, "CREATE TABLE IF NOT EXISTS playback_record_table (\n    subjectId TEXT NOT NULL,\n    ep INTEGER NOT NULL,\n    se INTEGER NOT NULL,\n    lastAdStartTimeStamp INTEGER NOT NULL DEFAULT 0,\n    lastAdEndTimeStamp INTEGER NOT NULL DEFAULT 0,\n    rewardUnlock INTEGER NOT NULL DEFAULT 0,\n    PRIMARY KEY(subjectId, ep, se)\n)"
+
+    .line 13
+    .line 14
+    invoke-interface {p1, v0}, La4/d;->E(Ljava/lang/String;)V
+
+    .line 15
+    .line 16
+    .line 17
+    return-void
+.end method

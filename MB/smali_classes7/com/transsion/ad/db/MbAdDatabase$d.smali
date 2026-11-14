@@ -1,0 +1,63 @@
+.class public final Lcom/transsion/ad/db/MbAdDatabase$d;
+.super Ly3/c;
+.source "source.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/transsion/ad/db/MbAdDatabase;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 2
+
+    .line 1
+    const/16 v0, 0xd
+
+    .line 2
+    .line 3
+    const/16 v1, 0xe
+
+    .line 4
+    .line 5
+    invoke-direct {p0, v0, v1}, Ly3/c;-><init>(II)V
+
+    .line 6
+    .line 7
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(La4/d;)V
+    .locals 1
+
+    .line 1
+    const-string v0, "db"
+
+    .line 2
+    .line 3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->h(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 4
+    .line 5
+    .line 6
+    const-string v0, "ALTER TABLE ps_link_ad ADD COLUMN isOffer INTEGER NOT NULL DEFAULT 0"
+
+    .line 7
+    .line 8
+    invoke-interface {p1, v0}, La4/d;->E(Ljava/lang/String;)V
+
+    .line 9
+    .line 10
+    .line 11
+    return-void
+.end method

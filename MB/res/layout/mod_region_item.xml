@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView android:textSize="16.0sp" android:textColor="@color/text_02" android:gravity="center" android:background="?selectableItemBackground" android:layout_width="match_parent" android:layout_height="40.0dp" android:maxLines="1" android:paddingStart="8.0dp" android:paddingEnd="8.0dp" app:autoSizeMaxTextSize="16.0sp" app:autoSizeMinTextSize="6.0sp" app:autoSizeStepGranularity="1.0sp" app:autoSizeTextType="uniform"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />
