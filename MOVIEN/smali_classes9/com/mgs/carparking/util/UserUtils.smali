@@ -468,40 +468,10 @@
 .end method
 
 .method public static final A()Z
-    .locals 3
+    .locals 1
 
-    .line 1
-    .line 2
-    .line 3
-    invoke-static {}, Lme/goldze/mvvmhabit/utils/VCUtils;->b()Landroid/content/Context;
+    const/4 v0, 0x1
 
-    .line 4
-    move-result-object v0
-
-    .line 5
-    .line 6
-    .line 7
-    invoke-static {v0}, Lme/goldze/mvvmhabit/utils/SpUtils;->i(Landroid/content/Context;)Lme/goldze/mvvmhabit/utils/SpUtils;
-
-    .line 8
-    move-result-object v0
-
-    .line 9
-    .line 10
-    const-string v1, "NETCINEVAR_KEY_PREF_FREE_AD"
-
-    .line 11
-    const/4 v2, 0x0
-
-    .line 12
-    .line 13
-    .line 14
-    invoke-virtual {v0, v1, v2}, Lme/goldze/mvvmhabit/utils/SpUtils;->a(Ljava/lang/String;Z)Z
-
-    .line 15
-    move-result v0
-
-    .line 16
     return v0
 .end method
 
@@ -3054,40 +3024,10 @@
 .end method
 
 .method public static final c0()I
-    .locals 3
+    .locals 1
 
-    .line 1
-    .line 2
-    .line 3
-    invoke-static {}, Lme/goldze/mvvmhabit/utils/VCUtils;->b()Landroid/content/Context;
+    const/4 v0, 0x1
 
-    .line 4
-    move-result-object v0
-
-    .line 5
-    .line 6
-    .line 7
-    invoke-static {v0}, Lme/goldze/mvvmhabit/utils/SpUtils;->i(Landroid/content/Context;)Lme/goldze/mvvmhabit/utils/SpUtils;
-
-    .line 8
-    move-result-object v0
-
-    .line 9
-    .line 10
-    const-string v1, "NETCINEVAR_KEY_PREF_USER_IS_SVIP"
-
-    .line 11
-    const/4 v2, 0x0
-
-    .line 12
-    .line 13
-    .line 14
-    invoke-virtual {v0, v1, v2}, Lme/goldze/mvvmhabit/utils/SpUtils;->d(Ljava/lang/String;I)I
-
-    .line 15
-    move-result v0
-
-    .line 16
     return v0
 .end method
 
@@ -3187,7 +3127,7 @@
 
     .line 11
     .line 12
-    const-string v2, ""
+    const-string v2, "Ur Senpai"
 
     .line 13
     .line 14
@@ -3272,41 +3212,10 @@
 .end method
 
 .method public static final e0()J
-    .locals 4
+    .locals 1
 
-    .line 1
-    .line 2
-    .line 3
-    invoke-static {}, Lme/goldze/mvvmhabit/utils/VCUtils;->b()Landroid/content/Context;
+    const-wide v0, 0x7fffffffffffffff
 
-    .line 4
-    move-result-object v0
-
-    .line 5
-    .line 6
-    .line 7
-    invoke-static {v0}, Lme/goldze/mvvmhabit/utils/SpUtils;->i(Landroid/content/Context;)Lme/goldze/mvvmhabit/utils/SpUtils;
-
-    .line 8
-    move-result-object v0
-
-    .line 9
-    .line 10
-    const-string v1, "NETCINEVAR_KEY_PREF_USER_VIP"
-
-    .line 11
-    .line 12
-    const-wide/16 v2, 0x0
-
-    .line 13
-    .line 14
-    .line 15
-    invoke-virtual {v0, v1, v2, v3}, Lme/goldze/mvvmhabit/utils/SpUtils;->f(Ljava/lang/String;J)J
-
-    .line 16
-    move-result-wide v0
-
-    .line 17
     return-wide v0
 .end method
 

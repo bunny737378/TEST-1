@@ -1599,71 +1599,8 @@
 .end method
 
 .method public final synthetic c0(Lcom/mgs/carparking/rxevent/ChangeNameEvent;)V
-    .locals 8
+    .locals 0
 
-    .line 1
-    .line 2
-    iget-object p1, p0, Lcom/mgs/carparking/app/BaseActivity;->e:Landroidx/databinding/ViewDataBinding;
-
-    .line 3
-    .line 4
-    check-cast p1, Lcom/mgs/carparking/databinding/ActivityMainBinding;
-
-    .line 5
-    .line 6
-    iget-object p1, p1, Lcom/mgs/carparking/databinding/ActivityMainBinding;->d:Lcom/mgs/carparking/widgets/NewTabLayout;
-
-    .line 7
-    const/4 v0, 0x3
-
-    .line 8
-    .line 9
-    .line 10
-    invoke-virtual {p1, v0}, Lcom/mgs/carparking/widgets/NewTabLayout;->a(I)Lcom/mgs/carparking/widgets/NewTabLayout$TabView;
-
-    .line 11
-    move-result-object p1
-
-    .line 12
-    .line 13
-    new-instance v7, Lcom/mgs/carparking/widgets/NewTabLayout$Tab;
-
-    .line 14
-    .line 15
-    sget v1, Lcom/mgs/carparking/R$drawable;->selector_tab_spiel:I
-
-    .line 16
-    .line 17
-    sget-object v2, Lcom/mgs/carparking/app/AppApplication;->netCineVarex_tab_name:Ljava/lang/String;
-
-    .line 18
-    .line 19
-    sget v3, Lcom/mgs/carparking/R$drawable;->selector_tab_home_color:I
-
-    .line 20
-    const/4 v4, -0x1
-
-    .line 21
-    .line 22
-    const-class v5, Lcom/mgs/carparking/ui/SpielFragment;
-
-    .line 23
-    const/4 v6, 0x3
-
-    .line 24
-    move-object v0, v7
-
-    .line 25
-    .line 26
-    .line 27
-    invoke-direct/range {v0 .. v6}, Lcom/mgs/carparking/widgets/NewTabLayout$Tab;-><init>(ILjava/lang/String;IILjava/lang/Class;I)V
-
-    .line 28
-    .line 29
-    .line 30
-    invoke-virtual {p1, v7}, Lcom/mgs/carparking/widgets/NewTabLayout$TabView;->a(Lcom/mgs/carparking/widgets/NewTabLayout$Tab;)V
-
-    .line 31
     return-void
 .end method
 
@@ -3407,41 +3344,6 @@
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 81
-    .line 82
-    new-instance v2, Lcom/mgs/carparking/widgets/NewTabLayout$Tab;
-
-    .line 83
-    .line 84
-    sget v11, Lcom/mgs/carparking/R$drawable;->selector_tab_spiel:I
-
-    .line 85
-    .line 86
-    sget-object v12, Lcom/mgs/carparking/app/AppApplication;->netCineVarex_tab_name:Ljava/lang/String;
-
-    .line 87
-    .line 88
-    sget v13, Lcom/mgs/carparking/R$drawable;->selector_tab_home_color:I
-
-    .line 89
-    .line 90
-    const-class v15, Lcom/mgs/carparking/ui/SpielFragment;
-
-    .line 91
-    .line 92
-    const/16 v16, 0x3
-
-    .line 93
-    move-object v10, v2
-
-    .line 94
-    .line 95
-    .line 96
-    invoke-direct/range {v10 .. v16}, Lcom/mgs/carparking/widgets/NewTabLayout$Tab;-><init>(ILjava/lang/String;IILjava/lang/Class;I)V
-
-    .line 97
-    .line 98
-    .line 99
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 100
     .line 101
@@ -3472,7 +3374,7 @@
     const-class v8, Lcom/mgs/carparking/ui/MineFragment;
 
     .line 114
-    const/4 v9, 0x4
+    const/4 v9, 0x3
 
     .line 115
     move-object v3, v2

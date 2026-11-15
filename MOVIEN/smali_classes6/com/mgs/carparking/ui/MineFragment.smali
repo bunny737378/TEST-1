@@ -1306,6 +1306,42 @@
 .end method
 
 .method public netCineFuninitData()V
+    .locals 4
+
+    .line 1
+    .line 2
+    invoke-super {p0}, Lme/goldze/mvvmhabit/base/BaseFragment;->netCineFuninitData()V
+
+    # Always look signed in: default avatar, "Ur Senpai", no login prompt.
+    iget-object v0, p0, Lme/goldze/mvvmhabit/base/BaseFragment;->netCineVarbinding:Landroidx/databinding/ViewDataBinding;
+
+    check-cast v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;
+
+    iget-object v1, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->g:Landroid/widget/TextView;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+
+    const-string v3, "Ur Senpai"
+
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    # Hide the VIP banner and the adult-content switch.
+    iget-object v1, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->j:Landroidx/constraintlayout/widget/ConstraintLayout;
+
+    const/16 v2, 0x8
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+
+    iget-object v0, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->d:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    return-void
+.end method
+
+.method public netCineFuninitDataNoAds()V
     .locals 3
 
     .line 1

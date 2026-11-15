@@ -12934,7 +12934,7 @@
 
     .line 297
     .line 298
-    if-nez v0, :cond_c
+    if-eqz v0, :goto_1
 
     .line 299
     .line 300
@@ -21863,7 +21863,7 @@
 
     .line 310
     .line 311
-    if-nez p1, :cond_c
+    if-eqz p1, :goto_1
 
     .line 312
     .line 313
