@@ -13,10 +13,7 @@ permissions:
 
 jobs:
   decompile:
-    if: >-
-      github.ref == 'refs/heads/arena/6e9de998-test-1' &&
-      (github.event_name == 'workflow_dispatch' ||
-       github.event.head_commit.message == 'Start MovieBox protected APK rebuild')
+    if: github.ref == 'refs/heads/arena/6e9de998-test-1'
     uses: ./.github/workflows/decompile-apk.yml
     with:
       apk_url: 'https://apk.aoneroom.com/apk/moviebox/release/4.0.04.1112.03/1637_protected_signed/moviebox-v-4.0.04.1112.03.apk'
