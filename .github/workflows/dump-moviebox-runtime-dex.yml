@@ -109,6 +109,7 @@ jobs:
           command -v avdmanager
           echo no | avdmanager create avd --force -n moviebox-runtime \
             -k 'system-images;android-30;google_apis;arm64-v8a' -d pixel_2
+          printf '\nhw.cpu.ncore=4\n' >> "$ANDROID_AVD_HOME/moviebox-runtime.avd/config.ini"
           echo 'AVD inventory:'
           avdmanager list avd
           if [[ ! -f "$ANDROID_AVD_HOME/moviebox-runtime.ini" ]]; then
@@ -120,18 +121,18 @@ jobs:
           "$ANDROID_HOME/emulator/emulator" -version 2>&1 | tee -a "$log"
           "$ANDROID_HOME/emulator/emulator" -avd moviebox-runtime -port 5554 \
             -no-window -no-audio -no-boot-anim -no-snapshot \
-            -gpu swiftshader_indirect -accel auto -wipe-data >> "$log" 2>&1 &
+            -gpu swiftshader_indirect -accel off -wipe-data >> "$log" 2>&1 &
           emulator_pid=$!
           echo "Emulator PID: $emulator_pid"
 
           serial=emulator-5554
-          if ! timeout 45s adb -s "$serial" wait-for-device; then
-            echo 'ADB did not see the emulator within 45 seconds.'
+          if ! timeout 90s adb -s "$serial" wait-for-device; then
+            echo 'ADB did not see the emulator within 90 seconds.'
             tail -n 200 "$log" || true
             exit 1
           fi
-          echo 'ADB transport connected; waiting at most 300 seconds for accelerated ARM64 Android boot.'
-          deadline=$((SECONDS + 300))
+          echo 'ADB transport connected; waiting at most 600 seconds for software ARM64 Android boot.'
+          deadline=$((SECONDS + 600))
           booted=0
           poll=0
           while (( SECONDS < deadline )); do
@@ -142,7 +143,7 @@ jobs:
             sleep 3
           done
           if [[ "$booted" != 1 ]]; then
-            echo 'Android did not report sys.boot_completed=1 before the 300-second deadline.'
+            echo 'Android did not report sys.boot_completed=1 before the 600-second deadline.'
             timeout 10s adb -s "$serial" logcat -d -t 200 || true
             tail -n 250 "$log" || true
             exit 1
