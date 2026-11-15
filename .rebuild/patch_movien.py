@@ -387,6 +387,11 @@ for rel, transform in signature_kill.targets(ROOT):
 # untouched APK shows the same value) and this instead pins AppUtils.x() to
 # that constant: the random roll then never hurts, because every digest it
 # sends is the one the server expects.
+# The publisher's certificate, read off the official 5.0.0 APK by
+# "Refresh MOVIEN from the official APK" (apksigner --print-certs on
+# moviein_sh_3000-5.0.0.apk); it is the digest AppUtils.x() used to send as
+# "vi", and the only value that would ever go here. Left empty on purpose:
+# nothing sends a digest now, so a re-signed build is accepted as it stands.
 ORIGINAL_CERT_SHA1 = ""
 if ORIGINAL_CERT_SHA1:
     APP_UTILS = signature_kill.find_one(ROOT, signature_kill.APP_UTILS)
