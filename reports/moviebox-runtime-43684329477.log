@@ -1,0 +1,314 @@
+Runtime dump started at 2026-11-15T06:12:46Z, run 43684329477.
+Runner: Darwin sjc22-be109-dcdd8a4f-d6bf-418b-9539-4a0173392026-A27EC5521C6D.local 24.6.0 Darwin Kernel Version 24.6.0: Sun Oct 11 23:44:11 PDT 2026; root:xnu-11417.140.69.713.47~2/RELEASE_ARM64_VMAPPLE arm64
+Using macOS Hypervisor.framework for emulator virtualization.
+ANDROID_HOME=/Users/runner/Library/Android/sdk
+ANDROID_AVD_HOME=/Users/runner/.android/avd
+[32m==>[0m [1mDownloading bottle manifests[0m
+✔︎ Bottle Manifest coreutils (9.12_1)
+[32m==>[0m [1mFetching downloads for: [32mcoreutils[39m[0m
+✔︎ Bottle coreutils (9.12_1)
+[34m==>[0m [1mPouring coreutils--9.12_1.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/coreutils/9.12_1: 445 files, 15.2MB
+[32m==>[0m [1mCaveats[0m
+[34m==>[0m [1mcoreutils[0m
+Commands also provided by macOS and the commands dir, dircolors, vdir have been installed with the prefix "g".
+If you need to use these commands with their normal names, you can add a "gnubin" directory to your PATH with:
+  PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+/Users/runner/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager
+yes: stdout: Broken pipe
+Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 5% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...         [==                                     ] 7% Fetch remote repository...         [==                                     ] 7% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...              [===                                    ] 10% Installing Google APIs ARM 64 v8a [===                                    ] 10% Downloading arm64-v8a-30_r16.zip..[====                                   ] 10% Downloading arm64-v8a-30_r16.zip..[====                                   ] 11% Downloading arm64-v8a-30_r16.zip..[====                                   ] 12% Downloading arm64-v8a-30_r16.zip..[=====                                  ] 13% Downloading arm64-v8a-30_r16.zip..[=====                                  ] 14% Downloading arm64-v8a-30_r16.zip..[=====                                  ] 15% Downloading arm64-v8a-30_r16.zip..[======                                 ] 15% Downloading arm64-v8a-30_r16.zip..[======                                 ] 16% Downloading arm64-v8a-30_r16.zip..[======                                 ] 17% Downloading arm64-v8a-30_r16.zip..[=======                                ] 18% Downloading arm64-v8a-30_r16.zip..[=======                                ] 19% Downloading arm64-v8a-30_r16.zip..[=======                                ] 20% Downloading arm64-v8a-30_r16.zip..[========                               ] 20% Downloading arm64-v8a-30_r16.zip..[========                               ] 21% Downloading arm64-v8a-30_r16.zip..[========                               ] 22% Downloading arm64-v8a-30_r16.zip..[=========                              ] 23% Downloading arm64-v8a-30_r16.zip..[=========                              ] 24% Downloading arm64-v8a-30_r16.zip..[=========                              ] 25% Downloading arm64-v8a-30_r16.zip..[==========                             ] 25% Downloading arm64-v8a-30_r16.zip..[==========                             ] 26% Downloading arm64-v8a-30_r16.zip..[==========                             ] 27% Downloading arm64-v8a-30_r16.zip..[===========                            ] 28% Downloading arm64-v8a-30_r16.zip..[===========                            ] 29% Downloading arm64-v8a-30_r16.zip..[===========                            ] 30% Downloading arm64-v8a-30_r16.zip..[============                           ] 30% Downloading arm64-v8a-30_r16.zip..[============                           ] 31% Downloading arm64-v8a-30_r16.zip..[============                           ] 32% Downloading arm64-v8a-30_r16.zip..[============                           ] 33% Downloading arm64-v8a-30_r16.zip..[============                           ] 33% Unzipping...                      [============                           ] 33% Unzipping... arm64-v8a/NOTICE.txt [=============                          ] 33% Unzipping... arm64-v8a/NOTICE.txt [=============                          ] 33% Unzipping... arm64-v8a/VerifiedBoo[=============                          ] 33% Unzipping... arm64-v8a/advancedFea[=============                          ] 33% Unzipping... arm64-v8a/build.prop [=============                          ] 33% Unzipping... arm64-v8a/encryptionk[=============                          ] 33% Unzipping... arm64-v8a/kernel-ranc[=============                          ] 33% Unzipping... arm64-v8a/ramdisk.img[=============                          ] 33% Unzipping... arm64-v8a/source.prop[=============                          ] 33% Unzipping... arm64-v8a/system.img [=============                          ] 34% Unzipping... arm64-v8a/system.img [=============                          ] 35% Unzipping... arm64-v8a/system.img [==============                         ] 35% Unzipping... arm64-v8a/system.img [==============                         ] 36% Unzipping... arm64-v8a/system.img [==============                         ] 37% Unzipping... arm64-v8a/system.img [===============                        ] 38% Unzipping... arm64-v8a/system.img [===============                        ] 39% Unzipping... arm64-v8a/system.img [===============                        ] 40% Unzipping... arm64-v8a/system.img [================                       ] 40% Unzipping... arm64-v8a/system.img [================                       ] 41% Unzipping... arm64-v8a/system.img [================                       ] 42% Unzipping... arm64-v8a/system.img [=================                      ] 43% Unzipping... arm64-v8a/system.img [=================                      ] 44% Unzipping... arm64-v8a/system.img [=================                      ] 45% Unzipping... arm64-v8a/system.img [==================                     ] 45% Unzipping... arm64-v8a/system.img [==================                     ] 46% Unzipping... arm64-v8a/system.img [==================                     ] 47% Unzipping... arm64-v8a/system.img [===================                    ] 48% Unzipping... arm64-v8a/system.img [===================                    ] 49% Unzipping... arm64-v8a/system.img [===================                    ] 50% Unzipping... arm64-v8a/system.img [====================                   ] 50% Unzipping... arm64-v8a/system.img [====================                   ] 51% Unzipping... arm64-v8a/system.img [====================                   ] 52% Unzipping... arm64-v8a/system.img [=====================                  ] 53% Unzipping... arm64-v8a/system.img [=====================                  ] 54% Unzipping... arm64-v8a/system.img [=====================                  ] 54% Unzipping... arm64-v8a/userdata.im[=====================                  ] 54% Unzipping... arm64-v8a/vendor.img [=====================                  ] 55% Unzipping... arm64-v8a/vendor.img [=====================                  ] 55% Unzipping... arm64-v8a/data/local.[=====================                  ] 55% Unzipping... arm64-v8a/data/misc/a[=====================                  ] 55% Unzipping... arm64-v8a/data/misc/e[=====================                  ] 55% Unzipping... arm64-v8a/data/misc/w[=====================                  ] 55% Unzipping... arm64-v8a/data/system[=======================================] 100% Unzipping... arm64-v8a/data/syste
+
+/Users/runner/Library/Android/sdk/emulator/emulator
+/Users/runner/Library/Android/sdk/cmdline-tools/latest/bin/avdmanager
+Loading local repository...                                                     [=========                              ] 25% Loading local repository...       [=========                              ] 25% Fetch remote repository...        [=======================================] 100% Fetch remote repository...       
+Auto-selecting single ABI arm64-v8a
+AVD inventory:
+Available Android Virtual Devices:
+    Name: moviebox-runtime
+  Device: pixel_2 (Google)
+    Path: /Users/runner/.android/avd/moviebox-runtime.avd
+  Target: Google APIs (Google Inc.)
+          Based on: Android 11.0 ("R") Tag/ABI: google_apis/arm64-v8a
+  Sdcard: 512 MB
+AVD created; launching emulator.
+Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+Copyright (C) 2006-2024 The Android Open Source Project and many others.
+This program is a derivative of the QEMU CPU emulator (www.qemu.org).
+
+  This software is licensed under the terms of the GNU General Public
+  License version 2, as published by the Free Software Foundation, and
+  may be copied, distributed, and modified under those terms.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+Copyright (C) 2006-2024 The Android Open Source Project and many others.
+This program is a derivative of the QEMU CPU emulator (www.qemu.org).
+
+  This software is licensed under the terms of the GNU General Public
+  License version 2, as published by the Free Software Foundation, and
+  may be copied, distributed, and modified under those terms.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+Emulator PID: 3320
+INFO         | Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /Users/runner/Library/Android/sdk/system-images/android-30/google_apis/arm64-v8a/
+* daemon not running; starting now at tcp:5037
+INFO         | Saving last run QEMU version for the AVD to 2
+WARNING      | Please update the emulator to one that supports the feature(s): Vulkan
+INFO         | Increasing RAM size to 2048MB
+##############################################################################
+##                        WARNING - ACTION REQUIRED                         ##
+##  Consider using the '-metrics-collection' flag to help improve the       ##
+##  emulator by sending anonymized usage data. Or use the '-no-metrics'     ##
+##  flag to bypass this warning and turn off the metrics collection.        ##
+##  In a future release this warning will turn into a one-time blocking     ##
+##  prompt to ask for explicit user input regarding metrics collection.     ##
+##                                                                          ##
+##  Please see '-help-metrics-collection' for more details. You can use     ##
+##  '-metrics-to-file' or '-metrics-to-console' flags to see what type of   ##
+##  data is being collected by emulator as part of usage statistics.        ##
+##############################################################################
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | emuglConfig_init: vulkan_mode_selected:swiftshader gles_mode_selected:swangle
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `moviebox-runtime` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Warning: AVD 'moviebox-runtime' will run more smoothly with 4 CPU cores (currently using 3)
+USER_WARNING | AVD 'moviebox-runtime' will run more smoothly with 4 CPU cores (currently using 3).
+* daemon started successfully
+WARNING      | FeatureControl is requesting a non existing feature.
+INFO         | Storing crashdata in: /tmp/android-runner/emu-crash-37.2.13.db, detection is enabled for process: 3320
+INFO         | Initializing gfxstream backend
+INFO         | startOpenglesRendererImpl: gpu info
+INFO         | 
+INFO         | initIcdPaths: ICD set to 'swiftshader', using Swiftshader ICD
+INFO         | Setting ICD filenames for the loader = /Users/runner/Library/Android/sdk/emulator/lib64/vulkan/vk_swiftshader_icd.json
+INFO         | SharedLibrary::open for [/Users/runner/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib]
+INFO         | Added library: /Users/runner/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib
+INFO         | Enabling Vulkan portability.
+INFO         | Selecting Vulkan device: SwiftShader Device (LLVM 10.0.0), Version: 1.3.0
+INFO         | Using Vulkan externalMemoryMode: OpaqueFd for VkEmulation
+INFO         | Format VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16 does not support YCbCr sampler conversion
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: false
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.3.0
+INFO         |     enableProtectedMemoryEmulation: false
+INFO         | Graphics Adapter Vendor Google (Google Inc. (Google))
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver-5.0.0))
+INFO         | Graphics API Version OpenGL ES 3.0 (OpenGL ES 3.1.0 (ANGLE 2.1.1 git hash: fbf66f49c7cc))
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_standard_derivatives GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_OVR_multiview2 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 GL_EXT_draw_buffers_indexed GL_EXT_clip_cull_distance 
+INFO         | Graphics Device Extensions N/A
+INFO         | Disabling sparse binding feature support
+INFO         | Userspace boot properties:
+INFO         |   android.bootanim=0
+INFO         |   android.qemud=1
+INFO         |   androidboot.boot_devices=a003600.virtio_mmio
+INFO         |   androidboot.hardware=ranchu
+INFO         |   androidboot.hardware.vulkan=ranchu
+INFO         |   androidboot.serialno=EMULATOR37X2X13X0
+INFO         |   androidboot.vbmeta.digest=15e6b2e26d1523b6c38c0a60d5ac8f8cf547364c343d16e58338814e45faa6a8
+INFO         |   androidboot.vbmeta.hash_alg=sha256
+INFO         |   androidboot.vbmeta.size=6720
+INFO         |   qemu=1
+INFO         |   qemu.avd_name=moviebox-runtime
+INFO         |   qemu.camera_hq_edge_processing=0
+INFO         |   qemu.camera_protocol_ver=1
+INFO         |   qemu.dalvik.vm.heapsize=512m
+INFO         |   qemu.encrypt=1
+INFO         |   qemu.gles=1
+INFO         |   qemu.gltransport=pipe
+INFO         |   qemu.gltransport.drawFlushInterval=800
+INFO         |   qemu.opengles.version=196609
+INFO         |   qemu.settings.system.screen_off_timeout=2147483647
+INFO         |   qemu.skin=1080x1920
+INFO         |   qemu.uirenderer=skiagl
+INFO         |   qemu.virtiowifi=1
+INFO         |   qemu.vsync=60
+HVF error: HV_UNSUPPORTED
+qemu-system-aarch64-headless: failed to initialize HVF: Invalid argument
+WARNING      | QEMU main loop exits abnormally with code 1
+INFO         | Wait for emulator (pid 3320) 10 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+INFO         | Wait for emulator (pid 3320) 20 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+INFO         | removeAll
+ADB did not see the emulator within 45 seconds.
+Runtime dump started at 2026-11-15T06:12:46Z, run 43684329477.
+Runner: Darwin sjc22-be109-dcdd8a4f-d6bf-418b-9539-4a0173392026-A27EC5521C6D.local 24.6.0 Darwin Kernel Version 24.6.0: Sun Oct 11 23:44:11 PDT 2026; root:xnu-11417.140.69.713.47~2/RELEASE_ARM64_VMAPPLE arm64
+Using macOS Hypervisor.framework for emulator virtualization.
+ANDROID_HOME=/Users/runner/Library/Android/sdk
+ANDROID_AVD_HOME=/Users/runner/.android/avd
+[32m==>[0m [1mDownloading bottle manifests[0m
+✔︎ Bottle Manifest coreutils (9.12_1)
+[32m==>[0m [1mFetching downloads for: [32mcoreutils[39m[0m
+✔︎ Bottle coreutils (9.12_1)
+[34m==>[0m [1mPouring coreutils--9.12_1.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/coreutils/9.12_1: 445 files, 15.2MB
+[32m==>[0m [1mCaveats[0m
+[34m==>[0m [1mcoreutils[0m
+Commands also provided by macOS and the commands dir, dircolors, vdir have been installed with the prefix "g".
+If you need to use these commands with their normal names, you can add a "gnubin" directory to your PATH with:
+  PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+/Users/runner/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager
+yes: stdout: Broken pipe
+Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 5% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...         [==                                     ] 7% Fetch remote repository...         [==                                     ] 7% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...              [===                                    ] 10% Installing Google APIs ARM 64 v8a [===                                    ] 10% Downloading arm64-v8a-30_r16.zip..[====                                   ] 10% Downloading arm64-v8a-30_r16.zip..[====                                   ] 11% Downloading arm64-v8a-30_r16.zip..[====                                   ] 12% Downloading arm64-v8a-30_r16.zip..[=====                                  ] 13% Downloading arm64-v8a-30_r16.zip..[=====                                  ] 14% Downloading arm64-v8a-30_r16.zip..[=====                                  ] 15% Downloading arm64-v8a-30_r16.zip..[======                                 ] 15% Downloading arm64-v8a-30_r16.zip..[======                                 ] 16% Downloading arm64-v8a-30_r16.zip..[======                                 ] 17% Downloading arm64-v8a-30_r16.zip..[=======                                ] 18% Downloading arm64-v8a-30_r16.zip..[=======                                ] 19% Downloading arm64-v8a-30_r16.zip..[=======                                ] 20% Downloading arm64-v8a-30_r16.zip..[========                               ] 20% Downloading arm64-v8a-30_r16.zip..[========                               ] 21% Downloading arm64-v8a-30_r16.zip..[========                               ] 22% Downloading arm64-v8a-30_r16.zip..[=========                              ] 23% Downloading arm64-v8a-30_r16.zip..[=========                              ] 24% Downloading arm64-v8a-30_r16.zip..[=========                              ] 25% Downloading arm64-v8a-30_r16.zip..[==========                             ] 25% Downloading arm64-v8a-30_r16.zip..[==========                             ] 26% Downloading arm64-v8a-30_r16.zip..[==========                             ] 27% Downloading arm64-v8a-30_r16.zip..[===========                            ] 28% Downloading arm64-v8a-30_r16.zip..[===========                            ] 29% Downloading arm64-v8a-30_r16.zip..[===========                            ] 30% Downloading arm64-v8a-30_r16.zip..[============                           ] 30% Downloading arm64-v8a-30_r16.zip..[============                           ] 31% Downloading arm64-v8a-30_r16.zip..[============                           ] 32% Downloading arm64-v8a-30_r16.zip..[============                           ] 33% Downloading arm64-v8a-30_r16.zip..[============                           ] 33% Unzipping...                      [============                           ] 33% Unzipping... arm64-v8a/NOTICE.txt [=============                          ] 33% Unzipping... arm64-v8a/NOTICE.txt [=============                          ] 33% Unzipping... arm64-v8a/VerifiedBoo[=============                          ] 33% Unzipping... arm64-v8a/advancedFea[=============                          ] 33% Unzipping... arm64-v8a/build.prop [=============                          ] 33% Unzipping... arm64-v8a/encryptionk[=============                          ] 33% Unzipping... arm64-v8a/kernel-ranc[=============                          ] 33% Unzipping... arm64-v8a/ramdisk.img[=============                          ] 33% Unzipping... arm64-v8a/source.prop[=============                          ] 33% Unzipping... arm64-v8a/system.img [=============                          ] 34% Unzipping... arm64-v8a/system.img [=============                          ] 35% Unzipping... arm64-v8a/system.img [==============                         ] 35% Unzipping... arm64-v8a/system.img [==============                         ] 36% Unzipping... arm64-v8a/system.img [==============                         ] 37% Unzipping... arm64-v8a/system.img [===============                        ] 38% Unzipping... arm64-v8a/system.img [===============                        ] 39% Unzipping... arm64-v8a/system.img [===============                        ] 40% Unzipping... arm64-v8a/system.img [================                       ] 40% Unzipping... arm64-v8a/system.img [================                       ] 41% Unzipping... arm64-v8a/system.img [================                       ] 42% Unzipping... arm64-v8a/system.img [=================                      ] 43% Unzipping... arm64-v8a/system.img [=================                      ] 44% Unzipping... arm64-v8a/system.img [=================                      ] 45% Unzipping... arm64-v8a/system.img [==================                     ] 45% Unzipping... arm64-v8a/system.img [==================                     ] 46% Unzipping... arm64-v8a/system.img [==================                     ] 47% Unzipping... arm64-v8a/system.img [===================                    ] 48% Unzipping... arm64-v8a/system.img [===================                    ] 49% Unzipping... arm64-v8a/system.img [===================                    ] 50% Unzipping... arm64-v8a/system.img [====================                   ] 50% Unzipping... arm64-v8a/system.img [====================                   ] 51% Unzipping... arm64-v8a/system.img [====================                   ] 52% Unzipping... arm64-v8a/system.img [=====================                  ] 53% Unzipping... arm64-v8a/system.img [=====================                  ] 54% Unzipping... arm64-v8a/system.img [=====================                  ] 54% Unzipping... arm64-v8a/userdata.im[=====================                  ] 54% Unzipping... arm64-v8a/vendor.img [=====================                  ] 55% Unzipping... arm64-v8a/vendor.img [=====================                  ] 55% Unzipping... arm64-v8a/data/local.[=====================                  ] 55% Unzipping... arm64-v8a/data/misc/a[=====================                  ] 55% Unzipping... arm64-v8a/data/misc/e[=====================                  ] 55% Unzipping... arm64-v8a/data/misc/w[=====================                  ] 55% Unzipping... arm64-v8a/data/system[=======================================] 100% Unzipping... arm64-v8a/data/syste
+
+/Users/runner/Library/Android/sdk/emulator/emulator
+/Users/runner/Library/Android/sdk/cmdline-tools/latest/bin/avdmanager
+Loading local repository...                                                     [=========                              ] 25% Loading local repository...       [=========                              ] 25% Fetch remote repository...        [=======================================] 100% Fetch remote repository...       
+Auto-selecting single ABI arm64-v8a
+AVD inventory:
+Available Android Virtual Devices:
+    Name: moviebox-runtime
+  Device: pixel_2 (Google)
+    Path: /Users/runner/.android/avd/moviebox-runtime.avd
+  Target: Google APIs (Google Inc.)
+          Based on: Android 11.0 ("R") Tag/ABI: google_apis/arm64-v8a
+  Sdcard: 512 MB
+AVD created; launching emulator.
+Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+Copyright (C) 2006-2024 The Android Open Source Project and many others.
+This program is a derivative of the QEMU CPU emulator (www.qemu.org).
+
+  This software is licensed under the terms of the GNU General Public
+  License version 2, as published by the Free Software Foundation, and
+  may be copied, distributed, and modified under those terms.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+Copyright (C) 2006-2024 The Android Open Source Project and many others.
+This program is a derivative of the QEMU CPU emulator (www.qemu.org).
+
+  This software is licensed under the terms of the GNU General Public
+  License version 2, as published by the Free Software Foundation, and
+  may be copied, distributed, and modified under those terms.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+Emulator PID: 3320
+INFO         | Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /Users/runner/Library/Android/sdk/system-images/android-30/google_apis/arm64-v8a/
+* daemon not running; starting now at tcp:5037
+INFO         | Saving last run QEMU version for the AVD to 2
+WARNING      | Please update the emulator to one that supports the feature(s): Vulkan
+INFO         | Increasing RAM size to 2048MB
+##############################################################################
+##                        WARNING - ACTION REQUIRED                         ##
+##  Consider using the '-metrics-collection' flag to help improve the       ##
+##  emulator by sending anonymized usage data. Or use the '-no-metrics'     ##
+##  flag to bypass this warning and turn off the metrics collection.        ##
+##  In a future release this warning will turn into a one-time blocking     ##
+##  prompt to ask for explicit user input regarding metrics collection.     ##
+##                                                                          ##
+##  Please see '-help-metrics-collection' for more details. You can use     ##
+##  '-metrics-to-file' or '-metrics-to-console' flags to see what type of   ##
+##  data is being collected by emulator as part of usage statistics.        ##
+##############################################################################
+INFO         | Guest GLES Driver: Auto (ext controls)
+INFO         | emuglConfig_init: vulkan_mode_selected:swiftshader gles_mode_selected:swangle
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `moviebox-runtime` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU compatibility checks are not required
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Warning: AVD 'moviebox-runtime' will run more smoothly with 4 CPU cores (currently using 3)
+USER_WARNING | AVD 'moviebox-runtime' will run more smoothly with 4 CPU cores (currently using 3).
+* daemon started successfully
+WARNING      | FeatureControl is requesting a non existing feature.
+INFO         | Storing crashdata in: /tmp/android-runner/emu-crash-37.2.13.db, detection is enabled for process: 3320
+INFO         | Initializing gfxstream backend
+INFO         | startOpenglesRendererImpl: gpu info
+INFO         | 
+INFO         | initIcdPaths: ICD set to 'swiftshader', using Swiftshader ICD
+INFO         | Setting ICD filenames for the loader = /Users/runner/Library/Android/sdk/emulator/lib64/vulkan/vk_swiftshader_icd.json
+INFO         | SharedLibrary::open for [/Users/runner/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib]
+INFO         | Added library: /Users/runner/Library/Android/sdk/emulator/qemu/darwin-aarch64/lib64/vulkan/libvulkan.dylib
+INFO         | Enabling Vulkan portability.
+INFO         | Selecting Vulkan device: SwiftShader Device (LLVM 10.0.0), Version: 1.3.0
+INFO         | Using Vulkan externalMemoryMode: OpaqueFd for VkEmulation
+INFO         | Format VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16 does not support YCbCr sampler conversion
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: false
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.3.0
+INFO         |     enableProtectedMemoryEmulation: false
+INFO         | Graphics Adapter Vendor Google (Google Inc. (Google))
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver-5.0.0))
+INFO         | Graphics API Version OpenGL ES 3.0 (OpenGL ES 3.1.0 (ANGLE 2.1.1 git hash: fbf66f49c7cc))
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_standard_derivatives GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_OVR_multiview2 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 GL_EXT_draw_buffers_indexed GL_EXT_clip_cull_distance 
+INFO         | Graphics Device Extensions N/A
+INFO         | Disabling sparse binding feature support
+INFO         | Userspace boot properties:
+INFO         |   android.bootanim=0
+INFO         |   android.qemud=1
+INFO         |   androidboot.boot_devices=a003600.virtio_mmio
+INFO         |   androidboot.hardware=ranchu
+INFO         |   androidboot.hardware.vulkan=ranchu
+INFO         |   androidboot.serialno=EMULATOR37X2X13X0
+INFO         |   androidboot.vbmeta.digest=15e6b2e26d1523b6c38c0a60d5ac8f8cf547364c343d16e58338814e45faa6a8
+INFO         |   androidboot.vbmeta.hash_alg=sha256
+INFO         |   androidboot.vbmeta.size=6720
+INFO         |   qemu=1
+INFO         |   qemu.avd_name=moviebox-runtime
+INFO         |   qemu.camera_hq_edge_processing=0
+INFO         |   qemu.camera_protocol_ver=1
+INFO         |   qemu.dalvik.vm.heapsize=512m
+INFO         |   qemu.encrypt=1
+INFO         |   qemu.gles=1
+INFO         |   qemu.gltransport=pipe
+INFO         |   qemu.gltransport.drawFlushInterval=800
+INFO         |   qemu.opengles.version=196609
+INFO         |   qemu.settings.system.screen_off_timeout=2147483647
+INFO         |   qemu.skin=1080x1920
+INFO         |   qemu.uirenderer=skiagl
+INFO         |   qemu.virtiowifi=1
+INFO         |   qemu.vsync=60
+HVF error: HV_UNSUPPORTED
+qemu-system-aarch64-headless: failed to initialize HVF: Invalid argument
+WARNING      | QEMU main loop exits abnormally with code 1
+INFO         | Wait for emulator (pid 3320) 10 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+INFO         | Wait for emulator (pid 3320) 20 seconds to shutdown gracefully before kill;you can set environment variable ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL(in seconds) to change the default value (20 seconds)
+
+INFO         | removeAll
+ADB did not see the emulator within 45 seconds.
