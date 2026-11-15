@@ -1306,13 +1306,12 @@
 .end method
 
 .method public netCineFuninitData()V
-    .locals 4
+    .locals 6
 
-    .line 1
-    .line 2
     invoke-super {p0}, Lme/goldze/mvvmhabit/base/BaseFragment;->netCineFuninitData()V
 
-    # Always look signed in: default avatar, "Ur Senpai", no login prompt.
+    # Always look signed in: the name is white and fixed, the avatar and the
+    # Telegram badge come off Glide, which caches both after the first load.
     iget-object v0, p0, Lme/goldze/mvvmhabit/base/BaseFragment;->netCineVarbinding:Landroidx/databinding/ViewDataBinding;
 
     check-cast v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;
@@ -1323,20 +1322,77 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
+    const v2, -0x1
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextColor(I)V
+
     const-string v3, "Ur Senpai"
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    # Hide the VIP banner and the adult-content switch.
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
+
+    move-result-object v5
+
+    iget-object v1, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->a:Lcom/mgs/carparking/widgets/NewCircularImageView;
+
+    check-cast v1, Landroid/widget/ImageView;
+
+    const-string v3, "https://i.scdn.co/image/ab67616d00001e02c41b618be91581bb4d204ae1"
+
+    invoke-virtual {v5, v3}, Lcom/bumptech/glide/RequestManager;->load(Ljava/lang/Object;)Lcom/bumptech/glide/RequestBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Lcom/bumptech/glide/RequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/ViewTarget;
+
+    # The badge is found by tag, not by id: adding a resource id would renumber
+    # the whole table and break every compiled R$* constant in the app.
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getView()Landroid/view/View;
+
+    move-result-object v1
+
+    const-string v3, "tgbadge"
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_badge
+
+    check-cast v1, Landroid/widget/ImageView;
+
+    new-instance v3, Lcom/mgs/carparking/widgets/TelegramClick;
+
+    invoke-direct {v3}, Lcom/mgs/carparking/widgets/TelegramClick;-><init>()V
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    invoke-static {v4}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
+
+    move-result-object v3
+
+    const-string v5, "https://img.icons8.com/?size=96&id=oWiuH0jFiU0R&format=png"
+
+    invoke-virtual {v3, v5}, Lcom/bumptech/glide/RequestManager;->load(Ljava/lang/Object;)Lcom/bumptech/glide/RequestBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Lcom/bumptech/glide/RequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/ViewTarget;
+
+    :cond_badge
+    # The 18+ switch stays exactly as shipped: every catalogue entry is
+    # reachable, and the user can still toggle the adult filter themselves.
+    # Only the VIP banner is hidden (it offers a subscription nobody needs).
     iget-object v1, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->j:Landroidx/constraintlayout/widget/ConstraintLayout;
 
     const/16 v2, 0x8
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
-
-    iget-object v0, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->d:Landroid/widget/RelativeLayout;
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     return-void
 .end method

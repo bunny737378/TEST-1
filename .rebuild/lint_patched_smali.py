@@ -28,6 +28,10 @@ TARGETS = [
     "smali*/com/mgs/carparking/ui/MainActivity.smali",
     "smali*/com/mgs/carparking/ui/VideoPlayDetailActivity.smali",
     "smali*/chuangyuan/ycj/videolibrary/widget/ActionControlView.smali",
+    "smali*/com/mgs/carparking/ui/SplashActivity$1.smali",
+    "smali*/com/mgs/carparking/ui/SplashImp.smali",
+    "smali*/com/mgs/carparking/ui/UpdateUtil.smali",
+    "smali*/com/mgs/carparking/widgets/TelegramClick.smali",
     "smali*/com/wangxiong/sdk/view/*.smali",
     "res/layout/fragment_mine.xml",
 ]

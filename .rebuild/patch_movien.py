@@ -11,8 +11,15 @@ any file is written, and every edit is applied to an in-memory copy first.
                 trial UI is hidden, so every title plays without a paywall.
   3. Profile    The Me tab always looks signed in: avatar + "Ur Senpai".
   4. Promotion  The Promotion tab is removed from the bottom bar (4 tabs).
-  5. Me page    Network Test, Feedback, Official customer service, Adult
-                content and the VIP banner are hidden.
+  5. Me page    Network Test, Feedback, Official customer service and the
+                VIP banner are hidden; the 18+ switch is left as shipped, so
+                every catalogue entry stays reachable.
+  6. Contact    Avatar and a Telegram badge in the Me header (Glide, cached
+                after the first load); the badge opens @iswasteoftime.
+  7. Splash     Straight to the home page, no ad-config round trip.
+  8. Update     The update request and its dialog are gone.
+  9. Detail     The player sits below the status bar; feedback and share are
+                removed next to Download.
 
 The APK signing certificate is not touched here: MOVIEN/ is decompiled from a
 build that already carries ru.maximoff.signature.HookApplication, which answers
@@ -282,24 +289,66 @@ mine_old = (
     "    invoke-static {}, Lcom/mgs/carparking/util/UserUtils;->L()Ljava/lang/String;\n")
 mine_new = (
     ".method public netCineFuninitData()V\n"
-    "    .locals 4\n\n"
-    "    .line 1\n"
-    "    .line 2\n"
+    "    .locals 6\n\n"
     "    invoke-super {p0}, Lme/goldze/mvvmhabit/base/BaseFragment;->netCineFuninitData()V\n\n"
-    "    # Always look signed in: default avatar, \"Ur Senpai\", no login prompt.\n"
-    "    iget-object v0, p0, Lme/goldze/mvvmhabit/base/BaseFragment;->netCineVarbinding:Landroidx/databinding/ViewDataBinding;\n\n"
+    "    # Always look signed in: the name is white and fixed, the avatar and the\n"
+    "    # Telegram badge come off Glide, which caches both after the first load.\n"
+    "    iget-object v0, p0, Lme/goldze/mvvmhabit/base/BaseFragment;->netCineVarbinding:"
+    "Landroidx/databinding/ViewDataBinding;\n\n"
     "    check-cast v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;\n\n"
-    "    iget-object v1, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->g:Landroid/widget/TextView;\n\n"
+    "    iget-object v1, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;"
+    "->g:Landroid/widget/TextView;\n\n"
     "    const/4 v2, 0x0\n\n"
     "    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V\n\n"
-    "    const-string v3, \"Ur Senpai\"\n\n"
+    "    const v2, -0x1\n\n"
+    "    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextColor(I)V\n\n"
+    '    const-string v3, "Ur Senpai"\n\n'
     "    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V\n\n"
-    "    # Hide the VIP banner and the adult-content switch.\n"
-    "    iget-object v1, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->j:Landroidx/constraintlayout/widget/ConstraintLayout;\n\n"
+    "    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()"
+    "Landroid/content/Context;\n\n"
+    "    move-result-object v4\n\n"
+    "    invoke-static {v4}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)"
+    "Lcom/bumptech/glide/RequestManager;\n\n"
+    "    move-result-object v5\n\n"
+    "    iget-object v1, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;"
+    "->a:Lcom/mgs/carparking/widgets/NewCircularImageView;\n\n"
+    "    check-cast v1, Landroid/widget/ImageView;\n\n"
+    '    const-string v3, "https://i.scdn.co/image/ab67616d00001e02c41b618be91581bb4d204ae1"\n\n'
+    "    invoke-virtual {v5, v3}, Lcom/bumptech/glide/RequestManager;->load(Ljava/lang/Object;)"
+    "Lcom/bumptech/glide/RequestBuilder;\n\n"
+    "    move-result-object v3\n\n"
+    "    invoke-virtual {v3, v1}, Lcom/bumptech/glide/RequestBuilder;->into(Landroid/widget/ImageView;)"
+    "Lcom/bumptech/glide/request/target/ViewTarget;\n\n"
+    "    # The badge is found by tag, not by id: adding a resource id would renumber\n"
+    "    # the whole table and break every compiled R$* constant in the app.\n"
+    "    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getView()Landroid/view/View;\n\n"
+    "    move-result-object v1\n\n"
+    '    const-string v3, "tgbadge"\n\n'
+    "    invoke-virtual {v1, v3}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)"
+    "Landroid/view/View;\n\n"
+    "    move-result-object v1\n\n"
+    "    if-eqz v1, :cond_badge\n\n"
+    "    check-cast v1, Landroid/widget/ImageView;\n\n"
+    "    new-instance v3, Lcom/mgs/carparking/widgets/TelegramClick;\n\n"
+    "    invoke-direct {v3}, Lcom/mgs/carparking/widgets/TelegramClick;-><init>()V\n\n"
+    "    invoke-virtual {v1, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V\n\n"
+    "    invoke-static {v4}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)"
+    "Lcom/bumptech/glide/RequestManager;\n\n"
+    "    move-result-object v3\n\n"
+    '    const-string v5, "https://img.icons8.com/?size=96&id=oWiuH0jFiU0R&format=png"\n\n'
+    "    invoke-virtual {v3, v5}, Lcom/bumptech/glide/RequestManager;->load(Ljava/lang/Object;)"
+    "Lcom/bumptech/glide/RequestBuilder;\n\n"
+    "    move-result-object v3\n\n"
+    "    invoke-virtual {v3, v1}, Lcom/bumptech/glide/RequestBuilder;->into(Landroid/widget/ImageView;)"
+    "Lcom/bumptech/glide/request/target/ViewTarget;\n\n"
+    "    :cond_badge\n"
+    "    # The 18+ switch stays exactly as shipped: every catalogue entry is\n"
+    "    # reachable, and the user can still toggle the adult filter themselves.\n"
+    "    # Only the VIP banner is hidden (it offers a subscription nobody needs).\n"
+    "    iget-object v1, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;"
+    "->j:Landroidx/constraintlayout/widget/ConstraintLayout;\n\n"
     "    const/16 v2, 0x8\n\n"
     "    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V\n\n"
-    "    iget-object v0, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->d:Landroid/widget/RelativeLayout;\n\n"
-    "    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V\n\n"
     "    return-void\n.end method\n\n"
     ".method public netCineFuninitDataNoAds()V\n"
     "    .locals 3\n\n"
@@ -364,6 +413,139 @@ if c0_stub not in text:
         raise SystemExit("MainActivity.c0(ChangeNameEvent) not found")
     end = text.find(".end method", start) + len(".end method")
     put(MAIN_ACTIVITY, text[:start] + c0_stub + text[end:])
+
+# ===================================================== 6. Telegram contact row ==
+# A generated class, not a generated resource: a new smali file costs the
+# resource table nothing, while a new drawable or id would renumber it and
+# break every compiled R$* constant in the app. The badge tries the Telegram
+# app first (tg://resolve) and falls back to the browser on https://t.me, so it
+# works whether or not Telegram is installed.
+TELEGRAM_HELPER = "smali_classes3/com/mgs/carparking/widgets/TelegramClick.smali"
+TELEGRAM_TEMPLATE = Path(__file__).resolve().parent / "TelegramClick.smali"
+
+
+def write_generated(rel: str, content: str) -> None:
+    """Create or refresh a generated source file; never edits an app file."""
+    path = ROOT / rel
+    if path.exists() and path.read_text(encoding="utf-8") == content:
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding="utf-8")
+    changed.append(rel)
+
+
+write_generated(TELEGRAM_HELPER, TELEGRAM_TEMPLATE.read_text(encoding="utf-8"))
+
+# The badge view itself, in the profile row to the right of "Ur Senpai". It is
+# found at runtime by tag for the same reason: no new id, no renumbering.
+MINE_LAYOUT = "res/layout/fragment_mine.xml"
+BADGE = ('<ImageView android:tag="tgbadge" android:layout_width="26.0dp" '
+         'android:layout_height="26.0dp" android:layout_marginEnd="15.0dp" '
+         'android:scaleType="fitCenter" android:clickable="true" '
+         'android:focusable="true" app:layout_constraintBottom_toBottomOf="parent" '
+         'app:layout_constraintEnd_toEndOf="parent" '
+         'app:layout_constraintTop_toTopOf="parent" />')
+mine_layout = load(MINE_LAYOUT)
+if 'android:tag="tgbadge"' not in mine_layout:
+    anchor = mine_layout.index('android:tag="binding_2"')
+    insert_at = mine_layout.index("/>", anchor) + 2
+    put(MINE_LAYOUT, mine_layout[:insert_at] + "\n                " + BADGE
+        + mine_layout[insert_at:])
+
+
+def stub_noop(rel: str, header: str, label: str) -> None:
+    """Replace a void method with an empty body, found by its exact header."""
+    text = load(rel)
+    if text.count(header + "\n") != 1:
+        raise SystemExit(f"{label}: expected 1 declaration of {header}, got "
+                         f'{text.count(header + chr(10))}')
+    start = text.index(header + "\n")
+    end = text.find(".end method", start) + len(".end method")
+    stub = header + "\n    .locals 0\n\n    return-void\n.end method"
+    if text[start:end] == stub:
+        return
+    put(rel, text[:start] + stub + text[end:])
+
+
+def hide_by_id(rel: str, elem_id: str, label: str) -> None:
+    """Set visibility=gone on the element carrying @id/<elem_id>."""
+    text = load(rel)
+    needle = f'android:id="@id/{elem_id}"'
+    if needle not in text:
+        raise SystemExit(f"{label}: {needle} not found in {rel}")
+    start = text.rfind("<", 0, text.index(needle))
+    end = text.index(">", start)
+    tag = text[start:end]
+    if 'android:visibility="gone"' in tag:
+        return
+    if "android:visibility=" in tag:
+        new_tag = re.sub(r'android:visibility="[^"]*"',
+                         'android:visibility="gone"', tag, count=1)
+    else:
+        new_tag = tag.replace(needle, needle + ' android:visibility="gone"', 1)
+    put(rel, text[:start] + new_tag + text[end:])
+
+
+def hide_row(rel: str, text_attr: str, label: str) -> None:
+    """Set visibility=gone on the RelativeLayout row carrying a label."""
+    text = load(rel)
+    needle = f'android:text="{text_attr}"'
+    if needle not in text:
+        raise SystemExit(f"{label}: {needle} not found in {rel}")
+    start = text.rfind("<RelativeLayout", 0, text.index(needle))
+    end = text.index(">", start)
+    if "android:visibility" in text[start:end]:
+        return
+    put(rel, text[:end] + ' android:visibility="gone"' + text[end:])
+
+
+# ================================================================== 7. splash ==
+# The splash screen waited on the splash-ad config - a network round trip that
+# no longer decides anything, since ads are gone. Its clipboard-invite handler
+# still runs 30 ms after onCreate, so the jump to the home page is appended
+# there and the ad fetch that used to gate it is emptied. MainActivity is
+# singleTask, so no second copy can stack up behind it.
+SPLASH_RUN = find_one("smali*/com/mgs/carparking/ui/SplashActivity$1.smali")
+SPLASH_IMP = find_one("smali*/com/mgs/carparking/ui/SplashImp.smali")
+replace_once(
+    SPLASH_RUN,
+    "    :goto_0\n    return-void\n.end method",
+    "    :goto_0\n"
+    "    iget-object v0, p0, Lcom/mgs/carparking/ui/SplashActivity$1;"
+    "->a:Lcom/mgs/carparking/ui/SplashActivity;\n\n"
+    "    invoke-static {v0}, Lcom/mgs/carparking/util/JumpActUtils;"
+    "->a(Landroid/app/Activity;)V\n\n"
+    "    invoke-virtual {v0}, Landroid/app/Activity;->finish()V\n\n"
+    "    return-void\n.end method",
+    "splash jump to home")
+stub_noop(SPLASH_IMP, ".method public d()V", "splash ad-config fetch")
+
+# ==================================================== 8. update check / popup ==
+# UpdateUtil.I(...) is the only entry point: MainActivity calls it on launch
+# and SettingActivity calls it for the manual check. Stubbing it removes the
+# request, the dialog and the forced-update wall at once; the settings row that
+# would now do nothing is hidden as well.
+UPDATE_UTIL = find_one("smali*/com/mgs/carparking/ui/UpdateUtil.smali")
+SETTING_LAYOUT = "res/layout/activity_setting.xml"
+stub_noop(UPDATE_UTIL,
+          ".method public I(Landroid/content/Context;Landroid/app/Activity;Z)V",
+          "update check")
+hide_row(SETTING_LAYOUT, "@string/text_mine_update", "settings update row")
+
+# ======================================== 9. detail page: insets and shortcuts ==
+# The detail window draws edge to edge, so the player sat under the status bar.
+# fitsSystemWindows follows the real insets: the page moves below the bar in
+# portrait and back to a full bleed when the player hides the bars for
+# fullscreen. Feedback and share next to Download are removed; Download stays.
+DETAIL_LAYOUT = "res/layout/activity_video_play_detail.xml"
+detail = load(DETAIL_LAYOUT)
+root_start = detail.index("<RelativeLayout")
+root_end = detail.index(">", root_start)
+if "android:fitsSystemWindows" not in detail[root_start:root_end]:
+    put(DETAIL_LAYOUT, detail[:root_end] + ' android:fitsSystemWindows="true"'
+        + detail[root_end:])
+for elem_id in ("iv_share", "iv_feedback"):
+    hide_by_id(DETAIL_LAYOUT, elem_id, "detail " + elem_id)
 
 # ==================================================================== apply ==
 if "--print-targets" in sys.argv:

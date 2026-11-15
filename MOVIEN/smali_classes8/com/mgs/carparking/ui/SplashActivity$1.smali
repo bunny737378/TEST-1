@@ -178,5 +178,11 @@
 
     .line 67
     :goto_0
+    iget-object v0, p0, Lcom/mgs/carparking/ui/SplashActivity$1;->a:Lcom/mgs/carparking/ui/SplashActivity;
+
+    invoke-static {v0}, Lcom/mgs/carparking/util/JumpActUtils;->a(Landroid/app/Activity;)V
+
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+
     return-void
 .end method
