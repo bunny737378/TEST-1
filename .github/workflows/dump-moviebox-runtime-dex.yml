@@ -104,11 +104,11 @@ jobs:
             sudo apt-get install -y libpulse0
           fi
           timeout 600s sdkmanager --install \
-            'platform-tools' 'emulator' 'system-images;android-30;google_atd;x86_64'
+            'platform-tools' 'emulator' 'system-images;android-30;google_apis;arm64-v8a'
           command -v emulator
           command -v avdmanager
           echo no | avdmanager create avd --force -n moviebox-runtime \
-            -k 'system-images;android-30;google_atd;x86_64' -d pixel_2
+            -k 'system-images;android-30;google_apis;arm64-v8a' -d pixel_2
           echo 'AVD inventory:'
           avdmanager list avd
           if [[ ! -f "$ANDROID_AVD_HOME/moviebox-runtime.ini" ]]; then
@@ -130,7 +130,7 @@ jobs:
             tail -n 200 "$log" || true
             exit 1
           fi
-          echo 'ADB transport connected; waiting at most 300 seconds for accelerated x86_64 Android boot.'
+          echo 'ADB transport connected; waiting at most 300 seconds for accelerated ARM64 Android boot.'
           deadline=$((SECONDS + 300))
           booted=0
           poll=0
@@ -155,7 +155,7 @@ jobs:
           echo "Fetching matching Frida server ${frida_version}."
           curl --fail --location --retry 2 --silent --show-error \
             --connect-timeout 20 --max-time 180 \
-            "https://github.com/frida/frida/releases/download/${frida_version}/frida-server-${frida_version}-android-x86_64.xz" \
+            "https://github.com/frida/frida/releases/download/${frida_version}/frida-server-${frida_version}-android-arm64.xz" \
             --output "$server"
           xz --decompress --force "$server"
           timeout 60s adb -s "$serial" push "$RUNNER_TEMP/frida-server" /data/local/tmp/frida-server
