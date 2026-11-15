@@ -134,6 +134,18 @@ jobs:
           fi
           echo "BUILD_TOOLS=$build_tools" >> "$GITHUB_ENV"
 
+      - name: Lint the patched smali
+        if: hashFiles('.rebuild/lint_patched_smali.py') != ''
+        run: |
+          set -euo pipefail
+          # Apktool happily builds smali that the device verifier rejects at
+          # class load (it crashed MOVIEN.e0() with a wide register overflow),
+          # so check the patched files before spending time on a build.
+          if ! python3 .rebuild/lint_patched_smali.py; then
+            echo '::error::Patched smali failed the register/structure lint.'
+            exit 1
+          fi
+
       - name: Rebuild the APK
         env:
           APP_FOLDER: ${{ steps.folder.outputs.name }}

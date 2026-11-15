@@ -3212,7 +3212,7 @@
 .end method
 
 .method public static final e0()J
-    .locals 1
+    .locals 2
 
     const-wide/32 v0, 0x7fffffff
 

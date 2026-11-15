@@ -95,8 +95,11 @@ def force_getter(rel: str, method: str, kind: str, value: str,
                 f"    return-wide {return_reg}")
     else:
         body = f"    const/4 {return_reg}, {value}\n\n    return {return_reg}"
+    # A wide return needs two registers (v0 + v1); declaring only one is a
+    # VerifyError at class load time.
+    locals_count = "2" if kind == "J" else "1"
     replacement = (f".method public static final {method}(){kind}\n"
-                   f"    .locals 1\n\n{body}\n.end method")
+                   f"    .locals {locals_count}\n\n{body}\n.end method")
     if replacement in text:
         return  # already patched
     new, hits = pattern.subn(replacement, text, count=1)
