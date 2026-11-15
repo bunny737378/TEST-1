@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   dump:
@@ -17,6 +17,11 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
+      - name: Check out the current branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
@@ -56,6 +61,8 @@ jobs:
         run: python3 -m pip install --disable-pip-version-check frida-tools frida-dexdump
 
       - name: Boot emulator and dump loaded DEX
+        id: runtime_dump
+        continue-on-error: true
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
           api-level: 30
@@ -65,10 +72,14 @@ jobs:
           emulator-boot-timeout: 240
           emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect
           disable-animations: true
+          pre-emulator-launch-script: |
+            mkdir -p "$RUNNER_TEMP"
+            echo "AVD setup started for run $GITHUB_RUN_ID at $(date -u +%FT%TZ)" \
+              | tee -a "$RUNNER_TEMP/moviebox-runtime.log"
           script: |
-            set -euo pipefail
-            set -x
-            echo 'Starting bounded Android emulator checks.'
+            exec > >(tee -a "$RUNNER_TEMP/moviebox-runtime.log") 2>&1
+            set -euxo pipefail
+            echo "Emulator script started at $(date -u +%FT%TZ)."
             timeout 90s adb root
             timeout 90s adb wait-for-device
 
@@ -80,7 +91,7 @@ jobs:
               sleep 2
             done
             if [[ "$booted" != 1 ]]; then
-              echo '::error::Emulator failed to boot within 120 seconds.'
+              echo 'Emulator failed to boot within 120 seconds.'
               timeout 10s adb logcat -d -t 200 || true
               exit 1
             fi
@@ -107,7 +118,7 @@ jobs:
               sleep 2
             done
             if [[ "$frida_ready" != 1 ]]; then
-              echo '::error::Frida server did not become ready within 40 seconds.'
+              echo 'Frida server did not become ready within 40 seconds.'
               timeout 10s adb shell ps -A | grep -i frida || true
               timeout 10s adb logcat -d -t 200 || true
               exit 1
@@ -132,6 +143,24 @@ jobs:
                 summary.write(f'Runtime DEX files dumped: **{len(dexes)}**.\n')
             PY
 
+      - name: Persist emulator diagnostics to the branch
+        if: always()
+        run: |
+          set -euo pipefail
+          log="$RUNNER_TEMP/moviebox-runtime.log"
+          if [[ ! -s "$log" ]]; then
+            echo 'No emulator script log was produced; check the emulator step in Actions UI.'
+            exit 0
+          fi
+          report="reports/moviebox-runtime-${GITHUB_RUN_ID}.log"
+          mkdir -p reports
+          cp "$log" "$report"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$report"
+          git commit -m "Save MovieBox runtime dump diagnostics"
+          git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
+
       - name: Upload runtime DEX dumps
         if: always()
         uses: actions/upload-artifact@v7
@@ -140,3 +169,7 @@ jobs:
           path: ${{ runner.temp }}/moviebox-dexdump/**/*.dex
           if-no-files-found: warn
           retention-days: 3
+
+      - name: Fail if runtime DEX dump failed
+        if: steps.runtime_dump.outcome == 'failure'
+        run: exit 1
