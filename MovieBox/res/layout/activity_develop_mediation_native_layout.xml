@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@android:color/black" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="新版 Mediation Native 示例（不会进入 Legacy Bidding）" />
+    <Button android:id="@id/btnLoadMediationNative" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:text="加载 Mediation Native 广告" android:textAllCaps="false" />
+    <ProgressBar android:layout_gravity="center_horizontal" android:id="@id/progressBar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" />
+    <TextView android:textSize="14.0sp" android:textColor="@android:color/black" android:id="@id/tvLoadResult" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:text="点击按钮加载广告" />
+    <FrameLayout android:id="@id/nativeContainer" android:background="@android:color/holo_green_dark" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:minHeight="200.0dp" />
+</LinearLayout>

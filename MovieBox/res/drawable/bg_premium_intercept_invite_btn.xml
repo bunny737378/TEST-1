@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:startColor="@color/long_vod_invite_bg_start" android:endColor="@color/long_vod_invite_bg_end" android:angle="0.0" android:type="linear" android:centerColor="@color/long_vod_invite_bg_center" />
+            <corners android:radius="18.0dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:startColor="@color/white_100" android:endColor="@color/white_0" android:angle="270.0" android:type="linear" android:centerY="0.28" android:centerColor="@color/white_100" />
+            <corners android:radius="18.0dp" />
+        </shape>
+    </item>
+    <item android:left="1.0dp" android:top="1.0dp" android:right="1.0dp" android:bottom="1.0dp">
+        <shape android:shape="rectangle">
+            <gradient android:startColor="@color/long_vod_invite_bg_start" android:endColor="@color/long_vod_invite_bg_end" android:angle="0.0" android:type="linear" android:centerColor="@color/long_vod_invite_bg_center" />
+            <corners android:radius="17.0dp" />
+        </shape>
+    </item>
+</layer-list>

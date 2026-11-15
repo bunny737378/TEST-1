@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:id="@id/btnLog" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="日志" android:textAllCaps="false" />
+    <Button android:id="@id/btnMcc" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Mcc" android:textAllCaps="false" />
+    <Button android:id="@id/btnRequestConfig" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="请求配置" android:textAllCaps="false" />
+    <Button android:id="@id/btnAdConfigInfo" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="配置信息展示" android:textAllCaps="false" />
+    <Button android:id="@id/btnPsOfferConfig" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="PalmStore配置" android:textAllCaps="false" />
+    <Button android:id="@id/btnOtherConfig" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="其他广告配置展示" android:textAllCaps="false" />
+    <Button android:id="@id/btnAdMobConfig" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="AdMob 配置" android:textAllCaps="false" />
+    <Button android:id="@id/btnAdLoadControl" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="广告加载控制" android:textAllCaps="false" />
+    <Button android:id="@id/btnAdDisplayConfig" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="广告展示配置" android:textAllCaps="false" />
+    <Button android:id="@id/btnAdExample" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="广告接入示例 " />
+</LinearLayout>

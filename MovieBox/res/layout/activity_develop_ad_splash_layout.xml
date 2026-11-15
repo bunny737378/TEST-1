@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:id="@id/btnLoadSplashAd" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="加载Splash广告" android:textAllCaps="false" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/loadingContainer" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+        <ProgressBar android:layout_width="24.0dp" android:layout_height="24.0dp" />
+        <TextView android:textSize="16.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="广告加载中..." android:layout_marginStart="8.0dp" />
+    </LinearLayout>
+    <TextView android:textSize="14.0sp" android:textColor="#d32f2f" android:id="@id/tvLoadSplashError" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:textIsSelectable="true" />
+</LinearLayout>

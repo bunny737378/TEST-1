@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingLeft="12.0dp" android:paddingTop="8.0dp" android:paddingRight="12.0dp" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="16.0sp" android:textStyle="bold" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="广告展示配置" />
+    <TextView android:textSize="13.0sp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="广告标识可依次切换：使用配置、强制展示、强制隐藏。Activity 广告样式可直接选择，选择结果会保存。" />
+    <Button android:id="@id/btnShowAdTag" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:textAllCaps="false" />
+    <Button android:id="@id/btnShowHiAdTag" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:textAllCaps="false" />
+    <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" card_view:cardCornerRadius="8.0dp" card_view:cardElevation="2.0dp" card_view:cardUseCompatPadding="true">
+        <LinearLayout android:orientation="vertical" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="15.0sp" android:textStyle="bold" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Activity 广告样式" />
+            <TextView android:textSize="13.0sp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="选择“使用配置”时，按当前场景下发的 adActivityStyle 展示。" />
+            <Button android:id="@id/btnAdActivityStyleUseConfig" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="使用配置" android:textAllCaps="false" />
+            <Button android:id="@id/btnAdActivityStyleAutoFullscreen" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="auto_fullscreen" android:textAllCaps="false" />
+            <Button android:id="@id/btnAdActivityStyleActionDialog" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="action_dialog" android:textAllCaps="false" />
+            <Button android:id="@id/btnAdActivityStyleFullScreen" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="full_screen" android:textAllCaps="false" />
+            <Button android:id="@id/btnAdActivityStyleHalfScreen" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="half_screen" android:textAllCaps="false" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
