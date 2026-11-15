@@ -39,6 +39,18 @@ on:
         description: Replace MOVIEN/ even if unexpected files differ
         type: boolean
         default: false
+  # A workflow_dispatch run needs the file on the default branch before GitHub
+  # offers it, so this trigger is how a feature branch can exercise the refresh
+  # at all - and a push run is always compare-only, never a replacement. It
+  # fires when the patch scripts change, which is exactly when it is worth
+  # re-checking that MOVIEN/ is still the official decompile plus those edits.
+  push:
+    branches:
+      - 'arena/**'
+    paths:
+      - '.github/workflows/decompile-movien.yml'
+      - '.rebuild/**'
+      - 'MOVIEN/apktool.yml'
 
 permissions:
   contents: write
@@ -71,15 +83,23 @@ jobs:
           # workflow_dispatch renders booleans as "true"/"false", or as an
           # empty string when a caller omits them, so normalise here instead of
           # comparing types inside step conditions.
-          case '${{ inputs.dry_run }}' in
-            true|True|1) echo 'DRY_RUN=1' >> "$GITHUB_ENV" ;;
-            *) echo 'DRY_RUN=0' >> "$GITHUB_ENV" ;;
-          esac
-          case '${{ inputs.force_replace }}' in
-            true|True|1) echo 'FORCE_REPLACE=1' >> "$GITHUB_ENV" ;;
-            *) echo 'FORCE_REPLACE=0' >> "$GITHUB_ENV" ;;
-          esac
-          printf 'APK_URL=%s\n' "${APK_URL:-$DEFAULT_APK_URL}" >> "$GITHUB_ENV"
+          dry=0
+          force=0
+          case '${{ inputs.dry_run }}' in true|True|1) dry=1 ;; esac
+          case '${{ inputs.force_replace }}' in true|True|1) force=1 ;; esac
+          if [[ "$GITHUB_EVENT_NAME" == push ]]; then
+            # A push only ever asks the question: is MOVIEN/ still this APK plus
+            # the .rebuild edits? Never rewrite the branch from a push.
+            dry=1
+            force=0
+          fi
+          {
+            echo "DRY_RUN=$dry"
+            echo "FORCE_REPLACE=$force"
+            printf 'APK_URL=%s\n' "${APK_URL:-$DEFAULT_APK_URL}"
+          } >> "$GITHUB_ENV"
+          echo "event: $GITHUB_EVENT_NAME | replace MOVIEN/: $([[ $dry == 0 ]] && echo yes || echo no) | force: $force"
+
 
       - name: Check out the selected branch
         uses: actions/checkout@v7
