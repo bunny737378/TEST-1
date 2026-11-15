@@ -172,6 +172,30 @@ for old, label in (
     text = text.replace(old, fixed)
 put(PLAYER_ACTIVITY, text)
 
+# Several screens read the ad-position lists straight out of AdInfoEntry and
+# then index element 0 without a size check (for example the new-user splash
+# path). An empty list makes those loops run, which can end in an
+# IndexOutOfBounds crash. Make every ad-position getter report "no ads".
+AD_INFO = find_one("smali*/com/mgs/carparking/netbean/AdInfoEntry.smali")
+ad_text = load(AD_INFO)
+ad_pattern = re.compile(
+    r"^(\.method public final getNetCineVarAd_position_\d+\(\))Ljava/util/List;\n"
+    r".*?^\.end method", re.S | re.M)
+
+
+def _empty_list(match: "re.Match[str]") -> str:
+    return (f"{match.group(1)}Ljava/util/List;\n"
+            "    .locals 1\n\n"
+            "    new-instance v0, Ljava/util/ArrayList;\n\n"
+            "    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V\n\n"
+            "    return-object v0\n.end method")
+
+
+ad_text, ad_hits = ad_pattern.subn(_empty_list, ad_text)
+if ad_hits != 33:
+    raise SystemExit(f"expected 33 ad-position getters, patched {ad_hits}")
+put(AD_INFO, ad_text)
+
 # ============================================================== 2. premium ===
 # c0() = NETCINEVAR_KEY_PREF_USER_IS_SVIP, A() = ad-free privilege flag,
 # e0() = VIP expiry. All of them always report "member, forever".
