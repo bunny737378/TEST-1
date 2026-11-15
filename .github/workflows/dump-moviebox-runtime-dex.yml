@@ -78,7 +78,7 @@ jobs:
           if [[ -r /dev/kvm && -w /dev/kvm ]]; then
             echo '/dev/kvm: readable and writable; emulator acceleration enabled.'
           else
-            echo '/dev/kvm: unavailable; emulator will use automatic acceleration fallback.'
+            echo '/dev/kvm: unavailable; using ARM64 guest with software CPU emulation.'
           fi
           echo "ANDROID_HOME=${ANDROID_HOME:-unset}"
           if [[ -z "${ANDROID_HOME:-}" ]]; then echo 'ANDROID_HOME is not set on this runner.'; exit 1; fi
@@ -95,11 +95,11 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y libpulse0
           timeout 600s sdkmanager --install \
-            'platform-tools' 'emulator' 'system-images;android-30;google_atd;x86_64'
+            'platform-tools' 'emulator' 'system-images;android-30;google_apis;arm64-v8a'
           command -v emulator
           command -v avdmanager
           echo no | avdmanager create avd --force -n moviebox-runtime \
-            -k 'system-images;android-30;google_atd;x86_64' -d pixel_2
+            -k 'system-images;android-30;google_apis;arm64-v8a' -d pixel_2
           echo 'AVD inventory:'
           avdmanager list avd
           if [[ ! -f "$ANDROID_AVD_HOME/moviebox-runtime.ini" ]]; then
@@ -111,18 +111,18 @@ jobs:
           "$ANDROID_HOME/emulator/emulator" -version 2>&1 | tee -a "$log"
           "$ANDROID_HOME/emulator/emulator" -avd moviebox-runtime -port 5554 \
             -no-window -no-audio -no-boot-anim -no-snapshot \
-            -gpu swiftshader_indirect -accel auto -wipe-data >> "$log" 2>&1 &
+            -gpu swiftshader_indirect -accel off -wipe-data >> "$log" 2>&1 &
           emulator_pid=$!
           echo "Emulator PID: $emulator_pid"
 
           serial=emulator-5554
-          if ! timeout 45s adb -s "$serial" wait-for-device; then
-            echo 'ADB did not see the emulator within 45 seconds.'
+          if ! timeout 90s adb -s "$serial" wait-for-device; then
+            echo 'ADB did not see the emulator within 90 seconds.'
             tail -n 200 "$log" || true
             exit 1
           fi
-          echo 'ADB transport connected; waiting at most 300 seconds for Android boot.'
-          deadline=$((SECONDS + 300))
+          echo 'ADB transport connected; waiting at most 600 seconds for ARM64 Android boot without KVM.'
+          deadline=$((SECONDS + 600))
           booted=0
           poll=0
           while (( SECONDS < deadline )); do
@@ -133,7 +133,7 @@ jobs:
             sleep 3
           done
           if [[ "$booted" != 1 ]]; then
-            echo 'Android did not report sys.boot_completed=1 before the 300-second deadline.'
+            echo 'Android did not report sys.boot_completed=1 before the 600-second deadline.'
             timeout 10s adb -s "$serial" logcat -d -t 200 || true
             tail -n 250 "$log" || true
             exit 1
@@ -146,7 +146,7 @@ jobs:
           echo "Fetching matching Frida server ${frida_version}."
           curl --fail --location --retry 2 --silent --show-error \
             --connect-timeout 20 --max-time 180 \
-            "https://github.com/frida/frida/releases/download/${frida_version}/frida-server-${frida_version}-android-x86_64.xz" \
+            "https://github.com/frida/frida/releases/download/${frida_version}/frida-server-${frida_version}-android-arm64.xz" \
             --output "$server"
           xz --decompress --force "$server"
           timeout 60s adb -s "$serial" push "$RUNNER_TEMP/frida-server" /data/local/tmp/frida-server
