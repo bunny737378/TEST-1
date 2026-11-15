@@ -1,0 +1,21 @@
+.class final Lcom/google/android/gms/internal/ads/zzcmi;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# static fields
+.field static final zza:Lcom/google/android/gms/internal/ads/zzcmj;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/internal/ads/zzcmj;
+
+    invoke-direct {v0}, Lcom/google/android/gms/internal/ads/zzcmj;-><init>()V
+
+    sput-object v0, Lcom/google/android/gms/internal/ads/zzcmi;->zza:Lcom/google/android/gms/internal/ads/zzcmj;
+
+    return-void
+.end method

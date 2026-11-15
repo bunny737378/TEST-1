@@ -1,0 +1,12 @@
+.class public interface abstract Lcom/ironsource/ye;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ironsource/ye$a;,
+        Lcom/ironsource/ye$b;
+    }
+.end annotation

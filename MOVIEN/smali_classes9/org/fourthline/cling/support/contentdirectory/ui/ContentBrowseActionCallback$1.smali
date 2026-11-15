@@ -1,0 +1,36 @@
+.class Lorg/fourthline/cling/support/contentdirectory/ui/ContentBrowseActionCallback$1;
+.super Ljavax/swing/tree/DefaultMutableTreeNode;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lorg/fourthline/cling/support/contentdirectory/ui/ContentBrowseActionCallback;->i(Lorg/fourthline/cling/model/action/ActionInvocation;Lorg/fourthline/cling/support/model/DIDLContent;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic a:Lorg/fourthline/cling/support/contentdirectory/ui/ContentBrowseActionCallback;
+
+
+# direct methods
+.method public constructor <init>(Lorg/fourthline/cling/support/contentdirectory/ui/ContentBrowseActionCallback;Ljava/lang/Object;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-object p1, p0, Lorg/fourthline/cling/support/contentdirectory/ui/ContentBrowseActionCallback$1;->a:Lorg/fourthline/cling/support/contentdirectory/ui/ContentBrowseActionCallback;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {p0, p2}, Ljavax/swing/tree/DefaultMutableTreeNode;-><init>(Ljava/lang/Object;)V
+
+    .line 6
+    return-void
+.end method

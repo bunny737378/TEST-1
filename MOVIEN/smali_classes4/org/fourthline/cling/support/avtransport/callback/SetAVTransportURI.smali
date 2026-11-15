@@ -1,0 +1,142 @@
+.class public abstract Lorg/fourthline/cling/support/avtransport/callback/SetAVTransportURI;
+.super Lorg/fourthline/cling/controlpoint/ActionCallback;
+.source "SourceFile"
+
+
+# static fields
+.field public static c:Ljava/util/logging/Logger;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .line 1
+    .line 2
+    const-class v0, Lorg/fourthline/cling/support/avtransport/callback/SetAVTransportURI;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    .line 6
+    move-result-object v0
+
+    .line 7
+    .line 8
+    .line 9
+    invoke-static {v0}, Ljava/util/logging/Logger;->getLogger(Ljava/lang/String;)Ljava/util/logging/Logger;
+
+    .line 10
+    move-result-object v0
+
+    .line 11
+    .line 12
+    sput-object v0, Lorg/fourthline/cling/support/avtransport/callback/SetAVTransportURI;->c:Ljava/util/logging/Logger;
+
+    .line 13
+    return-void
+.end method
+
+.method public constructor <init>(Lorg/fourthline/cling/model/meta/Service;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    .line 1
+    new-instance v0, Lorg/fourthline/cling/model/types/UnsignedIntegerFourBytes;
+
+    const-wide/16 v1, 0x0
+
+    invoke-direct {v0, v1, v2}, Lorg/fourthline/cling/model/types/UnsignedIntegerFourBytes;-><init>(J)V
+
+    invoke-direct {p0, v0, p1, p2, p3}, Lorg/fourthline/cling/support/avtransport/callback/SetAVTransportURI;-><init>(Lorg/fourthline/cling/model/types/UnsignedIntegerFourBytes;Lorg/fourthline/cling/model/meta/Service;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lorg/fourthline/cling/model/types/UnsignedIntegerFourBytes;Lorg/fourthline/cling/model/meta/Service;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
+
+    .line 2
+    new-instance v0, Lorg/fourthline/cling/model/action/ActionInvocation;
+
+    const-string v1, "SetAVTransportURI"
+
+    invoke-virtual {p2, v1}, Lorg/fourthline/cling/model/meta/Service;->a(Ljava/lang/String;)Lorg/fourthline/cling/model/meta/Action;
+
+    move-result-object p2
+
+    invoke-direct {v0, p2}, Lorg/fourthline/cling/model/action/ActionInvocation;-><init>(Lorg/fourthline/cling/model/meta/Action;)V
+
+    invoke-direct {p0, v0}, Lorg/fourthline/cling/controlpoint/ActionCallback;-><init>(Lorg/fourthline/cling/model/action/ActionInvocation;)V
+
+    sget-object p2, Lorg/fourthline/cling/support/avtransport/callback/SetAVTransportURI;->c:Ljava/util/logging/Logger;
+
+    .line 3
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Creating SetAVTransportURI action for URI: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/util/logging/Logger;->fine(Ljava/lang/String;)V
+
+    .line 4
+    invoke-virtual {p0}, Lorg/fourthline/cling/controlpoint/ActionCallback;->e()Lorg/fourthline/cling/model/action/ActionInvocation;
+
+    move-result-object p2
+
+    const-string v0, "InstanceID"
+
+    invoke-virtual {p2, v0, p1}, Lorg/fourthline/cling/model/action/ActionInvocation;->l(Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 5
+    invoke-virtual {p0}, Lorg/fourthline/cling/controlpoint/ActionCallback;->e()Lorg/fourthline/cling/model/action/ActionInvocation;
+
+    move-result-object p1
+
+    const-string p2, "CurrentURI"
+
+    invoke-virtual {p1, p2, p3}, Lorg/fourthline/cling/model/action/ActionInvocation;->l(Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 6
+    invoke-virtual {p0}, Lorg/fourthline/cling/controlpoint/ActionCallback;->e()Lorg/fourthline/cling/model/action/ActionInvocation;
+
+    move-result-object p1
+
+    const-string p2, "CurrentURIMetaData"
+
+    invoke-virtual {p1, p2, p4}, Lorg/fourthline/cling/model/action/ActionInvocation;->l(Ljava/lang/String;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public h(Lorg/fourthline/cling/model/action/ActionInvocation;)V
+    .locals 1
+
+    .line 1
+    .line 2
+    sget-object p1, Lorg/fourthline/cling/support/avtransport/callback/SetAVTransportURI;->c:Ljava/util/logging/Logger;
+
+    .line 3
+    .line 4
+    const-string v0, "Execution successful"
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-virtual {p1, v0}, Ljava/util/logging/Logger;->fine(Ljava/lang/String;)V
+
+    .line 8
+    return-void
+.end method

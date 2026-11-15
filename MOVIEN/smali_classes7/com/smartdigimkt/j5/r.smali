@@ -1,0 +1,128 @@
+.class public final Lcom/smartdigimkt/j5/r;
+.super Lcom/smartdigimkt/b7/b;
+.source "SourceFile"
+
+
+# instance fields
+.field public final synthetic f:Lcom/smartdigimkt/j5/v;
+
+.field public final synthetic g:Lcom/smartdigimkt/sdk/basead/ui/guidetoclickv2/GTCV2InnerCountDownView;
+
+
+# direct methods
+.method public constructor <init>(Lcom/smartdigimkt/sdk/basead/ui/guidetoclickv2/GTCV2InnerCountDownView;Lcom/smartdigimkt/j5/v;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-object p1, p0, Lcom/smartdigimkt/j5/r;->g:Lcom/smartdigimkt/sdk/basead/ui/guidetoclickv2/GTCV2InnerCountDownView;
+
+    .line 3
+    .line 4
+    iput-object p2, p0, Lcom/smartdigimkt/j5/r;->f:Lcom/smartdigimkt/j5/v;
+
+    .line 5
+    .line 6
+    .line 7
+    const-wide/32 p1, 0x1d4c0
+
+    .line 8
+    .line 9
+    .line 10
+    invoke-direct {p0, p1, p2}, Lcom/smartdigimkt/b7/b;-><init>(J)V
+
+    .line 11
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/smartdigimkt/j5/r;->f:Lcom/smartdigimkt/j5/v;
+
+    if-eqz v0, :cond_0
+
+    .line 7
+    check-cast v0, Lcom/smartdigimkt/j5/c;
+
+    .line 8
+    iget-object v0, v0, Lcom/smartdigimkt/j5/c;->a:Lcom/smartdigimkt/sdk/basead/ui/guidetoclickv2/BaseLifecycleG2CV2View;
+
+    .line 9
+    invoke-virtual {v0}, Lcom/smartdigimkt/sdk/basead/ui/guidetoclickv2/BaseG2CV2View;->a()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final a(J)V
+    .locals 4
+
+    const-wide/16 v0, 0x3e8
+
+    .line 1
+    div-long/2addr p1, v0
+
+    const-wide/16 v0, 0x3c
+
+    div-long v2, p1, v0
+
+    long-to-int v2, v2
+
+    .line 2
+    rem-long/2addr p1, v0
+
+    long-to-int p1, p1
+
+    iget-object p2, p0, Lcom/smartdigimkt/j5/r;->g:Lcom/smartdigimkt/sdk/basead/ui/guidetoclickv2/GTCV2InnerCountDownView;
+
+    .line 3
+    iget-object p2, p2, Lcom/smartdigimkt/sdk/basead/ui/guidetoclickv2/GTCV2InnerCountDownView;->b:Landroid/widget/TextView;
+
+    const-string v0, "%02d"
+
+    if-eqz p2, :cond_0
+
+    .line 4
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    filled-new-array {v1}, [Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_0
+    iget-object p2, p0, Lcom/smartdigimkt/j5/r;->g:Lcom/smartdigimkt/sdk/basead/ui/guidetoclickv2/GTCV2InnerCountDownView;
+
+    .line 5
+    iget-object p2, p2, Lcom/smartdigimkt/sdk/basead/ui/guidetoclickv2/GTCV2InnerCountDownView;->c:Landroid/widget/TextView;
+
+    if-eqz p2, :cond_1
+
+    .line 6
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    filled-new-array {p1}, [Ljava/lang/Object;
+
+    move-result-object p1
+
+    invoke-static {v0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_1
+    return-void
+.end method

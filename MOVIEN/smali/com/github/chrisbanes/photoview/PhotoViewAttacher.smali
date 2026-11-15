@@ -1,0 +1,2989 @@
+.class public Lcom/github/chrisbanes/photoview/PhotoViewAttacher;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Landroid/view/View$OnTouchListener;
+.implements Lcom/github/chrisbanes/photoview/OnGestureListener;
+.implements Landroid/view/View$OnLayoutChangeListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/github/chrisbanes/photoview/PhotoViewAttacher$FlingRunnable;,
+        Lcom/github/chrisbanes/photoview/PhotoViewAttacher$AnimatedZoomRunnable;
+    }
+.end annotation
+
+
+# static fields
+.field public static B:F = 3.0f
+
+.field public static C:F = 1.75f
+
+.field public static D:F = 1.0f
+
+.field public static E:I = 0xc8
+
+.field public static F:I = 0x1
+
+
+# instance fields
+.field public A:Landroid/widget/ImageView$ScaleType;
+
+.field public a:Landroid/view/animation/Interpolator;
+
+.field public b:I
+
+.field public c:F
+
+.field public d:F
+
+.field public e:F
+
+.field public f:Z
+
+.field public g:Z
+
+.field public h:Landroid/widget/ImageView;
+
+.field public i:Landroid/view/GestureDetector;
+
+.field public j:Lcom/github/chrisbanes/photoview/CustomGestureDetector;
+
+.field public final k:Landroid/graphics/Matrix;
+
+.field public final l:Landroid/graphics/Matrix;
+
+.field public final m:Landroid/graphics/Matrix;
+
+.field public final n:Landroid/graphics/RectF;
+
+.field public final o:[F
+
+.field public p:Lcom/github/chrisbanes/photoview/OnMatrixChangedListener;
+
+.field public q:Lcom/github/chrisbanes/photoview/OnPhotoTapListener;
+
+.field public r:Lcom/github/chrisbanes/photoview/OnOutsidePhotoTapListener;
+
+.field public s:Landroid/view/View$OnClickListener;
+
+.field public t:Landroid/view/View$OnLongClickListener;
+
+.field public u:Lcom/github/chrisbanes/photoview/OnScaleChangedListener;
+
+.field public v:Lcom/github/chrisbanes/photoview/OnSingleFlingListener;
+
+.field public w:Lcom/github/chrisbanes/photoview/PhotoViewAttacher$FlingRunnable;
+
+.field public x:I
+
+.field public y:F
+
+.field public z:Z
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/widget/ImageView;)V
+    .locals 2
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    .line 5
+    new-instance v0, Landroid/view/animation/AccelerateDecelerateInterpolator;
+
+    .line 6
+    .line 7
+    .line 8
+    invoke-direct {v0}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
+
+    .line 9
+    .line 10
+    iput-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->a:Landroid/view/animation/Interpolator;
+
+    .line 11
+    .line 12
+    sget v0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->E:I
+
+    .line 13
+    .line 14
+    iput v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->b:I
+
+    .line 15
+    .line 16
+    sget v0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->D:F
+
+    .line 17
+    .line 18
+    iput v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->c:F
+
+    .line 19
+    .line 20
+    sget v0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->C:F
+
+    .line 21
+    .line 22
+    iput v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->d:F
+
+    .line 23
+    .line 24
+    sget v0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->B:F
+
+    .line 25
+    .line 26
+    iput v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->e:F
+
+    .line 27
+    const/4 v0, 0x1
+
+    .line 28
+    .line 29
+    iput-boolean v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->f:Z
+
+    .line 30
+    const/4 v1, 0x0
+
+    .line 31
+    .line 32
+    iput-boolean v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->g:Z
+
+    .line 33
+    .line 34
+    new-instance v1, Landroid/graphics/Matrix;
+
+    .line 35
+    .line 36
+    .line 37
+    invoke-direct {v1}, Landroid/graphics/Matrix;-><init>()V
+
+    .line 38
+    .line 39
+    iput-object v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 40
+    .line 41
+    new-instance v1, Landroid/graphics/Matrix;
+
+    .line 42
+    .line 43
+    .line 44
+    invoke-direct {v1}, Landroid/graphics/Matrix;-><init>()V
+
+    .line 45
+    .line 46
+    iput-object v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->l:Landroid/graphics/Matrix;
+
+    .line 47
+    .line 48
+    new-instance v1, Landroid/graphics/Matrix;
+
+    .line 49
+    .line 50
+    .line 51
+    invoke-direct {v1}, Landroid/graphics/Matrix;-><init>()V
+
+    .line 52
+    .line 53
+    iput-object v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 54
+    .line 55
+    new-instance v1, Landroid/graphics/RectF;
+
+    .line 56
+    .line 57
+    .line 58
+    invoke-direct {v1}, Landroid/graphics/RectF;-><init>()V
+
+    .line 59
+    .line 60
+    iput-object v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->n:Landroid/graphics/RectF;
+
+    .line 61
+    .line 62
+    const/16 v1, 0x9
+
+    .line 63
+    .line 64
+    new-array v1, v1, [F
+
+    .line 65
+    .line 66
+    iput-object v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->o:[F
+
+    .line 67
+    const/4 v1, 0x2
+
+    .line 68
+    .line 69
+    iput v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->x:I
+
+    .line 70
+    .line 71
+    iput-boolean v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->z:Z
+
+    .line 72
+    .line 73
+    sget-object v0, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
+
+    .line 74
+    .line 75
+    iput-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->A:Landroid/widget/ImageView$ScaleType;
+
+    .line 76
+    .line 77
+    iput-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 78
+    .line 79
+    .line 80
+    invoke-virtual {p1, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    .line 81
+    .line 82
+    .line 83
+    invoke-virtual {p1, p0}, Landroid/view/View;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+
+    .line 84
+    .line 85
+    .line 86
+    invoke-virtual {p1}, Landroid/view/View;->isInEditMode()Z
+
+    .line 87
+    move-result v0
+
+    .line 88
+    .line 89
+    if-eqz v0, :cond_0
+
+    .line 90
+    return-void
+
+    .line 91
+    :cond_0
+    const/4 v0, 0x0
+
+    .line 92
+    .line 93
+    iput v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->y:F
+
+    .line 94
+    .line 95
+    new-instance v0, Lcom/github/chrisbanes/photoview/CustomGestureDetector;
+
+    .line 96
+    .line 97
+    .line 98
+    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    .line 99
+    move-result-object v1
+
+    .line 100
+    .line 101
+    .line 102
+    invoke-direct {v0, v1, p0}, Lcom/github/chrisbanes/photoview/CustomGestureDetector;-><init>(Landroid/content/Context;Lcom/github/chrisbanes/photoview/OnGestureListener;)V
+
+    .line 103
+    .line 104
+    iput-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->j:Lcom/github/chrisbanes/photoview/CustomGestureDetector;
+
+    .line 105
+    .line 106
+    new-instance v0, Landroid/view/GestureDetector;
+
+    .line 107
+    .line 108
+    .line 109
+    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    .line 110
+    move-result-object p1
+
+    .line 111
+    .line 112
+    new-instance v1, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$1;
+
+    .line 113
+    .line 114
+    .line 115
+    invoke-direct {v1, p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$1;-><init>(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)V
+
+    .line 116
+    .line 117
+    .line 118
+    invoke-direct {v0, p1, v1}, Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V
+
+    .line 119
+    .line 120
+    iput-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->i:Landroid/view/GestureDetector;
+
+    .line 121
+    .line 122
+    new-instance p1, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$2;
+
+    .line 123
+    .line 124
+    .line 125
+    invoke-direct {p1, p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$2;-><init>(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)V
+
+    .line 126
+    .line 127
+    .line 128
+    invoke-virtual {v0, p1}, Landroid/view/GestureDetector;->setOnDoubleTapListener(Landroid/view/GestureDetector$OnDoubleTapListener;)V
+
+    .line 129
+    return-void
+.end method
+
+.method public static synthetic d(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)Landroid/view/View$OnLongClickListener;
+    .locals 0
+
+    .line 1
+    .line 2
+    iget-object p0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->t:Landroid/view/View$OnLongClickListener;
+
+    .line 3
+    return-object p0
+.end method
+
+.method public static synthetic e(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)Landroid/widget/ImageView;
+    .locals 0
+
+    .line 1
+    .line 2
+    iget-object p0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 3
+    return-object p0
+.end method
+
+.method public static synthetic f(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)Landroid/graphics/Matrix;
+    .locals 0
+
+    .line 1
+    .line 2
+    iget-object p0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 3
+    return-object p0
+.end method
+
+.method public static synthetic g(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)Landroid/graphics/Matrix;
+    .locals 0
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->v()Landroid/graphics/Matrix;
+
+    .line 4
+    move-result-object p0
+
+    .line 5
+    return-object p0
+.end method
+
+.method public static synthetic h(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;Landroid/graphics/Matrix;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-virtual {p0, p1}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->H(Landroid/graphics/Matrix;)V
+
+    .line 4
+    return-void
+.end method
+
+.method public static synthetic i(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)Lcom/github/chrisbanes/photoview/OnSingleFlingListener;
+    .locals 0
+
+    .line 1
+    .line 2
+    iget-object p0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->v:Lcom/github/chrisbanes/photoview/OnSingleFlingListener;
+
+    .line 3
+    return-object p0
+.end method
+
+.method public static synthetic j()F
+    .locals 1
+
+    .line 1
+    sget v0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->D:F
+
+    return v0
+.end method
+
+.method public static synthetic k()I
+    .locals 1
+
+    .line 1
+    sget v0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->F:I
+
+    return v0
+.end method
+
+.method public static synthetic l(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)Landroid/view/View$OnClickListener;
+    .locals 0
+
+    .line 1
+    .line 2
+    iget-object p0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->s:Landroid/view/View$OnClickListener;
+
+    .line 3
+    return-object p0
+.end method
+
+.method public static synthetic m(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)Lcom/github/chrisbanes/photoview/OnPhotoTapListener;
+    .locals 0
+
+    .line 1
+    .line 2
+    iget-object p0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->q:Lcom/github/chrisbanes/photoview/OnPhotoTapListener;
+
+    .line 3
+    return-object p0
+.end method
+
+.method public static synthetic n(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)Lcom/github/chrisbanes/photoview/OnOutsidePhotoTapListener;
+    .locals 0
+
+    .line 1
+    .line 2
+    iget-object p0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->r:Lcom/github/chrisbanes/photoview/OnOutsidePhotoTapListener;
+
+    .line 3
+    return-object p0
+.end method
+
+.method public static synthetic o(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)I
+    .locals 0
+
+    .line 1
+    .line 2
+    iget p0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->b:I
+
+    .line 3
+    return p0
+.end method
+
+.method public static synthetic p(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;)Landroid/view/animation/Interpolator;
+    .locals 0
+
+    .line 1
+    .line 2
+    iget-object p0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->a:Landroid/view/animation/Interpolator;
+
+    .line 3
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public A()F
+    .locals 1
+
+    .line 1
+    iget v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->d:F
+
+    return v0
+.end method
+
+.method public B()F
+    .locals 1
+
+    .line 1
+    iget v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->c:F
+
+    return v0
+.end method
+
+.method public C()F
+    .locals 6
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 3
+    const/4 v1, 0x0
+
+    .line 4
+    .line 5
+    .line 6
+    invoke-virtual {p0, v0, v1}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->E(Landroid/graphics/Matrix;I)F
+
+    .line 7
+    move-result v0
+
+    .line 8
+    float-to-double v0, v0
+
+    .line 9
+    .line 10
+    const-wide/high16 v2, 0x4000000000000000L    # 2.0
+
+    .line 11
+    .line 12
+    .line 13
+    invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->pow(DD)D
+
+    .line 14
+    move-result-wide v0
+
+    .line 15
+    double-to-float v0, v0
+
+    .line 16
+    .line 17
+    iget-object v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 18
+    const/4 v4, 0x3
+
+    .line 19
+    .line 20
+    .line 21
+    invoke-virtual {p0, v1, v4}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->E(Landroid/graphics/Matrix;I)F
+
+    .line 22
+    move-result v1
+
+    .line 23
+    float-to-double v4, v1
+
+    .line 24
+    .line 25
+    .line 26
+    invoke-static {v4, v5, v2, v3}, Ljava/lang/Math;->pow(DD)D
+
+    .line 27
+    move-result-wide v1
+
+    .line 28
+    double-to-float v1, v1
+
+    .line 29
+    add-float/2addr v0, v1
+
+    .line 30
+    float-to-double v0, v0
+
+    .line 31
+    .line 32
+    .line 33
+    invoke-static {v0, v1}, Ljava/lang/Math;->sqrt(D)D
+
+    .line 34
+    move-result-wide v0
+
+    .line 35
+    double-to-float v0, v0
+
+    .line 36
+    return v0
+.end method
+
+.method public D()Landroid/widget/ImageView$ScaleType;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->A:Landroid/widget/ImageView$ScaleType;
+
+    return-object v0
+.end method
+
+.method public final E(Landroid/graphics/Matrix;I)F
+    .locals 1
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->o:[F
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->getValues([F)V
+
+    .line 6
+    .line 7
+    iget-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->o:[F
+
+    .line 8
+    .line 9
+    aget p1, p1, p2
+
+    .line 10
+    return p1
+.end method
+
+.method public final F()V
+    .locals 1
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {v0}, Landroid/graphics/Matrix;->reset()V
+
+    .line 6
+    .line 7
+    iget v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->y:F
+
+    .line 8
+    .line 9
+    .line 10
+    invoke-virtual {p0, v0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->T(F)V
+
+    .line 11
+    .line 12
+    .line 13
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->v()Landroid/graphics/Matrix;
+
+    .line 14
+    move-result-object v0
+
+    .line 15
+    .line 16
+    .line 17
+    invoke-virtual {p0, v0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->H(Landroid/graphics/Matrix;)V
+
+    .line 18
+    .line 19
+    .line 20
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->s()Z
+
+    .line 21
+    return-void
+.end method
+
+.method public G(Z)V
+    .locals 0
+
+    .line 1
+    iput-boolean p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->f:Z
+
+    return-void
+.end method
+
+.method public final H(Landroid/graphics/Matrix;)V
+    .locals 1
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
+
+    .line 6
+    .line 7
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->p:Lcom/github/chrisbanes/photoview/OnMatrixChangedListener;
+
+    .line 8
+    .line 9
+    if-eqz v0, :cond_0
+
+    .line 10
+    .line 11
+    .line 12
+    invoke-virtual {p0, p1}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->u(Landroid/graphics/Matrix;)Landroid/graphics/RectF;
+
+    .line 13
+    move-result-object p1
+
+    .line 14
+    .line 15
+    if-eqz p1, :cond_0
+
+    .line 16
+    .line 17
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->p:Lcom/github/chrisbanes/photoview/OnMatrixChangedListener;
+
+    .line 18
+    .line 19
+    .line 20
+    invoke-interface {v0, p1}, Lcom/github/chrisbanes/photoview/OnMatrixChangedListener;->a(Landroid/graphics/RectF;)V
+
+    .line 21
+    :cond_0
+    return-void
+.end method
+
+.method public I(F)V
+    .locals 2
+
+    .line 1
+    .line 2
+    iget v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->c:F
+
+    .line 3
+    .line 4
+    iget v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->d:F
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-static {v0, v1, p1}, Lcom/github/chrisbanes/photoview/Util;->a(FFF)V
+
+    .line 8
+    .line 9
+    iput p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->e:F
+
+    .line 10
+    return-void
+.end method
+
+.method public J(F)V
+    .locals 2
+
+    .line 1
+    .line 2
+    iget v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->c:F
+
+    .line 3
+    .line 4
+    iget v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->e:F
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-static {v0, p1, v1}, Lcom/github/chrisbanes/photoview/Util;->a(FFF)V
+
+    .line 8
+    .line 9
+    iput p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->d:F
+
+    .line 10
+    return-void
+.end method
+
+.method public K(F)V
+    .locals 2
+
+    .line 1
+    .line 2
+    iget v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->d:F
+
+    .line 3
+    .line 4
+    iget v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->e:F
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-static {p1, v0, v1}, Lcom/github/chrisbanes/photoview/Util;->a(FFF)V
+
+    .line 8
+    .line 9
+    iput p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->c:F
+
+    .line 10
+    return-void
+.end method
+
+.method public L(Landroid/view/View$OnClickListener;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->s:Landroid/view/View$OnClickListener;
+
+    return-void
+.end method
+
+.method public M(Landroid/view/GestureDetector$OnDoubleTapListener;)V
+    .locals 1
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->i:Landroid/view/GestureDetector;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {v0, p1}, Landroid/view/GestureDetector;->setOnDoubleTapListener(Landroid/view/GestureDetector$OnDoubleTapListener;)V
+
+    .line 6
+    return-void
+.end method
+
+.method public N(Landroid/view/View$OnLongClickListener;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->t:Landroid/view/View$OnLongClickListener;
+
+    return-void
+.end method
+
+.method public O(Lcom/github/chrisbanes/photoview/OnMatrixChangedListener;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->p:Lcom/github/chrisbanes/photoview/OnMatrixChangedListener;
+
+    return-void
+.end method
+
+.method public P(Lcom/github/chrisbanes/photoview/OnOutsidePhotoTapListener;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->r:Lcom/github/chrisbanes/photoview/OnOutsidePhotoTapListener;
+
+    return-void
+.end method
+
+.method public Q(Lcom/github/chrisbanes/photoview/OnPhotoTapListener;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->q:Lcom/github/chrisbanes/photoview/OnPhotoTapListener;
+
+    return-void
+.end method
+
+.method public R(Lcom/github/chrisbanes/photoview/OnScaleChangedListener;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->u:Lcom/github/chrisbanes/photoview/OnScaleChangedListener;
+
+    return-void
+.end method
+
+.method public S(Lcom/github/chrisbanes/photoview/OnSingleFlingListener;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->v:Lcom/github/chrisbanes/photoview/OnSingleFlingListener;
+
+    return-void
+.end method
+
+.method public T(F)V
+    .locals 2
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 3
+    .line 4
+    const/high16 v1, 0x43b40000    # 360.0f
+
+    .line 5
+    rem-float/2addr p1, v1
+
+    .line 6
+    .line 7
+    .line 8
+    invoke-virtual {v0, p1}, Landroid/graphics/Matrix;->postRotate(F)Z
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->r()V
+
+    .line 12
+    return-void
+.end method
+
+.method public U(F)V
+    .locals 2
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 3
+    .line 4
+    const/high16 v1, 0x43b40000    # 360.0f
+
+    .line 5
+    rem-float/2addr p1, v1
+
+    .line 6
+    .line 7
+    .line 8
+    invoke-virtual {v0, p1}, Landroid/graphics/Matrix;->setRotate(F)V
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->r()V
+
+    .line 12
+    return-void
+.end method
+
+.method public V(F)V
+    .locals 1
+
+    .line 1
+    const/4 v0, 0x0
+
+    .line 2
+    .line 3
+    .line 4
+    invoke-virtual {p0, p1, v0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->X(FZ)V
+
+    .line 5
+    return-void
+.end method
+
+.method public W(FFFZ)V
+    .locals 7
+
+    .line 1
+    .line 2
+    iget v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->c:F
+
+    .line 3
+    .line 4
+    cmpg-float v0, p1, v0
+
+    .line 5
+    .line 6
+    if-ltz v0, :cond_1
+
+    .line 7
+    .line 8
+    iget v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->e:F
+
+    .line 9
+    .line 10
+    cmpl-float v0, p1, v0
+
+    .line 11
+    .line 12
+    if-gtz v0, :cond_1
+
+    .line 13
+    .line 14
+    if-eqz p4, :cond_0
+
+    .line 15
+    .line 16
+    iget-object p4, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 17
+    .line 18
+    new-instance v6, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$AnimatedZoomRunnable;
+
+    .line 19
+    .line 20
+    .line 21
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->C()F
+
+    .line 22
+    move-result v2
+
+    .line 23
+    move-object v0, v6
+
+    .line 24
+    move-object v1, p0
+
+    .line 25
+    move v3, p1
+
+    .line 26
+    move v4, p2
+
+    .line 27
+    move v5, p3
+
+    .line 28
+    .line 29
+    .line 30
+    invoke-direct/range {v0 .. v5}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$AnimatedZoomRunnable;-><init>(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;FFFF)V
+
+    .line 31
+    .line 32
+    .line 33
+    invoke-virtual {p4, v6}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+
+    .line 34
+    goto :goto_0
+
+    .line 35
+    .line 36
+    :cond_0
+    iget-object p4, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 37
+    .line 38
+    .line 39
+    invoke-virtual {p4, p1, p1, p2, p3}, Landroid/graphics/Matrix;->setScale(FFFF)V
+
+    .line 40
+    .line 41
+    .line 42
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->r()V
+
+    .line 43
+    :goto_0
+    return-void
+
+    .line 44
+    .line 45
+    :cond_1
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    .line 46
+    .line 47
+    const-string p2, "Scale must be within the range of minScale and maxScale"
+
+    .line 48
+    .line 49
+    .line 50
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    .line 51
+    throw p1
+.end method
+
+.method public X(FZ)V
+    .locals 2
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {v0}, Landroid/view/View;->getRight()I
+
+    .line 6
+    move-result v0
+
+    .line 7
+    .line 8
+    div-int/lit8 v0, v0, 0x2
+
+    .line 9
+    int-to-float v0, v0
+
+    .line 10
+    .line 11
+    iget-object v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 12
+    .line 13
+    .line 14
+    invoke-virtual {v1}, Landroid/view/View;->getBottom()I
+
+    .line 15
+    move-result v1
+
+    .line 16
+    .line 17
+    div-int/lit8 v1, v1, 0x2
+
+    .line 18
+    int-to-float v1, v1
+
+    .line 19
+    .line 20
+    .line 21
+    invoke-virtual {p0, p1, v0, v1, p2}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->W(FFFZ)V
+
+    .line 22
+    return-void
+.end method
+
+.method public Y(Landroid/widget/ImageView$ScaleType;)V
+    .locals 1
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-static {p1}, Lcom/github/chrisbanes/photoview/Util;->d(Landroid/widget/ImageView$ScaleType;)Z
+
+    .line 4
+    move-result v0
+
+    .line 5
+    .line 6
+    if-eqz v0, :cond_0
+
+    .line 7
+    .line 8
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->A:Landroid/widget/ImageView$ScaleType;
+
+    .line 9
+    .line 10
+    if-eq p1, v0, :cond_0
+
+    .line 11
+    .line 12
+    iput-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->A:Landroid/widget/ImageView$ScaleType;
+
+    .line 13
+    .line 14
+    .line 15
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->update()V
+
+    .line 16
+    :cond_0
+    return-void
+.end method
+
+.method public Z(I)V
+    .locals 0
+
+    .line 1
+    iput p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->b:I
+
+    return-void
+.end method
+
+.method public a(FF)V
+    .locals 3
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->j:Lcom/github/chrisbanes/photoview/CustomGestureDetector;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {v0}, Lcom/github/chrisbanes/photoview/CustomGestureDetector;->e()Z
+
+    .line 6
+    move-result v0
+
+    .line 7
+    .line 8
+    if-eqz v0, :cond_0
+
+    .line 9
+    return-void
+
+    .line 10
+    .line 11
+    :cond_0
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 12
+    .line 13
+    .line 14
+    invoke-virtual {v0, p1, p2}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+
+    .line 15
+    .line 16
+    .line 17
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->r()V
+
+    .line 18
+    .line 19
+    iget-object p2, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 20
+    .line 21
+    .line 22
+    invoke-virtual {p2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    .line 23
+    move-result-object p2
+
+    .line 24
+    .line 25
+    iget-boolean v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->f:Z
+
+    .line 26
+    const/4 v1, 0x1
+
+    .line 27
+    .line 28
+    if-eqz v0, :cond_3
+
+    .line 29
+    .line 30
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->j:Lcom/github/chrisbanes/photoview/CustomGestureDetector;
+
+    .line 31
+    .line 32
+    .line 33
+    invoke-virtual {v0}, Lcom/github/chrisbanes/photoview/CustomGestureDetector;->e()Z
+
+    .line 34
+    move-result v0
+
+    .line 35
+    .line 36
+    if-nez v0, :cond_3
+
+    .line 37
+    .line 38
+    iget-boolean v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->g:Z
+
+    .line 39
+    .line 40
+    if-nez v0, :cond_3
+
+    .line 41
+    .line 42
+    iget v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->x:I
+
+    .line 43
+    const/4 v2, 0x2
+
+    .line 44
+    .line 45
+    if-eq v0, v2, :cond_2
+
+    .line 46
+    .line 47
+    if-nez v0, :cond_1
+
+    .line 48
+    .line 49
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    .line 50
+    .line 51
+    cmpl-float v2, p1, v2
+
+    .line 52
+    .line 53
+    if-gez v2, :cond_2
+
+    .line 54
+    .line 55
+    :cond_1
+    if-ne v0, v1, :cond_4
+
+    .line 56
+    .line 57
+    const/high16 v0, -0x40800000    # -1.0f
+
+    .line 58
+    .line 59
+    cmpg-float p1, p1, v0
+
+    .line 60
+    .line 61
+    if-gtz p1, :cond_4
+
+    .line 62
+    .line 63
+    :cond_2
+    if-eqz p2, :cond_4
+
+    .line 64
+    const/4 p1, 0x0
+
+    .line 65
+    .line 66
+    .line 67
+    invoke-interface {p2, p1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
+
+    .line 68
+    goto :goto_0
+
+    .line 69
+    .line 70
+    :cond_3
+    if-eqz p2, :cond_4
+
+    .line 71
+    .line 72
+    .line 73
+    invoke-interface {p2, v1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
+
+    .line 74
+    :cond_4
+    :goto_0
+    return-void
+.end method
+
+.method public a0(Z)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-boolean p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->z:Z
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->update()V
+
+    .line 6
+    return-void
+.end method
+
+.method public b(FFFF)V
+    .locals 1
+
+    .line 1
+    .line 2
+    new-instance p1, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$FlingRunnable;
+
+    .line 3
+    .line 4
+    iget-object p2, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    .line 8
+    move-result-object p2
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-direct {p1, p0, p2}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$FlingRunnable;-><init>(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;Landroid/content/Context;)V
+
+    .line 12
+    .line 13
+    iput-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->w:Lcom/github/chrisbanes/photoview/PhotoViewAttacher$FlingRunnable;
+
+    .line 14
+    .line 15
+    iget-object p2, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 16
+    .line 17
+    .line 18
+    invoke-virtual {p0, p2}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->y(Landroid/widget/ImageView;)I
+
+    .line 19
+    move-result p2
+
+    .line 20
+    .line 21
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 22
+    .line 23
+    .line 24
+    invoke-virtual {p0, v0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->x(Landroid/widget/ImageView;)I
+
+    .line 25
+    move-result v0
+
+    .line 26
+    float-to-int p3, p3
+
+    .line 27
+    float-to-int p4, p4
+
+    .line 28
+    .line 29
+    .line 30
+    invoke-virtual {p1, p2, v0, p3, p4}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$FlingRunnable;->c(IIII)V
+
+    .line 31
+    .line 32
+    iget-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 33
+    .line 34
+    iget-object p2, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->w:Lcom/github/chrisbanes/photoview/PhotoViewAttacher$FlingRunnable;
+
+    .line 35
+    .line 36
+    .line 37
+    invoke-virtual {p1, p2}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+
+    .line 38
+    return-void
+.end method
+
+.method public final b0(Landroid/graphics/drawable/Drawable;)V
+    .locals 8
+
+    .line 1
+    .line 2
+    if-nez p1, :cond_0
+
+    .line 3
+    return-void
+
+    .line 4
+    .line 5
+    :cond_0
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 6
+    .line 7
+    .line 8
+    invoke-virtual {p0, v0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->y(Landroid/widget/ImageView;)I
+
+    .line 9
+    move-result v0
+
+    .line 10
+    int-to-float v0, v0
+
+    .line 11
+    .line 12
+    iget-object v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 13
+    .line 14
+    .line 15
+    invoke-virtual {p0, v1}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->x(Landroid/widget/ImageView;)I
+
+    .line 16
+    move-result v1
+
+    .line 17
+    int-to-float v1, v1
+
+    .line 18
+    .line 19
+    .line 20
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    .line 21
+    move-result v2
+
+    .line 22
+    .line 23
+    .line 24
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    .line 25
+    move-result p1
+
+    .line 26
+    .line 27
+    iget-object v3, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 28
+    .line 29
+    .line 30
+    invoke-virtual {v3}, Landroid/graphics/Matrix;->reset()V
+
+    .line 31
+    int-to-float v2, v2
+
+    .line 32
+    .line 33
+    div-float v3, v0, v2
+
+    .line 34
+    int-to-float p1, p1
+
+    .line 35
+    .line 36
+    div-float v4, v1, p1
+
+    .line 37
+    .line 38
+    iget-object v5, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->A:Landroid/widget/ImageView$ScaleType;
+
+    .line 39
+    .line 40
+    sget-object v6, Landroid/widget/ImageView$ScaleType;->CENTER:Landroid/widget/ImageView$ScaleType;
+
+    .line 41
+    .line 42
+    const/high16 v7, 0x40000000    # 2.0f
+
+    .line 43
+    .line 44
+    if-ne v5, v6, :cond_1
+
+    .line 45
+    .line 46
+    iget-object v3, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 47
+    sub-float/2addr v0, v2
+
+    .line 48
+    div-float/2addr v0, v7
+
+    .line 49
+    sub-float/2addr v1, p1
+
+    .line 50
+    div-float/2addr v1, v7
+
+    .line 51
+    .line 52
+    .line 53
+    invoke-virtual {v3, v0, v1}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+
+    .line 54
+    .line 55
+    goto/16 :goto_0
+
+    .line 56
+    .line 57
+    :cond_1
+    sget-object v6, Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;
+
+    .line 58
+    .line 59
+    if-ne v5, v6, :cond_2
+
+    .line 60
+    .line 61
+    .line 62
+    invoke-static {v3, v4}, Ljava/lang/Math;->max(FF)F
+
+    .line 63
+    move-result v3
+
+    .line 64
+    .line 65
+    iget-object v4, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 66
+    .line 67
+    .line 68
+    invoke-virtual {v4, v3, v3}, Landroid/graphics/Matrix;->postScale(FF)Z
+
+    .line 69
+    .line 70
+    iget-object v4, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 71
+    mul-float/2addr v2, v3
+
+    .line 72
+    sub-float/2addr v0, v2
+
+    .line 73
+    div-float/2addr v0, v7
+
+    .line 74
+    mul-float/2addr p1, v3
+
+    .line 75
+    sub-float/2addr v1, p1
+
+    .line 76
+    div-float/2addr v1, v7
+
+    .line 77
+    .line 78
+    .line 79
+    invoke-virtual {v4, v0, v1}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+
+    .line 80
+    goto :goto_0
+
+    .line 81
+    .line 82
+    :cond_2
+    sget-object v6, Landroid/widget/ImageView$ScaleType;->CENTER_INSIDE:Landroid/widget/ImageView$ScaleType;
+
+    .line 83
+    .line 84
+    if-ne v5, v6, :cond_3
+
+    .line 85
+    .line 86
+    const/high16 v5, 0x3f800000    # 1.0f
+
+    .line 87
+    .line 88
+    .line 89
+    invoke-static {v3, v4}, Ljava/lang/Math;->min(FF)F
+
+    .line 90
+    move-result v3
+
+    .line 91
+    .line 92
+    .line 93
+    invoke-static {v5, v3}, Ljava/lang/Math;->min(FF)F
+
+    .line 94
+    move-result v3
+
+    .line 95
+    .line 96
+    iget-object v4, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 97
+    .line 98
+    .line 99
+    invoke-virtual {v4, v3, v3}, Landroid/graphics/Matrix;->postScale(FF)Z
+
+    .line 100
+    .line 101
+    iget-object v4, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 102
+    mul-float/2addr v2, v3
+
+    .line 103
+    sub-float/2addr v0, v2
+
+    .line 104
+    div-float/2addr v0, v7
+
+    .line 105
+    mul-float/2addr p1, v3
+
+    .line 106
+    sub-float/2addr v1, p1
+
+    .line 107
+    div-float/2addr v1, v7
+
+    .line 108
+    .line 109
+    .line 110
+    invoke-virtual {v4, v0, v1}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+
+    .line 111
+    goto :goto_0
+
+    .line 112
+    .line 113
+    :cond_3
+    new-instance v3, Landroid/graphics/RectF;
+
+    .line 114
+    const/4 v4, 0x0
+
+    .line 115
+    .line 116
+    .line 117
+    invoke-direct {v3, v4, v4, v2, p1}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    .line 118
+    .line 119
+    new-instance v5, Landroid/graphics/RectF;
+
+    .line 120
+    .line 121
+    .line 122
+    invoke-direct {v5, v4, v4, v0, v1}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    .line 123
+    .line 124
+    iget v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->y:F
+
+    .line 125
+    float-to-int v0, v0
+
+    .line 126
+    .line 127
+    rem-int/lit16 v0, v0, 0xb4
+
+    .line 128
+    .line 129
+    if-eqz v0, :cond_4
+
+    .line 130
+    .line 131
+    new-instance v3, Landroid/graphics/RectF;
+
+    .line 132
+    .line 133
+    .line 134
+    invoke-direct {v3, v4, v4, p1, v2}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    .line 135
+    .line 136
+    :cond_4
+    sget-object p1, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$3;->a:[I
+
+    .line 137
+    .line 138
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->A:Landroid/widget/ImageView$ScaleType;
+
+    .line 139
+    .line 140
+    .line 141
+    invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
+
+    .line 142
+    move-result v0
+
+    .line 143
+    .line 144
+    aget p1, p1, v0
+
+    .line 145
+    const/4 v0, 0x1
+
+    .line 146
+    .line 147
+    if-eq p1, v0, :cond_8
+
+    .line 148
+    const/4 v0, 0x2
+
+    .line 149
+    .line 150
+    if-eq p1, v0, :cond_7
+
+    .line 151
+    const/4 v0, 0x3
+
+    .line 152
+    .line 153
+    if-eq p1, v0, :cond_6
+
+    .line 154
+    const/4 v0, 0x4
+
+    .line 155
+    .line 156
+    if-eq p1, v0, :cond_5
+
+    .line 157
+    goto :goto_0
+
+    .line 158
+    .line 159
+    :cond_5
+    iget-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 160
+    .line 161
+    sget-object v0, Landroid/graphics/Matrix$ScaleToFit;->FILL:Landroid/graphics/Matrix$ScaleToFit;
+
+    .line 162
+    .line 163
+    .line 164
+    invoke-virtual {p1, v3, v5, v0}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
+
+    .line 165
+    goto :goto_0
+
+    .line 166
+    .line 167
+    :cond_6
+    iget-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 168
+    .line 169
+    sget-object v0, Landroid/graphics/Matrix$ScaleToFit;->END:Landroid/graphics/Matrix$ScaleToFit;
+
+    .line 170
+    .line 171
+    .line 172
+    invoke-virtual {p1, v3, v5, v0}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
+
+    .line 173
+    goto :goto_0
+
+    .line 174
+    .line 175
+    :cond_7
+    iget-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 176
+    .line 177
+    sget-object v0, Landroid/graphics/Matrix$ScaleToFit;->START:Landroid/graphics/Matrix$ScaleToFit;
+
+    .line 178
+    .line 179
+    .line 180
+    invoke-virtual {p1, v3, v5, v0}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
+
+    .line 181
+    goto :goto_0
+
+    .line 182
+    .line 183
+    :cond_8
+    iget-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 184
+    .line 185
+    sget-object v0, Landroid/graphics/Matrix$ScaleToFit;->CENTER:Landroid/graphics/Matrix$ScaleToFit;
+
+    .line 186
+    .line 187
+    .line 188
+    invoke-virtual {p1, v3, v5, v0}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
+
+    .line 189
+    .line 190
+    .line 191
+    :goto_0
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->F()V
+
+    .line 192
+    return-void
+.end method
+
+.method public c(FFF)V
+    .locals 3
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->C()F
+
+    .line 4
+    move-result v0
+
+    .line 5
+    .line 6
+    iget v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->e:F
+
+    .line 7
+    .line 8
+    cmpg-float v0, v0, v1
+
+    .line 9
+    .line 10
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    .line 11
+    .line 12
+    if-ltz v0, :cond_0
+
+    .line 13
+    .line 14
+    cmpg-float v0, p1, v1
+
+    .line 15
+    .line 16
+    if-gez v0, :cond_3
+
+    .line 17
+    .line 18
+    .line 19
+    :cond_0
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->C()F
+
+    .line 20
+    move-result v0
+
+    .line 21
+    .line 22
+    iget v2, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->c:F
+
+    .line 23
+    .line 24
+    cmpl-float v0, v0, v2
+
+    .line 25
+    .line 26
+    if-gtz v0, :cond_1
+
+    .line 27
+    .line 28
+    cmpl-float v0, p1, v1
+
+    .line 29
+    .line 30
+    if-lez v0, :cond_3
+
+    .line 31
+    .line 32
+    :cond_1
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->u:Lcom/github/chrisbanes/photoview/OnScaleChangedListener;
+
+    .line 33
+    .line 34
+    if-eqz v0, :cond_2
+
+    .line 35
+    .line 36
+    .line 37
+    invoke-interface {v0, p1, p2, p3}, Lcom/github/chrisbanes/photoview/OnScaleChangedListener;->a(FFF)V
+
+    .line 38
+    .line 39
+    :cond_2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 40
+    .line 41
+    .line 42
+    invoke-virtual {v0, p1, p1, p2, p3}, Landroid/graphics/Matrix;->postScale(FFFF)Z
+
+    .line 43
+    .line 44
+    .line 45
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->r()V
+
+    .line 46
+    :cond_3
+    return-void
+.end method
+
+.method public onLayoutChange(Landroid/view/View;IIIIIIII)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iget-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {p1}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    .line 6
+    move-result-object p1
+
+    .line 7
+    .line 8
+    .line 9
+    invoke-virtual {p0, p1}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->b0(Landroid/graphics/drawable/Drawable;)V
+
+    .line 10
+    return-void
+.end method
+
+.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 10
+
+    .line 1
+    .line 2
+    iget-boolean v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->z:Z
+
+    .line 3
+    const/4 v1, 0x0
+
+    .line 4
+    .line 5
+    if-eqz v0, :cond_8
+
+    .line 6
+    move-object v0, p1
+
+    .line 7
+    .line 8
+    check-cast v0, Landroid/widget/ImageView;
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-static {v0}, Lcom/github/chrisbanes/photoview/Util;->c(Landroid/widget/ImageView;)Z
+
+    .line 12
+    move-result v0
+
+    .line 13
+    .line 14
+    if-eqz v0, :cond_8
+
+    .line 15
+    .line 16
+    .line 17
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
+
+    .line 18
+    move-result v0
+
+    .line 19
+    const/4 v2, 0x1
+
+    .line 20
+    .line 21
+    if-eqz v0, :cond_1
+
+    .line 22
+    .line 23
+    if-eq v0, v2, :cond_0
+
+    .line 24
+    const/4 v3, 0x3
+
+    .line 25
+    .line 26
+    if-eq v0, v3, :cond_0
+
+    .line 27
+    goto :goto_0
+
+    .line 28
+    .line 29
+    .line 30
+    :cond_0
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->C()F
+
+    .line 31
+    move-result v0
+
+    .line 32
+    .line 33
+    iget v3, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->c:F
+
+    .line 34
+    .line 35
+    cmpg-float v0, v0, v3
+
+    .line 36
+    .line 37
+    if-gez v0, :cond_3
+
+    .line 38
+    .line 39
+    .line 40
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->t()Landroid/graphics/RectF;
+
+    .line 41
+    move-result-object v0
+
+    .line 42
+    .line 43
+    if-eqz v0, :cond_3
+
+    .line 44
+    .line 45
+    new-instance v9, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$AnimatedZoomRunnable;
+
+    .line 46
+    .line 47
+    .line 48
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->C()F
+
+    .line 49
+    move-result v5
+
+    .line 50
+    .line 51
+    iget v6, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->c:F
+
+    .line 52
+    .line 53
+    .line 54
+    invoke-virtual {v0}, Landroid/graphics/RectF;->centerX()F
+
+    .line 55
+    move-result v7
+
+    .line 56
+    .line 57
+    .line 58
+    invoke-virtual {v0}, Landroid/graphics/RectF;->centerY()F
+
+    .line 59
+    move-result v8
+
+    .line 60
+    move-object v3, v9
+
+    .line 61
+    move-object v4, p0
+
+    .line 62
+    .line 63
+    .line 64
+    invoke-direct/range {v3 .. v8}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$AnimatedZoomRunnable;-><init>(Lcom/github/chrisbanes/photoview/PhotoViewAttacher;FFFF)V
+
+    .line 65
+    .line 66
+    .line 67
+    invoke-virtual {p1, v9}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+
+    .line 68
+    move p1, v2
+
+    .line 69
+    goto :goto_1
+
+    .line 70
+    .line 71
+    .line 72
+    :cond_1
+    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    .line 73
+    move-result-object p1
+
+    .line 74
+    .line 75
+    if-eqz p1, :cond_2
+
+    .line 76
+    .line 77
+    .line 78
+    invoke-interface {p1, v2}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
+
+    .line 79
+    .line 80
+    .line 81
+    :cond_2
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->q()V
+
+    .line 82
+    :cond_3
+    :goto_0
+    move p1, v1
+
+    .line 83
+    .line 84
+    :goto_1
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->j:Lcom/github/chrisbanes/photoview/CustomGestureDetector;
+
+    .line 85
+    .line 86
+    if-eqz v0, :cond_7
+
+    .line 87
+    .line 88
+    .line 89
+    invoke-virtual {v0}, Lcom/github/chrisbanes/photoview/CustomGestureDetector;->e()Z
+
+    .line 90
+    move-result p1
+
+    .line 91
+    .line 92
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->j:Lcom/github/chrisbanes/photoview/CustomGestureDetector;
+
+    .line 93
+    .line 94
+    .line 95
+    invoke-virtual {v0}, Lcom/github/chrisbanes/photoview/CustomGestureDetector;->d()Z
+
+    .line 96
+    move-result v0
+
+    .line 97
+    .line 98
+    iget-object v3, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->j:Lcom/github/chrisbanes/photoview/CustomGestureDetector;
+
+    .line 99
+    .line 100
+    .line 101
+    invoke-virtual {v3, p2}, Lcom/github/chrisbanes/photoview/CustomGestureDetector;->f(Landroid/view/MotionEvent;)Z
+
+    .line 102
+    move-result v3
+
+    .line 103
+    .line 104
+    if-nez p1, :cond_4
+
+    .line 105
+    .line 106
+    iget-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->j:Lcom/github/chrisbanes/photoview/CustomGestureDetector;
+
+    .line 107
+    .line 108
+    .line 109
+    invoke-virtual {p1}, Lcom/github/chrisbanes/photoview/CustomGestureDetector;->e()Z
+
+    .line 110
+    move-result p1
+
+    .line 111
+    .line 112
+    if-nez p1, :cond_4
+
+    .line 113
+    move p1, v2
+
+    .line 114
+    goto :goto_2
+
+    .line 115
+    :cond_4
+    move p1, v1
+
+    .line 116
+    .line 117
+    :goto_2
+    if-nez v0, :cond_5
+
+    .line 118
+    .line 119
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->j:Lcom/github/chrisbanes/photoview/CustomGestureDetector;
+
+    .line 120
+    .line 121
+    .line 122
+    invoke-virtual {v0}, Lcom/github/chrisbanes/photoview/CustomGestureDetector;->d()Z
+
+    .line 123
+    move-result v0
+
+    .line 124
+    .line 125
+    if-nez v0, :cond_5
+
+    .line 126
+    move v0, v2
+
+    .line 127
+    goto :goto_3
+
+    .line 128
+    :cond_5
+    move v0, v1
+
+    .line 129
+    .line 130
+    :goto_3
+    if-eqz p1, :cond_6
+
+    .line 131
+    .line 132
+    if-eqz v0, :cond_6
+
+    .line 133
+    move v1, v2
+
+    .line 134
+    .line 135
+    :cond_6
+    iput-boolean v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->g:Z
+
+    .line 136
+    move v1, v3
+
+    .line 137
+    goto :goto_4
+
+    .line 138
+    :cond_7
+    move v1, p1
+
+    .line 139
+    .line 140
+    :goto_4
+    iget-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->i:Landroid/view/GestureDetector;
+
+    .line 141
+    .line 142
+    if-eqz p1, :cond_8
+
+    .line 143
+    .line 144
+    .line 145
+    invoke-virtual {p1, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
+
+    .line 146
+    move-result p1
+
+    .line 147
+    .line 148
+    if-eqz p1, :cond_8
+
+    .line 149
+    move v1, v2
+
+    .line 150
+    :cond_8
+    return v1
+.end method
+
+.method public final q()V
+    .locals 1
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->w:Lcom/github/chrisbanes/photoview/PhotoViewAttacher$FlingRunnable;
+
+    .line 3
+    .line 4
+    if-eqz v0, :cond_0
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-virtual {v0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$FlingRunnable;->b()V
+
+    .line 8
+    const/4 v0, 0x0
+
+    .line 9
+    .line 10
+    iput-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->w:Lcom/github/chrisbanes/photoview/PhotoViewAttacher$FlingRunnable;
+
+    .line 11
+    :cond_0
+    return-void
+.end method
+
+.method public final r()V
+    .locals 1
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->s()Z
+
+    .line 4
+    move-result v0
+
+    .line 5
+    .line 6
+    if-eqz v0, :cond_0
+
+    .line 7
+    .line 8
+    .line 9
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->v()Landroid/graphics/Matrix;
+
+    .line 10
+    move-result-object v0
+
+    .line 11
+    .line 12
+    .line 13
+    invoke-virtual {p0, v0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->H(Landroid/graphics/Matrix;)V
+
+    .line 14
+    :cond_0
+    return-void
+.end method
+
+.method public final s()Z
+    .locals 11
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->v()Landroid/graphics/Matrix;
+
+    .line 4
+    move-result-object v0
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-virtual {p0, v0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->u(Landroid/graphics/Matrix;)Landroid/graphics/RectF;
+
+    .line 8
+    move-result-object v0
+
+    .line 9
+    const/4 v1, 0x0
+
+    .line 10
+    .line 11
+    if-nez v0, :cond_0
+
+    .line 12
+    return v1
+
+    .line 13
+    .line 14
+    .line 15
+    :cond_0
+    invoke-virtual {v0}, Landroid/graphics/RectF;->height()F
+
+    .line 16
+    move-result v2
+
+    .line 17
+    .line 18
+    .line 19
+    invoke-virtual {v0}, Landroid/graphics/RectF;->width()F
+
+    .line 20
+    move-result v3
+
+    .line 21
+    .line 22
+    iget-object v4, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 23
+    .line 24
+    .line 25
+    invoke-virtual {p0, v4}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->x(Landroid/widget/ImageView;)I
+
+    .line 26
+    move-result v4
+
+    .line 27
+    int-to-float v4, v4
+
+    .line 28
+    .line 29
+    cmpg-float v5, v2, v4
+
+    .line 30
+    .line 31
+    const/high16 v6, 0x40000000    # 2.0f
+
+    .line 32
+    const/4 v7, 0x3
+
+    .line 33
+    const/4 v8, 0x2
+
+    .line 34
+    const/4 v9, 0x0
+
+    .line 35
+    .line 36
+    if-gtz v5, :cond_3
+
+    .line 37
+    .line 38
+    sget-object v5, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$3;->a:[I
+
+    .line 39
+    .line 40
+    iget-object v10, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->A:Landroid/widget/ImageView$ScaleType;
+
+    .line 41
+    .line 42
+    .line 43
+    invoke-virtual {v10}, Ljava/lang/Enum;->ordinal()I
+
+    .line 44
+    move-result v10
+
+    .line 45
+    .line 46
+    aget v5, v5, v10
+
+    .line 47
+    .line 48
+    if-eq v5, v8, :cond_2
+
+    .line 49
+    .line 50
+    if-eq v5, v7, :cond_1
+
+    .line 51
+    sub-float/2addr v4, v2
+
+    .line 52
+    div-float/2addr v4, v6
+
+    .line 53
+    .line 54
+    iget v2, v0, Landroid/graphics/RectF;->top:F
+
+    .line 55
+    :goto_0
+    sub-float/2addr v4, v2
+
+    .line 56
+    goto :goto_2
+
+    .line 57
+    :cond_1
+    sub-float/2addr v4, v2
+
+    .line 58
+    .line 59
+    iget v2, v0, Landroid/graphics/RectF;->top:F
+
+    .line 60
+    goto :goto_0
+
+    .line 61
+    .line 62
+    :cond_2
+    iget v2, v0, Landroid/graphics/RectF;->top:F
+
+    .line 63
+    :goto_1
+    neg-float v4, v2
+
+    .line 64
+    goto :goto_2
+
+    .line 65
+    .line 66
+    :cond_3
+    iget v2, v0, Landroid/graphics/RectF;->top:F
+
+    .line 67
+    .line 68
+    cmpl-float v5, v2, v9
+
+    .line 69
+    .line 70
+    if-lez v5, :cond_4
+
+    .line 71
+    goto :goto_1
+
+    .line 72
+    .line 73
+    :cond_4
+    iget v2, v0, Landroid/graphics/RectF;->bottom:F
+
+    .line 74
+    .line 75
+    cmpg-float v5, v2, v4
+
+    .line 76
+    .line 77
+    if-gez v5, :cond_5
+
+    .line 78
+    goto :goto_0
+
+    .line 79
+    :cond_5
+    move v4, v9
+
+    .line 80
+    .line 81
+    :goto_2
+    iget-object v2, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 82
+    .line 83
+    .line 84
+    invoke-virtual {p0, v2}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->y(Landroid/widget/ImageView;)I
+
+    .line 85
+    move-result v2
+
+    .line 86
+    int-to-float v2, v2
+
+    .line 87
+    .line 88
+    cmpg-float v5, v3, v2
+
+    .line 89
+    const/4 v10, 0x1
+
+    .line 90
+    .line 91
+    if-gtz v5, :cond_8
+
+    .line 92
+    .line 93
+    sget-object v1, Lcom/github/chrisbanes/photoview/PhotoViewAttacher$3;->a:[I
+
+    .line 94
+    .line 95
+    iget-object v5, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->A:Landroid/widget/ImageView$ScaleType;
+
+    .line 96
+    .line 97
+    .line 98
+    invoke-virtual {v5}, Ljava/lang/Enum;->ordinal()I
+
+    .line 99
+    move-result v5
+
+    .line 100
+    .line 101
+    aget v1, v1, v5
+
+    .line 102
+    .line 103
+    if-eq v1, v8, :cond_7
+
+    .line 104
+    .line 105
+    if-eq v1, v7, :cond_6
+
+    .line 106
+    sub-float/2addr v2, v3
+
+    .line 107
+    div-float/2addr v2, v6
+
+    .line 108
+    .line 109
+    iget v0, v0, Landroid/graphics/RectF;->left:F
+
+    .line 110
+    :goto_3
+    sub-float/2addr v2, v0
+
+    .line 111
+    move v9, v2
+
+    .line 112
+    goto :goto_4
+
+    .line 113
+    :cond_6
+    sub-float/2addr v2, v3
+
+    .line 114
+    .line 115
+    iget v0, v0, Landroid/graphics/RectF;->left:F
+
+    .line 116
+    goto :goto_3
+
+    .line 117
+    .line 118
+    :cond_7
+    iget v0, v0, Landroid/graphics/RectF;->left:F
+
+    .line 119
+    neg-float v0, v0
+
+    .line 120
+    move v9, v0
+
+    .line 121
+    .line 122
+    :goto_4
+    iput v8, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->x:I
+
+    .line 123
+    goto :goto_5
+
+    .line 124
+    .line 125
+    :cond_8
+    iget v3, v0, Landroid/graphics/RectF;->left:F
+
+    .line 126
+    .line 127
+    cmpl-float v5, v3, v9
+
+    .line 128
+    .line 129
+    if-lez v5, :cond_9
+
+    .line 130
+    .line 131
+    iput v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->x:I
+
+    .line 132
+    neg-float v9, v3
+
+    .line 133
+    goto :goto_5
+
+    .line 134
+    .line 135
+    :cond_9
+    iget v0, v0, Landroid/graphics/RectF;->right:F
+
+    .line 136
+    .line 137
+    cmpg-float v1, v0, v2
+
+    .line 138
+    .line 139
+    if-gez v1, :cond_a
+
+    .line 140
+    .line 141
+    sub-float v9, v2, v0
+
+    .line 142
+    .line 143
+    iput v10, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->x:I
+
+    .line 144
+    goto :goto_5
+
+    .line 145
+    :cond_a
+    const/4 v0, -0x1
+
+    .line 146
+    .line 147
+    iput v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->x:I
+
+    .line 148
+    .line 149
+    :goto_5
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 150
+    .line 151
+    .line 152
+    invoke-virtual {v0, v9, v4}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+
+    .line 153
+    return v10
+.end method
+
+.method public t()Landroid/graphics/RectF;
+    .locals 1
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->s()Z
+
+    .line 4
+    .line 5
+    .line 6
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->v()Landroid/graphics/Matrix;
+
+    .line 7
+    move-result-object v0
+
+    .line 8
+    .line 9
+    .line 10
+    invoke-virtual {p0, v0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->u(Landroid/graphics/Matrix;)Landroid/graphics/RectF;
+
+    .line 11
+    move-result-object v0
+
+    .line 12
+    return-object v0
+.end method
+
+.method public final u(Landroid/graphics/Matrix;)Landroid/graphics/RectF;
+    .locals 4
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    .line 6
+    move-result-object v0
+
+    .line 7
+    .line 8
+    if-eqz v0, :cond_0
+
+    .line 9
+    .line 10
+    iget-object v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->n:Landroid/graphics/RectF;
+
+    .line 11
+    .line 12
+    .line 13
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    .line 14
+    move-result v2
+
+    .line 15
+    int-to-float v2, v2
+
+    .line 16
+    .line 17
+    .line 18
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    .line 19
+    move-result v0
+
+    .line 20
+    int-to-float v0, v0
+
+    .line 21
+    const/4 v3, 0x0
+
+    .line 22
+    .line 23
+    .line 24
+    invoke-virtual {v1, v3, v3, v2, v0}, Landroid/graphics/RectF;->set(FFFF)V
+
+    .line 25
+    .line 26
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->n:Landroid/graphics/RectF;
+
+    .line 27
+    .line 28
+    .line 29
+    invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->mapRect(Landroid/graphics/RectF;)Z
+
+    .line 30
+    .line 31
+    iget-object p1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->n:Landroid/graphics/RectF;
+
+    .line 32
+    return-object p1
+
+    .line 33
+    :cond_0
+    const/4 p1, 0x0
+
+    .line 34
+    return-object p1
+.end method
+
+.method public update()V
+    .locals 1
+
+    .line 1
+    .line 2
+    iget-boolean v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->z:Z
+
+    .line 3
+    .line 4
+    if-eqz v0, :cond_0
+
+    .line 5
+    .line 6
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->h:Landroid/widget/ImageView;
+
+    .line 7
+    .line 8
+    .line 9
+    invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    .line 10
+    move-result-object v0
+
+    .line 11
+    .line 12
+    .line 13
+    invoke-virtual {p0, v0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->b0(Landroid/graphics/drawable/Drawable;)V
+
+    .line 14
+    goto :goto_0
+
+    .line 15
+    .line 16
+    .line 17
+    :cond_0
+    invoke-virtual {p0}, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->F()V
+
+    .line 18
+    :goto_0
+    return-void
+.end method
+
+.method public final v()Landroid/graphics/Matrix;
+    .locals 2
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->l:Landroid/graphics/Matrix;
+
+    .line 3
+    .line 4
+    iget-object v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->k:Landroid/graphics/Matrix;
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+
+    .line 8
+    .line 9
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->l:Landroid/graphics/Matrix;
+
+    .line 10
+    .line 11
+    iget-object v1, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->m:Landroid/graphics/Matrix;
+
+    .line 12
+    .line 13
+    .line 14
+    invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->postConcat(Landroid/graphics/Matrix;)Z
+
+    .line 15
+    .line 16
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->l:Landroid/graphics/Matrix;
+
+    .line 17
+    return-object v0
+.end method
+
+.method public w()Landroid/graphics/Matrix;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->l:Landroid/graphics/Matrix;
+
+    return-object v0
+.end method
+
+.method public final x(Landroid/widget/ImageView;)I
+    .locals 2
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
+
+    .line 4
+    move-result v0
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-virtual {p1}, Landroid/view/View;->getPaddingTop()I
+
+    .line 8
+    move-result v1
+
+    .line 9
+    sub-int/2addr v0, v1
+
+    .line 10
+    .line 11
+    .line 12
+    invoke-virtual {p1}, Landroid/view/View;->getPaddingBottom()I
+
+    .line 13
+    move-result p1
+
+    .line 14
+    sub-int/2addr v0, p1
+
+    .line 15
+    return v0
+.end method
+
+.method public final y(Landroid/widget/ImageView;)I
+    .locals 2
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+
+    .line 4
+    move-result v0
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-virtual {p1}, Landroid/view/View;->getPaddingLeft()I
+
+    .line 8
+    move-result v1
+
+    .line 9
+    sub-int/2addr v0, v1
+
+    .line 10
+    .line 11
+    .line 12
+    invoke-virtual {p1}, Landroid/view/View;->getPaddingRight()I
+
+    .line 13
+    move-result p1
+
+    .line 14
+    sub-int/2addr v0, p1
+
+    .line 15
+    return v0
+.end method
+
+.method public z()F
+    .locals 1
+
+    .line 1
+    iget v0, p0, Lcom/github/chrisbanes/photoview/PhotoViewAttacher;->e:F
+
+    return v0
+.end method

@@ -1,0 +1,95 @@
+.class public Lcom/bytedance/adsdk/nb/feh/feh/nb/on;
+.super Lcom/bytedance/adsdk/nb/feh/feh/nb/po;
+.source "SourceFile"
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .line 1
+    .line 2
+    sget-object v0, Lcom/bytedance/adsdk/nb/feh/bjc/hkl;->on:Lcom/bytedance/adsdk/nb/feh/bjc/hkl;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {p0, v0}, Lcom/bytedance/adsdk/nb/feh/feh/nb/po;-><init>(Lcom/bytedance/adsdk/nb/feh/bjc/hkl;)V
+
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public nb(Ljava/util/Map;)Ljava/lang/Object;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Lorg/json/JSONObject;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/bytedance/adsdk/nb/feh/feh/nb/po;->nb:Lcom/bytedance/adsdk/nb/feh/feh/nb;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-interface {v0, p1}, Lcom/bytedance/adsdk/nb/feh/feh/nb;->nb(Ljava/util/Map;)Ljava/lang/Object;
+
+    .line 6
+    move-result-object v0
+
+    .line 7
+    const/4 v1, 0x0
+
+    .line 8
+    .line 9
+    if-nez v0, :cond_0
+
+    .line 10
+    return-object v1
+
+    .line 11
+    .line 12
+    :cond_0
+    iget-object v2, p0, Lcom/bytedance/adsdk/nb/feh/feh/nb/po;->feh:Lcom/bytedance/adsdk/nb/feh/feh/nb;
+
+    .line 13
+    .line 14
+    .line 15
+    invoke-interface {v2, p1}, Lcom/bytedance/adsdk/nb/feh/feh/nb;->nb(Ljava/util/Map;)Ljava/lang/Object;
+
+    .line 16
+    move-result-object p1
+
+    .line 17
+    .line 18
+    if-nez p1, :cond_1
+
+    .line 19
+    return-object v1
+
+    .line 20
+    .line 21
+    :cond_1
+    check-cast p1, Ljava/lang/Number;
+
+    .line 22
+    .line 23
+    .line 24
+    invoke-static {v0, p1}, Lcom/bytedance/adsdk/nb/feh/bme/nb/hkl;->nb(Ljava/lang/Object;Ljava/lang/Number;)Ljava/lang/Object;
+
+    .line 25
+    move-result-object p1
+
+    .line 26
+    return-object p1
+.end method

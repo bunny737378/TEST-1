@@ -1,0 +1,42 @@
+.class Lcom/google/common/io/BaseEncoding$2;
+.super Lcom/google/common/io/ByteSource;
+.source "SourceFile"
+
+
+# instance fields
+.field public final synthetic a:Lcom/google/common/io/CharSource;
+
+.field public final synthetic b:Lcom/google/common/io/BaseEncoding;
+
+
+# virtual methods
+.method public a()Ljava/io/InputStream;
+    .locals 2
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/google/common/io/BaseEncoding$2;->b:Lcom/google/common/io/BaseEncoding;
+
+    .line 3
+    .line 4
+    iget-object v1, p0, Lcom/google/common/io/BaseEncoding$2;->a:Lcom/google/common/io/CharSource;
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-virtual {v1}, Lcom/google/common/io/CharSource;->a()Ljava/io/Reader;
+
+    .line 8
+    move-result-object v1
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-virtual {v0, v1}, Lcom/google/common/io/BaseEncoding;->b(Ljava/io/Reader;)Ljava/io/InputStream;
+
+    .line 12
+    move-result-object v0
+
+    .line 13
+    return-object v0
+.end method

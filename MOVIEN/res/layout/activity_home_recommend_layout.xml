@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.youth.banner.Banner android:id="@id/banner" android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_marginLeft="@dimen/dp_50" android:layout_marginRight="@dimen/dp_50" android:layout_marginHorizontal="@dimen/dp_50" app:layout_constraintBottom_toTopOf="@id/iv_delete" app:layout_constraintDimensionRatio="h,235:315" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_chainStyle="packed" />
+    <ImageView android:id="@id/iv_delete" android:background="@drawable/ic_home_recommend_close" android:layout_width="@dimen/dp_50" android:layout_height="@dimen/dp_50" android:layout_marginTop="@dimen/dp_15" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="@id/banner" app:layout_constraintStart_toStartOf="@id/banner" app:layout_constraintTop_toBottomOf="@id/banner" />
+</androidx.constraintlayout.widget.ConstraintLayout>

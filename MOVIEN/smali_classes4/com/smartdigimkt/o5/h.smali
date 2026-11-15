@@ -1,0 +1,51 @@
+.class public final Lcom/smartdigimkt/o5/h;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/smartdigimkt/v6/l;
+
+
+# instance fields
+.field public final synthetic a:Landroid/widget/ImageView;
+
+
+# direct methods
+.method public constructor <init>(Landroid/widget/ImageView;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-object p1, p0, Lcom/smartdigimkt/o5/h;->a:Landroid/widget/ImageView;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(Landroid/graphics/Bitmap;Ljava/lang/String;)V
+    .locals 0
+
+    iget-object p2, p0, Lcom/smartdigimkt/o5/h;->a:Landroid/widget/ImageView;
+
+    if-eqz p2, :cond_0
+
+    .line 2
+    invoke-virtual {p2, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final a(Ljava/lang/String;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method

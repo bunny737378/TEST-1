@@ -1,0 +1,17 @@
+.class public Lorg/eclipse/jetty/client/HttpExchange$ContentExchange;
+.super Lorg/eclipse/jetty/client/ContentExchange;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lorg/eclipse/jetty/client/HttpExchange;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "ContentExchange"
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation

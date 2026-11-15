@@ -1,0 +1,56 @@
+.class final Lcom/liulishuo/filedownloader/FileDownloader$HolderClass;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/liulishuo/filedownloader/FileDownloader;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "HolderClass"
+.end annotation
+
+
+# static fields
+.field private static final INSTANCE:Lcom/liulishuo/filedownloader/FileDownloader;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .line 1
+    .line 2
+    new-instance v0, Lcom/liulishuo/filedownloader/FileDownloader;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {v0}, Lcom/liulishuo/filedownloader/FileDownloader;-><init>()V
+
+    .line 6
+    .line 7
+    sput-object v0, Lcom/liulishuo/filedownloader/FileDownloader$HolderClass;->INSTANCE:Lcom/liulishuo/filedownloader/FileDownloader;
+
+    .line 8
+    return-void
+.end method
+
+.method private constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static synthetic access$000()Lcom/liulishuo/filedownloader/FileDownloader;
+    .locals 1
+
+    sget-object v0, Lcom/liulishuo/filedownloader/FileDownloader$HolderClass;->INSTANCE:Lcom/liulishuo/filedownloader/FileDownloader;
+
+    return-object v0
+.end method

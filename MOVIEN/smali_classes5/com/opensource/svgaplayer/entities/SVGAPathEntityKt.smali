@@ -1,0 +1,147 @@
+.class public final Lcom/opensource/svgaplayer/entities/SVGAPathEntityKt;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000\u000c\n\u0002\u0010\"\n\u0002\u0010\u000e\n\u0002\u0008\u0004\"\u001a\u0010\u0004\u001a\u0008\u0012\u0004\u0012\u00020\u00010\u00008\u0002X\u0082\u0004\u00a2\u0006\u0006\n\u0004\u0008\u0002\u0010\u0003\u00a8\u0006\u0005"
+    }
+    d2 = {
+        "",
+        "",
+        "a",
+        "Ljava/util/Set;",
+        "VALID_METHODS",
+        "com.opensource.svgaplayer"
+    }
+    k = 0x2
+    mv = {
+        0x1,
+        0x4,
+        0x0
+    }
+.end annotation
+
+
+# static fields
+.field public static final a:Ljava/util/Set;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 20
+
+    .line 1
+    .line 2
+    const-string v0, "M"
+
+    .line 3
+    .line 4
+    const-string v1, "L"
+
+    .line 5
+    .line 6
+    const-string v2, "H"
+
+    .line 7
+    .line 8
+    const-string v3, "V"
+
+    .line 9
+    .line 10
+    const-string v4, "C"
+
+    .line 11
+    .line 12
+    const-string v5, "S"
+
+    .line 13
+    .line 14
+    const-string v6, "Q"
+
+    .line 15
+    .line 16
+    const-string v7, "R"
+
+    .line 17
+    .line 18
+    const-string v8, "A"
+
+    .line 19
+    .line 20
+    const-string v9, "Z"
+
+    .line 21
+    .line 22
+    const-string v10, "m"
+
+    .line 23
+    .line 24
+    const-string v11, "l"
+
+    .line 25
+    .line 26
+    const-string v12, "h"
+
+    .line 27
+    .line 28
+    const-string v13, "v"
+
+    .line 29
+    .line 30
+    const-string v14, "c"
+
+    .line 31
+    .line 32
+    const-string v15, "s"
+
+    .line 33
+    .line 34
+    const-string v16, "q"
+
+    .line 35
+    .line 36
+    const-string v17, "r"
+
+    .line 37
+    .line 38
+    const-string v18, "a"
+
+    .line 39
+    .line 40
+    const-string v19, "z"
+
+    .line 41
+    .line 42
+    .line 43
+    filled-new-array/range {v0 .. v19}, [Ljava/lang/String;
+
+    .line 44
+    move-result-object v0
+
+    .line 45
+    .line 46
+    .line 47
+    invoke-static {v0}, Lkotlin/collections/SetsKt;->setOf([Ljava/lang/Object;)Ljava/util/Set;
+
+    .line 48
+    move-result-object v0
+
+    .line 49
+    .line 50
+    sput-object v0, Lcom/opensource/svgaplayer/entities/SVGAPathEntityKt;->a:Ljava/util/Set;
+
+    .line 51
+    return-void
+.end method
+
+.method public static final synthetic a()Ljava/util/Set;
+    .locals 1
+
+    .line 1
+    sget-object v0, Lcom/opensource/svgaplayer/entities/SVGAPathEntityKt;->a:Ljava/util/Set;
+
+    return-object v0
+.end method

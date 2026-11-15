@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/ll_tab" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dp" android:layout_marginRight="10.0dp">
+        <TextView android:textSize="16.0dp" android:textStyle="bold" android:textColor="#bbbbbb" android:id="@id/tvTab" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:includeFontPadding="false" />
+        <TextView android:id="@id/tvLine" android:background="@color/white" android:visibility="invisible" android:layout_width="@dimen/dp_10" android:layout_height="2.0dp" android:layout_marginTop="4.0dp" />
+    </LinearLayout>
+</FrameLayout>

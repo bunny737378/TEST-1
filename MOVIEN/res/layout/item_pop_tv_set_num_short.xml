@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/rl_click" android:tag="layout/item_pop_tv_set_num_short_0" android:layout_width="@dimen/dp_45" android:layout_height="@dimen/dp_45" android:layout_marginBottom="@dimen/dp_8"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="@dimen/sp_12" android:textColor="@color/color_fa7705" android:ellipsize="end" android:gravity="center" android:id="@id/tv_name" android:background="@drawable/bg_short_tv_set_num_selector" android:layout_width="@dimen/dp_45" android:layout_height="@dimen/dp_45" android:text="1" android:maxLines="1" android:paddingStart="@dimen/dp_1" android:paddingEnd="@dimen/dp_1" />
+    <ImageView android:id="@id/iv_is_play" android:layout_width="@dimen/dp_12" android:layout_height="@dimen/dp_12" android:layout_marginTop="@dimen/dp_2" android:src="@drawable/ic_short_video_is_play" android:layout_alignParentTop="true" android:layout_marginEnd="@dimen/dp_2" android:layout_alignParentEnd="true" />
+</RelativeLayout>

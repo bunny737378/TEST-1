@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:tag="layout/activity_main_0" android:background="@color/theme_bg_color" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/mFragmentContainerLayout" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="@dimen/dp_54" />
+    <View android:background="@color/color_ededed" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/dp_0_1" android:layout_marginBottom="@dimen/dp_54" android:layout_alignParentBottom="true" />
+    <com.mgs.carparking.widgets.NewTabLayout android:id="@id/mTabLayout" android:background="@color/main_tab_bg" android:layout_width="match_parent" android:layout_height="@dimen/dp_54" android:layout_alignParentBottom="true" />
+    <View android:tag="binding_1" android:background="@drawable/shape_message_oval" android:layout_width="8.0dp" android:layout_height="8.0dp" android:layout_marginBottom="@dimen/dp_40" android:layout_alignParentBottom="true" android:layout_marginEnd="@dimen/dp_28" android:layout_alignParentEnd="true" />
+    <FrameLayout android:id="@id/ad_container" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/layout_native_adView" android:background="@color/black" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" />
+</RelativeLayout>

@@ -1,0 +1,64 @@
+.class public final Lcom/smartdigimkt/f/u;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic a:Lcom/smartdigimkt/expressad/advanced/view/ATNativeAdvancedWebview;
+
+.field public final synthetic b:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Lcom/smartdigimkt/expressad/advanced/view/ATNativeAdvancedWebview;Ljava/lang/String;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-object p1, p0, Lcom/smartdigimkt/f/u;->a:Lcom/smartdigimkt/expressad/advanced/view/ATNativeAdvancedWebview;
+
+    .line 3
+    .line 4
+    iput-object p2, p0, Lcom/smartdigimkt/f/u;->b:Ljava/lang/String;
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .locals 2
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/smartdigimkt/f/u;->a:Lcom/smartdigimkt/expressad/advanced/view/ATNativeAdvancedWebview;
+
+    .line 3
+    .line 4
+    iget-object v1, p0, Lcom/smartdigimkt/f/u;->b:Ljava/lang/String;
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-static {v1}, Lcom/smartdigimkt/o0/b0;->c(Ljava/lang/String;)Ljava/lang/String;
+
+    .line 8
+    move-result-object v1
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-virtual {v0, v1}, Lcom/smartdigimkt/sdk/basead/express/web/BaseWebView;->loadUrl(Ljava/lang/String;)V
+
+    .line 12
+    return-void
+.end method

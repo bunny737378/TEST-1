@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/theme_bg_color" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent" android:layout_height="match_parent">
+            <com.google.android.material.appbar.AppBarLayout android:id="@id/appbarLayout" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" android:stateListAnimator="@drawable/appbar_short_elevation">
+                <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@id/collapsingToolbarLayout" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" app:expandedTitleMarginEnd="30.0dp" app:expandedTitleMarginStart="48.0dp" app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                    <androidx.appcompat.widget.Toolbar android:id="@id/sortToolbar" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="@dimen/dp_35" app:contentInsetLeft="0.0dp" app:contentInsetStart="0.0dp" app:layout_collapseMode="pin">
+                        <RelativeLayout android:id="@id/rl_title" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/dp_30">
+                            <TextView android:textSize="@dimen/sp_14" android:textColor="@color/common_text_primary" android:id="@id/tvbarTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+                        </RelativeLayout>
+                    </androidx.appcompat.widget.Toolbar>
+                    <LinearLayout android:orientation="vertical" android:id="@id/llTop" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_collapseMode="none" app:layout_collapseParallaxMultiplier="0.7">
+                        <androidx.recyclerview.widget.RecyclerView android:orientation="vertical" android:id="@id/rv_theme_tab" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/dp_10" />
+                        <androidx.recyclerview.widget.RecyclerView android:orientation="vertical" android:id="@id/rv_attribute_tab" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/dp_10" />
+                        <androidx.recyclerview.widget.RecyclerView android:orientation="vertical" android:id="@id/rv_audience_tab" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/dp_10" />
+                        <androidx.recyclerview.widget.RecyclerView android:orientation="vertical" android:id="@id/rv_local_tab" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/dp_10" />
+                        <androidx.recyclerview.widget.RecyclerView android:orientation="vertical" android:id="@id/rv_newtime_tab" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/dp_10" />
+                        <androidx.recyclerview.widget.RecyclerView android:orientation="vertical" android:id="@id/rv_sort_tab" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="@dimen/dp_10" />
+                    </LinearLayout>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                <com.mgs.carparking.widgets.StatusLayout android:id="@id/status_layout" android:background="@color/theme_bg_color" android:layout_width="match_parent" android:layout_height="match_parent">
+                    <com.scwang.smart.refresh.layout.SmartRefreshLayout android:id="@id/smart_refresh" android:layout_width="match_parent" android:layout_height="match_parent" app:srlPrimaryColor="@color/color_commen">
+                        <com.mgs.carparking.widgets.WaterDropHeader android:id="@id/header" android:layout_width="match_parent" android:layout_height="wrap_content" />
+                        <androidx.recyclerview.widget.RecyclerView android:id="@id/recycler_view" android:paddingLeft="@dimen/dp_10" android:layout_width="match_parent" android:layout_height="match_parent" />
+                    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+                </com.mgs.carparking.widgets.StatusLayout>
+            </LinearLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,87 @@
+.class public final Lcom/smartdigimkt/y2/t;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field final synthetic this$0:Lcom/smartdigimkt/sdk/api/format/myoffer/SDMMyOfferNative;
+
+
+# direct methods
+.method public constructor <init>(Lcom/smartdigimkt/sdk/api/format/myoffer/SDMMyOfferNative;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-object p1, p0, Lcom/smartdigimkt/y2/t;->this$0:Lcom/smartdigimkt/sdk/api/format/myoffer/SDMMyOfferNative;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .locals 3
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/smartdigimkt/y2/t;->this$0:Lcom/smartdigimkt/sdk/api/format/myoffer/SDMMyOfferNative;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-static {v0}, Lcom/smartdigimkt/sdk/api/format/myoffer/SDMMyOfferNative;->access$200(Lcom/smartdigimkt/sdk/api/format/myoffer/SDMMyOfferNative;)Lcom/smartdigimkt/sdk/api/format/SDMNativeLoadListener;
+
+    .line 6
+    move-result-object v0
+
+    .line 7
+    .line 8
+    if-eqz v0, :cond_0
+
+    .line 9
+    .line 10
+    iget-object v0, p0, Lcom/smartdigimkt/y2/t;->this$0:Lcom/smartdigimkt/sdk/api/format/myoffer/SDMMyOfferNative;
+
+    .line 11
+    .line 12
+    .line 13
+    invoke-static {v0}, Lcom/smartdigimkt/sdk/api/format/myoffer/SDMMyOfferNative;->access$200(Lcom/smartdigimkt/sdk/api/format/myoffer/SDMMyOfferNative;)Lcom/smartdigimkt/sdk/api/format/SDMNativeLoadListener;
+
+    .line 14
+    move-result-object v0
+
+    .line 15
+    .line 16
+    const-string v1, "10004"
+
+    .line 17
+    .line 18
+    const-string v2, ""
+
+    .line 19
+    .line 20
+    .line 21
+    invoke-static {v1, v2}, Lcom/smartdigimkt/m7/b;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/smartdigimkt/m7/a;
+
+    .line 22
+    move-result-object v1
+
+    .line 23
+    .line 24
+    .line 25
+    invoke-interface {v0, v1}, Lcom/smartdigimkt/sdk/api/format/SDMNativeLoadListener;->onAdLoadFail(Lcom/smartdigimkt/sdk/api/AdError;)V
+
+    .line 26
+    :cond_0
+    return-void
+.end method

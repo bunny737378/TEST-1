@@ -1,0 +1,36 @@
+.class public final Lorg/fourthline/cling/model/types/UnsignedIntegerFourBytes;
+.super Lorg/fourthline/cling/model/types/UnsignedVariableInteger;
+.source "SourceFile"
+
+
+# direct methods
+.method public constructor <init>(J)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0, p1, p2}, Lorg/fourthline/cling/model/types/UnsignedVariableInteger;-><init>(J)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;)V
+    .locals 0
+
+    .line 2
+    invoke-direct {p0, p1}, Lorg/fourthline/cling/model/types/UnsignedVariableInteger;-><init>(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()Lorg/fourthline/cling/model/types/UnsignedVariableInteger$Bits;
+    .locals 1
+
+    .line 1
+    .line 2
+    sget-object v0, Lorg/fourthline/cling/model/types/UnsignedVariableInteger$Bits;->THIRTYTWO:Lorg/fourthline/cling/model/types/UnsignedVariableInteger$Bits;
+
+    .line 3
+    return-object v0
+.end method

@@ -1,0 +1,249 @@
+.class Lcom/mgs/carparking/ui/ShortPlayItemFragment$2;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/mgs/carparking/ui/ShortPlayItemFragment;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic a:Lcom/mgs/carparking/ui/ShortPlayItemFragment;
+
+
+# direct methods
+.method public constructor <init>(Lcom/mgs/carparking/ui/ShortPlayItemFragment;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-object p1, p0, Lcom/mgs/carparking/ui/ShortPlayItemFragment$2;->a:Lcom/mgs/carparking/ui/ShortPlayItemFragment;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public onPageScrollStateChanged(I)V
+    .locals 2
+
+    .line 1
+    .line 2
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 6
+    .line 7
+    const-string v1, "TabHolder--------------onPageScrollStateChanged------>"
+
+    .line 8
+    .line 9
+    .line 10
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 11
+    .line 12
+    .line 13
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 14
+    .line 15
+    .line 16
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 17
+    move-result-object p1
+
+    .line 18
+    .line 19
+    .line 20
+    invoke-static {p1}, Lcom/mgs/carparking/libutils/ELog;->c(Ljava/lang/String;)V
+
+    .line 21
+    return-void
+.end method
+
+.method public onPageScrolled(IFI)V
+    .locals 2
+
+    .line 1
+    .line 2
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 6
+    .line 7
+    const-string v1, "TabHolder--------------onPageScrolled------>position\uff1a"
+
+    .line 8
+    .line 9
+    .line 10
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 11
+    .line 12
+    .line 13
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 14
+    .line 15
+    const-string v1, "\nonPageScrolled------>positionOffset:"
+
+    .line 16
+    .line 17
+    .line 18
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 19
+    .line 20
+    .line 21
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    .line 22
+    .line 23
+    const-string v1, "\nonPageScrolled------>positionOffsetPixels:"
+
+    .line 24
+    .line 25
+    .line 26
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 27
+    .line 28
+    .line 29
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 30
+    .line 31
+    .line 32
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 33
+    move-result-object p3
+
+    .line 34
+    .line 35
+    .line 36
+    invoke-static {p3}, Lcom/mgs/carparking/libutils/ELog;->c(Ljava/lang/String;)V
+
+    .line 37
+    .line 38
+    iget-object p3, p0, Lcom/mgs/carparking/ui/ShortPlayItemFragment$2;->a:Lcom/mgs/carparking/ui/ShortPlayItemFragment;
+
+    .line 39
+    .line 40
+    .line 41
+    invoke-static {p3}, Lcom/mgs/carparking/ui/ShortPlayItemFragment;->n(Lcom/mgs/carparking/ui/ShortPlayItemFragment;)Lcom/mgs/carparking/ui/TabItemAdapter$TabIndicatorHelper;
+
+    .line 42
+    move-result-object p3
+
+    .line 43
+    .line 44
+    .line 45
+    invoke-virtual {p3, p1, p2}, Lcom/mgs/carparking/ui/TabItemAdapter$TabIndicatorHelper;->h(IF)V
+
+    .line 46
+    return-void
+.end method
+
+.method public onPageSelected(I)V
+    .locals 2
+
+    .line 1
+    .line 2
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 6
+    .line 7
+    const-string v1, "TabHolder--------------onPageSelected------>"
+
+    .line 8
+    .line 9
+    .line 10
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 11
+    .line 12
+    .line 13
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 14
+    .line 15
+    .line 16
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    .line 17
+    move-result-object v0
+
+    .line 18
+    .line 19
+    .line 20
+    invoke-static {v0}, Lcom/mgs/carparking/libutils/ELog;->c(Ljava/lang/String;)V
+
+    .line 21
+    .line 22
+    iget-object v0, p0, Lcom/mgs/carparking/ui/ShortPlayItemFragment$2;->a:Lcom/mgs/carparking/ui/ShortPlayItemFragment;
+
+    .line 23
+    .line 24
+    .line 25
+    invoke-static {v0}, Lcom/mgs/carparking/ui/ShortPlayItemFragment;->m(Lcom/mgs/carparking/ui/ShortPlayItemFragment;)Lcom/mgs/carparking/ui/TabItemAdapter;
+
+    .line 26
+    move-result-object v0
+
+    .line 27
+    .line 28
+    .line 29
+    invoke-virtual {v0, p1}, Lcom/mgs/carparking/ui/TabItemAdapter;->N(I)V
+
+    .line 30
+    .line 31
+    iget-object v0, p0, Lcom/mgs/carparking/ui/ShortPlayItemFragment$2;->a:Lcom/mgs/carparking/ui/ShortPlayItemFragment;
+
+    .line 32
+    .line 33
+    .line 34
+    invoke-static {v0}, Lcom/mgs/carparking/ui/ShortPlayItemFragment;->l(Lcom/mgs/carparking/ui/ShortPlayItemFragment;)Landroidx/recyclerview/widget/RecyclerView;
+
+    .line 35
+    move-result-object v0
+
+    .line 36
+    .line 37
+    .line 38
+    invoke-virtual {v0, p1}, Landroidx/recyclerview/widget/RecyclerView;->smoothScrollToPosition(I)V
+
+    .line 39
+    return-void
+.end method

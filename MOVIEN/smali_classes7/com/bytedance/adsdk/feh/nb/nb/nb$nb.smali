@@ -1,0 +1,79 @@
+.class final Lcom/bytedance/adsdk/feh/nb/nb/nb$nb;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bytedance/adsdk/feh/nb/nb/nb;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "nb"
+.end annotation
+
+
+# instance fields
+.field private final feh:Lcom/bytedance/adsdk/feh/nb/nb/emh;
+
+.field private final nb:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lcom/bytedance/adsdk/feh/nb/nb/bz;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method private constructor <init>(Lcom/bytedance/adsdk/feh/nb/nb/emh;)V
+    .locals 1
+
+    .line 2
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 3
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/bytedance/adsdk/feh/nb/nb/nb$nb;->nb:Ljava/util/List;
+
+    iput-object p1, p0, Lcom/bytedance/adsdk/feh/nb/nb/nb$nb;->feh:Lcom/bytedance/adsdk/feh/nb/nb/emh;
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lcom/bytedance/adsdk/feh/nb/nb/emh;Lcom/bytedance/adsdk/feh/nb/nb/nb$1;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0, p1}, Lcom/bytedance/adsdk/feh/nb/nb/nb$nb;-><init>(Lcom/bytedance/adsdk/feh/nb/nb/emh;)V
+
+    return-void
+.end method
+
+.method public static synthetic feh(Lcom/bytedance/adsdk/feh/nb/nb/nb$nb;)Lcom/bytedance/adsdk/feh/nb/nb/emh;
+    .locals 0
+
+    .line 1
+    .line 2
+    iget-object p0, p0, Lcom/bytedance/adsdk/feh/nb/nb/nb$nb;->feh:Lcom/bytedance/adsdk/feh/nb/nb/emh;
+
+    .line 3
+    return-object p0
+.end method
+
+.method public static synthetic nb(Lcom/bytedance/adsdk/feh/nb/nb/nb$nb;)Ljava/util/List;
+    .locals 0
+
+    .line 1
+    .line 2
+    iget-object p0, p0, Lcom/bytedance/adsdk/feh/nb/nb/nb$nb;->nb:Ljava/util/List;
+
+    .line 3
+    return-object p0
+.end method

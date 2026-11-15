@@ -1,0 +1,46 @@
+.class public final Lcn/jzvd/R$style;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcn/jzvd/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "style"
+.end annotation
+
+
+# static fields
+.field public static TextAppearance_Compat_Notification:I = 0x7f120199
+
+.field public static TextAppearance_Compat_Notification_Info:I = 0x7f12019a
+
+.field public static TextAppearance_Compat_Notification_Line2:I = 0x7f12019c
+
+.field public static TextAppearance_Compat_Notification_Time:I = 0x7f12019f
+
+.field public static TextAppearance_Compat_Notification_Title:I = 0x7f1201a1
+
+.field public static Widget_Compat_NotificationActionContainer:I = 0x7f120291
+
+.field public static Widget_Compat_NotificationActionText:I = 0x7f120292
+
+.field public static jz_popup_toast_anim:I = 0x7f120348
+
+.field public static jz_style_dialog_progress:I = 0x7f120349
+
+.field public static pop_animation:I = 0x7f120353
+
+
+# direct methods
+.method private constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method

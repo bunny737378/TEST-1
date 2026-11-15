@@ -1,0 +1,22 @@
+.class public interface abstract Lorg/seamless/swing/DefaultEventListener;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lorg/seamless/swing/EventListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<PAY",
+        "LOAD:Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;",
+        "Lorg/seamless/swing/EventListener<",
+        "Lorg/seamless/swing/DefaultEvent<",
+        "TPAY",
+        "LOAD;",
+        ">;>;"
+    }
+.end annotation

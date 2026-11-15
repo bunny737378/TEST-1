@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="@dimen/dp_7" android:paddingTop="@dimen/dp_3" android:paddingRight="@dimen/dp_7" android:paddingBottom="@dimen/dp_3" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/dp_7" android:paddingVertical="@dimen/dp_3"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.ruffian.library.widget.RTextView android:textColor="@color/white" android:id="@id/speed_text" android:paddingLeft="@dimen/dp_7" android:paddingTop="@dimen/dp_10" android:paddingRight="@dimen/dp_7" android:paddingBottom="@dimen/dp_10" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingHorizontal="@dimen/dp_7" android:paddingVertical="@dimen/dp_10" />
+    <ImageView android:id="@id/speed_select_img" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/iv_short_play_select" android:layout_marginEnd="@dimen/dp_7" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,144 @@
+.class public final Lcom/secmtp/sdk/core/mw/nn;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# instance fields
+.field private final mm:I
+
+.field private final mn:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lcom/secmtp/sdk/core/common/nn/mnv;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Lcom/secmtp/sdk/core/mw/mn;Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/secmtp/sdk/core/mw/mn;",
+            "Ljava/util/List<",
+            "Lcom/secmtp/sdk/core/common/nn/mnv;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    .line 5
+    if-eqz p1, :cond_0
+
+    .line 6
+    .line 7
+    .line 8
+    invoke-virtual {p1}, Lcom/secmtp/sdk/core/mw/mn;->nnu()I
+
+    .line 9
+    move-result p1
+
+    .line 10
+    goto :goto_0
+
+    .line 11
+    :cond_0
+    const/4 p1, 0x2
+
+    .line 12
+    .line 13
+    :goto_0
+    iput p1, p0, Lcom/secmtp/sdk/core/mw/nn;->mm:I
+
+    .line 14
+    .line 15
+    iput-object p2, p0, Lcom/secmtp/sdk/core/mw/nn;->mn:Ljava/util/List;
+
+    .line 16
+    return-void
+.end method
+
+.method private mm()I
+    .locals 1
+
+    .line 1
+    iget v0, p0, Lcom/secmtp/sdk/core/mw/nn;->mm:I
+
+    return v0
+.end method
+
+
+# virtual methods
+.method public final mm(Lcom/secmtp/sdk/core/common/um/vm;)V
+    .locals 3
+
+    iget v0, p0, Lcom/secmtp/sdk/core/mw/nn;->mm:I
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-eq v0, v1, :cond_1
+
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_0
+
+    .line 2
+    new-instance v0, Lcom/secmtp/sdk/core/common/um/uv;
+
+    invoke-direct {v0, p1}, Lcom/secmtp/sdk/core/common/um/uv;-><init>(Lcom/secmtp/sdk/core/common/um/vm;)V
+
+    .line 3
+    new-instance p1, Lcom/secmtp/sdk/core/common/um/un;
+
+    iget-object v1, p0, Lcom/secmtp/sdk/core/mw/nn;->mn:Ljava/util/List;
+
+    invoke-direct {p1, v1}, Lcom/secmtp/sdk/core/common/um/un;-><init>(Ljava/util/List;)V
+
+    invoke-virtual {p1, v2, v0}, Lcom/secmtp/sdk/core/common/um/un;->mm(ILcom/secmtp/sdk/core/common/um/vm;)V
+
+    .line 4
+    new-instance p1, Lcom/secmtp/sdk/core/common/um/mv/mv;
+
+    iget-object v1, p0, Lcom/secmtp/sdk/core/mw/nn;->mn:Ljava/util/List;
+
+    invoke-direct {p1, v1}, Lcom/secmtp/sdk/core/common/um/mv/mv;-><init>(Ljava/util/List;)V
+
+    invoke-virtual {p1, v0}, Lcom/secmtp/sdk/core/common/um/mv/mv;->mm(Lcom/secmtp/sdk/core/common/um/vm;)V
+
+    return-void
+
+    .line 5
+    :cond_0
+    new-instance v0, Lcom/secmtp/sdk/core/common/um/mv/mv;
+
+    iget-object v1, p0, Lcom/secmtp/sdk/core/mw/nn;->mn:Ljava/util/List;
+
+    invoke-direct {v0, v1}, Lcom/secmtp/sdk/core/common/um/mv/mv;-><init>(Ljava/util/List;)V
+
+    invoke-virtual {v0, p1}, Lcom/secmtp/sdk/core/common/um/mv/mv;->mm(Lcom/secmtp/sdk/core/common/um/vm;)V
+
+    return-void
+
+    .line 6
+    :cond_1
+    new-instance v0, Lcom/secmtp/sdk/core/common/um/un;
+
+    iget-object v1, p0, Lcom/secmtp/sdk/core/mw/nn;->mn:Ljava/util/List;
+
+    invoke-direct {v0, v1}, Lcom/secmtp/sdk/core/common/um/un;-><init>(Ljava/util/List;)V
+
+    invoke-virtual {v0, v2, p1}, Lcom/secmtp/sdk/core/common/um/un;->mm(ILcom/secmtp/sdk/core/common/um/vm;)V
+
+    return-void
+.end method

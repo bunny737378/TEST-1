@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="#f3f2f9" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:background="#5ccc0a" android:layout_width="match_parent" android:layout_height="50.0dp">
+        <TextView android:textSize="20.0sp" android:textColor="#fff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="Okt SDK Debugger" />
+    </LinearLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:layout_marginLeft="15.0dp" android:text="APP INFO" />
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#fff" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Package Name" android:layout_weight="0.0" />
+                <TextView android:textSize="15.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_pn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#fff" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Version Code" android:layout_weight="0.0" />
+                <TextView android:textSize="15.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_vc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#fff" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Version Name" android:layout_weight="0.0" />
+                <TextView android:textSize="15.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_vn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#fff" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ad App ID" android:layout_weight="0.0" />
+                <TextView android:textSize="15.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_id" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#fff" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Admob ID" android:layout_weight="0.0" />
+                <TextView android:textSize="14.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_admob_id" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" android:layout_marginBottom="6.0dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="SDK INFO" />
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#fff" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SDK Type" android:layout_weight="0.0" />
+                <TextView android:textSize="15.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_sdn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#fff" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SDK Version" android:layout_weight="0.0" />
+                <TextView android:textSize="15.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_sdv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:visibility="gone" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#fff" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SDK State" android:layout_weight="0.0" />
+                <TextView android:textSize="15.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_ssv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#fff" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CMP State" />
+                <ImageView android:id="@id/main_debug_cim" android:layout_width="25.0dp" android:layout_height="25.0dp" android:src="@drawable/main_debug_open" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" android:layout_marginBottom="6.0dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="Ad UNIT" />
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/main_debug_sp_ly" android:background="@drawable/main_debug_item_selector" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Splash Ad" android:layout_weight="0.0" />
+                <TextView android:textSize="14.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_ad_sp" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+                <ImageView android:id="@id/main_debug_sp_im" android:layout_width="23.0dp" android:layout_height="23.0dp" android:src="@drawable/main_debug_ad_load" android:layout_alignParentRight="true" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/main_debug_ad_inr_ly" android:background="@drawable/main_debug_item_selector" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Interstitial Ad" android:layout_weight="0.0" />
+                <TextView android:textSize="14.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_ad_inr" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+                <ImageView android:id="@id/main_debug_inr_im" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/main_debug_ad_load" android:layout_alignParentRight="true" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/main_debug_rw_ly" android:background="@drawable/main_debug_item_selector" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Reward Ad" android:layout_weight="0.0" />
+                <TextView android:textSize="14.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_ad_rw" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+                <ImageView android:id="@id/main_debug_rw_im" android:layout_width="23.0dp" android:layout_height="23.0dp" android:src="@drawable/main_debug_ad_load" android:layout_alignParentRight="true" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/main_debug_st_ly" android:background="@drawable/main_debug_item_selector" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Native Ad" android:layout_weight="0.0" />
+                <TextView android:textSize="14.0sp" android:textColor="#000" android:gravity="right" android:id="@id/main_debug_ad_st" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_weight="1.0" />
+                <ImageView android:id="@id/main_debug_st_im" android:layout_width="23.0dp" android:layout_height="23.0dp" android:src="@drawable/main_debug_ad_load" android:layout_alignParentRight="true" />
+            </LinearLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" android:layout_marginBottom="6.0dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="TOOL" />
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/main_debug_max_rl" android:background="@drawable/main_debug_item_selector" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Max Mediation Debugger" />
+                <ImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/main_debug_tool" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" />
+            <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/main_debug_admob_rl" android:background="@drawable/main_debug_item_selector" android:paddingLeft="15.0dp" android:paddingRight="15.0dp" android:layout_width="match_parent" android:layout_height="50.0dp">
+                <TextView android:textSize="17.0sp" android:textColor="#000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Admob Inspector" />
+                <ImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/main_debug_tool" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <LinearLayout android:background="#f2f2f2" android:layout_width="match_parent" android:layout_height="2.0dp" android:layout_marginBottom="40.0dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

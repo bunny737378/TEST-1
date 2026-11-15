@@ -1,0 +1,40 @@
+.class public final Lcom/smartdigimkt/k1/o;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Landroid/view/View$OnTouchListener;
+
+
+# instance fields
+.field public final synthetic a:Z
+
+
+# direct methods
+.method public constructor <init>(Z)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-boolean p1, p0, Lcom/smartdigimkt/k1/o;->a:Z
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 0
+
+    iget-boolean p1, p0, Lcom/smartdigimkt/k1/o;->a:Z
+
+    xor-int/lit8 p1, p1, 0x1
+
+    return p1
+.end method

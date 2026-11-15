@@ -1,0 +1,69 @@
+.class public final Lcom/smartdigimkt/f/e;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic a:Lcom/smartdigimkt/v/f;
+
+.field public final synthetic b:Lcom/smartdigimkt/expressad/advanced/view/ATNativeAdvancedView;
+
+.field public final synthetic c:Lcom/smartdigimkt/f/f;
+
+
+# direct methods
+.method public constructor <init>(Lcom/smartdigimkt/f/f;Lcom/smartdigimkt/v/f;Lcom/smartdigimkt/expressad/advanced/view/ATNativeAdvancedView;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-object p1, p0, Lcom/smartdigimkt/f/e;->c:Lcom/smartdigimkt/f/f;
+
+    .line 3
+    .line 4
+    iput-object p2, p0, Lcom/smartdigimkt/f/e;->a:Lcom/smartdigimkt/v/f;
+
+    .line 5
+    .line 6
+    iput-object p3, p0, Lcom/smartdigimkt/f/e;->b:Lcom/smartdigimkt/expressad/advanced/view/ATNativeAdvancedView;
+
+    .line 7
+    .line 8
+    .line 9
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 10
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .locals 4
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/smartdigimkt/f/e;->c:Lcom/smartdigimkt/f/f;
+
+    .line 3
+    .line 4
+    iget-object v1, p0, Lcom/smartdigimkt/f/e;->a:Lcom/smartdigimkt/v/f;
+
+    .line 5
+    .line 6
+    iget-object v2, p0, Lcom/smartdigimkt/f/e;->b:Lcom/smartdigimkt/expressad/advanced/view/ATNativeAdvancedView;
+
+    .line 7
+    const/4 v3, 0x0
+
+    .line 8
+    .line 9
+    .line 10
+    invoke-virtual {v0, v1, v2, v3}, Lcom/smartdigimkt/f/f;->a(Lcom/smartdigimkt/v/f;Lcom/smartdigimkt/expressad/advanced/view/ATNativeAdvancedView;Z)V
+
+    .line 11
+    return-void
+.end method

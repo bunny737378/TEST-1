@@ -1,0 +1,114 @@
+.class final Lcom/ironsource/Ha$e;
+.super Lkotlin/jvm/internal/Lambda;
+.source "SourceFile"
+
+# interfaces
+.implements Lkotlin/jvm/functions/Function0;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/ironsource/Ha;->a(Lcom/ironsource/L2;Lcom/ironsource/i3;Ljava/lang/Long;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lkotlin/jvm/internal/Lambda;",
+        "Lkotlin/jvm/functions/Function0<",
+        "Lkotlin/Unit;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field final synthetic a:Lcom/ironsource/Ha;
+
+.field final synthetic b:Lcom/ironsource/L2;
+
+.field final synthetic c:Ljava/lang/Long;
+
+
+# direct methods
+.method public constructor <init>(Lcom/ironsource/Ha;Lcom/ironsource/L2;Ljava/lang/Long;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-object p1, p0, Lcom/ironsource/Ha$e;->a:Lcom/ironsource/Ha;
+
+    .line 3
+    .line 4
+    iput-object p2, p0, Lcom/ironsource/Ha$e;->b:Lcom/ironsource/L2;
+
+    .line 5
+    .line 6
+    iput-object p3, p0, Lcom/ironsource/Ha$e;->c:Ljava/lang/Long;
+
+    .line 7
+    const/4 p1, 0x0
+
+    .line 8
+    .line 9
+    .line 10
+    invoke-direct {p0, p1}, Lkotlin/jvm/internal/Lambda;-><init>(I)V
+
+    .line 11
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a()V
+    .locals 4
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/ironsource/Ha$e;->a:Lcom/ironsource/Ha;
+
+    .line 3
+    .line 4
+    new-instance v1, Lcom/ironsource/La;
+
+    .line 5
+    .line 6
+    iget-object v2, p0, Lcom/ironsource/Ha$e;->b:Lcom/ironsource/L2;
+
+    .line 7
+    .line 8
+    iget-object v3, p0, Lcom/ironsource/Ha$e;->c:Ljava/lang/Long;
+
+    .line 9
+    .line 10
+    .line 11
+    invoke-direct {v1, v0, v2, v3}, Lcom/ironsource/La;-><init>(Lcom/ironsource/Ha;Lcom/ironsource/L2;Ljava/lang/Long;)V
+
+    .line 12
+    .line 13
+    .line 14
+    invoke-virtual {v0, v1}, Lcom/ironsource/Ha;->a(Lcom/ironsource/Ra;)V
+
+    .line 15
+    return-void
+.end method
+
+.method public bridge synthetic invoke()Ljava/lang/Object;
+    .locals 1
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Lcom/ironsource/Ha$e;->a()V
+
+    .line 4
+    .line 5
+    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    .line 6
+    return-object v0
+.end method

@@ -1,0 +1,46 @@
+.class Lorg/eclipse/jetty/server/handler/RequestLogHandler$NullRequestLog;
+.super Lorg/eclipse/jetty/util/component/AbstractLifeCycle;
+.source "SourceFile"
+
+# interfaces
+.implements Lorg/eclipse/jetty/server/RequestLog;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lorg/eclipse/jetty/server/handler/RequestLogHandler;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "NullRequestLog"
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Lorg/eclipse/jetty/util/component/AbstractLifeCycle;-><init>()V
+
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lorg/eclipse/jetty/server/handler/RequestLogHandler$1;)V
+    .locals 0
+
+    .line 2
+    invoke-direct {p0}, Lorg/eclipse/jetty/server/handler/RequestLogHandler$NullRequestLog;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public V(Lorg/eclipse/jetty/server/Request;Lorg/eclipse/jetty/server/Response;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method

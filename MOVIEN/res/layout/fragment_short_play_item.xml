@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout android:id="@id/appbarLayout" android:background="@color/transparent" android:layout_width="match_parent" android:layout_height="wrap_content" android:stateListAnimator="@drawable/appbar_short_elevation">
+        <com.google.android.material.appbar.CollapsingToolbarLayout android:id="@id/collapsingToolbarLayout" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" app:expandedTitleMarginEnd="30.0dp" app:expandedTitleMarginStart="48.0dp" app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <LinearLayout android:orientation="vertical" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="vertical" android:id="@id/llTop" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="@dimen/sp_14" android:textStyle="bold" android:textColor="@color/white" android:id="@id/tv_top_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hot Shorts" android:layout_marginStart="@dimen/dp_10" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.recyclerview.widget.RecyclerView android:id="@id/rv_top" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tv_top_title" />
+                </LinearLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_10" android:layout_marginRight="@dimen/dp_10" android:layout_marginBottom="@dimen/dp_10" android:layout_marginHorizontal="@dimen/dp_10">
+                    <androidx.recyclerview.widget.RecyclerView android:id="@id/rv_tab" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+                    <View android:id="@id/tabLine" android:background="@color/color_white60" android:visibility="gone" android:layout_width="match_parent" android:layout_height="@dimen/dp_0_3" app:layout_constraintBottom_toBottomOf="@id/rv_tab" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" />
+                    <View android:id="@id/view_indicator" android:background="@color/color_text_light_5" android:layout_width="wrap_content" android:layout_height="@dimen/dp_1" app:layout_constraintBottom_toBottomOf="@id/rv_tab" app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <com.mgs.carparking.widgets.NestedViewPager android:id="@id/home_view_pager" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginStart="@dimen/dp_10" />
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

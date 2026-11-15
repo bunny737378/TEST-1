@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smart.refresh.layout.SmartRefreshLayout android:id="@id/smart_refresh" android:layout_width="match_parent" android:layout_height="wrap_content" app:srlPrimaryColor="@color/color_commen"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.mgs.carparking.widgets.WaterDropHeader android:id="@id/header" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/rv_bottom" android:layout_width="match_parent" android:layout_height="wrap_content" android:overScrollMode="never" />
+</com.scwang.smart.refresh.layout.SmartRefreshLayout>

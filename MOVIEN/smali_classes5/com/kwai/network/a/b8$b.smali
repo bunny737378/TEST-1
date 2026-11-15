@@ -1,0 +1,97 @@
+.class public Lcom/kwai/network/a/b8$b;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/kwai/network/a/b8$a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/kwai/network/a/b8;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "b"
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()Ljava/util/concurrent/ExecutorService;
+    .locals 11
+    .annotation build Landroidx/annotation/NonNull;
+    .end annotation
+
+    new-instance v7, Lcom/kwai/network/a/b8$c;
+
+    const/4 v0, 0x5
+
+    const-string v1, "uil-pool-d-"
+
+    invoke-direct {v7, v0, v1}, Lcom/kwai/network/a/b8$c;-><init>(ILjava/lang/String;)V
+
+    new-instance v8, Ljava/util/concurrent/ThreadPoolExecutor$DiscardPolicy;
+
+    invoke-direct {v8}, Ljava/util/concurrent/ThreadPoolExecutor$DiscardPolicy;-><init>()V
+
+    new-instance v9, Lcom/kwai/network/a/d8;
+
+    sget-object v0, Lcom/kwai/network/a/b8$e;->a:Lcom/kwai/network/a/b8$e;
+
+    const/4 v1, 0x0
+
+    const-string v2, "imageLoaderDistributor"
+
+    invoke-static {v2, v0, v1}, Lcom/kwai/network/a/b8;->a(Ljava/lang/String;Lcom/kwai/network/a/b8$e;I)I
+
+    move-result v1
+
+    sget-object v0, Lcom/kwai/network/a/b8$e;->b:Lcom/kwai/network/a/b8$e;
+
+    const/16 v3, 0xa
+
+    invoke-static {v2, v0, v3}, Lcom/kwai/network/a/b8;->a(Ljava/lang/String;Lcom/kwai/network/a/b8$e;I)I
+
+    move-result v3
+
+    sget-object v0, Lcom/kwai/network/a/b8$e;->c:Lcom/kwai/network/a/b8$e;
+
+    const/16 v4, 0x3c
+
+    invoke-static {v2, v0, v4}, Lcom/kwai/network/a/b8;->a(Ljava/lang/String;Lcom/kwai/network/a/b8$e;I)I
+
+    move-result v0
+
+    int-to-long v4, v0
+
+    sget-object v6, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+
+    new-instance v10, Ljava/util/concurrent/SynchronousQueue;
+
+    invoke-direct {v10}, Ljava/util/concurrent/SynchronousQueue;-><init>()V
+
+    move-object v0, v9
+
+    move v2, v3
+
+    move-wide v3, v4
+
+    move-object v5, v6
+
+    move-object v6, v10
+
+    invoke-direct/range {v0 .. v8}, Lcom/kwai/network/a/d8;-><init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;Ljava/util/concurrent/RejectedExecutionHandler;)V
+
+    return-object v9
+.end method

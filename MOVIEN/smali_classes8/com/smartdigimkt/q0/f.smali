@@ -1,0 +1,314 @@
+.class public final Lcom/smartdigimkt/q0/f;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/smartdigimkt/expressad/atsignalcommon/mraid/IMraidJSBridge;
+
+
+# instance fields
+.field public final synthetic a:Lcom/smartdigimkt/q0/g;
+
+
+# direct methods
+.method public constructor <init>(Lcom/smartdigimkt/q0/g;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-object p1, p0, Lcom/smartdigimkt/q0/f;->a:Lcom/smartdigimkt/q0/g;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 6
+    return-void
+.end method
+
+.method public static safedk_Context_startActivity_97cb3195734cf5c9cc3418feeafa6dd6(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 1
+    .param p0, "p0"    # Landroid/content/Context;
+    .param p1, "p1"    # Landroid/content/Intent;
+
+    const-string v0, "SafeDK-Special|SafeDK: Call> Landroid/content/Context;->startActivity(Landroid/content/Intent;)V"
+
+    invoke-static {v0}, Lcom/safedk/android/utils/Logger;->d(Ljava/lang/String;)I
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final close()V
+    .locals 1
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/smartdigimkt/q0/f;->a:Lcom/smartdigimkt/q0/g;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+
+    .line 6
+    return-void
+.end method
+
+.method public final expand(Ljava/lang/String;Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final getMraidCampaign()Lcom/smartdigimkt/v/f;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public final open(Ljava/lang/String;)V
+    .locals 5
+
+    .line 1
+    .line 2
+    :try_start_0
+    iget-object v0, p0, Lcom/smartdigimkt/q0/f;->a:Lcom/smartdigimkt/q0/g;
+
+    .line 3
+    .line 4
+    iget-object v0, v0, Lcom/smartdigimkt/q0/g;->d:Lcom/smartdigimkt/expressad/atsignalcommon/windvane/WindVaneWebView;
+
+    .line 5
+    .line 6
+    if-eqz v0, :cond_0
+
+    .line 7
+    .line 8
+    .line 9
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    .line 10
+    move-result-wide v0
+
+    .line 11
+    .line 12
+    iget-object v2, p0, Lcom/smartdigimkt/q0/f;->a:Lcom/smartdigimkt/q0/g;
+
+    .line 13
+    .line 14
+    iget-object v3, v2, Lcom/smartdigimkt/q0/g;->d:Lcom/smartdigimkt/expressad/atsignalcommon/windvane/WindVaneWebView;
+
+    .line 15
+    .line 16
+    iget-wide v3, v3, Lcom/smartdigimkt/sdk/basead/express/web/BaseWebView;->lastTouchTime:J
+
+    .line 17
+    sub-long/2addr v0, v3
+
+    .line 18
+    .line 19
+    const/16 v3, 0x1388
+
+    .line 20
+    int-to-long v3, v3
+
+    .line 21
+    .line 22
+    cmp-long v0, v0, v3
+
+    .line 23
+    .line 24
+    if-lez v0, :cond_0
+
+    .line 25
+    .line 26
+    iget-object p1, v2, Lcom/smartdigimkt/q0/g;->f:Ljava/util/List;
+
+    .line 27
+    const/4 v0, 0x0
+
+    .line 28
+    .line 29
+    .line 30
+    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    .line 31
+    move-result-object p1
+
+    .line 32
+    .line 33
+    check-cast p1, Lcom/smartdigimkt/v/f;
+
+    .line 34
+    .line 35
+    iget-object p1, p0, Lcom/smartdigimkt/q0/f;->a:Lcom/smartdigimkt/q0/g;
+
+    .line 36
+    .line 37
+    iget-object p1, p1, Lcom/smartdigimkt/q0/g;->d:Lcom/smartdigimkt/expressad/atsignalcommon/windvane/WindVaneWebView;
+
+    .line 38
+    .line 39
+    .line 40
+    invoke-virtual {p1}, Landroid/webkit/WebView;->getUrl()Ljava/lang/String;
+
+    .line 41
+    return-void
+
+    .line 42
+    .line 43
+    :cond_0
+    iget-object v0, p0, Lcom/smartdigimkt/q0/f;->a:Lcom/smartdigimkt/q0/g;
+
+    .line 44
+    .line 45
+    iget-object v0, v0, Lcom/smartdigimkt/q0/g;->f:Ljava/util/List;
+
+    .line 46
+    .line 47
+    .line 48
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    .line 49
+    move-result v0
+
+    .line 50
+    const/4 v1, 0x1
+
+    .line 51
+    .line 52
+    if-le v0, v1, :cond_1
+
+    .line 53
+    .line 54
+    .line 55
+    invoke-static {}, Lcom/smartdigimkt/e6/h;->e()Lcom/smartdigimkt/e6/h;
+
+    .line 56
+    move-result-object v0
+
+    .line 57
+    .line 58
+    iget-object v0, v0, Lcom/smartdigimkt/e6/h;->c:Landroid/content/Context;
+
+    .line 59
+    .line 60
+    new-instance v2, Landroid/content/Intent;
+
+    .line 61
+    .line 62
+    const-string v3, "android.intent.action.VIEW"
+
+    .line 63
+    .line 64
+    .line 65
+    invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    .line 66
+    move-result-object p1
+
+    .line 67
+    .line 68
+    .line 69
+    invoke-direct {v2, v3, p1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    .line 70
+    .line 71
+    .line 72
+    invoke-static {v0, v2}, Lcom/smartdigimkt/q0/f;->safedk_Context_startActivity_97cb3195734cf5c9cc3418feeafa6dd6(Landroid/content/Context;Landroid/content/Intent;)V
+
+    .line 73
+    const/4 p1, 0x0
+
+    .line 74
+    .line 75
+    :cond_1
+    iget-object v0, p0, Lcom/smartdigimkt/q0/f;->a:Lcom/smartdigimkt/q0/g;
+
+    .line 76
+    .line 77
+    iget-object v0, v0, Lcom/smartdigimkt/q0/g;->g:Lcom/smartdigimkt/t0/l;
+
+    .line 78
+    .line 79
+    if-eqz v0, :cond_2
+
+    .line 80
+    .line 81
+    .line 82
+    invoke-virtual {v0, p1, v1}, Lcom/smartdigimkt/t0/l;->a(Ljava/lang/String;Z)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 83
+    :catchall_0
+    :cond_2
+    return-void
+.end method
+
+.method public final unload()V
+    .locals 1
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/smartdigimkt/q0/f;->a:Lcom/smartdigimkt/q0/g;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+
+    .line 6
+    return-void
+.end method
+
+.method public final useCustomClose(Z)V
+    .locals 1
+
+    .line 1
+    .line 2
+    :try_start_0
+    iget-object v0, p0, Lcom/smartdigimkt/q0/f;->a:Lcom/smartdigimkt/q0/g;
+
+    .line 3
+    .line 4
+    iget-object v0, v0, Lcom/smartdigimkt/q0/g;->e:Landroid/widget/TextView;
+
+    .line 5
+    .line 6
+    if-eqz p1, :cond_0
+
+    .line 7
+    const/4 p1, 0x4
+
+    .line 8
+    goto :goto_0
+
+    .line 9
+    :cond_0
+    const/4 p1, 0x0
+
+    .line 10
+    .line 11
+    .line 12
+    :goto_0
+    invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 13
+    :catchall_0
+    return-void
+.end method

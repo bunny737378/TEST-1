@@ -1,0 +1,83 @@
+.class Lcom/bytedance/sdk/openadsdk/component/reward/bz$2$1;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/bytedance/sdk/openadsdk/fq/bjc;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/bytedance/sdk/openadsdk/component/reward/bz$2;->nb(Ljava/lang/Throwable;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic nb:Lcom/bytedance/sdk/openadsdk/component/reward/bz$2;
+
+
+# direct methods
+.method public constructor <init>(Lcom/bytedance/sdk/openadsdk/component/reward/bz$2;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    iput-object p1, p0, Lcom/bytedance/sdk/openadsdk/component/reward/bz$2$1;->nb:Lcom/bytedance/sdk/openadsdk/component/reward/bz$2;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public nb()Lcom/bytedance/sdk/openadsdk/fq/feh/nb;
+    .locals 2
+
+    .line 1
+    .line 2
+    new-instance v0, Lcom/bytedance/sdk/openadsdk/fq/feh/nb;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {v0}, Lcom/bytedance/sdk/openadsdk/fq/feh/nb;-><init>()V
+
+    .line 6
+    .line 7
+    const-string v1, "start_activity"
+
+    .line 8
+    .line 9
+    .line 10
+    invoke-virtual {v0, v1}, Lcom/bytedance/sdk/openadsdk/fq/feh/nb;->feh(Ljava/lang/String;)V
+
+    .line 11
+    .line 12
+    iget-object v1, p0, Lcom/bytedance/sdk/openadsdk/component/reward/bz$2$1;->nb:Lcom/bytedance/sdk/openadsdk/component/reward/bz$2;
+
+    .line 13
+    .line 14
+    iget-object v1, v1, Lcom/bytedance/sdk/openadsdk/component/reward/bz$2;->bjc:Lcom/bytedance/sdk/openadsdk/component/reward/bz;
+
+    .line 15
+    .line 16
+    iget-object v1, v1, Lcom/bytedance/sdk/openadsdk/component/reward/bz;->hkl:Ljava/lang/String;
+
+    .line 17
+    .line 18
+    .line 19
+    invoke-virtual {v0, v1}, Lcom/bytedance/sdk/openadsdk/fq/feh/nb;->bjc(Ljava/lang/String;)V
+
+    .line 20
+    return-object v0
+.end method

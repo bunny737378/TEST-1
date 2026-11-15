@@ -1,0 +1,134 @@
+.class public abstract Lcom/inmobi/media/y2;
+.super Landroid/webkit/WebView;
+.source "SourceFile"
+
+
+# instance fields
+.field public final a:Lkotlin/Lazy;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
+
+    .line 1
+    .line 2
+    const-string v0, "context"
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    .line 7
+    .line 8
+    invoke-direct {p0, p1}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V
+
+    .line 9
+    .line 10
+    new-instance p1, Ld0/fc;
+
+    .line 11
+    .line 12
+    .line 13
+    invoke-direct {p1, p0}, Ld0/fc;-><init>(Lcom/inmobi/media/y2;)V
+
+    .line 14
+    .line 15
+    .line 16
+    invoke-static {p1}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+
+    .line 17
+    move-result-object p1
+
+    .line 18
+    .line 19
+    iput-object p1, p0, Lcom/inmobi/media/y2;->a:Lkotlin/Lazy;
+
+    .line 20
+    return-void
+.end method
+
+.method public static final a(Lcom/inmobi/media/y2;)Lcom/inmobi/media/Wa;
+    .locals 0
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-virtual {p0}, Lcom/inmobi/media/y2;->d()Lcom/inmobi/media/Wa;
+
+    .line 4
+    move-result-object p0
+
+    .line 5
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public abstract d()Lcom/inmobi/media/Wa;
+.end method
+
+.method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 1
+    .param p1, "me"    # Landroid/view/MotionEvent;
+
+    const-string v0, "com.inmobi"
+
+    invoke-static {v0, p0, p1}, Lcom/safedk/android/analytics/brandsafety/DetectTouchUtils;->viewOnTouch(Ljava/lang/String;Landroid/view/View;Landroid/view/MotionEvent;)V
+
+    invoke-super {p0, p1}, Landroid/webkit/WebView;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public final getLandingPageHandler()Lcom/inmobi/media/Wa;
+    .locals 1
+    .annotation build Lorg/jetbrains/annotations/NotNull;
+    .end annotation
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/inmobi/media/y2;->a:Lkotlin/Lazy;
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-interface {v0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+
+    .line 6
+    move-result-object v0
+
+    .line 7
+    .line 8
+    check-cast v0, Lcom/inmobi/media/Wa;
+
+    .line 9
+    return-object v0
+.end method
+
+.method protected onMeasure(II)V
+    .locals 1
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
+
+    const-string v0, "com.inmobi"
+
+    const/4 v0, 0x1
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0, v0}, Lcom/inmobi/media/y2;->setMeasuredDimension(II)V
+
+    return-void
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Landroid/webkit/WebView;->onMeasure(II)V
+
+    return-void
+.end method

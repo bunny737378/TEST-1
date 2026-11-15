@@ -1,0 +1,251 @@
+.class public final Lcom/google/ads/mediation/mintegral/MintegralFactory$createMintegralBidRewardedAdWrapper$1;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Lcom/google/ads/mediation/mintegral/MintegralBidRewardedAdWrapper;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/google/ads/mediation/mintegral/MintegralFactory;->d()Lcom/google/ads/mediation/mintegral/MintegralBidRewardedAdWrapper;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000=\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0004\n\u0002\u0010\u0008\n\u0002\u0008\u0002*\u0001\u0000\u0008\n\u0018\u00002\u00020\u0001J \u0010\u0004\u001a\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u00072\u0006\u0010\u0008\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\tH\u0016J\u0010\u0010\u000b\u001a\u00020\u00052\u0006\u0010\u000c\u001a\u00020\rH\u0016J\u0010\u0010\u000e\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u0010H\u0016J\u0010\u0010\u0011\u001a\u00020\u00052\u0006\u0010\u0012\u001a\u00020\tH\u0016J\u0010\u0010\u0013\u001a\u00020\u00052\u0006\u0010\u0014\u001a\u00020\u0015H\u0016J\u0008\u0010\u0016\u001a\u00020\u0005H\u0016R\u0010\u0010\u0002\u001a\u0004\u0018\u00010\u0003X\u0082\u000e\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0017"
+    }
+    d2 = {
+        "com/google/ads/mediation/mintegral/MintegralFactory$createMintegralBidRewardedAdWrapper$1",
+        "Lcom/google/ads/mediation/mintegral/MintegralBidRewardedAdWrapper;",
+        "instance",
+        "Lcom/mbridge/msdk/out/MBBidRewardVideoHandler;",
+        "createAd",
+        "",
+        "context",
+        "Landroid/content/Context;",
+        "placementId",
+        "",
+        "adUnitId",
+        "setExtraInfo",
+        "jsonObject",
+        "Lorg/json/JSONObject;",
+        "setRewardVideoListener",
+        "listener",
+        "Lcom/mbridge/msdk/out/RewardVideoWithCodeListener;",
+        "loadFromBid",
+        "bidToken",
+        "playVideoMute",
+        "muteConstant",
+        "",
+        "showFromBid",
+        "mintegral_release"
+    }
+    k = 0x1
+    mv = {
+        0x2,
+        0x1,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# instance fields
+.field public a:Lcom/mbridge/msdk/out/MBBidRewardVideoHandler;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
+
+    .line 1
+    .line 2
+    const-string v0, "context"
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    .line 7
+    const-string v0, "placementId"
+
+    .line 8
+    .line 9
+    .line 10
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 11
+    .line 12
+    const-string v0, "adUnitId"
+
+    .line 13
+    .line 14
+    .line 15
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 16
+    .line 17
+    new-instance v0, Lcom/mbridge/msdk/out/MBBidRewardVideoHandler;
+
+    .line 18
+    .line 19
+    .line 20
+    invoke-direct {v0, p1, p2, p3}, Lcom/mbridge/msdk/out/MBBidRewardVideoHandler;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 21
+    .line 22
+    iput-object v0, p0, Lcom/google/ads/mediation/mintegral/MintegralFactory$createMintegralBidRewardedAdWrapper$1;->a:Lcom/mbridge/msdk/out/MBBidRewardVideoHandler;
+
+    .line 23
+    return-void
+.end method
+
+.method public b(Lcom/mbridge/msdk/out/RewardVideoWithCodeListener;)V
+    .locals 1
+
+    .line 1
+    .line 2
+    const-string v0, "listener"
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    .line 7
+    iget-object v0, p0, Lcom/google/ads/mediation/mintegral/MintegralFactory$createMintegralBidRewardedAdWrapper$1;->a:Lcom/mbridge/msdk/out/MBBidRewardVideoHandler;
+
+    .line 8
+    .line 9
+    if-eqz v0, :cond_0
+
+    .line 10
+    .line 11
+    .line 12
+    invoke-virtual {v0, p1}, Lcom/mbridge/msdk/out/strategy/base/BidAdHandler;->setRewardVideoListener(Lcom/mbridge/msdk/video/bt/module/orglistener/g;)V
+
+    .line 13
+    :cond_0
+    return-void
+.end method
+
+.method public loadFromBid(Ljava/lang/String;)V
+    .locals 1
+
+    .line 1
+    .line 2
+    const-string v0, "bidToken"
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    .line 7
+    iget-object v0, p0, Lcom/google/ads/mediation/mintegral/MintegralFactory$createMintegralBidRewardedAdWrapper$1;->a:Lcom/mbridge/msdk/out/MBBidRewardVideoHandler;
+
+    .line 8
+    .line 9
+    if-eqz v0, :cond_0
+
+    .line 10
+    .line 11
+    .line 12
+    invoke-virtual {v0, p1}, Lcom/mbridge/msdk/out/strategy/base/BidAdHandler;->loadFromBid(Ljava/lang/String;)V
+
+    .line 13
+    :cond_0
+    return-void
+.end method
+
+.method public playVideoMute(I)V
+    .locals 1
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/google/ads/mediation/mintegral/MintegralFactory$createMintegralBidRewardedAdWrapper$1;->a:Lcom/mbridge/msdk/out/MBBidRewardVideoHandler;
+
+    .line 3
+    .line 4
+    if-eqz v0, :cond_0
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-virtual {v0, p1}, Lcom/mbridge/msdk/out/strategy/base/BidAdHandler;->playVideoMute(I)V
+
+    .line 8
+    :cond_0
+    return-void
+.end method
+
+.method public setExtraInfo(Lorg/json/JSONObject;)V
+    .locals 1
+
+    .line 1
+    .line 2
+    const-string v0, "jsonObject"
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 6
+    .line 7
+    iget-object v0, p0, Lcom/google/ads/mediation/mintegral/MintegralFactory$createMintegralBidRewardedAdWrapper$1;->a:Lcom/mbridge/msdk/out/MBBidRewardVideoHandler;
+
+    .line 8
+    .line 9
+    if-eqz v0, :cond_0
+
+    .line 10
+    .line 11
+    .line 12
+    invoke-virtual {v0, p1}, Lcom/mbridge/msdk/out/strategy/base/BidAdHandler;->setExtraInfo(Lorg/json/JSONObject;)V
+
+    .line 13
+    :cond_0
+    return-void
+.end method
+
+.method public showFromBid()V
+    .locals 1
+
+    .line 1
+    .line 2
+    iget-object v0, p0, Lcom/google/ads/mediation/mintegral/MintegralFactory$createMintegralBidRewardedAdWrapper$1;->a:Lcom/mbridge/msdk/out/MBBidRewardVideoHandler;
+
+    .line 3
+    .line 4
+    if-eqz v0, :cond_0
+
+    .line 5
+    .line 6
+    .line 7
+    invoke-virtual {v0}, Lcom/mbridge/msdk/out/strategy/base/BidAdHandler;->showFromBid()V
+
+    .line 8
+    :cond_0
+    return-void
+.end method

@@ -1,0 +1,25 @@
+.class public Lcom/elvishew/xlog/flattener/ClassicFlattener;
+.super Lcom/elvishew/xlog/flattener/PatternFlattener;
+.source "SourceFile"
+
+
+# static fields
+.field private static final DEFAULT_PATTERN:Ljava/lang/String; = "{d} {l}/{t}: {m}"
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .line 1
+    .line 2
+    const-string v0, "{d} {l}/{t}: {m}"
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-direct {p0, v0}, Lcom/elvishew/xlog/flattener/PatternFlattener;-><init>(Ljava/lang/String;)V
+
+    .line 6
+    return-void
+.end method

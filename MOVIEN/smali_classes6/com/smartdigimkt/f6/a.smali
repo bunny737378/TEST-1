@@ -1,0 +1,31 @@
+.class public final Lcom/smartdigimkt/f6/a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# instance fields
+.field public final a:Ljava/lang/reflect/Field;
+
+.field public final b:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/reflect/Field;Ljava/lang/String;)V
+    .locals 0
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    .line 5
+    iput-object p1, p0, Lcom/smartdigimkt/f6/a;->a:Ljava/lang/reflect/Field;
+
+    .line 6
+    .line 7
+    iput-object p2, p0, Lcom/smartdigimkt/f6/a;->b:Ljava/lang/String;
+
+    .line 8
+    return-void
+.end method
