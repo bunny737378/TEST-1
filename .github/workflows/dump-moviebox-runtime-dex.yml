@@ -82,6 +82,9 @@ jobs:
           fi
           echo "ANDROID_HOME=${ANDROID_HOME:-unset}"
           if [[ -z "${ANDROID_HOME:-}" ]]; then echo 'ANDROID_HOME is not set on this runner.'; exit 1; fi
+          export ANDROID_AVD_HOME="$HOME/.android/avd"
+          mkdir -p "$ANDROID_AVD_HOME"
+          echo "ANDROID_AVD_HOME=$ANDROID_AVD_HOME"
           for tool_bin in "$ANDROID_HOME"/cmdline-tools/*/bin; do
             [[ -d "$tool_bin" ]] && PATH="$tool_bin:$PATH"
           done
@@ -97,6 +100,13 @@ jobs:
           command -v avdmanager
           echo no | avdmanager create avd --force -n moviebox-runtime \
             -k 'system-images;android-30;google_atd;x86_64' -d pixel_2
+          echo 'AVD inventory:'
+          avdmanager list avd
+          if [[ ! -f "$ANDROID_AVD_HOME/moviebox-runtime.ini" ]]; then
+            echo "Expected AVD ini is missing from $ANDROID_AVD_HOME."
+            find "$HOME/.android" -maxdepth 4 -type f -name 'moviebox-runtime.ini' -print || true
+            exit 1
+          fi
           echo 'AVD created; launching emulator.'
           "$ANDROID_HOME/emulator/emulator" -version 2>&1 | tee -a "$log"
           "$ANDROID_HOME/emulator/emulator" -avd moviebox-runtime -port 5554 \
