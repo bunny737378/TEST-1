@@ -1,0 +1,111 @@
+name: Dump MovieBox runtime DEX for authorized analysis
+
+on:
+  push:
+    branches:
+      - 'arena/6e9de998-test-1'
+    paths:
+      - '.github/workflows/dump-moviebox-runtime-dex.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dump:
+    if: github.ref == 'refs/heads/arena/6e9de998-test-1'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Download the upstream APK
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/moviebox-input" "$RUNNER_TEMP/moviebox-dexdump"
+          curl --fail --location --retry 3 --silent --show-error \
+            --proto '=http,https' --proto-redir '=http,https' \
+            --connect-timeout 30 --max-time 1800 \
+            'https://apk.aoneroom.com/apk/moviebox/release/4.0.04.1112.03/1637_protected_signed/moviebox-v-4.0.04.1112.03.apk' \
+            --output "$RUNNER_TEMP/moviebox-input/moviebox.apk"
+          python3 - <<'PY'
+          import hashlib
+          import zipfile
+          from pathlib import Path
+          apk = Path(__import__('os').environ['RUNNER_TEMP']) / 'moviebox-input/moviebox.apk'
+          with zipfile.ZipFile(apk) as z:
+              names = z.namelist()
+              if 'AndroidManifest.xml' not in names:
+                  raise SystemExit('APK manifest is missing')
+              dexes = [n for n in names if n == 'classes.dex' or
+                       (n.startswith('classes') and n.endswith('.dex'))]
+              print('APK bytes:', apk.stat().st_size)
+              print('APK SHA-256:', hashlib.sha256(apk.read_bytes()).hexdigest())
+              print('Packaged DEX entries:', dexes)
+              for name in dexes:
+                  data = z.read(name)
+                  print(name, 'size=', len(data), 'header=', data[:8].hex())
+          PY
+
+      - name: Install Frida DEX dumper
+        run: python3 -m pip install --disable-pip-version-check frida-tools frida-dexdump
+
+      - name: Boot an x86_64 Android emulator and dump loaded DEX
+        uses: ReactiveCircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          arch: x86_64
+          target: google_apis
+          profile: pixel_2
+          emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect
+          disable-animations: true
+          script: |
+            set -euo pipefail
+            adb root
+            adb wait-for-device
+            adb shell 'while [ "$(getprop sys.boot_completed)" != "1" ]; do sleep 2; done'
+
+            frida_version="$(python3 -c 'import frida; print(frida.__version__)')"
+            server="$RUNNER_TEMP/frida-server.xz"
+            curl --fail --location --retry 3 --silent --show-error \
+              "https://github.com/frida/frida/releases/download/${frida_version}/frida-server-${frida_version}-android-x86_64.xz" \
+              --output "$server"
+            xz --decompress --force "$server"
+            adb push "$RUNNER_TEMP/frida-server" /data/local/tmp/frida-server
+            adb shell chmod 755 /data/local/tmp/frida-server
+            adb shell 'nohup /data/local/tmp/frida-server >/dev/null 2>&1 &'
+            for attempt in $(seq 1 30); do
+              if frida-ps -U >/dev/null 2>&1; then break; fi
+              sleep 2
+            done
+            frida-ps -U >/dev/null
+
+            adb install -r "$RUNNER_TEMP/moviebox-input/moviebox.apk"
+            frida-dexdump -U -f com.community.oneroom \
+              -o "$RUNNER_TEMP/moviebox-dexdump" --sleep 20 --deep-search
+
+            python3 - <<'PY'
+            import os
+            from pathlib import Path
+            root = Path(os.environ['RUNNER_TEMP']) / 'moviebox-dexdump'
+            dexes = sorted(root.rglob('*.dex'))
+            if not dexes:
+                raise SystemExit('Frida attached but did not produce any DEX dumps.')
+            for dex in dexes:
+                data = dex.read_bytes()
+                print(f'{dex.name}: {len(data)} bytes; header={data[:8].hex()}')
+            with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
+                summary.write(f'Runtime DEX files dumped: **{len(dexes)}**.\n')
+            PY
+
+      - name: Upload runtime DEX dumps
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: MovieBox-runtime-dex-dumps
+          path: ${{ runner.temp }}/moviebox-dexdump/**/*.dex
+          if-no-files-found: warn
+          retention-days: 3
