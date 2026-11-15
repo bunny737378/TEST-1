@@ -90,7 +90,9 @@ def force_getter(rel: str, method: str, kind: str, value: str,
         r"^\.method public static final " + re.escape(method) + r"\(\)" + kind
         + r"\n.*?^\.end method", re.S | re.M)
     if kind == "J":
-        body = f"    const-wide {return_reg}, {value}\n\n    return-wide {return_reg}"
+        # smali only accepts a 32-bit literal here (const-wide/32 sign-extends).
+        body = (f"    const-wide/32 {return_reg}, {value}\n\n"
+                f"    return-wide {return_reg}")
     else:
         body = f"    const/4 {return_reg}, {value}\n\n    return {return_reg}"
     replacement = (f".method public static final {method}(){kind}\n"
@@ -201,7 +203,7 @@ put(AD_INFO, ad_text)
 # e0() = VIP expiry. All of them always report "member, forever".
 force_getter(USER_UTILS, "c0", "I", "0x1")
 force_getter(USER_UTILS, "A", "Z", "0x1")
-force_getter(USER_UTILS, "e0", "J", "0x7fffffffffffffff", "v0")
+force_getter(USER_UTILS, "e0", "J", "0x7fffffff", "v0")
 
 # The Me page reads the display name from d0(); give it a permanent default.
 replace_once(

@@ -3214,7 +3214,7 @@
 .method public static final e0()J
     .locals 1
 
-    const-wide v0, 0x7fffffffffffffff
+    const-wide/32 v0, 0x7fffffff
 
     return-wide v0
 .end method
