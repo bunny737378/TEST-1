@@ -793,9 +793,9 @@
     .line 4
     if-eqz v0, :cond_0
 
-    .line 5
-    .line 6
-    .line 7
+    # The VIP paywall overlay is never shown.
+    const/16 p1, 0x8
+
     invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
 
     .line 8

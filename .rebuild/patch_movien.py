@@ -218,6 +218,37 @@ replace_once(
     '    const-string v2, "Ur Senpai"\n',
     "profile display name")
 
+# The player inflates simple_exo_play_vip_my (the "Trial ends / Subscribe"
+# paywall) and shows it through ActionControlView.i(I). Force it to stay gone
+# so no title can ever show a subscribe wall mid-playback.
+ACTION_CONTROL = find_one("smali*/chuangyuan/ycj/videolibrary/widget/ActionControlView.smali")
+vip_old = (
+    ".method public i(I)V\n"
+    "    .locals 1\n\n"
+    "    .line 1\n    .line 2\n"
+    "    iget-object v0, p0, Lchuangyuan/ycj/videolibrary/widget/ActionControlView;->d:Landroid/view/View;\n\n"
+    "    .line 3\n    .line 4\n"
+    "    if-eqz v0, :cond_0\n\n"
+    "    .line 5\n    .line 6\n    .line 7\n"
+    "    invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V\n\n"
+    "    .line 8\n"
+    "    :cond_0\n"
+    "    return-void\n.end method")
+vip_new = (
+    ".method public i(I)V\n"
+    "    .locals 1\n\n"
+    "    .line 1\n    .line 2\n"
+    "    iget-object v0, p0, Lchuangyuan/ycj/videolibrary/widget/ActionControlView;->d:Landroid/view/View;\n\n"
+    "    .line 3\n    .line 4\n"
+    "    if-eqz v0, :cond_0\n\n"
+    "    # The VIP paywall overlay is never shown.\n"
+    "    const/16 p1, 0x8\n\n"
+    "    invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V\n\n"
+    "    .line 8\n"
+    "    :cond_0\n"
+    "    return-void\n.end method")
+replace_once(ACTION_CONTROL, vip_old, vip_new, "player VIP overlay")
+
 # ================================================= 3 + 5. profile / Me page ==
 mine_old = (
     ".method public netCineFuninitData()V\n"
