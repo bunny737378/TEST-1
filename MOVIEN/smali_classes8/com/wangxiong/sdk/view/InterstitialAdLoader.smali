@@ -21,23 +21,11 @@
 .method public loadAd()V
     .locals 0
 
-    .line 1
-    .line 2
-    .line 3
-    invoke-super {p0}, Lcom/yk/e/view/MainInterstitialAdLoader;->loadAd()V
-
-    .line 4
     return-void
 .end method
 
 .method public showAd()V
     .locals 0
 
-    .line 1
-    .line 2
-    .line 3
-    invoke-super {p0}, Lcom/yk/e/view/MainInterstitialAdLoader;->showAd()V
-
-    .line 4
     return-void
 .end method

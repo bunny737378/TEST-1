@@ -21,12 +21,6 @@
 .method public loadAd()V
     .locals 0
 
-    .line 1
-    .line 2
-    .line 3
-    invoke-super {p0}, Lcom/yk/e/view/MainMRECAd;->loadAd()V
-
-    .line 4
     return-void
 .end method
 

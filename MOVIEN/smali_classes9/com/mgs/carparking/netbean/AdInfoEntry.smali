@@ -707,330 +707,627 @@
 # virtual methods
 .method public final getNetCineVarAd_position_1()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_1:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_10()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_10:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_11()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_11:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_12()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_12:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_13()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_13:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_15()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_15:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_16()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_16:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_17()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_25:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_18()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_18:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_19()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_24:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_2()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_2:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_20()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_22:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_21()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_21:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_22()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_22:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_23()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_23:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_24()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_24:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_25()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_25:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_26()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_26:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_28()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_28:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_3()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_23:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_30()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_30:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_31()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_31:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_32()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_32:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_33()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_33:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_34()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_34:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_35()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_35:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_36()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_36:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_4()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_4:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_5()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_5:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_6()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_6:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_7()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_7:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_8()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_8:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method public final getNetCineVarAd_position_9()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/mgs/carparking/netbean/AdInfoDetailEntry;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    .annotation build Lorg/jetbrains/annotations/Nullable;
+    .end annotation
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, p0, Lcom/mgs/carparking/netbean/AdInfoEntry;->netCineVarAd_position_9:Ljava/util/List;
 
     return-object v0
 .end method

@@ -177,29 +177,40 @@ for old, label in (
     text = text.replace(old, fixed)
 put(PLAYER_ACTIVITY, text)
 
-# Several screens read the ad-position lists straight out of AdInfoEntry and
-# then index element 0 without a size check (for example the new-user splash
-# path). An empty list makes those loops run, which can end in an
-# IndexOutOfBounds crash. Make every ad-position getter report "no ads".
-AD_INFO = find_one("smali*/com/mgs/carparking/netbean/AdInfoEntry.smali")
-ad_text = load(AD_INFO)
-ad_pattern = re.compile(
-    r"^(\.method public final getNetCineVarAd_position_\d+\(\))Ljava/util/List;\n"
-    r".*?^\.end method", re.S | re.M)
+# Ads are stopped at the SDK loader boundary and the entry points above never
+# run, so an empty list is never dereferenced. DO NOT make the ad-position
+# getters return empty lists: the detail player indexes them with
+# List.get(0) and no size check (VideoPlayDetailActivity$10, position_13,
+# position_34, ...), which turns into an IndexOutOfBoundsException that the
+# page reports as "No network or server exception".
+WX_VIEW_DIR = "smali*/com/wangxiong/sdk/view/*.smali"
 
 
-def _empty_list(match: "re.Match[str]") -> str:
-    return (f"{match.group(1)}Ljava/util/List;\n"
-            "    .locals 1\n\n"
-            "    new-instance v0, Ljava/util/ArrayList;\n\n"
-            "    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V\n\n"
-            "    return-object v0\n.end method")
+def stub_loader_methods() -> None:
+    """Neutralise loadAd()/showAd() on every wangxiong ad loader."""
+    pattern = re.compile(r"^\.method public (loadAd|showAd)\(\)V\n", re.M)
+    total = 0
+    for path in sorted(ROOT.glob(WX_VIEW_DIR)):
+        rel_path = path.relative_to(ROOT).as_posix()
+        text = load(rel_path)
+        out, pos, hits = [], 0, 0
+        for match in pattern.finditer(text):
+            end = text.find(".end method", match.end())
+            if end < 0:
+                raise SystemExit(f"unterminated loader method in {rel_path}")
+            out.append(text[pos:match.start()])
+            out.append(f"{match.group(0)}    .locals 0\n\n    return-void\n.end method")
+            pos = end + len(".end method")
+            hits += 1
+        if hits:
+            out.append(text[pos:])
+            put(rel_path, "".join(out))
+            total += hits
+    if total != 11:
+        raise SystemExit(f"expected 11 loader methods, stubbed {total}")
 
 
-ad_text, ad_hits = ad_pattern.subn(_empty_list, ad_text)
-if ad_hits != 33:
-    raise SystemExit(f"expected 33 ad-position getters, patched {ad_hits}")
-put(AD_INFO, ad_text)
+stub_loader_methods()
 
 # ============================================================== 2. premium ===
 # c0() = NETCINEVAR_KEY_PREF_USER_IS_SVIP, A() = ad-free privilege flag,

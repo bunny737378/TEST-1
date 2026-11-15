@@ -27,8 +27,8 @@ TARGETS = [
     "smali_classes6/com/mgs/carparking/ui/MineFragment.smali",
     "smali_classes3/com/mgs/carparking/ui/MainActivity.smali",
     "smali_classes5/com/mgs/carparking/ui/VideoPlayDetailActivity.smali",
-    "smali_classes9/com/mgs/carparking/netbean/AdInfoEntry.smali",
     "smali_classes4/chuangyuan/ycj/videolibrary/widget/ActionControlView.smali",
+    "smali*/com/wangxiong/sdk/view/*.smali",
     "res/layout/fragment_mine.xml",
 ]
 
@@ -142,6 +142,13 @@ def check_layout(path: Path) -> None:
 
 
 def main() -> int:
+    untouched = ROOT / "smali_classes9/com/mgs/carparking/netbean/AdInfoEntry.smali"
+    if untouched.exists() and "new-instance v0, Ljava/util/ArrayList;" in untouched.read_text(
+            encoding="utf-8", errors="surrogateescape"):
+        problems.append(
+            "AdInfoEntry ad-position getters return empty lists again; the player "
+            "indexes them with get(0) and will throw IndexOutOfBounds")
+
     for target in TARGETS:
         matches = sorted(ROOT.glob(target))
         if not matches:
