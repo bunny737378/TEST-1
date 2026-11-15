@@ -89,6 +89,8 @@ jobs:
           command -v sdkmanager
 
           yes | sdkmanager --licenses >/dev/null 2>&1 || true
+          sudo apt-get update -qq
+          sudo apt-get install -y libpulse0
           timeout 600s sdkmanager --install \
             'platform-tools' 'emulator' 'system-images;android-30;google_atd;x86_64'
           command -v emulator
