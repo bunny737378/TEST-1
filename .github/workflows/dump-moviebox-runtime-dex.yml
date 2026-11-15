@@ -64,9 +64,6 @@ jobs:
       - name: Install Frida DEX dumper
         run: python3 -m pip install --disable-pip-version-check frida-tools frida-dexdump
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Boot emulator and dump loaded DEX
         id: runtime_dump
         continue-on-error: true
@@ -84,12 +81,18 @@ jobs:
             echo '/dev/kvm: unavailable; emulator will use automatic acceleration fallback.'
           fi
           echo "ANDROID_HOME=${ANDROID_HOME:-unset}"
+          if [[ -z "${ANDROID_HOME:-}" ]]; then echo 'ANDROID_HOME is not set on this runner.'; exit 1; fi
+          for tool_bin in "$ANDROID_HOME"/cmdline-tools/*/bin; do
+            [[ -d "$tool_bin" ]] && PATH="$tool_bin:$PATH"
+          done
+          export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
           command -v sdkmanager
-          command -v emulator
 
           yes | sdkmanager --licenses >/dev/null 2>&1 || true
           timeout 600s sdkmanager --install \
             'platform-tools' 'emulator' 'system-images;android-30;google_atd;x86_64'
+          command -v emulator
+          command -v avdmanager
           echo no | avdmanager create avd --force -n moviebox-runtime \
             -k 'system-images;android-30;google_atd;x86_64' -d pixel_2
           echo 'AVD created; launching emulator.'
