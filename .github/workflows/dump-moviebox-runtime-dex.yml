@@ -15,7 +15,7 @@ jobs:
   dump:
     if: github.ref == 'refs/heads/arena/6e9de998-test-1'
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 25
     steps:
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -26,16 +26,18 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/moviebox-input" "$RUNNER_TEMP/moviebox-dexdump"
+          echo 'Downloading MovieBox APK.'
           curl --fail --location --retry 3 --silent --show-error \
             --proto '=http,https' --proto-redir '=http,https' \
-            --connect-timeout 30 --max-time 1800 \
+            --connect-timeout 30 --max-time 600 \
             'https://apk.aoneroom.com/apk/moviebox/release/4.0.04.1112.03/1637_protected_signed/moviebox-v-4.0.04.1112.03.apk' \
             --output "$RUNNER_TEMP/moviebox-input/moviebox.apk"
           python3 - <<'PY'
           import hashlib
+          import os
           import zipfile
           from pathlib import Path
-          apk = Path(__import__('os').environ['RUNNER_TEMP']) / 'moviebox-input/moviebox.apk'
+          apk = Path(os.environ['RUNNER_TEMP']) / 'moviebox-input/moviebox.apk'
           with zipfile.ZipFile(apk) as z:
               names = z.namelist()
               if 'AndroidManifest.xml' not in names:
@@ -53,39 +55,68 @@ jobs:
       - name: Install Frida DEX dumper
         run: python3 -m pip install --disable-pip-version-check frida-tools frida-dexdump
 
-      - name: Boot an x86_64 Android emulator and dump loaded DEX
+      - name: Boot emulator and dump loaded DEX
         uses: ReactiveCircus/android-emulator-runner@v2
         with:
-          api-level: 35
+          api-level: 30
           arch: x86_64
           target: google_apis
           profile: pixel_2
+          emulator-boot-timeout: 240
           emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect
           disable-animations: true
           script: |
             set -euo pipefail
-            adb root
-            adb wait-for-device
-            adb shell 'while [ "$(getprop sys.boot_completed)" != "1" ]; do sleep 2; done'
+            set -x
+            echo 'Starting bounded Android emulator checks.'
+            timeout 90s adb root
+            timeout 90s adb wait-for-device
+
+            booted=0
+            for attempt in $(seq 1 60); do
+              boot_state="$(timeout 10s adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r' || true)"
+              echo "Emulator boot poll ${attempt}/60: ${boot_state:-not-ready}"
+              if [[ "$boot_state" == 1 ]]; then booted=1; break; fi
+              sleep 2
+            done
+            if [[ "$booted" != 1 ]]; then
+              echo '::error::Emulator failed to boot within 120 seconds.'
+              timeout 10s adb logcat -d -t 200 || true
+              exit 1
+            fi
 
             frida_version="$(python3 -c 'import frida; print(frida.__version__)')"
             server="$RUNNER_TEMP/frida-server.xz"
-            curl --fail --location --retry 3 --silent --show-error \
+            echo "Fetching matching Frida server ${frida_version}."
+            curl --fail --location --retry 2 --silent --show-error \
+              --connect-timeout 20 --max-time 180 \
               "https://github.com/frida/frida/releases/download/${frida_version}/frida-server-${frida_version}-android-x86_64.xz" \
               --output "$server"
             xz --decompress --force "$server"
-            adb push "$RUNNER_TEMP/frida-server" /data/local/tmp/frida-server
-            adb shell chmod 755 /data/local/tmp/frida-server
-            adb shell 'nohup /data/local/tmp/frida-server >/dev/null 2>&1 &'
-            for attempt in $(seq 1 30); do
-              if frida-ps -U >/dev/null 2>&1; then break; fi
+            timeout 60s adb push "$RUNNER_TEMP/frida-server" /data/local/tmp/frida-server
+            timeout 30s adb shell chmod 755 /data/local/tmp/frida-server
+            timeout 30s adb shell 'nohup /data/local/tmp/frida-server >/dev/null 2>&1 &'
+
+            frida_ready=0
+            for attempt in $(seq 1 20); do
+              if timeout 10s frida-ps -U >/dev/null 2>&1; then
+                frida_ready=1
+                break
+              fi
+              echo "Waiting for Frida server (${attempt}/20)."
               sleep 2
             done
-            frida-ps -U >/dev/null
+            if [[ "$frida_ready" != 1 ]]; then
+              echo '::error::Frida server did not become ready within 40 seconds.'
+              timeout 10s adb shell ps -A | grep -i frida || true
+              timeout 10s adb logcat -d -t 200 || true
+              exit 1
+            fi
 
-            adb install -r "$RUNNER_TEMP/moviebox-input/moviebox.apk"
-            frida-dexdump -U -f com.community.oneroom \
-              -o "$RUNNER_TEMP/moviebox-dexdump" --sleep 20 --deep-search
+            echo 'Installing the upstream app and starting bounded DEX dump.'
+            timeout 120s adb install -r "$RUNNER_TEMP/moviebox-input/moviebox.apk"
+            timeout 240s frida-dexdump -U -f com.community.oneroom \
+              -o "$RUNNER_TEMP/moviebox-dexdump" --sleep 15 --deep-search
 
             python3 - <<'PY'
             import os
