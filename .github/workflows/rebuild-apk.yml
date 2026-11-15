@@ -140,8 +140,16 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/apk-work"
-          java -jar "$RUNNER_TEMP/apktool.jar" build "$APP_FOLDER" \
-            --output "$RUNNER_TEMP/apk-work/unsigned.apk"
+          # Keep the last lines of the build log so a failure is reported as an
+          # annotation instead of an unreadable log dump.
+          if ! java -jar "$RUNNER_TEMP/apktool.jar" build "$APP_FOLDER" \
+            --output "$RUNNER_TEMP/apk-work/unsigned.apk" \
+            > "$RUNNER_TEMP/apk-work/build.log" 2>&1; then
+            tail_output="$(tail -n 30 "$RUNNER_TEMP/apk-work/build.log" | tr '\n' ' ')"
+            echo "::error::Apktool build failed: ${tail_output//$'\r'/ }"
+            exit 1
+          fi
+          tail -n 20 "$RUNNER_TEMP/apk-work/build.log" || true
           test -s "$RUNNER_TEMP/apk-work/unsigned.apk"
           unzip -tq "$RUNNER_TEMP/apk-work/unsigned.apk"
 
