@@ -986,8 +986,8 @@
 .method public static j()I
     .locals 1
     
-    # Never attach the signing-certificate digest, so any signing key
-    # produces requests the backend accepts.
+    # Never attach the signing-certificate digest, so the APK
+    # works whoever signs it.
     const/4 v0, 0x0
     
     return v0

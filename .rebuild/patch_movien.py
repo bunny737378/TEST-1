@@ -22,6 +22,10 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import signature_kill  # noqa: E402  (.rebuild/signature_kill.py)
+
 ROOT = Path(__file__).resolve().parent.parent / "MOVIEN"
 
 # rel path -> original text, so a failure leaves the tree untouched
@@ -363,83 +367,45 @@ if c0_stub not in text:
     put(MAIN_ACTIVITY, text[:start] + c0_stub + text[end:])
 
 # ================================================== 6. repack / certificate ===
-# The app reports its own signing certificate to the backend: AppUtils.x()
-# digests the live PackageManager certificate (SHA1, lowercase hex) and the
-# request builders attach that digest as the "vi" parameter ("uvgl" at the two
-# ApiRequestUtil sites). The server compares it with the certificate the
-# published package is signed with, so a rebuild signed with a different key is
-# refused -- the detail request fails and the page shows its generic
-# "no network or server exception" state, while screens whose requests carry
-# no digest keep working. That is exactly what was observed: the untouched APK
-# plays, the same APK re-signed with another key does not, and neutralising the
-# signature check makes it play again.
-#
-# AppUtils.j() is the roll that decides whether a request carries the digest:
-# `Math.random() * 20`, sent when it returns 0xc, or 0x12 at the two
-# ApiRequestUtil sites. It has exactly nine callers and every one of them is
-# one of those gates, so pinning it to a value that matches neither strips the
-# fingerprint from every request without touching anything else. The traffic
-# then looks like the nineteen-out-of-twenty a genuine, correctly signed
-# install already sends -- no digest at all, which the backend accepts, rather
-# than a digest that does not match, which it does not.
-#
-# ORIGINAL_CERT_SHA1 is the alternative for a backend that *requires* a
-# matching digest instead of merely rejecting a wrong one: fill it with the
-# SHA1 of the original signing certificate (`keytool -printcert -file
-# META-INF/CERT.RSA` of the untouched APK) and the patch sends that constant
-# on every request instead of the live one.
+# The certificate-reporting gate is owned by .rebuild/signature_kill.py, the
+# build-pipeline equivalent of the "Remove signature verification" pass that
+# was used by hand on the original APK. Running it here means a re-signed
+# build works for everyone, with nothing to defeat on the device: see that
+# file for why pinning AppUtils.j() and blanking AppInfoUtils.a() is the whole
+# check (the digest of the local signing certificate only ever left the app as
+# the "vi"/"uvgl" request parameter, and the backend compared it with the
+# published package -- which is what produced the "no network or server
+# exception" on the detail page after re-signing).
+for rel, transform in signature_kill.targets(ROOT):
+    put(rel, transform(load(rel)))
+
+# "Take a signature from the specified original" is the other Apktool M option
+# that has no build-side equivalent: some backends want a *matching* digest
+# rather than simply rejecting a wrong one. If this app's ever does, put the
+# SHA1 of the original signing certificate in ORIGINAL_CERT_SHA1 (the
+# decompile workflow prints it, and `keytool -printcert -jarfile` on the
+# untouched APK shows the same value) and this instead pins AppUtils.x() to
+# that constant: the random roll then never hurts, because every digest it
+# sends is the one the server expects.
 ORIGINAL_CERT_SHA1 = ""
-APP_UTILS = find_one("smali*/com/mgs/carparking/util/AppUtils.smali")
-
-
-def stub_static(rel: str, signature: str, lines: list[str], label: str) -> None:
-    """Replace a whole static method with `lines`, keeping its header."""
-    header = f".method public static {signature}\n"
-    text = load(rel)
-    if text.count(header) != 1:
-        raise SystemExit(f"{label}: expected 1 declaration of {signature}, "
-                         f"found {text.count(header)}")
-    start = text.index(header)
-    end = text.find(".end method", start)
-    if end < 0:
-        raise SystemExit(f"{label}: unterminated {signature} in {rel}")
-    end += len(".end method")
-    body = "".join(f"    {line}\n" for line in lines)
-    replacement = header + body + ".end method"
-    if text[start:end] == replacement:
-        return  # already patched
-    put(rel, text[:start] + replacement + text[end:])
-
-
 if ORIGINAL_CERT_SHA1:
-    # Always send the certificate the backend expects, never the local one.
-    stub_static(APP_UTILS, "x()Ljava/lang/String;", [
-        ".locals 1",
-        "",
-        "# The published certificate digest, not the local signing key.",
-        f'const-string v0, "{ORIGINAL_CERT_SHA1}"',
-        "",
-        "return-object v0",
-    ], "certificate digest")
-    stub_static(APP_UTILS, "j()I", [
-        ".locals 1",
-        "",
-        "const/16 v0, 0xc",
-        "",
-        "return v0",
-    ], "fingerprint roll: always send")
-else:
-    stub_static(APP_UTILS, "j()I", [
-        ".locals 1",
-        "",
-        "# Never attach the signing-certificate digest, so any signing key",
-        "# produces requests the backend accepts.",
-        "const/4 v0, 0x0",
-        "",
-        "return v0",
-    ], "fingerprint roll: never send")
+    APP_UTILS = signature_kill.find_one(ROOT, signature_kill.APP_UTILS)
+    put(APP_UTILS, signature_kill.replace_static_method(
+        load(APP_UTILS), "x()Ljava/lang/String;",
+        [".locals 1", "",
+         "# The published certificate digest, not the local signing key.",
+         f'const-string v0, "{ORIGINAL_CERT_SHA1}"', "",
+         "return-object v0"],
+        "certificate constant"))
 
 # ==================================================================== apply ==
+if "--print-targets" in sys.argv:
+    # The decompile workflow compares a fresh decompile against the tree in
+    # this branch: everything that differs must be a file these scripts own.
+    for rel in sorted(EDITS):
+        print(rel)
+    raise SystemExit(0)
+
 for rel, text in EDITS.items():
     if ORIGINAL[rel] != text:
         (ROOT / rel).write_text(text, encoding="utf-8", errors="surrogateescape")

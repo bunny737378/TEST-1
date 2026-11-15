@@ -22,14 +22,15 @@ ROOT = Path(__file__).resolve().parent.parent / "MOVIEN"
 
 # Every file .rebuild/patch_movien.py can change.
 TARGETS = [
-    "smali_classes6/com/mgs/carparking/util/AdShowUtil.smali",
-    "smali_classes9/com/mgs/carparking/util/UserUtils.smali",
-    "smali_classes6/com/mgs/carparking/ui/MineFragment.smali",
-    "smali_classes3/com/mgs/carparking/ui/MainActivity.smali",
-    "smali_classes5/com/mgs/carparking/ui/VideoPlayDetailActivity.smali",
-    "smali_classes4/chuangyuan/ycj/videolibrary/widget/ActionControlView.smali",
+    "smali*/com/mgs/carparking/util/AdShowUtil.smali",
+    "smali*/com/mgs/carparking/util/UserUtils.smali",
+    "smali*/com/mgs/carparking/util/AppUtils.smali",
+    "smali*/com/mgs/carparking/util/AppInfoUtils.smali",
+    "smali*/com/mgs/carparking/ui/MineFragment.smali",
+    "smali*/com/mgs/carparking/ui/MainActivity.smali",
+    "smali*/com/mgs/carparking/ui/VideoPlayDetailActivity.smali",
+    "smali*/chuangyuan/ycj/videolibrary/widget/ActionControlView.smali",
     "smali*/com/wangxiong/sdk/view/*.smali",
-    "smali_classes9/com/mgs/carparking/util/AppUtils.smali",
     "res/layout/fragment_mine.xml",
 ]
 
@@ -150,22 +151,33 @@ def main() -> int:
             "AdInfoEntry ad-position getters return empty lists again; the player "
             "indexes them with get(0) and will throw IndexOutOfBounds")
 
-    # The signing-certificate digest must never reach a request again: if
-    # AppUtils.j() rolls dice again, some 1-in-20 request carries the local
-    # certificate and a re-signed build starts failing on the detail page.
-    app_utils = ROOT / "smali_classes9/com/mgs/carparking/util/AppUtils.smali"
-    if app_utils.exists():
-        body = app_utils.read_text(encoding="utf-8", errors="surrogateescape")
-        gate = re.search(r"^\.method public static j\(\)I\n.*?^\.end method",
-                         body, re.S | re.M)
-        if gate is None:
-            problems.append("AppUtils.j()I is gone; the certificate gate cannot "
-                            "be verified")
-        elif "Math;->random()D" in gate.group(0):
-            problems.append(
-                "AppUtils.j() still returns Math.random()*20: requests would "
-                "carry the signing-certificate digest (vi/uvgl) and the "
-                "backend rejects a build signed with a different key")
+    # Nothing may report the APK signing certificate again. If AppUtils.j()
+    # rolls dice, one request in twenty carries the local certificate as
+    # "vi"/"uvgl" and a build signed with another key starts failing on the
+    # detail page; if AppInfoUtils.a() still reads the certificate, the digest
+    # is one new caller away from leaking again.
+    for pattern, signature, forbidden, message in (
+        ("smali*/com/mgs/carparking/util/AppUtils.smali",
+         r"j\(\)I", "Math;->random()D",
+         "AppUtils.j() still returns Math.random()*20: requests would carry "
+         "the signing-certificate digest (vi/uvgl) and the backend rejects a "
+         "build signed with a different key"),
+        ("smali*/com/mgs/carparking/util/AppInfoUtils.smali",
+         r"a\(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;\)"
+         r"Ljava/lang/String;", "AppInfoUtils;->c(",
+         "AppInfoUtils.a() still digests the signing certificate: the "
+         "signature kill is not applied to this build"),
+    ):
+        for path in sorted(ROOT.glob(pattern)):
+            where = path.relative_to(ROOT).as_posix()
+            body = path.read_text(encoding="utf-8", errors="surrogateescape")
+            gate = re.search(r"^\.method public static " + signature + r"\n.*?^\.end method",
+                             body, re.S | re.M)
+            if gate is None:
+                problems.append(f"{where}: method {signature} is gone, the "
+                                f"signature kill cannot be verified")
+            elif forbidden in gate.group(0):
+                problems.append(f"{where}: {message}")
 
     for target in TARGETS:
         matches = sorted(ROOT.glob(target))
