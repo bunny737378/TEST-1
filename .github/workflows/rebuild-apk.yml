@@ -28,6 +28,11 @@ on:
 permissions:
   contents: read
 
+env:
+  # The folder rebuilt automatically on every push. Manual runs can still build
+  # any decompiled Apktool project by passing a different folder_name.
+  DEFAULT_PUSH_FOLDER: MOVIEN
+
 jobs:
   rebuild:
     runs-on: ubuntu-24.04
@@ -43,6 +48,7 @@ jobs:
         id: folder
         env:
           APP_FOLDER: ${{ inputs.folder_name }}
+          DEFAULT_PUSH_FOLDER: ${{ env.DEFAULT_PUSH_FOLDER }}
         run: |
           set -euo pipefail
           python3 - <<'PY'
@@ -51,13 +57,16 @@ jobs:
 
           workspace = Path(os.environ['GITHUB_WORKSPACE'])
           name = os.environ['APP_FOLDER'].strip()
-          if os.environ['GITHUB_EVENT_NAME'] == 'push' and not name:
-              projects = [p for p in workspace.iterdir()
-                          if p.name.casefold() == 'mb-tv' and not p.is_symlink()
-                          and p.is_dir() and (p / 'apktool.yml').is_file()]
-              if len(projects) != 1:
-                  raise SystemExit('Push builds require exactly one MB-TV Apktool project.')
-              name = projects[0].name
+          if not name:
+              if os.environ['GITHUB_EVENT_NAME'] != 'push':
+                  raise SystemExit('folder_name is required for manual runs.')
+              name = os.environ['DEFAULT_PUSH_FOLDER'].strip()
+              if not name:
+                  raise SystemExit('DEFAULT_PUSH_FOLDER is empty.')
+              if not (workspace / name / 'apktool.yml').is_file():
+                  raise SystemExit(
+                      f'Push builds expect the {name} Apktool project in this branch.')
+              print(f'Push build: rebuilding {name}')
 
           forbidden = set('/\\:*?"<>|')
           reserved = {'CON', 'PRN', 'AUX', 'NUL'} | {
