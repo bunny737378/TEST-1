@@ -1017,7 +1017,7 @@ age ограниченный."</string>
     <string name="tv_settings_promo_code_success_title">Успешно активировано!</string>
     <string name="tv_settings_promo_code_version_error_get">Получить</string>
     <string name="tv_settings_promo_code_version_error_title">Активируйте код с помощью пакета itel TV App Store.</string>
-    <string name="tv_settings_region_value_default">Netherlands</string>
+    <string name="tv_settings_region_value_default">Afghanistan</string>
     <string name="tv_settings_title">Настройки</string>
     <string name="tv_settings_version">Версия: %1$s</string>
     <string name="tv_settings_version_text">Версия: 1.0.0</string>

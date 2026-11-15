@@ -986,7 +986,7 @@
     <string name="tv_settings_promo_code_success_title">ਸਫਲਤਾਪੂਰਵਕ ਰੀਡੀਮ ਕੀਤਾ ਗਿਆ!</string>
     <string name="tv_settings_promo_code_version_error_get">ਪ੍ਰਾਪਤ ਕਰੋ</string>
     <string name="tv_settings_promo_code_version_error_title">itel TV App Store ਪੈਕੇਜ ਵਰਤ ਕੇ ਰੀਡੀਮ ਕਰੋ।</string>
-    <string name="tv_settings_region_value_default">Netherlands</string>
+    <string name="tv_settings_region_value_default">Afghanistan</string>
     <string name="tv_settings_title">ਸੈਟਿੰਗਾਂ</string>
     <string name="tv_settings_version">ਵਰਜਨ: %1$s</string>
     <string name="tv_settings_version_text">ਵਰਜਨ: 1.0.0</string>

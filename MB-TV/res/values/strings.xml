@@ -1203,7 +1203,7 @@ watching"</string>
     <string name="tv_settings_promo_code_success_title">Redeemed Successfully!</string>
     <string name="tv_settings_promo_code_version_error_get">Get</string>
     <string name="tv_settings_promo_code_version_error_title">Please redeem using the itel TV App Store package.</string>
-    <string name="tv_settings_region_value_default">Netherlands</string>
+    <string name="tv_settings_region_value_default">Afghanistan</string>
     <string name="tv_settings_title">Settings</string>
     <string name="tv_settings_version">Version: %1$s</string>
     <string name="tv_settings_version_text">Version: 1.0.0</string>

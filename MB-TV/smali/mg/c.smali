@@ -85,10 +85,6 @@
     .line 6
     move-result-object v0
 
-    invoke-static {v0}, Lcom/mod/VersionHelper;->updateClientInfo(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
     .line 7
     invoke-virtual {p1}, Lokhttp3/w;->i()Lokhttp3/w$a;
 
@@ -148,21 +144,6 @@
     .line 35
     .line 36
     .line 37
-    invoke-static {}, Lcom/mod/VersionHelper;->getUserAgent()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string v1, "User-Agent"
-
-    invoke-virtual {p1, v1, v0}, Lokhttp3/w$a;->h(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/w$a;
-
-    :cond_0
     invoke-virtual {p1}, Lokhttp3/w$a;->b()Lokhttp3/w;
 
     .line 38

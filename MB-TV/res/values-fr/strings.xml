@@ -988,7 +988,7 @@ Veuillez passer à la dernière version pour continuer à regarder."</string>
     <string name="tv_settings_promo_code_success_title">Échange réussi !</string>
     <string name="tv_settings_promo_code_version_error_get">Obtenir</string>
     <string name="tv_settings_promo_code_version_error_title">Utilisez le package itel TV App Store pour échanger votre code.</string>
-    <string name="tv_settings_region_value_default">Netherlands</string>
+    <string name="tv_settings_region_value_default">Afghanistan</string>
     <string name="tv_settings_title">Paramètres</string>
     <string name="tv_settings_version">Version : %1$s</string>
     <string name="tv_settings_version_text">Version : 1.0.0</string>

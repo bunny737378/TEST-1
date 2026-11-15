@@ -9549,7 +9549,7 @@
 .end method
 
 .method public final u1()Ljava/lang/String;
-    .locals 4
+    .locals 3
 
     .line 1
     sget-object v0, Lcom/transsion/baselib/report/launch/b;->a:Lcom/transsion/baselib/report/launch/b;
@@ -9562,8 +9562,6 @@
     .line 5
     .line 6
     move-result-object v0
-
-    move-object v3, v0
 
     .line 7
     const-string v1, "k_tv_selected_region_iso"
@@ -9580,21 +9578,16 @@
     .line 13
     move-result-object v0
 
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    :cond_0
-    const-string v0, "NL"
-
-    invoke-virtual {v3, v1, v0}, Lcom/tencent/mmkv/MMKV;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
     .line 14
-    :cond_1
+    if-nez v0, :cond_0
+
+    .line 15
+    .line 16
+    const-string v0, ""
+
+    .line 17
+    .line 18
+    :cond_0
     invoke-static {v0}, Lkotlin/text/d0;->g1(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     .line 19
@@ -9649,14 +9642,14 @@
     move-result v1
 
     .line 46
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1
 
     .line 47
     .line 48
     return-object v0
 
     .line 49
-    :cond_2
+    :cond_1
     invoke-virtual {p0}, Lcom/transsion/subroom/fragment/SettingsFragment;->v1()Ljava/lang/String;
 
     .line 50
