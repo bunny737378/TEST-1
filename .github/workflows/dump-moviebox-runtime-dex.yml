@@ -67,17 +67,26 @@ jobs:
         with:
           api-level: 30
           arch: x86_64
-          target: google_apis
+          target: google_atd
           profile: pixel_2
-          emulator-boot-timeout: 240
+          cores: 4
+          emulator-boot-timeout: 300
+          disable-linux-hw-accel: false
           emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect
           disable-animations: true
           pre-emulator-launch-script: |
-            mkdir -p "$RUNNER_TEMP"
-            echo "AVD setup started for run $GITHUB_RUN_ID at $(date -u +%FT%TZ)" \
-              | tee -a "$RUNNER_TEMP/moviebox-runtime.log"
+            mkdir -p "$GITHUB_WORKSPACE/reports"
+            log="$GITHUB_WORKSPACE/reports/moviebox-runtime-${GITHUB_RUN_ID}.log"
+            {
+              echo "AVD setup started for run $GITHUB_RUN_ID at $(date -u +%FT%TZ)"
+              echo "Runner: $(uname -a)"
+              if [[ -r /dev/kvm && -w /dev/kvm ]]; then echo '/dev/kvm: readable and writable'; else echo '/dev/kvm: unavailable'; fi
+              "$ANDROID_HOME/emulator/emulator" -version | head -n 2
+              echo 'AVD config:'
+              cat "$ANDROID_AVD_HOME/test.avd/config.ini"
+            } 2>&1 | tee -a "$log"
           script: |
-            exec > >(tee -a "$RUNNER_TEMP/moviebox-runtime.log") 2>&1
+            exec > >(tee -a "$GITHUB_WORKSPACE/reports/moviebox-runtime-${GITHUB_RUN_ID}.log") 2>&1
             set -euxo pipefail
             echo "Emulator script started at $(date -u +%FT%TZ)."
             timeout 90s adb root
@@ -147,17 +156,14 @@ jobs:
         if: always()
         run: |
           set -euo pipefail
-          log="$RUNNER_TEMP/moviebox-runtime.log"
+          log="reports/moviebox-runtime-${GITHUB_RUN_ID}.log"
           if [[ ! -s "$log" ]]; then
             echo 'No emulator script log was produced; check the emulator step in Actions UI.'
             exit 0
           fi
-          report="reports/moviebox-runtime-${GITHUB_RUN_ID}.log"
-          mkdir -p reports
-          cp "$log" "$report"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- "$report"
+          git add -- "$log"
           git commit -m "Save MovieBox runtime dump diagnostics"
           git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
 
