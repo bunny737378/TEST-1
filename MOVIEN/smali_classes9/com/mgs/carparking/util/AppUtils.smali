@@ -984,12 +984,27 @@
 .end method
 
 .method public static j()I
-    .locals 1
-    
-    # Never attach the signing-certificate digest, so the APK
-    # works whoever signs it.
-    const/4 v0, 0x0
-    
+    .locals 4
+
+    .line 1
+    .line 2
+    .line 3
+    invoke-static {}, Ljava/lang/Math;->random()D
+
+    .line 4
+    move-result-wide v0
+
+    .line 5
+    .line 6
+    const-wide/high16 v2, 0x4034000000000000L    # 20.0
+
+    .line 7
+    mul-double/2addr v0, v2
+
+    .line 8
+    double-to-int v0, v0
+
+    .line 9
     return v0
 .end method
 

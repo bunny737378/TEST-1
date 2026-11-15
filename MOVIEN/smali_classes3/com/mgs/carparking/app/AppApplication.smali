@@ -1035,7 +1035,7 @@
 
 
 # virtual methods
-.method public attachBaseContext(Landroid/content/Context;)V
+.method protected attachBaseContext(Landroid/content/Context;)V
     .locals 0
 
     .line 1

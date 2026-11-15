@@ -13,18 +13,17 @@ any file is written, and every edit is applied to an in-memory copy first.
   4. Promotion  The Promotion tab is removed from the bottom bar (4 tabs).
   5. Me page    Network Test, Feedback, Official customer service, Adult
                 content and the VIP banner are hidden.
-  6. Repack     The app never reports the APK signing certificate, so the
-                backend accepts the package no matter which key signs it.
+
+The APK signing certificate is not touched here: MOVIEN/ is decompiled from a
+build that already carries ru.maximoff.signature.HookApplication, which answers
+every signature read with the publisher's certificate, so "vi" matches whoever
+signs the APK.
 """
 from __future__ import annotations
 
 import re
 import sys
 from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
-import signature_kill  # noqa: E402  (.rebuild/signature_kill.py)
 
 ROOT = Path(__file__).resolve().parent.parent / "MOVIEN"
 
@@ -365,43 +364,6 @@ if c0_stub not in text:
         raise SystemExit("MainActivity.c0(ChangeNameEvent) not found")
     end = text.find(".end method", start) + len(".end method")
     put(MAIN_ACTIVITY, text[:start] + c0_stub + text[end:])
-
-# ================================================== 6. repack / certificate ===
-# The certificate-reporting gate is owned by .rebuild/signature_kill.py, the
-# build-pipeline equivalent of the "Remove signature verification" pass that
-# was used by hand on the original APK. Running it here means a re-signed
-# build works for everyone, with nothing to defeat on the device: see that
-# file for why pinning AppUtils.j() and blanking AppInfoUtils.a() is the whole
-# check (the digest of the local signing certificate only ever left the app as
-# the "vi"/"uvgl" request parameter, and the backend compared it with the
-# published package -- which is what produced the "no network or server
-# exception" on the detail page after re-signing).
-for rel, transform in signature_kill.targets(ROOT):
-    put(rel, transform(load(rel)))
-
-# "Take a signature from the specified original" is the other Apktool M option
-# that has no build-side equivalent: some backends want a *matching* digest
-# rather than simply rejecting a wrong one. If this app's ever does, put the
-# SHA1 of the original signing certificate in ORIGINAL_CERT_SHA1 (the
-# decompile workflow prints it, and `keytool -printcert -jarfile` on the
-# untouched APK shows the same value) and this instead pins AppUtils.x() to
-# that constant: the random roll then never hurts, because every digest it
-# sends is the one the server expects.
-# The publisher's certificate, read off the official 5.0.0 APK by
-# "Refresh MOVIEN from the official APK" (apksigner --print-certs on
-# moviein_sh_3000-5.0.0.apk); it is the digest AppUtils.x() used to send as
-# "vi", and the only value that would ever go here. Left empty on purpose:
-# nothing sends a digest now, so a re-signed build is accepted as it stands.
-ORIGINAL_CERT_SHA1 = ""
-if ORIGINAL_CERT_SHA1:
-    APP_UTILS = signature_kill.find_one(ROOT, signature_kill.APP_UTILS)
-    put(APP_UTILS, signature_kill.replace_static_method(
-        load(APP_UTILS), "x()Ljava/lang/String;",
-        [".locals 1", "",
-         "# The published certificate digest, not the local signing key.",
-         f'const-string v0, "{ORIGINAL_CERT_SHA1}"', "",
-         "return-object v0"],
-        "certificate constant"))
 
 # ==================================================================== apply ==
 if "--print-targets" in sys.argv:

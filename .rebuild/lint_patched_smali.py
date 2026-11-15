@@ -24,8 +24,6 @@ ROOT = Path(__file__).resolve().parent.parent / "MOVIEN"
 TARGETS = [
     "smali*/com/mgs/carparking/util/AdShowUtil.smali",
     "smali*/com/mgs/carparking/util/UserUtils.smali",
-    "smali*/com/mgs/carparking/util/AppUtils.smali",
-    "smali*/com/mgs/carparking/util/AppInfoUtils.smali",
     "smali*/com/mgs/carparking/ui/MineFragment.smali",
     "smali*/com/mgs/carparking/ui/MainActivity.smali",
     "smali*/com/mgs/carparking/ui/VideoPlayDetailActivity.smali",
@@ -144,40 +142,12 @@ def check_layout(path: Path) -> None:
 
 
 def main() -> int:
-    untouched = ROOT / "smali_classes9/com/mgs/carparking/netbean/AdInfoEntry.smali"
-    if untouched.exists() and "new-instance v0, Ljava/util/ArrayList;" in untouched.read_text(
-            encoding="utf-8", errors="surrogateescape"):
-        problems.append(
-            "AdInfoEntry ad-position getters return empty lists again; the player "
-            "indexes them with get(0) and will throw IndexOutOfBounds")
-
-    # Nothing may report the APK signing certificate again. If AppUtils.j()
-    # rolls dice, one request in twenty carries the local certificate as
-    # "vi"/"uvgl" and a build signed with another key starts failing on the
-    # detail page; if AppInfoUtils.a() still reads the certificate, the digest
-    # is one new caller away from leaking again.
-    for pattern, signature, forbidden, message in (
-        ("smali*/com/mgs/carparking/util/AppUtils.smali",
-         r"j\(\)I", "Math;->random()D",
-         "AppUtils.j() still returns Math.random()*20: requests would carry "
-         "the signing-certificate digest (vi/uvgl) and the backend rejects a "
-         "build signed with a different key"),
-        ("smali*/com/mgs/carparking/util/AppInfoUtils.smali",
-         r"a\(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;\)"
-         r"Ljava/lang/String;", "AppInfoUtils;->c(",
-         "AppInfoUtils.a() still digests the signing certificate: the "
-         "signature kill is not applied to this build"),
-    ):
-        for path in sorted(ROOT.glob(pattern)):
-            where = path.relative_to(ROOT).as_posix()
-            body = path.read_text(encoding="utf-8", errors="surrogateescape")
-            gate = re.search(r"^\.method public static " + signature + r"\n.*?^\.end method",
-                             body, re.S | re.M)
-            if gate is None:
-                problems.append(f"{where}: method {signature} is gone, the "
-                                f"signature kill cannot be verified")
-            elif forbidden in gate.group(0):
-                problems.append(f"{where}: {message}")
+    for ad_info in ROOT.glob("smali*/com/mgs/carparking/netbean/AdInfoEntry.smali"):
+        if "new-instance v0, Ljava/util/ArrayList;" in ad_info.read_text(
+                encoding="utf-8", errors="surrogateescape"):
+            problems.append(
+                f"{ad_info.relative_to(ROOT)}: ad-position getters return empty "
+                "lists again; the player indexes them with get(0) and throws")
 
     for target in TARGETS:
         matches = sorted(ROOT.glob(target))
