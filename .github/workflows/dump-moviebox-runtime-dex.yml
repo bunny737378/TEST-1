@@ -8,6 +8,10 @@ on:
       - '.github/workflows/dump-moviebox-runtime-dex.yml'
   workflow_dispatch:
 
+concurrency:
+  group: moviebox-runtime-dex-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -60,97 +64,114 @@ jobs:
       - name: Install Frida DEX dumper
         run: python3 -m pip install --disable-pip-version-check frida-tools frida-dexdump
 
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
       - name: Boot emulator and dump loaded DEX
         id: runtime_dump
         continue-on-error: true
-        uses: ReactiveCircus/android-emulator-runner@v2
-        with:
-          api-level: 30
-          arch: x86_64
-          target: google_atd
-          profile: pixel_2
-          cores: 4
-          emulator-boot-timeout: 300
-          disable-linux-hw-accel: false
-          emulator-options: -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect
-          disable-animations: true
-          pre-emulator-launch-script: |
-            mkdir -p "$GITHUB_WORKSPACE/reports"
-            log="$GITHUB_WORKSPACE/reports/moviebox-runtime-${GITHUB_RUN_ID}.log"
-            {
-              echo "AVD setup started for run $GITHUB_RUN_ID at $(date -u +%FT%TZ)"
-              echo "Runner: $(uname -a)"
-              if [[ -r /dev/kvm && -w /dev/kvm ]]; then echo '/dev/kvm: readable and writable'; else echo '/dev/kvm: unavailable'; fi
-              "$ANDROID_HOME/emulator/emulator" -version | head -n 2
-              echo 'AVD config:'
-              cat "$ANDROID_AVD_HOME/test.avd/config.ini"
-            } 2>&1 | tee -a "$log"
-          script: |
-            exec > >(tee -a "$GITHUB_WORKSPACE/reports/moviebox-runtime-${GITHUB_RUN_ID}.log") 2>&1
-            set -euxo pipefail
-            echo "Emulator script started at $(date -u +%FT%TZ)."
-            timeout 90s adb root
-            timeout 90s adb wait-for-device
+        run: |
+          set -euo pipefail
+          mkdir -p reports "$RUNNER_TEMP/moviebox-dexdump"
+          log="$GITHUB_WORKSPACE/reports/moviebox-runtime-${GITHUB_RUN_ID}.log"
+          exec > >(tee -a "$log") 2>&1
+          trap 'if [[ -n "${emulator_pid:-}" ]]; then kill "$emulator_pid" 2>/dev/null || true; fi' EXIT
+          echo "Runtime dump started at $(date -u +%FT%TZ), run $GITHUB_RUN_ID."
+          echo "Runner: $(uname -a)"
+          if [[ -r /dev/kvm && -w /dev/kvm ]]; then
+            echo '/dev/kvm: readable and writable; emulator acceleration enabled.'
+          else
+            echo '/dev/kvm: unavailable; emulator will use automatic acceleration fallback.'
+          fi
+          echo "ANDROID_HOME=${ANDROID_HOME:-unset}"
+          command -v sdkmanager
+          command -v emulator
 
-            booted=0
-            for attempt in $(seq 1 60); do
-              boot_state="$(timeout 10s adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r' || true)"
-              echo "Emulator boot poll ${attempt}/60: ${boot_state:-not-ready}"
-              if [[ "$boot_state" == 1 ]]; then booted=1; break; fi
-              sleep 2
-            done
-            if [[ "$booted" != 1 ]]; then
-              echo 'Emulator failed to boot within 120 seconds.'
-              timeout 10s adb logcat -d -t 200 || true
-              exit 1
+          yes | sdkmanager --licenses >/dev/null 2>&1 || true
+          timeout 600s sdkmanager --install \
+            'platform-tools' 'emulator' 'system-images;android-30;google_atd;x86_64'
+          echo no | avdmanager create avd --force -n moviebox-runtime \
+            -k 'system-images;android-30;google_atd;x86_64' -d pixel_2
+          echo 'AVD created; launching emulator.'
+          "$ANDROID_HOME/emulator/emulator" -version 2>&1 | tee -a "$log"
+          "$ANDROID_HOME/emulator/emulator" -avd moviebox-runtime -port 5554 \
+            -no-window -no-audio -no-boot-anim -no-snapshot \
+            -gpu swiftshader_indirect -accel auto -wipe-data >> "$log" 2>&1 &
+          emulator_pid=$!
+          echo "Emulator PID: $emulator_pid"
+
+          serial=emulator-5554
+          if ! timeout 45s adb -s "$serial" wait-for-device; then
+            echo 'ADB did not see the emulator within 45 seconds.'
+            tail -n 200 "$log" || true
+            exit 1
+          fi
+          echo 'ADB transport connected; waiting at most 300 seconds for Android boot.'
+          deadline=$((SECONDS + 300))
+          booted=0
+          poll=0
+          while (( SECONDS < deadline )); do
+            poll=$((poll + 1))
+            boot_state="$(timeout 8s adb -s "$serial" shell getprop sys.boot_completed 2>&1 | tr -d '\r' || true)"
+            echo "Boot poll ${poll}: ${boot_state:-not-ready}"
+            if [[ "$boot_state" == 1 ]]; then booted=1; break; fi
+            sleep 3
+          done
+          if [[ "$booted" != 1 ]]; then
+            echo 'Android did not report sys.boot_completed=1 before the 300-second deadline.'
+            timeout 10s adb -s "$serial" logcat -d -t 200 || true
+            tail -n 250 "$log" || true
+            exit 1
+          fi
+
+          timeout 30s adb -s "$serial" root
+          timeout 45s adb -s "$serial" wait-for-device
+          frida_version="$(python3 -c 'import frida; print(frida.__version__)')"
+          server="$RUNNER_TEMP/frida-server.xz"
+          echo "Fetching matching Frida server ${frida_version}."
+          curl --fail --location --retry 2 --silent --show-error \
+            --connect-timeout 20 --max-time 180 \
+            "https://github.com/frida/frida/releases/download/${frida_version}/frida-server-${frida_version}-android-x86_64.xz" \
+            --output "$server"
+          xz --decompress --force "$server"
+          timeout 60s adb -s "$serial" push "$RUNNER_TEMP/frida-server" /data/local/tmp/frida-server
+          timeout 30s adb -s "$serial" shell chmod 755 /data/local/tmp/frida-server
+          timeout 30s adb -s "$serial" shell 'nohup /data/local/tmp/frida-server >/dev/null 2>&1 &'
+
+          frida_ready=0
+          for attempt in $(seq 1 20); do
+            if timeout 10s frida-ps -U >/dev/null 2>&1; then
+              frida_ready=1
+              break
             fi
+            echo "Waiting for Frida server (${attempt}/20)."
+            sleep 2
+          done
+          if [[ "$frida_ready" != 1 ]]; then
+            echo 'Frida server did not become ready within 40 seconds.'
+            timeout 10s adb -s "$serial" shell ps -A | grep -i frida || true
+            timeout 10s adb -s "$serial" logcat -d -t 200 || true
+            exit 1
+          fi
 
-            frida_version="$(python3 -c 'import frida; print(frida.__version__)')"
-            server="$RUNNER_TEMP/frida-server.xz"
-            echo "Fetching matching Frida server ${frida_version}."
-            curl --fail --location --retry 2 --silent --show-error \
-              --connect-timeout 20 --max-time 180 \
-              "https://github.com/frida/frida/releases/download/${frida_version}/frida-server-${frida_version}-android-x86_64.xz" \
-              --output "$server"
-            xz --decompress --force "$server"
-            timeout 60s adb push "$RUNNER_TEMP/frida-server" /data/local/tmp/frida-server
-            timeout 30s adb shell chmod 755 /data/local/tmp/frida-server
-            timeout 30s adb shell 'nohup /data/local/tmp/frida-server >/dev/null 2>&1 &'
+          echo 'Installing the upstream app and starting bounded DEX dump.'
+          timeout 120s adb -s "$serial" install -r "$RUNNER_TEMP/moviebox-input/moviebox.apk"
+          timeout 240s frida-dexdump -U -f com.community.oneroom \
+            -o "$RUNNER_TEMP/moviebox-dexdump" --sleep 15 --deep-search
 
-            frida_ready=0
-            for attempt in $(seq 1 20); do
-              if timeout 10s frida-ps -U >/dev/null 2>&1; then
-                frida_ready=1
-                break
-              fi
-              echo "Waiting for Frida server (${attempt}/20)."
-              sleep 2
-            done
-            if [[ "$frida_ready" != 1 ]]; then
-              echo 'Frida server did not become ready within 40 seconds.'
-              timeout 10s adb shell ps -A | grep -i frida || true
-              timeout 10s adb logcat -d -t 200 || true
-              exit 1
-            fi
-
-            echo 'Installing the upstream app and starting bounded DEX dump.'
-            timeout 120s adb install -r "$RUNNER_TEMP/moviebox-input/moviebox.apk"
-            timeout 240s frida-dexdump -U -f com.community.oneroom \
-              -o "$RUNNER_TEMP/moviebox-dexdump" --sleep 15 --deep-search
-
-            python3 - <<'PY'
-            import os
-            from pathlib import Path
-            root = Path(os.environ['RUNNER_TEMP']) / 'moviebox-dexdump'
-            dexes = sorted(root.rglob('*.dex'))
-            if not dexes:
-                raise SystemExit('Frida attached but did not produce any DEX dumps.')
-            for dex in dexes:
-                data = dex.read_bytes()
-                print(f'{dex.name}: {len(data)} bytes; header={data[:8].hex()}')
-            with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
-                summary.write(f'Runtime DEX files dumped: **{len(dexes)}**.\n')
-            PY
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          root = Path(os.environ['RUNNER_TEMP']) / 'moviebox-dexdump'
+          dexes = sorted(root.rglob('*.dex'))
+          if not dexes:
+              raise SystemExit('Frida attached but did not produce any DEX dumps.')
+          for dex in dexes:
+              data = dex.read_bytes()
+              print(f'{dex.name}: {len(data)} bytes; header={data[:8].hex()}')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as summary:
+              summary.write('Runtime DEX files dumped: **' + str(len(dexes)) + '**.' + chr(10))
+          PY
 
       - name: Persist emulator diagnostics to the branch
         if: always()
@@ -158,7 +179,7 @@ jobs:
           set -euo pipefail
           log="reports/moviebox-runtime-${GITHUB_RUN_ID}.log"
           if [[ ! -s "$log" ]]; then
-            echo 'No emulator script log was produced; check the emulator step in Actions UI.'
+            echo 'No emulator log was produced.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
