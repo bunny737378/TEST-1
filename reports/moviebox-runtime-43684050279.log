@@ -1,0 +1,136 @@
+Runtime dump started at 2026-11-15T06:09:12Z, run 43684050279.
+Runner: Darwin sjc20-bb661-cf34f0a9-8950-4f18-a384-bbbc3be05472-02609422A8CB.local 24.6.0 Darwin Kernel Version 24.6.0: Sun Oct 11 23:44:11 PDT 2026; root:xnu-11417.140.69.713.47~2/RELEASE_ARM64_VMAPPLE arm64
+Using macOS Hypervisor.framework for emulator virtualization.
+ANDROID_HOME=/Users/runner/Library/Android/sdk
+ANDROID_AVD_HOME=/Users/runner/.android/avd
+[32m==>[0m [1mDownloading bottle manifests[0m
+✔︎ Bottle Manifest coreutils (9.12_1)
+[32m==>[0m [1mFetching downloads for: [32mcoreutils[39m[0m
+✔︎ Bottle coreutils (9.12_1)
+[34m==>[0m [1mPouring coreutils--9.12_1.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/coreutils/9.12_1: 445 files, 15.2MB
+[32m==>[0m [1mCaveats[0m
+[34m==>[0m [1mcoreutils[0m
+Commands also provided by macOS and the commands dir, dircolors, vdir have been installed with the prefix "g".
+If you need to use these commands with their normal names, you can add a "gnubin" directory to your PATH with:
+  PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+/Users/runner/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager
+yes: stdout: Broken pipe
+Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 5% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...         [==                                     ] 7% Fetch remote repository...         [==                                     ] 7% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...              [===                                    ] 10% Installing Google APIs ATD Intel x[===                                    ] 10% Downloading x86_64-30_r02.zip...  [====                                   ] 10% Downloading x86_64-30_r02.zip...  [====                                   ] 11% Downloading x86_64-30_r02.zip...  [====                                   ] 12% Downloading x86_64-30_r02.zip...  [=====                                  ] 13% Downloading x86_64-30_r02.zip...  [=====                                  ] 14% Downloading x86_64-30_r02.zip...  [=====                                  ] 15% Downloading x86_64-30_r02.zip...  [======                                 ] 15% Downloading x86_64-30_r02.zip...  [======                                 ] 16% Downloading x86_64-30_r02.zip...  [======                                 ] 17% Downloading x86_64-30_r02.zip...  [=======                                ] 18% Downloading x86_64-30_r02.zip...  [=======                                ] 19% Downloading x86_64-30_r02.zip...  [=======                                ] 20% Downloading x86_64-30_r02.zip...  [========                               ] 20% Downloading x86_64-30_r02.zip...  [========                               ] 21% Downloading x86_64-30_r02.zip...  [========                               ] 22% Downloading x86_64-30_r02.zip...  [=========                              ] 23% Downloading x86_64-30_r02.zip...  [=========                              ] 24% Downloading x86_64-30_r02.zip...  [=========                              ] 25% Downloading x86_64-30_r02.zip...  [==========                             ] 25% Downloading x86_64-30_r02.zip...  [==========                             ] 26% Downloading x86_64-30_r02.zip...  [==========                             ] 27% Downloading x86_64-30_r02.zip...  [===========                            ] 28% Downloading x86_64-30_r02.zip...  [===========                            ] 29% Downloading x86_64-30_r02.zip...  [===========                            ] 30% Downloading x86_64-30_r02.zip...  [============                           ] 30% Downloading x86_64-30_r02.zip...  [============                           ] 31% Downloading x86_64-30_r02.zip...  [============                           ] 32% Downloading x86_64-30_r02.zip...  [============                           ] 33% Downloading x86_64-30_r02.zip...  [============                           ] 33% Unzipping...                      [============                           ] 33% Unzipping... x86_64/NOTICE.txt    [=============                          ] 33% Unzipping... x86_64/NOTICE.txt    [=============                          ] 33% Unzipping... x86_64/VerifiedBootPa[=============                          ] 33% Unzipping... x86_64/advancedFeatur[=============                          ] 33% Unzipping... x86_64/build.prop    [=============                          ] 33% Unzipping... x86_64/encryptionkey.[=============                          ] 33% Unzipping... x86_64/kernel-ranchu [=============                          ] 33% Unzipping... x86_64/ramdisk.img   [=============                          ] 33% Unzipping... x86_64/source.propert[=============                          ] 33% Unzipping... x86_64/system.img    [=============                          ] 34% Unzipping... x86_64/system.img    [=============                          ] 35% Unzipping... x86_64/system.img    [==============                         ] 35% Unzipping... x86_64/system.img    [==============                         ] 36% Unzipping... x86_64/system.img    [==============                         ] 37% Unzipping... x86_64/system.img    [===============                        ] 38% Unzipping... x86_64/system.img    [===============                        ] 39% Unzipping... x86_64/system.img    [===============                        ] 40% Unzipping... x86_64/system.img    [================                       ] 40% Unzipping... x86_64/system.img    [================                       ] 41% Unzipping... x86_64/system.img    [================                       ] 42% Unzipping... x86_64/system.img    [=================                      ] 43% Unzipping... x86_64/system.img    [=================                      ] 44% Unzipping... x86_64/system.img    [=================                      ] 45% Unzipping... x86_64/system.img    [==================                     ] 45% Unzipping... x86_64/system.img    [==================                     ] 46% Unzipping... x86_64/system.img    [==================                     ] 47% Unzipping... x86_64/system.img    [===================                    ] 48% Unzipping... x86_64/system.img    [===================                    ] 49% Unzipping... x86_64/system.img    [===================                    ] 50% Unzipping... x86_64/system.img    [====================                   ] 50% Unzipping... x86_64/system.img    [====================                   ] 51% Unzipping... x86_64/system.img    [====================                   ] 52% Unzipping... x86_64/system.img    [=====================                  ] 53% Unzipping... x86_64/system.img    [=====================                  ] 54% Unzipping... x86_64/system.img    [=====================                  ] 54% Unzipping... x86_64/userdata.img  [=====================                  ] 54% Unzipping... x86_64/vendor.img    [=====================                  ] 55% Unzipping... x86_64/vendor.img    [=====================                  ] 55% Unzipping... x86_64/data/local.pro[=====================                  ] 55% Unzipping... x86_64/data/misc/apns[=====================                  ] 55% Unzipping... x86_64/data/misc/emul[=====================                  ] 55% Unzipping... x86_64/data/misc/gcec[=====================                  ] 55% Unzipping... x86_64/data/misc/wifi[=====================                  ] 55% Unzipping... x86_64/data/system/di[=======================================] 100% Unzipping... x86_64/data/system/d
+
+/Users/runner/Library/Android/sdk/emulator/emulator
+/Users/runner/Library/Android/sdk/cmdline-tools/latest/bin/avdmanager
+Loading local repository...                                                     [=========                              ] 25% Loading local repository...       [=========                              ] 25% Fetch remote repository...        [=======================================] 100% Fetch remote repository...       
+Auto-selecting single ABI x86_64
+AVD inventory:
+Available Android Virtual Devices:
+    Name: moviebox-runtime
+  Device: pixel_2 (Google)
+    Path: /Users/runner/.android/avd/moviebox-runtime.avd
+  Target: Google APIs ATD (Google Inc.)
+          Based on: Android 11.0 ("R") Tag/ABI: google_atd/x86_64
+  Sdcard: 512 MB
+AVD created; launching emulator.
+Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+Copyright (C) 2006-2024 The Android Open Source Project and many others.
+This program is a derivative of the QEMU CPU emulator (www.qemu.org).
+
+  This software is licensed under the terms of the GNU General Public
+  License version 2, as published by the Free Software Foundation, and
+  may be copied, distributed, and modified under those terms.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+Copyright (C) 2006-2024 The Android Open Source Project and many others.
+This program is a derivative of the QEMU CPU emulator (www.qemu.org).
+
+  This software is licensed under the terms of the GNU General Public
+  License version 2, as published by the Free Software Foundation, and
+  may be copied, distributed, and modified under those terms.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+Emulator PID: 3346
+INFO         | Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /Users/runner/Library/Android/sdk/system-images/android-30/google_atd/x86_64/
+FATAL        | Avd's CPU Architecture 'x86_64' is not supported by the QEMU2 emulator on aarch64 host. System image must match the host architecture.
+
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+ADB did not see the emulator within 45 seconds.
+Runtime dump started at 2026-11-15T06:09:12Z, run 43684050279.
+Runner: Darwin sjc20-bb661-cf34f0a9-8950-4f18-a384-bbbc3be05472-02609422A8CB.local 24.6.0 Darwin Kernel Version 24.6.0: Sun Oct 11 23:44:11 PDT 2026; root:xnu-11417.140.69.713.47~2/RELEASE_ARM64_VMAPPLE arm64
+Using macOS Hypervisor.framework for emulator virtualization.
+ANDROID_HOME=/Users/runner/Library/Android/sdk
+ANDROID_AVD_HOME=/Users/runner/.android/avd
+[32m==>[0m [1mDownloading bottle manifests[0m
+✔︎ Bottle Manifest coreutils (9.12_1)
+[32m==>[0m [1mFetching downloads for: [32mcoreutils[39m[0m
+✔︎ Bottle coreutils (9.12_1)
+[34m==>[0m [1mPouring coreutils--9.12_1.arm64_sequoia.bottle.tar.gz[0m
+🍺  /opt/homebrew/Cellar/coreutils/9.12_1: 445 files, 15.2MB
+[32m==>[0m [1mCaveats[0m
+[34m==>[0m [1mcoreutils[0m
+Commands also provided by macOS and the commands dir, dircolors, vdir have been installed with the prefix "g".
+If you need to use these commands with their normal names, you can add a "gnubin" directory to your PATH with:
+  PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+/Users/runner/Library/Android/sdk/cmdline-tools/latest/bin/sdkmanager
+yes: stdout: Broken pipe
+Loading package information...                                                  Loading local repository...                                                     [                                       ] 3% Loading local repository...        [                                       ] 3% Fetch remote repository...         [=                                      ] 3% Fetch remote repository...         [=                                      ] 4% Fetch remote repository...         [=                                      ] 5% Fetch remote repository...         [==                                     ] 5% Fetch remote repository...         [==                                     ] 6% Fetch remote repository...         [==                                     ] 7% Fetch remote repository...         [==                                     ] 7% Computing updates...               [===                                    ] 8% Computing updates...               [===                                    ] 10% Computing updates...              [===                                    ] 10% Installing Google APIs ATD Intel x[===                                    ] 10% Downloading x86_64-30_r02.zip...  [====                                   ] 10% Downloading x86_64-30_r02.zip...  [====                                   ] 11% Downloading x86_64-30_r02.zip...  [====                                   ] 12% Downloading x86_64-30_r02.zip...  [=====                                  ] 13% Downloading x86_64-30_r02.zip...  [=====                                  ] 14% Downloading x86_64-30_r02.zip...  [=====                                  ] 15% Downloading x86_64-30_r02.zip...  [======                                 ] 15% Downloading x86_64-30_r02.zip...  [======                                 ] 16% Downloading x86_64-30_r02.zip...  [======                                 ] 17% Downloading x86_64-30_r02.zip...  [=======                                ] 18% Downloading x86_64-30_r02.zip...  [=======                                ] 19% Downloading x86_64-30_r02.zip...  [=======                                ] 20% Downloading x86_64-30_r02.zip...  [========                               ] 20% Downloading x86_64-30_r02.zip...  [========                               ] 21% Downloading x86_64-30_r02.zip...  [========                               ] 22% Downloading x86_64-30_r02.zip...  [=========                              ] 23% Downloading x86_64-30_r02.zip...  [=========                              ] 24% Downloading x86_64-30_r02.zip...  [=========                              ] 25% Downloading x86_64-30_r02.zip...  [==========                             ] 25% Downloading x86_64-30_r02.zip...  [==========                             ] 26% Downloading x86_64-30_r02.zip...  [==========                             ] 27% Downloading x86_64-30_r02.zip...  [===========                            ] 28% Downloading x86_64-30_r02.zip...  [===========                            ] 29% Downloading x86_64-30_r02.zip...  [===========                            ] 30% Downloading x86_64-30_r02.zip...  [============                           ] 30% Downloading x86_64-30_r02.zip...  [============                           ] 31% Downloading x86_64-30_r02.zip...  [============                           ] 32% Downloading x86_64-30_r02.zip...  [============                           ] 33% Downloading x86_64-30_r02.zip...  [============                           ] 33% Unzipping...                      [============                           ] 33% Unzipping... x86_64/NOTICE.txt    [=============                          ] 33% Unzipping... x86_64/NOTICE.txt    [=============                          ] 33% Unzipping... x86_64/VerifiedBootPa[=============                          ] 33% Unzipping... x86_64/advancedFeatur[=============                          ] 33% Unzipping... x86_64/build.prop    [=============                          ] 33% Unzipping... x86_64/encryptionkey.[=============                          ] 33% Unzipping... x86_64/kernel-ranchu [=============                          ] 33% Unzipping... x86_64/ramdisk.img   [=============                          ] 33% Unzipping... x86_64/source.propert[=============                          ] 33% Unzipping... x86_64/system.img    [=============                          ] 34% Unzipping... x86_64/system.img    [=============                          ] 35% Unzipping... x86_64/system.img    [==============                         ] 35% Unzipping... x86_64/system.img    [==============                         ] 36% Unzipping... x86_64/system.img    [==============                         ] 37% Unzipping... x86_64/system.img    [===============                        ] 38% Unzipping... x86_64/system.img    [===============                        ] 39% Unzipping... x86_64/system.img    [===============                        ] 40% Unzipping... x86_64/system.img    [================                       ] 40% Unzipping... x86_64/system.img    [================                       ] 41% Unzipping... x86_64/system.img    [================                       ] 42% Unzipping... x86_64/system.img    [=================                      ] 43% Unzipping... x86_64/system.img    [=================                      ] 44% Unzipping... x86_64/system.img    [=================                      ] 45% Unzipping... x86_64/system.img    [==================                     ] 45% Unzipping... x86_64/system.img    [==================                     ] 46% Unzipping... x86_64/system.img    [==================                     ] 47% Unzipping... x86_64/system.img    [===================                    ] 48% Unzipping... x86_64/system.img    [===================                    ] 49% Unzipping... x86_64/system.img    [===================                    ] 50% Unzipping... x86_64/system.img    [====================                   ] 50% Unzipping... x86_64/system.img    [====================                   ] 51% Unzipping... x86_64/system.img    [====================                   ] 52% Unzipping... x86_64/system.img    [=====================                  ] 53% Unzipping... x86_64/system.img    [=====================                  ] 54% Unzipping... x86_64/system.img    [=====================                  ] 54% Unzipping... x86_64/userdata.img  [=====================                  ] 54% Unzipping... x86_64/vendor.img    [=====================                  ] 55% Unzipping... x86_64/vendor.img    [=====================                  ] 55% Unzipping... x86_64/data/local.pro[=====================                  ] 55% Unzipping... x86_64/data/misc/apns[=====================                  ] 55% Unzipping... x86_64/data/misc/emul[=====================                  ] 55% Unzipping... x86_64/data/misc/gcec[=====================                  ] 55% Unzipping... x86_64/data/misc/wifi[=====================                  ] 55% Unzipping... x86_64/data/system/di[=======================================] 100% Unzipping... x86_64/data/system/d
+
+/Users/runner/Library/Android/sdk/emulator/emulator
+/Users/runner/Library/Android/sdk/cmdline-tools/latest/bin/avdmanager
+Loading local repository...                                                     [=========                              ] 25% Loading local repository...       [=========                              ] 25% Fetch remote repository...        [=======================================] 100% Fetch remote repository...       
+Auto-selecting single ABI x86_64
+AVD inventory:
+Available Android Virtual Devices:
+    Name: moviebox-runtime
+  Device: pixel_2 (Google)
+    Path: /Users/runner/.android/avd/moviebox-runtime.avd
+  Target: Google APIs ATD (Google Inc.)
+          Based on: Android 11.0 ("R") Tag/ABI: google_atd/x86_64
+  Sdcard: 512 MB
+AVD created; launching emulator.
+Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+Copyright (C) 2006-2024 The Android Open Source Project and many others.
+This program is a derivative of the QEMU CPU emulator (www.qemu.org).
+
+  This software is licensed under the terms of the GNU General Public
+  License version 2, as published by the Free Software Foundation, and
+  may be copied, distributed, and modified under those terms.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+Copyright (C) 2006-2024 The Android Open Source Project and many others.
+This program is a derivative of the QEMU CPU emulator (www.qemu.org).
+
+  This software is licensed under the terms of the GNU General Public
+  License version 2, as published by the Free Software Foundation, and
+  may be copied, distributed, and modified under those terms.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+Emulator PID: 3346
+INFO         | Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /Users/runner/Library/Android/sdk/system-images/android-30/google_atd/x86_64/
+FATAL        | Avd's CPU Architecture 'x86_64' is not supported by the QEMU2 emulator on aarch64 host. System image must match the host architecture.
+
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+ADB did not see the emulator within 45 seconds.
