@@ -29,6 +29,7 @@ TARGETS = [
     "smali_classes5/com/mgs/carparking/ui/VideoPlayDetailActivity.smali",
     "smali_classes4/chuangyuan/ycj/videolibrary/widget/ActionControlView.smali",
     "smali*/com/wangxiong/sdk/view/*.smali",
+    "smali_classes9/com/mgs/carparking/util/AppUtils.smali",
     "res/layout/fragment_mine.xml",
 ]
 
@@ -148,6 +149,23 @@ def main() -> int:
         problems.append(
             "AdInfoEntry ad-position getters return empty lists again; the player "
             "indexes them with get(0) and will throw IndexOutOfBounds")
+
+    # The signing-certificate digest must never reach a request again: if
+    # AppUtils.j() rolls dice again, some 1-in-20 request carries the local
+    # certificate and a re-signed build starts failing on the detail page.
+    app_utils = ROOT / "smali_classes9/com/mgs/carparking/util/AppUtils.smali"
+    if app_utils.exists():
+        body = app_utils.read_text(encoding="utf-8", errors="surrogateescape")
+        gate = re.search(r"^\.method public static j\(\)I\n.*?^\.end method",
+                         body, re.S | re.M)
+        if gate is None:
+            problems.append("AppUtils.j()I is gone; the certificate gate cannot "
+                            "be verified")
+        elif "Math;->random()D" in gate.group(0):
+            problems.append(
+                "AppUtils.j() still returns Math.random()*20: requests would "
+                "carry the signing-certificate digest (vi/uvgl) and the "
+                "backend rejects a build signed with a different key")
 
     for target in TARGETS:
         matches = sorted(ROOT.glob(target))
