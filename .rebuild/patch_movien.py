@@ -791,6 +791,78 @@ for folder in sorted((ROOT / "res").glob("mipmap-*")):
 if removed:
     print(f"  dropped {removed} launcher bitmap(s) of the app's own artwork")
 
+# ================================================ 17. the folder, everywhere ==
+# Two more places picked the folder and both were still app-private, which is why
+# the download kept landing inside the package directory:
+#   - MainActivity re-loads the very same native downloader (com.pp.hls) with its
+#     own getExternalFilesDir("") argument, and that call wins over the one in
+#     AppApplication because it runs every time the player starts.
+#   - UserPreferencesUtil.a() reads the "browser_download" preference, which the
+#     download service uses to list and delete files. Its default was
+#     <external storage>/Download, and a device that already stored an old value
+#     there ignores a changed default entirely, so the getter is forced outright.
+# With all three pinned to the same folder, what the downloader writes, what the
+# download page lists and what gets deleted finally agree.
+MAIN = "smali_classes3/com/mgs/carparking/ui/MainActivity.smali"
+PREFS = "smali_classes10/com/mgs/carparking/util/UserPreferencesUtil.smali"
+
+# The chain MainActivity hands to the SDK, with the private-dir lookup removed:
+#   getExternalFilesDir("") -> getAbsolutePath() -> move-result-object v6
+# baksmali scatters .line directives between the instructions, so every gap has to
+# swallow them - a plain "\n" there is what made this anchor match nothing.
+SEP = r"(?:\s*\n\s*\.line \d+)*\s*\n\s*"
+MAIN_SAVE_PATTERN = (
+    r"invoke-virtual \{p0, v0\}, Landroid/content/Context;->getExternalFilesDir"
+    r"\(Ljava/lang/String;\)Ljava/io/File;" + SEP
+    + r"move-result-object v0" + SEP
+    + r"invoke-virtual \{v0\}, Ljava/io/File;->getAbsolutePath\(\)"
+    r"Ljava/lang/String;" + SEP
+    + r"move-result-object v6"
+)
+MAIN_SAVE_NEW = (
+    'const-string v6, "' + DL_PATH + '"\n\n'
+    "    new-instance v0, Ljava/io/File;\n\n"
+    "    invoke-direct {v0, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V\n\n"
+    "    invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z\n\n"
+    "    move-result v0"
+)
+
+
+def replace_method(rel: str, header: str, body: str, label: str) -> None:
+    """Swap a whole method body, keeping its declaration, matched exactly."""
+    text = load(rel)
+    if body in text:
+        return
+    if text.count(header + "\n") != 1:
+        raise SystemExit(f"{label}: expected 1 declaration of {header}, got "
+                         f'{text.count(header + chr(10))}')
+    start = text.index(header + "\n")
+    end = text.find(".end method", start) + len(".end method")
+    put(rel, text[:start] + header + "\n" + body + "\n.end method" + text[end:])
+
+
+# The external root the SDK is handed alongside the save path.
+replace_regex_once(
+    MAIN,
+    r":cond_0\n    move-object v5, v2",
+    ':cond_0\n    const-string v5, "' + DL_PATH + '"',
+    "player external root",
+)
+replace_regex_once(MAIN, MAIN_SAVE_PATTERN, MAIN_SAVE_NEW, "player download folder")
+replace_method(
+    PREFS,
+    ".method public static a()Ljava/lang/String;",
+    "    .locals 1\n\n"
+    '    const-string v0, "' + DL_PATH + '"\n\n'
+    "    return-object v0",
+    "download folder getter",
+)
+
+# The prompt that lets any of it be written at all lives in
+# .rebuild/StorageAsk.smali (generated in section 7): StorageAsk used to test
+# Environment.isExternalStorageManager() the wrong way round, so the only people
+# who ever saw a dialog were the ones who had already granted access.
+
 # ==================================================================== apply ==
 if "--print-targets" in sys.argv:
     # The decompile workflow compares a fresh decompile against the tree in

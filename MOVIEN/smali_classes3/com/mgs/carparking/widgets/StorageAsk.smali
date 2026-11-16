@@ -2,57 +2,32 @@
 .super Ljava/lang/Object;
 .source "StorageAsk.java"
 
-# One-shot "All files access" prompt, so the downloader can write straight into
-# /storage/emulated/0/Movies/wot/castle_lite. From Android 11 the legacy
-# requestLegacyExternalStorage flag is ignored, and a File-based downloader only
-# reaches a public folder with this special permission. Every step sits in a
-# catch-all, so a device without that settings screen just shows nothing.
+# The gate for the public download folder. Android 11 and newer need "All files
+# access", because requestLegacyExternalStorage is ignored there and the
+# downloader writes with plain File APIs; Android 6 - 10 need the ordinary
+# WRITE_EXTERNAL_STORAGE runtime grant, which legacy storage then honours. While
+# the permission is missing this runs on every cold start, and once it is in place
+# it does nothing at all - no flag, no nagging. One catch-all covers both paths, so
+# a device without that settings screen simply starts the download flow as before.
 
 
 # direct methods
 .method public static a(Landroid/content/Context;)V
-    .locals 4
+    .locals 3
 
     :try_start_0
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
 
-    if-lt v0, v1, :cond_end
+    if-lt v0, v1, :cond_low
 
-    const-string v0, "movien_patch"
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    const-string v1, "storage_asked"
-
-    const/4 v2, 0x0
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v2
-
-    if-nez v2, :cond_end
-
+    # API 30 and up: does the app already have "All files access"?
     invoke-static {}, Landroid/os/Environment;->isExternalStorageManager()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_end
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    const/4 v2, 0x1
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+    if-eqz v0, :cond_done
 
     new-instance v0, Landroid/content/Intent;
 
@@ -81,10 +56,40 @@
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    return-void
+
+    # API 24 - 29: ask for the classic storage permission instead.
+    :cond_low
+    const-string v0, "android.permission.WRITE_EXTERNAL_STORAGE"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->checkSelfPermission(Ljava/lang/String;)I
+
+    move-result v1
+
+    const/4 v2, -0x1
+
+    if-ne v1, v2, :cond_done
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    aput-object v0, v1, v2
+
+    move-object v0, p0
+
+    check-cast v0, Landroid/app/Activity;
+
+    const/16 v2, 0x5a
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/Activity;->requestPermissions([Ljava/lang/String;I)V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
-    :cond_end
+    :cond_done
     return-void
 .end method

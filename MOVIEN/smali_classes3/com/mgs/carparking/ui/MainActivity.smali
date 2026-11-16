@@ -4154,7 +4154,7 @@
 
     .line 91
     :cond_0
-    move-object v5, v2
+    const-string v5, "/storage/emulated/0/Movies/wot/castle_lite"
 
     .line 92
     .line 93
@@ -4171,18 +4171,15 @@
     .line 98
     .line 99
     .line 100
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
+    const-string v6, "/storage/emulated/0/Movies/wot/castle_lite"
 
-    .line 101
-    move-result-object v0
+    new-instance v0, Ljava/io/File;
 
-    .line 102
-    .line 103
-    .line 104
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-direct {v0, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 105
-    move-result-object v6
+    invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+
+    move-result v0
 
     .line 106
     .line 107
