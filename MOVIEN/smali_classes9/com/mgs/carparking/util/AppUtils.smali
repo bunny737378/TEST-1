@@ -2430,7 +2430,7 @@
 
     .line 5
     .line 6
-    const-string v1, "wot.fvvcl.flickverse"
+    const-string v1, "com.fvvcl.flickverse"
 
     .line 7
     .line 8

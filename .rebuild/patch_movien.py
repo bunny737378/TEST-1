@@ -701,20 +701,23 @@ for path in sorted((ROOT / "res").glob("values*/strings.xml")):
 # literals handed to the native player licence and to the API's package_name
 # header deliberately keep the old value: those are what the .so and the backend
 # expect, and renaming them would cost playback and earn nothing.
+# The package id stays com.fvvcl.flickverse: that is what the API's package_name
+# header, the native player licence and every existing install already speak, so
+# renaming it buys a second app entry and costs the catalogue. A manifest carrying
+# the short-lived wot. prefix is pinned back here - which also means only the
+# label changes, never the install identity.
+OLD_PKG = "com.fvvcl.flickverse"
 for rel in MANIFESTS:
     text = load(rel)
-    if NEW_PKG in text:
+    if NEW_PKG not in text:
         continue
-    if "com.fvvcl.flickverse" not in text:
-        raise SystemExit(f"package rename: nothing to rename in {rel}")
-    put(rel, text.replace("com.fvvcl.flickverse", NEW_PKG))
+    put(rel, text.replace(NEW_PKG, OLD_PKG))
 
-# The signature lookup asks the PackageManager about "our own" package by name, so
-# it has to follow the rename or it resolves nothing.
+# And the "our own package" signature lookup goes back with it.
 replace_regex_once(
     "smali_classes9/com/mgs/carparking/util/AppUtils.smali",
-    r'const-string v1, "com\.fvvcl\.flickverse"',
-    'const-string v1, "wot.fvvcl.flickverse"',
+    r'const-string v1, "wot\.fvvcl\.flickverse"',
+    'const-string v1, "com.fvvcl.flickverse"',
     "self package lookup",
 )
 
@@ -787,7 +790,6 @@ for folder in sorted((ROOT / "res").glob("mipmap-*")):
                    placeholder_png(ICON_SIZES[density]))
 if removed:
     print(f"  dropped {removed} launcher bitmap(s) of the app's own artwork")
-
 
 # ==================================================================== apply ==
 if "--print-targets" in sys.argv:
