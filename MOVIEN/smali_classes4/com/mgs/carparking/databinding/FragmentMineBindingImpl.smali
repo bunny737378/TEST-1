@@ -2794,7 +2794,22 @@
 
     .line 913
     :cond_37
-    return-void
+        # Our values win: this runs after every view-model write above.
+    iget-object v0, p0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->g:Landroid/widget/TextView;
+
+    const-string v1, "Ur Senpai"
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    const/4 v1, -0x1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+return-void
 
     .line 914
     :catchall_0

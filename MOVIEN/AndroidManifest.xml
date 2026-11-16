@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="35" android:compileSdkVersionCodename="15" package="com.fvvcl.flickverse" platformBuildVersionCode="35" platformBuildVersionName="15">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="35" android:compileSdkVersionCodename="15" package="wot.fvvcl.flickverse" platformBuildVersionCode="35" platformBuildVersionName="15">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
@@ -89,7 +90,7 @@
     <queries>
         <package android:name="com.facebook.katana"/>
     </queries>
-    <queries package="com.fvvcl.flickverse">
+    <queries package="wot.fvvcl.flickverse">
         <intent>
             <action android:name="android.media.action.IMAGE_CAPTURE"/>
         </intent>
@@ -101,20 +102,20 @@
     <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID"/>
     <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION"/>
     <uses-permission android:name="android.permission.ACCESS_ADSERVICES_TOPICS"/>
-    <permission android:name="com.fvvcl.flickverse.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
-    <uses-permission android:name="com.fvvcl.flickverse.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <permission android:name="wot.fvvcl.flickverse.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+    <uses-permission android:name="wot.fvvcl.flickverse.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
     <uses-permission android:name="android.permission.FLASHLIGHT"/>
     <uses-feature android:name="android.hardware.camera"/>
     <uses-feature android:name="android.hardware.camera.autofocus"/>
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
-    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:fullBackupContent="@xml/appsflyer_backup_rules" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="ru.maximoff.signature.HookApplication" android:networkSecurityConfig="@xml/network_security_config" android:requestLegacyExternalStorage="true" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:testOnly="false" android:theme="@style/BrowserTheme" android:usesCleartextTraffic="true">
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:fullBackupContent="@xml/appsflyer_backup_rules" android:hardwareAccelerated="true" android:icon="@drawable/app" android:label="@string/app_name" android:largeHeap="true" android:name="ru.maximoff.signature.HookApplication" android:networkSecurityConfig="@xml/network_security_config" android:requestLegacyExternalStorage="true" android:roundIcon="@drawable/app" android:supportsRtl="true" android:testOnly="false" android:theme="@style/BrowserTheme" android:usesCleartextTraffic="true">
         <meta-data android:name="UMENG_CHANNEL" android:value="moviein_sh_3000"/>
         <meta-data android:name="TRACKER_KEY" android:value="kokimiwater-29zde"/>
         <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-7186984086019320~8518796375"/>
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
         <service android:exported="false" android:name="com.mgs.carparking.download.DownloadService"/>
-        <provider android:authorities="com.fvvcl.flickverse.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.mgs.carparking.util.MyProvider">
+        <provider android:authorities="wot.fvvcl.flickverse.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.mgs.carparking.util.MyProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
         </provider>
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
@@ -167,7 +168,7 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="cct.com.fvvcl.flickverse" android:scheme="fbconnect"/>
+                <data android:host="cct.wot.fvvcl.flickverse" android:scheme="fbconnect"/>
             </intent-filter>
         </activity>
         <meta-data android:name="com.openinstall.AD_TRACK" android:value="true"/>
@@ -184,7 +185,7 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.yk.e.activity.RewardWebActivity" android:theme="@style/main_commom_theme"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.yk.e.activity.DebugToolActivity" android:theme="@style/main_commom_theme"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="com.yk.e.activity.MainInterstitialActivity" android:theme="@style/main_dialog_activity_theme"/>
-        <provider android:authorities="com.fvvcl.flickverse.MainProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.yk.e.provider.MainProvider">
+        <provider android:authorities="wot.fvvcl.flickverse.MainProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.yk.e.provider.MainProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/main_file_path"/>
         </provider>
         <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true"/>
@@ -194,8 +195,8 @@
         <meta-data android:name="OKT_SDK_API_VERSION" android:value="2_12_0"/>
         <activity android:configChanges="keyboardHidden|orientation" android:name="me.goldze.mvvmhabit.base.ContainerActivity"/>
         <activity android:name="me.goldze.mvvmhabit.crash.DefaultErrorActivity" android:process=":error_activity"/>
-        <provider android:authorities="com.fvvcl.flickverse.customactivityoncrashinitprovider" android:exported="false" android:initOrder="101" android:name="me.goldze.mvvmhabit.crash.CaocInitProvider"/>
-        <provider android:authorities="com.fvvcl.flickverse.luckProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.luck.picture.lib.basic.PictureFileProvider">
+        <provider android:authorities="wot.fvvcl.flickverse.customactivityoncrashinitprovider" android:exported="false" android:initOrder="101" android:name="me.goldze.mvvmhabit.crash.CaocInitProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.luckProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.luck.picture.lib.basic.PictureFileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/ps_file_paths"/>
         </provider>
         <service android:enabled="true" android:foregroundServiceType="location" android:name="com.luck.picture.lib.service.ForegroundService"/>
@@ -250,7 +251,7 @@
         <activity android:configChanges="orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.InterstitialActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity android:configChanges="orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:name="com.ironsource.sdk.controller.OpenUrlActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.secmtp.sdk.core.activity.ATGdprAuthActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-        <provider android:authorities="com.fvvcl.flickverse.secmtp.initatprovider" android:exported="false" android:name="com.secmtp.sdk.core.api.ATInitializationProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.secmtp.initatprovider" android:exported="false" android:name="com.secmtp.sdk.core.api.ATInitializationProvider"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.secmtp.sdk.core.common.inner.ui.ATLandscapeActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.secmtp.sdk.core.common.inner.ui.ATPortraitActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.secmtp.sdk.core.common.inner.ui.ATLandscapeTranslucentActivity" android:theme="@style/secmtp_myoffer_half_screen"/>
@@ -258,7 +259,7 @@
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="standard" android:name="com.secmtp.sdk.core.common.inner.ui.activity.ATMixSplashActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.secmtp.sdk.core.basead.ui.web.WebLandPageActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:hardwareAccelerated="true" android:name="com.inmobi.ads.rendering.InMobiAdActivity" android:theme="@android:style/Theme.NoTitleBar"/>
-        <provider android:authorities="com.fvvcl.flickverse.applovininitprovider" android:exported="false" android:initOrder="101" android:name="com.applovin.sdk.AppLovinInitProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.applovininitprovider" android:exported="false" android:initOrder="101" android:name="com.applovin.sdk.AppLovinInitProvider"/>
         <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:exported="false" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.applovin.adview.AppLovinFullscreenActivity" android:screenOrientation="behind" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:exported="false" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.applovin.adview.AppLovinFullscreenImmersiveActivity" android:theme="@android:style/Theme.NoTitleBar"/>
         <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:name="com.applovin.sdk.AppLovinWebViewActivity"/>
@@ -281,22 +282,22 @@
         <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:name="com.applovin.creative.MaxCreativeDebuggerDisplayedAdActivity" android:theme="@style/com.applovin.creative.CreativeDebuggerActivity.Theme"/>
         <service android:exported="false" android:name="com.applovin.impl.adview.activity.FullscreenAdService" android:stopWithTask="false"/>
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:enableOnBackInvokedCallback="false" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
-        <provider android:authorities="com.fvvcl.flickverse.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
         <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:exported="false" android:name="com.google.android.gms.ads.OutOfContextTestingActivity"/>
         <activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTask" android:name="com.google.android.gms.ads.NotificationHandlerActivity" android:taskAffinity="" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <meta-data android:name="com.google.android.gms.ads.flag.OPTIMIZE_AD_LOADING" android:value="true"/>
         <meta-data android:name="com.google.android.gms.ads.flag.OPTIMIZE_INITIALIZATION" android:value="true"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:launchMode="singleTop" android:name="com.vungle.ads.internal.ui.VungleActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-        <provider android:authorities="com.fvvcl.flickverse.vungle-provider" android:exported="false" android:initOrder="102" android:name="com.vungle.ads.VungleProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.vungle-provider" android:exported="false" android:initOrder="102" android:name="com.vungle.ads.VungleProvider"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:exported="false" android:name="com.facebook.ads.AudienceNetworkActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <provider android:authorities="com.fvvcl.flickverse.AudienceNetworkContentProvider" android:exported="false" android:name="com.facebook.ads.AudienceNetworkContentProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.AudienceNetworkContentProvider" android:exported="false" android:name="com.facebook.ads.AudienceNetworkContentProvider"/>
         <activity android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:enableOnBackInvokedCallback="false" android:exported="false" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:enableOnBackInvokedCallback="false" android:exported="false" android:hardwareAccelerated="true" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:enableOnBackInvokedCallback="false" android:exported="false" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:enableOnBackInvokedCallback="false" android:exported="false" android:hardwareAccelerated="false" android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:enableOnBackInvokedCallback="false" android:exported="false" android:hardwareAccelerated="true" android:name="com.unity3d.ads.adplayer.FullScreenWebViewDisplay" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-        <provider android:authorities="com.fvvcl.flickverse.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+        <provider android:authorities="wot.fvvcl.flickverse.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
             <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
             <meta-data android:name="com.unity3d.services.core.configuration.AdsSdkInitializer" android:value="androidx.startup"/>
             <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
@@ -309,11 +310,11 @@
         <activity android:configChanges="orientation|screenSize" android:exported="false" android:hardwareAccelerated="true" android:name="com.ironsource.mediationsdk.testSuite.TestSuiteActivity" android:theme="@android:style/Theme.NoTitleBar">
             <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing" android:value="true"/>
         </activity>
-        <provider android:authorities="com.fvvcl.flickverse.IronsourceLifecycleProvider" android:exported="false" android:name="com.ironsource.lifecycle.IronsourceLifecycleProvider"/>
-        <provider android:authorities="com.fvvcl.flickverse.LevelPlayActivityLifecycleProvider" android:exported="false" android:name="com.ironsource.lifecycle.LevelPlayActivityLifecycleProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.IronsourceLifecycleProvider" android:exported="false" android:name="com.ironsource.lifecycle.IronsourceLifecycleProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.LevelPlayActivityLifecycleProvider" android:exported="false" android:name="com.ironsource.lifecycle.LevelPlayActivityLifecycleProvider"/>
         <activity android:name="sg.bigo.ads.ad.splash.AdSplashActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme"/>
         <activity android:name="sg.bigo.ads.ad.splash.LandscapeAdSplashActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme"/>
-        <provider android:authorities="com.fvvcl.flickverse.BigoAdsProvider" android:exported="false" android:name="sg.bigo.ads.controller.provider.BigoAdsProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.BigoAdsProvider" android:exported="false" android:name="sg.bigo.ads.controller.provider.BigoAdsProvider"/>
         <activity android:name="sg.bigo.ads.controller.form.AdFormActivity" android:windowSoftInputMode="adjustPan"/>
         <activity android:configChanges="orientation|screenSize" android:name="sg.bigo.ads.api.AdActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:configChanges="orientation|screenSize" android:name="sg.bigo.ads.api.PopupAdActivity" android:screenOrientation="portrait" android:theme="@style/TransparentDialog" android:windowSoftInputMode="stateAlwaysHidden"/>
@@ -322,8 +323,8 @@
         <activity android:configChanges="orientation|screenSize" android:name="sg.bigo.ads.api.CompanionAdActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:configChanges="orientation|screenSize" android:name="sg.bigo.ads.api.LandscapeCompanionAdActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.Holo.Light.NoActionBar" android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="sg.bigo.ads.core.mraid.MraidVideoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
-        <provider android:authorities="com.fvvcl.flickverse.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
-        <provider android:authorities="com.fvvcl.flickverse.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
         <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
             <intent-filter>
                 <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
@@ -396,7 +397,7 @@
             </intent-filter>
         </receiver>
         <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
-        <provider android:authorities="com.fvvcl.flickverse.initprovider" android:exported="false" android:initOrder="100" android:name="com.tramini.plugin.api.TraminiContentProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.initprovider" android:exported="false" android:initOrder="100" android:name="com.tramini.plugin.api.TraminiContentProvider"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.smartdigimkt.expressad.reward.player.ATRewardVideoActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.smartdigimkt.sdk.basead.ui.ATLandscapeActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.smartdigimkt.sdk.basead.ui.ATPortraitActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
@@ -404,8 +405,8 @@
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.smartdigimkt.sdk.basead.ui.ATPortraitTranslucentActivity" android:theme="@style/sdm_myoffer_half_screen"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
         <activity android:exported="false" android:name="com.smartdigimkt.sdk.basead.ui.RewardExitConfirmDialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
-        <provider android:authorities="com.fvvcl.flickverse.sdm.initatprovider" android:exported="false" android:name="com.smartdigimkt.sdk.api.SDMInitializationProvider"/>
-        <provider android:authorities="com.fvvcl.flickverse.mbcomponentlifcycleprovider" android:exported="false" android:name="com.mbridge.msdk.config.component.status.MBComponentLifecycleProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.sdm.initatprovider" android:exported="false" android:name="com.smartdigimkt.sdk.api.SDMInitializationProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.mbcomponentlifcycleprovider" android:exported="false" android:name="com.mbridge.msdk.config.component.status.MBComponentLifecycleProvider"/>
         <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale" android:exported="false" android:name="com.mbridge.msdk.config.activity.MBRewardVideoActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity android:configChanges="keyboard|orientation" android:exported="false" android:name="com.mbridge.msdk.activity.MBCommonActivity" android:theme="@style/mbridge_transparent_common_activity_style"/>
         <activity android:name="com.mbridge.msdk.out.LoadingActivity"/>
@@ -423,6 +424,6 @@
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.fyber.inneractive.sdk.activities.FyberReportAdActivity" android:screenOrientation="fullUser"/>
         <activity android:exported="false" android:name="com.kwai.network.framework.adCommon.activity.AllianceEmptyShellActivity" android:screenOrientation="portrait"/>
         <activity android:configChanges="orientation|screenSize" android:name="com.yzq.zxinglibrary.android.CaptureActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="stateHidden|adjustPan"/>
-        <provider android:authorities="com.fvvcl.flickverse.adjust-lifecycle-provider" android:exported="false" android:name="com.adjust.sdk.SystemLifecycleContentProvider"/>
+        <provider android:authorities="wot.fvvcl.flickverse.adjust-lifecycle-provider" android:exported="false" android:name="com.adjust.sdk.SystemLifecycleContentProvider"/>
     </application>
 </manifest>

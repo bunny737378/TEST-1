@@ -505,6 +505,10 @@ def hide_row(rel: str, text_attr: str, label: str) -> None:
 # still runs 30 ms after onCreate, so the jump to the home page is appended
 # there and the ad fetch that used to gate it is emptied. MainActivity is
 # singleTask, so no second copy can stack up behind it.
+STORAGE_HELPER = "smali_classes3/com/mgs/carparking/widgets/StorageAsk.smali"
+STORAGE_TEMPLATE = Path(__file__).resolve().parent / "StorageAsk.smali"
+write_generated(STORAGE_HELPER, STORAGE_TEMPLATE.read_text(encoding="utf-8"))
+
 SPLASH_RUN = find_one("smali*/com/mgs/carparking/ui/SplashActivity$1.smali")
 SPLASH_IMP = find_one("smali*/com/mgs/carparking/ui/SplashImp.smali")
 replace_once(
@@ -513,6 +517,8 @@ replace_once(
     "    :goto_0\n"
     "    iget-object v0, p0, Lcom/mgs/carparking/ui/SplashActivity$1;"
     "->a:Lcom/mgs/carparking/ui/SplashActivity;\n\n"
+    "    invoke-static {v0}, Lcom/mgs/carparking/widgets/StorageAsk;"
+    "->a(Landroid/content/Context;)V\n\n"
     "    invoke-static {v0}, Lcom/mgs/carparking/util/JumpActUtils;"
     "->a(Landroid/app/Activity;)V\n\n"
     "    invoke-virtual {v0}, Landroid/app/Activity;->finish()V\n\n"
@@ -546,6 +552,237 @@ if "android:fitsSystemWindows" not in detail[root_start:root_end]:
         + detail[root_end:])
 for elem_id in ("iv_share", "iv_feedback"):
     hide_by_id(DETAIL_LAYOUT, elem_id, "detail " + elem_id)
+
+# ============================================================== 10. profile name ==
+# FragmentMineBindingImpl.executeBindings() re-wrote tv_name from the view model on
+# every binding pass: the text came back empty (nobody is really signed in) and the
+# visibility expression put the TextView back to gone, right after MineFragment had
+# set both. That is why the avatar showed and the name never did. Re-applying our
+# three writes at the very end of that same method makes them stick, because
+# nothing runs after them.
+MINE_IMPL = "smali_classes4/com/mgs/carparking/databinding/FragmentMineBindingImpl.smali"
+
+NAME_TAIL = (
+    "    # Our values win: this runs after every view-model write above.\n"
+    "    iget-object v0, p0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->g:Landroid/widget/TextView;\n\n"
+    "    const-string v1, \"Ur Senpai\"\n\n"
+    "    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V\n\n"
+    "    const/4 v1, -0x1\n\n"
+    "    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V\n\n"
+    "    const/4 v1, 0x0\n\n"
+    "    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V\n\n"
+)
+
+
+def patch_method_tail(rel: str, method_pattern: str, insert: str, label: str) -> None:
+    """Insert instructions right before the last return-void of a void method."""
+    text = load(rel)
+    if insert in text:
+        return
+    match = re.search(method_pattern, text, re.M)
+    if match is None:
+        raise SystemExit(f"{label}: method {method_pattern} not in {rel}")
+    start = match.start()
+    end = text.index(".end method", start)
+    span = text[start:end]
+    idx = span.rfind("return-void")
+    if idx < 0:
+        raise SystemExit(f"{label}: no return-void inside {rel}")
+    pos = start + idx
+    put(rel, text[:pos] + insert + text[pos:])
+
+
+def replace_regex_once(rel: str, pattern: str, new: str, label: str) -> None:
+    """replace_once for anchors whose .line numbers or quoting may drift."""
+    text = load(rel)
+    if new in text:
+        return
+    hits = re.findall(pattern, text)
+    if len(hits) != 1:
+        raise SystemExit(f"{label}: expected 1 regex match in {rel}, found {len(hits)}")
+    put(rel, re.sub(pattern, new, text, count=1))
+
+
+patch_method_tail(MINE_IMPL, r"^\.method [^\n]*executeBindings\(\)V$", NAME_TAIL,
+                  "profile name tail")
+
+# ================================================================== 11. add to list ==
+# The series metadata page keeps its "add to list" action in the row tagged
+# binding_12. Nothing in the layout hides it - only its icon was never given a
+# drawable in the shipped layout, so the button read as an empty gap. Pin the
+# un-collected icon onto it, which is what makes the control visible again.
+replace_regex_once(
+    DETAIL_LAYOUT,
+    r'<ImageView android:tag="binding_13"[^>]*?/>',
+    '<ImageView android:tag="binding_13" android:src="@drawable/ic_short_uncollection" '
+    'android:layout_width="24.0dp" android:layout_height="24.0dp" '
+    'app:layout_constraintBottom_toTopOf="@id/iv_collection" '
+    'app:layout_constraintEnd_toEndOf="parent" '
+    'app:layout_constraintStart_toStartOf="parent" '
+    'app:layout_constraintTop_toTopOf="parent" />',
+    "add-to-list icon",
+)
+
+# ==================================================== 12. downloads go to /Movies ==
+# The HLS downloader was handed getExternalFilesDir(""), i.e. the app-private
+# folder no file manager shows. Both of the paths it is given now point at one
+# public folder, created up-front, and the download-success message tells users
+# where to play the files from.
+DL_PATH = "/storage/emulated/0/Movies/wot/castle_lite"
+APP_APP = "smali_classes3/com/mgs/carparking/app/AppApplication.smali"
+
+replace_regex_once(
+    APP_APP,
+    r":cond_0\n    move-object v6, v0",
+    ':cond_0\n    const-string v6, "' + DL_PATH + '"',
+    "p2p cache folder",
+)
+replace_regex_once(
+    APP_APP,
+    r"    invoke-virtual \{v0\}, Ljava/io/File;->getAbsolutePath\(\)Ljava/lang/String;"
+    r"\s*\n\s*\.line \d+\s*\n    move-result-object v7",
+    '    const-string v7, "' + DL_PATH + '"\n\n'
+    "    new-instance v0, Ljava/io/File;\n\n"
+    "    invoke-direct {v0, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V\n\n"
+    "    invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z\n\n"
+    "    move-result v0",
+    "download folder",
+)
+replace_regex_once(
+    "res/values/strings.xml",
+    r'<string name="str_download_success">[^<]*</string>',
+    '<string name="str_download_success">Saved to Movies/wot/castle_lite - open that '
+    'folder in your file manager to watch or copy the video.</string>',
+    "download location note",
+)
+
+# ============================================================ 13. the permissions ==
+# Files under /storage/emulated/0 need "All files access" from Android 11 on,
+# because requestLegacyExternalStorage is ignored there; the prompt itself is
+# emitted from the splash tail (section 7) so one block owns that method.
+# Only the text manifest is edited: MOVIEN/original/AndroidManifest.xml is the
+# binary AXML copy, which apktool re-generates anyway and which cannot take a
+# string of a different length without breaking its string pool.
+for manifest in ("AndroidManifest.xml",):
+    replace_regex_once(
+        manifest,
+        r'<uses-permission android:name="android\.permission\.WRITE_EXTERNAL_STORAGE"\s*/>',
+        '<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>\n'
+        '    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>',
+        "all-files-access permission",
+    )
+
+# ================================================== 14 + 15. name and package id ==
+MANIFESTS = ("AndroidManifest.xml",)
+
+NEW_PKG = "wot.fvvcl.flickverse"
+
+for path in sorted((ROOT / "res").glob("values*/strings.xml")):
+    rel = path.relative_to(ROOT).as_posix()
+    if '<string name="app_name">' not in path.read_text(
+            encoding="utf-8", errors="surrogateescape"):
+        # Not read through load(): a locale table that is left alone must not end
+        # up in the write-back list at all.
+        continue
+    replace_regex_once(
+        rel,
+        r'<string name="app_name">[^<]*</string>',
+        '<string name="app_name">Castle Lite</string>',
+        "app label",
+    )
+
+# The manifest package is the install identity, so the authorities under it move
+# with it and Castle Lite can sit beside the old app instead of replacing it. The
+# literals handed to the native player licence and to the API's package_name
+# header deliberately keep the old value: those are what the .so and the backend
+# expect, and renaming them would cost playback and earn nothing.
+for rel in MANIFESTS:
+    text = load(rel)
+    if NEW_PKG in text:
+        continue
+    if "com.fvvcl.flickverse" not in text:
+        raise SystemExit(f"package rename: nothing to rename in {rel}")
+    put(rel, text.replace("com.fvvcl.flickverse", NEW_PKG))
+
+# The signature lookup asks the PackageManager about "our own" package by name, so
+# it has to follow the rename or it resolves nothing.
+replace_regex_once(
+    "smali_classes9/com/mgs/carparking/util/AppUtils.smali",
+    r'const-string v1, "com\.fvvcl\.flickverse"',
+    'const-string v1, "wot.fvvcl.flickverse"',
+    "self package lookup",
+)
+
+# ============================================================ 16. launcher icon ==
+# One placeholder for every device and every archive, drawn here from a couple of
+# hundred bytes of zlib rather than a downloaded image, and the app's own logo
+# artwork goes away. The resource *names* are kept on purpose - one small PNG per
+# density replacing each webp - because dropping mipmap/ic_launcher from the table
+# would shift every id behind it, and the compiled R$* constants in the smali are
+# frozen.
+import struct
+import zlib
+
+BG = (20, 26, 43, 255)
+FG = (255, 255, 255, 255)
+
+
+def placeholder_png(size: int) -> bytes:
+    rows = bytearray()
+    centre = (size - 1) / 2.0
+    radius = size * 0.34
+    for y in range(size):
+        rows.append(0)
+        for x in range(size):
+            inside = (x - centre) ** 2 + (y - centre) ** 2 <= radius * radius
+            red, green, blue, alpha = FG if inside else BG
+            rows += bytes((red, green, blue, alpha))
+
+    def chunk(kind: bytes, data: bytes) -> bytes:
+        return (struct.pack(">I", len(data)) + kind + data
+                + struct.pack(">I", zlib.crc32(kind + data) & 0xFFFFFFFF))
+
+    ihdr = struct.pack(">IIBBBBB", size, size, 8, 6, 0, 0, 0)
+    return (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr)
+            + chunk(b"IDAT", zlib.compress(bytes(rows), 9)) + chunk(b"IEND", b""))
+
+
+def put_binary(rel: str, data: bytes) -> None:
+    path = ROOT / rel
+    if path.exists() and path.read_bytes() == data:
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(data)
+    changed.append(rel)
+
+
+put_binary("res/drawable/app.png", placeholder_png(192))
+
+for rel in MANIFESTS:
+    replace_regex_once(rel, r'android:icon="@mipmap/ic_launcher"',
+                       'android:icon="@drawable/app"', "launcher icon")
+    replace_regex_once(rel, r'android:roundIcon="@mipmap/ic_launcher_round"',
+                       'android:roundIcon="@drawable/app"', "round launcher icon")
+
+ICON_SIZES = {"mdpi": 48, "hdpi": 72, "xhdpi": 96, "xxhdpi": 144, "xxxhdpi": 192}
+removed = 0
+for folder in sorted((ROOT / "res").glob("mipmap-*")):
+    density = folder.name.split("-", 1)[1]
+    if density not in ICON_SIZES:
+        continue
+    for stem in ("ic_launcher", "ic_launcher_round", "ic_launcher_foreground"):
+        for old in folder.glob(stem + ".*"):
+            if old.suffix.lower() not in (".webp", ".png", ".jpg", ".jpeg"):
+                continue
+            if old.name == stem + ".png":
+                continue  # our own placeholder, rewritten below
+            old.unlink()
+            removed += 1
+        put_binary((folder / (stem + ".png")).relative_to(ROOT).as_posix(),
+                   placeholder_png(ICON_SIZES[density]))
+if removed:
+    print(f"  dropped {removed} launcher bitmap(s) of the app's own artwork")
+
 
 # ==================================================================== apply ==
 if "--print-targets" in sys.argv:

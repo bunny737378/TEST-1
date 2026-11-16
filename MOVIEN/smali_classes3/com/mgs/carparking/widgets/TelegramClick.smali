@@ -15,41 +15,50 @@
     return-void
 .end method
 
+# Open a URL-ish target in whatever can handle it: Telegram first (its own
+# "tg://resolve" scheme), then the browser. ACTION_VIEW wants a Uri, never a
+# String, so the string is parsed here - an Intent built from a bare String
+# throws NoSuchMethodError and the tap looked dead.
 .method private open(Landroid/content/Context;Ljava/lang/String;)Z
     .locals 2
 
     :try_start_0
-    new-instance v0, Landroid/content/Intent;
+    invoke-static {p2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    const-string v1, "android.intent.action.VIEW"
+    move-result-object v0
 
-    invoke-direct {v0, v1, p2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    new-instance v1, Landroid/content/Intent;
 
-    const/high16 v1, 0x10000000
+    const-string p2, "android.intent.action.VIEW"
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-direct {v1, p2, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    const/high16 v0, 0x10000000
+
+    invoke-virtual {v1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    invoke-virtual {p1, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     :catch_0
-    move-exception v0
+    move-exception p1
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .locals 3
 
+    :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -67,5 +76,9 @@
     invoke-direct {p0, v0, v1}, Lcom/mgs/carparking/widgets/TelegramClick;->open(Landroid/content/Context;Ljava/lang/String;)Z
 
     :cond_0
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
     return-void
 .end method

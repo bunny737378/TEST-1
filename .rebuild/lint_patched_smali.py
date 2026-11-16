@@ -32,6 +32,9 @@ TARGETS = [
     "smali*/com/mgs/carparking/ui/SplashImp.smali",
     "smali*/com/mgs/carparking/ui/UpdateUtil.smali",
     "smali*/com/mgs/carparking/widgets/TelegramClick.smali",
+    "smali*/com/mgs/carparking/widgets/StorageAsk.smali",
+    "smali_classes4/com/mgs/carparking/databinding/FragmentMineBindingImpl.smali",
+    "smali_classes3/com/mgs/carparking/app/AppApplication.smali",
     "smali*/com/wangxiong/sdk/view/*.smali",
     "res/layout/fragment_mine.xml",
 ]

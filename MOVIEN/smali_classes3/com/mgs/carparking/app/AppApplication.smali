@@ -327,7 +327,7 @@
 
     .line 29
     :cond_0
-    move-object v6, v0
+    const-string v6, "/storage/emulated/0/Movies/wot/castle_lite"
 
     .line 30
     .line 31
@@ -369,10 +369,15 @@
     .line 49
     .line 50
     .line 51
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    const-string v7, "/storage/emulated/0/Movies/wot/castle_lite"
 
-    .line 52
-    move-result-object v7
+    new-instance v0, Ljava/io/File;
+
+    invoke-direct {v0, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+
+    move-result v0
 
     .line 53
     .line 54
