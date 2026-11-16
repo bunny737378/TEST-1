@@ -9,53 +9,112 @@ jobs:
   counter:
     runs-on: ubuntu-latest
     timeout-minutes: 360
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run counter loop
+      - name: Run counter (parallel)
         env:
-          SESSION: "v1.rb-iqAGMWEnUM-Y30i2GeQ.1794863121.LGXBi0PPc9ybDvSoOWUOGcvfJ3p1gHCZ3lHTIFYSFoQ"
           BATCH_ID: "5b7810b4-f1cc-4c66-a3a2-372291daa0a3"
+          TARGET: "80000000"
+          WORKERS: "50"        # parallel workers (badha/ghata sakte ho)
+          MAX_SEQ: "10000000"  # safety cap
         run: |
-          SEQ=16
-          TARGET=80000000
-          
-          while true; do
-            echo "--- seq=$SEQ ---"
-            
-            RESP=$(curl -s --http2 -L -X POST 'https://panchayatdate.com/api/counter' \
-              -H 'User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36' \
-              -H 'Accept: application/json' \
-              -H 'Content-Type: application/json' \
-              -H 'sec-ch-ua: "Chromium";v="139", "Not;A=Brand";v="99"' \
-              -H 'sec-ch-ua-mobile: ?1' \
-              -H 'sec-ch-ua-platform: "Android"' \
-              -H 'origin: https://panchayatdate.com' \
-              -H 'sec-fetch-site: same-origin' \
-              -H 'sec-fetch-mode: cors' \
-              -H 'sec-fetch-dest: empty' \
-              -H 'referer: https://panchayatdate.com/' \
-              -H 'accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7' \
-              -d "{\"batchId\":\"$BATCH_ID\",\"counts\":{\"chappal\":1},\"total\":1,\"session\":\"$SESSION\",\"seq\":$SEQ}")
-            
-            echo "$RESP"
-            
-            TOTAL=$(echo "$RESP" | grep -o '"total":[0-9]*' | head -1 | cut -d: -f2)
-            
-            if [ -z "$TOTAL" ]; then
-              echo "Empty/invalid response, retrying same seq..."
-              sleep 1
-              continue
-            fi
-            
-            echo "Server total: $TOTAL"
-            
-            if [ "$TOTAL" -ge "$TARGET" ]; then
-              echo "✅ Reached 8cr target ($TOTAL). Stopping."
-              break
-            fi
-            
-            SEQ=$((SEQ + 1))
+          set -u
+
+          # 1) Fetch session first
+          echo "Fetching session..."
+          SESSION_RESP=$(curl -s --http2 -L -X POST 'https://panchayatdate.com/api/counter' \
+            -H 'User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'sec-ch-ua: "Chromium";v="139", "Not;A=Brand";v="99"' \
+            -H 'sec-ch-ua-mobile: ?1' \
+            -H 'sec-ch-ua-platform: "Android"' \
+            -H 'origin: https://panchayatdate.com' \
+            -H 'sec-fetch-site: same-origin' \
+            -H 'sec-fetch-mode: cors' \
+            -H 'sec-fetch-dest: empty' \
+            -H 'referer: https://panchayatdate.com/' \
+            -H 'accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7' \
+            -d '{"session":true}')
+
+          echo "Session response: $SESSION_RESP"
+          SESSION=$(echo "$SESSION_RESP" | grep -o '"session":"[^"]*"' | cut -d'"' -f4)
+
+          if [ -z "${SESSION:-}" ]; then
+            echo "❌ Could not get session, aborting."
+            exit 1
+          fi
+          echo "✅ Got session: $SESSION"
+
+          export SESSION BATCH_ID TARGET MAX_SEQ
+
+          # 2) One worker = hammer seqs from its start in steps of WORKERS
+          worker() {
+            local id=$1
+            local seq=$(( id + 1 ))   # seq starts at 1 for worker 0 → 1,2,3...
+            # Actually we want global seq 1,2,3,...; distribute by worker index
+            seq=$id
+            [ "$seq" -lt 1 ] && seq=1
+
+            while [ "$seq" -le "$MAX_SEQ" ]; do
+              # stop early if a stop-flag was set by any worker
+              if [ -f /tmp/stop ]; then
+                echo "[w$id] stop flag, exiting at seq=$seq"
+                return
+              fi
+
+              local RESP
+              RESP=$(curl -s --http2 -L -X POST 'https://panchayatdate.com/api/counter' \
+                -H 'User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36' \
+                -H 'Accept: application/json' \
+                -H 'Content-Type: application/json' \
+                -H 'sec-ch-ua: "Chromium";v="139", "Not;A=Brand";v="99"' \
+                -H 'sec-ch-ua-mobile: ?1' \
+                -H 'sec-ch-ua-platform: "Android"' \
+                -H 'origin: https://panchayatdate.com' \
+                -H 'sec-fetch-site: same-origin' \
+                -H 'sec-fetch-mode: cors' \
+                -H 'sec-fetch-dest: empty' \
+                -H 'referer: https://panchayatdate.com/' \
+                -H 'accept-language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7' \
+                -d "{\"batchId\":\"$BATCH_ID\",\"counts\":{\"chappal\":1},\"total\":1,\"session\":\"$SESSION\",\"seq\":$seq}")
+
+              local TOTAL
+              TOTAL=$(echo "$RESP" | grep -o '"total":[0-9]*' | head -1 | cut -d: -f2)
+
+              if [ -n "${TOTAL:-}" ]; then
+                echo "[w$id] seq=$seq total=$TOTAL"
+                if [ "$TOTAL" -ge "$TARGET" ]; then
+                  echo "🎯 [w$id] target reached ($TOTAL >= $TARGET), signaling stop"
+                  touch /tmp/stop
+                  return
+                fi
+              else
+                echo "[w$id] seq=$seq invalid response: $RESP"
+              fi
+
+              seq=$(( seq + WORKERS ))
+            done
+          }
+
+          export -f worker
+
+          echo "Starting $WORKERS parallel workers..."
+          # Launch workers in parallel — each gets a unique starting seq 1..WORKERS
+          pids=""
+          for ((i=0; i<WORKERS; i++)); do
+            worker "$((i+1))" &
+            pids="$pids $!"
           done
+
+          # Wait for all
+          wait $pids
+
+          if [ -f /tmp/stop ]; then
+            echo "✅ Stopped because target was reached."
+          else
+            echo "⚠️ Workers exhausted MAX_SEQ without hitting target."
+          fi
