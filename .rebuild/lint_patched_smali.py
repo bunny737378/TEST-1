@@ -48,6 +48,15 @@ WIDE = re.compile(r"^(const-wide(?:/16|/32|/high16)?|move-wide(?:/from16|/16)?|"
                   r"long-to-int|long-to-double|double-to-int|double-to-long)\b")
 INSTR = re.compile(r"^\s+(?!\.|#|:)([a-z][a-z0-9/_-]*)(\s+(.*))?$")
 
+# Instructions whose register operands are encoded in 4 bits. Apktool rejects a
+# v16+ register in them ("The maximum allowed register in this context is list of
+# registers is v15"), which is easy to hit in a generated method that declares 50
+# locals, where p0 alone is already v50. The /range forms have no such limit.
+NARROW_PAIR = re.compile(r"^(iget|iput)(-object|-boolean|-byte|-char|-short)?$")
+NARROW_IF = re.compile(r"^if-(eq|ne|lt|le|gt|ge)$")
+NARROW_INVOKE = re.compile(r"^invoke-(virtual|super|direct|static|interface)$")
+TYPE_TAIL = re.compile(r"\s+L[A-Za-z0-9_/$.]+;")
+
 problems: list[str] = []
 
 
@@ -57,6 +66,7 @@ def rel(path: Path) -> str:
 
 def check_method(name: str, start: int, body: list[tuple[int, str]], where: str) -> None:
     declared = None
+    uses_locals = False
     has_instruction = False
     for lineno, line in body:
         stripped = line.strip()
@@ -65,6 +75,7 @@ def check_method(name: str, start: int, body: list[tuple[int, str]], where: str)
             if declared is not None:
                 problems.append(f"{where}:{lineno}: duplicate {m.group(1)}")
             declared = int(m.group(2))
+            uses_locals = m.group(1) == "locals"
             continue
         m = INSTR.match(line)
         if not m:
@@ -98,6 +109,23 @@ def check_method(name: str, start: int, body: list[tuple[int, str]], where: str)
                 problems.append(
                     f"{where}:{lineno}: {opcode} needs v{top} but only "
                     f"v0..v{declared - 1} exist ({name})")
+        # 4-bit operand fields: with `.locals` every p<n> means v(declared+n).
+        if declared is not None and uses_locals:
+            if opcode in ("move/16", "const/4", "array-length"):
+                narrow = args.split(",")[0].split("->")[0].strip()
+            elif NARROW_PAIR.match(opcode) or NARROW_IF.match(opcode):
+                narrow = TYPE_TAIL.split(args.split("->")[0])[0]
+            elif NARROW_INVOKE.match(opcode) and "{" in args:
+                narrow = args[args.index("{") + 1:]
+                narrow = narrow[:narrow.index("}")] if "}" in narrow else ""
+            else:
+                narrow = ""
+            for kind, num in REG.findall(narrow):
+                idx = int(num) if kind == "v" else declared + int(num)
+                if idx > 15:
+                    problems.append(
+                        f"{where}:{lineno}: {opcode} uses {kind}{num} (v{idx}) "
+                        f"but its registers are 4-bit fields, v15 at most ({name})")
     if not has_instruction:
         problems.append(f"{where}:{start}: {name} has no instructions")
 

@@ -564,13 +564,18 @@ MINE_IMPL = "smali_classes4/com/mgs/carparking/databinding/FragmentMineBindingIm
 
 NAME_TAIL = (
     "    # Our values win: this runs after every view-model write above.\n"
-    "    iget-object v0, p0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->g:Landroid/widget/TextView;\n\n"
+    # this is copied into a low register first: the method declares 52 locals,
+    # so p0 is v52 and iget-object (a 4-bit form) would not accept it.
+    "    move-object/from16 v0, p0\n\n"
+    "    iget-object v0, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->g:Landroid/widget/TextView;\n\n"
+    "    if-eqz v0, :cond_senpai\n\n"
     "    const-string v1, \"Ur Senpai\"\n\n"
     "    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V\n\n"
     "    const/4 v1, -0x1\n\n"
     "    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V\n\n"
     "    const/4 v1, 0x0\n\n"
     "    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V\n\n"
+    "    :cond_senpai\n"
 )
 
 

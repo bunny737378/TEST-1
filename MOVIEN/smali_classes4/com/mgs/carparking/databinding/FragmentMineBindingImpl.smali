@@ -2795,7 +2795,11 @@
     .line 913
     :cond_37
         # Our values win: this runs after every view-model write above.
-    iget-object v0, p0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->g:Landroid/widget/TextView;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/mgs/carparking/databinding/FragmentMineBinding;->g:Landroid/widget/TextView;
+
+    if-eqz v0, :cond_senpai
 
     const-string v1, "Ur Senpai"
 
@@ -2809,6 +2813,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
+    :cond_senpai
 return-void
 
     .line 914
