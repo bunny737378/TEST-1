@@ -84,9 +84,10 @@ flutter test                       # 5 parser tests
 flutter build apk --release        # installable with the debug key by default
 ```
 
-Status of the shipped pipeline: run `44030431806` on `e0c152d8a9`+fixes built
-`candlestream-release.apk` (54,128,862 bytes), analyze clean, 5/5 tests green,
-signed with the repository keystore.
+Status of the pipeline: it is green end to end. A run produced
+`candlestream-release.apk` at 54,128,862 bytes - analyze clean, 5/5 parser tests
+passing, zip verified, signed with the repository keystore, uploaded as the
+`CandleStream-APK` artifact.
 
 `android/` is git-ignored on purpose: the workflow generates it from the Flutter
 template the runner's SDK provides, so no half-configured Gradle project can
