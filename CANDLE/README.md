@@ -80,12 +80,27 @@ test/site_parse_test.dart           parser tests (run by CI)
 ```bash
 flutter create --platforms=android --org xyz.candle --project-name candlestream .
 flutter pub get
-flutter test
+flutter test                       # 5 parser tests
 flutter build apk --release        # installable with the debug key by default
 ```
 
-`android/` is git-ignored on purpose: the workflow generates it from the pinned
-Flutter template, so no half-configured Gradle project can drift in the repo.
+Status of the shipped pipeline: run `44030431806` on `e0c152d8a9`+fixes built
+`candlestream-release.apk` (54,128,862 bytes), analyze clean, 5/5 tests green,
+signed with the repository keystore.
+
+`android/` is git-ignored on purpose: the workflow generates it from the Flutter
+template the runner's SDK provides, so no half-configured Gradle project can
+drift into the repo.
+
+What `build-candle.yml` does, in order: sparse checkout -> `flutter create`
+scaffold -> overlay `lib/`, `pubspec.yaml`, `test/` -> inject `INTERNET` and the
+`CandleStream` label into the generated manifest -> `flutter pub get` ->
+`flutter analyze` (real errors block the build, style notes do not) ->
+`flutter test` (the parser tests, reported) -> `flutter build apk --release`
+(retried twice when Maven answers 429) -> verify the zip -> re-sign when the
+keystore secrets exist -> upload `candlestream-release.apk`. Every diagnostic
+comes back as a check-run annotation, which is how a failure is readable without
+Actions log access.
 After the first `flutter pub get`, consider committing `pubspec.lock` (and
 dropping it from `.gitignore`) to freeze dependency versions.
 
