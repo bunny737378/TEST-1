@@ -1,0 +1,17 @@
+# Flutter/Dart build output - CI regenerates the android/ scaffold with
+# `flutter create`, so none of this belongs in git.
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+android/
+ios/
+linux/
+macos/
+windows/
+web/
+*.iml
+.idea/
+.vscode/

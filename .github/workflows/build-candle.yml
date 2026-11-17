@@ -1,0 +1,289 @@
+name: Build CandleStream (Flutter)
+
+# Compiles the Flutter app in ./CANDLE into an installable APK.
+# Runs on pushes that touch CANDLE/**, and can be started by hand.
+# The repo's other workflow (rebuild-apk.yml) is untouched by this one.
+
+on:
+  push:
+    branches:
+      - 'arena/**'
+    paths:
+      - 'CANDLE/**'
+      - '.github/workflows/build-candle.yml'
+  workflow_dispatch:
+    inputs:
+      build_type:
+        description: Which Flutter build to produce
+        required: false
+        type: choice
+        default: release
+        options:
+          - release
+          - debug
+
+permissions:
+  contents: read
+
+concurrency:
+  group: candle-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  APP_DIR: CANDLE
+  PROJECT_NAME: candlestream
+  ORG_NAME: xyz.candle
+  APP_LABEL: CandleStream
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out only what this build needs
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 1
+          sparse: true
+          sparse-checkout: |
+            CANDLE
+            .github/workflows
+
+      - name: Validate the Flutter project
+        run: |
+          set -euo pipefail
+          test -f "$APP_DIR/pubspec.yaml"
+          test -f "$APP_DIR/lib/main.dart"
+          grep -q "^name: $PROJECT_NAME$" "$APP_DIR/pubspec.yaml"
+          echo "pubspec name: $(grep -m1 '^name: ' "$APP_DIR/pubspec.yaml")"
+
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Show the toolchain versions
+        run: |
+          set -euo pipefail
+          flutter --version
+          dart --version
+
+      - name: Materialise the android scaffold
+        id: proj
+        run: |
+          set -euo pipefail
+          proj="$RUNNER_TEMP/$PROJECT_NAME"
+          rm -rf "$proj"
+          # The platform folders (gradle wrapper, embedding, build scripts) come
+          # from the pinned Flutter template instead of from git, so they can
+          # never drift out of sync with the SDK the build uses.
+          flutter create \
+            --platforms=android \
+            --org "$ORG_NAME" \
+            --project-name "$PROJECT_NAME" \
+            --empty \
+            "$proj" > "$RUNNER_TEMP/flutter-create.log" 2>&1 || {
+              tail -n 25 "$RUNNER_TEMP/flutter-create.log"
+              echo '::error::flutter create failed.'
+              exit 1
+            }
+          cp -R "$APP_DIR/lib/." "$proj/lib/"
+          cp "$APP_DIR/pubspec.yaml" "$proj/pubspec.yaml"
+          cp "$APP_DIR/analysis_options.yaml" "$proj/analysis_options.yaml"
+          if [[ -d "$APP_DIR/test" ]]; then
+            rm -rf "$proj/test"
+            cp -R "$APP_DIR/test" "$proj/test"
+          fi
+          rm -f "$proj/lib/main.dart.orig"
+          echo "path=$proj" >> "$GITHUB_OUTPUT"
+          find "$proj" -maxdepth 2 -mindepth 1 -printf '%P\n' | sort | head -20
+
+      - name: Patch the generated Android manifest
+        env:
+          PROJECT_DIR: ${{ steps.proj.outputs.path }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os
+          import pathlib
+          import re
+          import sys
+
+          manifest = pathlib.Path(os.environ['PROJECT_DIR']) / 'android' / 'app' / 'src' / 'main' / 'AndroidManifest.xml'
+          if not manifest.is_file():
+              print(f'::error::generated manifest not found: {manifest}')
+              sys.exit(1)
+
+          text = manifest.read_text(encoding='utf-8')
+          label = os.environ['APP_LABEL']
+
+          if 'android.permission.INTERNET' not in text:
+              permission = ('    <!-- Flutter needs this to reach the network when the '
+                            'application is running in release mode. -->\n'
+                            '    <uses-permission android:name="android.permission.INTERNET"/>\n')
+              match = re.search(r'^[ \t]*<application', text, re.MULTILINE)
+              if match is None:
+                  print('::error::no <application> element in the generated manifest')
+                  sys.exit(1)
+              text = text[:match.start()] + permission + text[match.start():]
+
+          if 'android:label=' in text:
+              text = re.sub(r'android:label="[^"]*"', f'android:label="{label}"', text, count=1)
+          else:
+              text = text.replace('<application', f'<application android:label="{label}"', 1)
+
+          manifest.write_text(text, encoding='utf-8')
+          print(text)
+          PY
+
+      - name: Resolve dependencies
+        env:
+          PROJECT_DIR: ${{ steps.proj.outputs.path }}
+        run: |
+          set -euo pipefail
+          cd "$PROJECT_DIR"
+          flutter pub get
+
+      - name: Static analysis (reported, not enforced)
+        continue-on-error: true
+        env:
+          PROJECT_DIR: ${{ steps.proj.outputs.path }}
+        run: |
+          set -uo pipefail
+          cd "$PROJECT_DIR"
+          flutter analyze --no-fatal-infos --no-fatal-warnings 2>&1 | tee "$RUNNER_TEMP/analyze.log"
+
+      - name: Unit tests (reported, not enforced)
+        continue-on-error: true
+        env:
+          PROJECT_DIR: ${{ steps.proj.outputs.path }}
+        run: |
+          set -uo pipefail
+          cd "$PROJECT_DIR"
+          if compgen -G "test/*.dart" > /dev/null; then
+            flutter test 2>&1 | tee "$RUNNER_TEMP/test.log"
+          else
+            echo "No test directory in $APP_DIR - skipping."
+          fi
+
+      - name: Build the APK
+        id: build
+        env:
+          PROJECT_DIR: ${{ steps.proj.outputs.path }}
+          BUILD_TYPE: ${{ inputs.build_type || 'release' }}
+        run: |
+          set -euo pipefail
+          cd "$PROJECT_DIR"
+          echo "Building ${BUILD_TYPE} APK"
+          if ! flutter build apk "--$BUILD_TYPE" > "$RUNNER_TEMP/build.log" 2>&1; then
+            echo '::error::flutter build apk failed.'
+            tail -n 60 "$RUNNER_TEMP/build.log"
+            exit 1
+          fi
+          tail -n 25 "$RUNNER_TEMP/build.log"
+          built="$PROJECT_DIR/build/app/outputs/flutter-apk/app-$BUILD_TYPE.apk"
+          test -s "$built"
+          unzip -tq "$built" > /dev/null
+          apk="$GITHUB_WORKSPACE/$PROJECT_NAME-$BUILD_TYPE.apk"
+          cp "$built" "$apk"
+          echo "apk=$apk" >> "$GITHUB_OUTPUT"
+          ls -l "$apk"
+          sha256sum "$apk"
+
+      - name: Resolve the signing key
+        id: key
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          umask 077
+          if [[ -z "$KEYSTORE_BASE64" || -z "$KEYSTORE_PASSWORD" || -z "$KEY_ALIAS" || -z "$KEY_PASSWORD" ]]; then
+            echo "No KEYSTORE_* secrets configured - keeping Flutter's debug signature." \
+              | tee -a "$GITHUB_STEP_SUMMARY"
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          printf '%s' "$KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/signing-key.jks"
+          test -s "$RUNNER_TEMP/signing-key.jks"
+          keytool -list \
+            -keystore "$RUNNER_TEMP/signing-key.jks" \
+            -storepass:env KEYSTORE_PASSWORD \
+            -alias "$KEY_ALIAS" > /dev/null
+          echo "available=true" >> "$GITHUB_OUTPUT"
+
+      - name: Align and sign with the repository key
+        if: steps.key.outputs.available == 'true'
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          APK: ${{ steps.build.outputs.apk }}
+        run: |
+          set -euo pipefail
+          build_tools="$ANDROID_HOME/build-tools/36.0.0"
+          if [[ ! -x "$build_tools/zipalign" || ! -x "$build_tools/apksigner" ]]; then
+            echo '::error::Android Build Tools 36.0.0 are not available.'
+            exit 1
+          fi
+          cd "$RUNNER_TEMP"
+          cp "$APK" unsigned.apk
+          # Remove the debug signature (v1 files) before re-signing.
+          zip -d unsigned.apk 'META-INF/*.SF' 'META-INF/*.RSA' \
+            'META-INF/*.DSA' 'META-INF/*.EC' 'META-INF/MANIFEST.MF' \
+            > /dev/null 2>&1 || true
+          "$build_tools/zipalign" -f 4 unsigned.apk aligned.apk
+          "$build_tools/zipalign" -c aligned.apk > /dev/null
+          "$build_tools/apksigner" sign \
+            --ks "$RUNNER_TEMP/signing-key.jks" \
+            --ks-key-alias "$KEY_ALIAS" \
+            --ks-pass env:KEYSTORE_PASSWORD \
+            --key-pass env:KEY_PASSWORD \
+            --v2-signing-enabled true \
+            --v3-signing-enabled true \
+            --out signed.apk \
+            aligned.apk
+          "$build_tools/apksigner" verify --print-certs signed.apk
+          cp signed.apk "$APK"
+          {
+            echo '### CandleStream APK'
+            echo
+            echo 'Signed with the repository keystore (v2+v3).'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Record the build in the summary
+        env:
+          APK: ${{ steps.build.outputs.apk }}
+          SIGNED: ${{ steps.key.outputs.available }}
+        run: |
+          set -euo pipefail
+          {
+            echo
+            echo "- File: \`$(basename "$APK")\`"
+            echo "- Size: $(stat -c %s "$APK") bytes"
+            echo "- SHA-256: \`$(sha256sum "$APK" | cut -d' ' -f1)\`"
+            echo "- Signing: $( [[ "$SIGNED" == 'true' ]] && echo repository keystore || echo 'Android debug key (add KEYSTORE_* secrets for updatable releases)' )"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload the APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: CandleStream-APK
+          path: ${{ steps.build.outputs.apk }}
+          if-no-files-found: error
+          archive: false
+
+      - name: Remove the temporary signing key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/signing-key.jks"

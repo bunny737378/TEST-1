@@ -1,0 +1,28 @@
+name: candlestream
+description: "CandleStream - an anime browse-and-watch client wired to the CandleStream site."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.0 <5.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # HTTP + HTML reading of the candlestream.xyz pages (the only interface the
+  # site currently exposes).
+  http: ^1.2.0
+  html: ^0.15.4
+  # Local persistence for the watchlist and the continue-watching rail.
+  shared_preferences: ^2.2.3
+  # The player surface: the site's own watch page, hosted in-app.
+  webview_flutter: ^4.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true

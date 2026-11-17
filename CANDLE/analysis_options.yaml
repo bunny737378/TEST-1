@@ -1,0 +1,20 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  language:
+    strict-casts: false
+  errors:
+    # Style-level lints are reported in CI but must never block an APK build.
+    prefer_const_constructors: ignore
+    prefer_const_constructors_in_immutables: ignore
+    prefer_const_literals_to_create_immutables: ignore
+    use_build_context_synchronously: ignore
+    avoid_unnecessary_containers: ignore
+    sort_child_properties_last: ignore
+
+linter:
+  rules:
+    prefer_single_quotes: true
+    always_declare_return_types: true
+    cancel_subscriptions: true
+    close_sinks: true
