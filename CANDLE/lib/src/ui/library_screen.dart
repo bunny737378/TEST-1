@@ -22,7 +22,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
     final AppState app = CandleScope.of(context);
     return DefaultTabController(
       length: 2,
-      initialIndex: widget.initialTab.clamp(0, 1),
+      initialIndex: widget.initialTab == 1 ? 1 : 0,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Ink.bg,
