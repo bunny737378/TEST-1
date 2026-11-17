@@ -156,7 +156,7 @@ class _WatchScreenState extends State<WatchScreen> {
                     itemBuilder: (BuildContext context, int index) {
                       final int number = index + 1;
                       return GestureDetector(
-                        onTap: () => Navigator.of(sheetContext).pop<number>(number),
+                        onTap: () => Navigator.of(sheetContext).pop<int>(number),
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                             color: number == _episode ? CandleTone.accent : CandleTone.surface,
