@@ -118,7 +118,7 @@ class _WatchScreenState extends State<WatchScreen> {
   Future<void> _showEpisodeSheet(int total) async {
     final int? picked = await showModalBottomSheet<int>(
       context: context,
-      backgroundColor: Ink.bg,
+      backgroundColor: CandleTone.bg,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(18)),
       ),
@@ -137,7 +137,7 @@ class _WatchScreenState extends State<WatchScreen> {
                           '${widget.anime.title} - episodes',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(color: Ink.text, fontSize: 13, fontWeight: FontWeight.w700),
+                          style: const TextStyle(color: CandleTone.text, fontSize: 13, fontWeight: FontWeight.w700),
                         ),
                       ),
                     ],
@@ -159,15 +159,15 @@ class _WatchScreenState extends State<WatchScreen> {
                         onTap: () => Navigator.of(sheetContext).pop<number>(number),
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                            color: number == _episode ? Ink.accent : Ink.surface,
+                            color: number == _episode ? CandleTone.accent : CandleTone.surface,
                             borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Ink.stroke),
+                            border: Border.all(color: CandleTone.stroke),
                           ),
                           child: Center(
                             child: Text(
                               '$number',
                               style: const TextStyle(
-                                color: Ink.text,
+                                color: CandleTone.text,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -198,8 +198,8 @@ class _WatchScreenState extends State<WatchScreen> {
       floatingActionButton: app.config.autoNext && _episode < total
           ? FloatingActionButton.extended(
               onPressed: () => _goto(_episode + 1),
-              backgroundColor: Ink.accent,
-              foregroundColor: Ink.text,
+              backgroundColor: CandleTone.accent,
+              foregroundColor: CandleTone.text,
               icon: const Icon(Icons.skip_next_rounded, size: 18),
               label: Text('Episode ${(_episode + 1).toString().padLeft(2, '0')}'),
             )
@@ -211,8 +211,8 @@ class _WatchScreenState extends State<WatchScreen> {
             LinearProgressIndicator(
               value: _progress > 0 && _progress < 1 ? _progress : null,
               minHeight: 2,
-              backgroundColor: Ink.surface,
-              valueColor: const AlwaysStoppedAnimation<Color>(Ink.accent),
+              backgroundColor: CandleTone.surface,
+              valueColor: const AlwaysStoppedAnimation<Color>(CandleTone.accent),
             ),
           if (_failed) _errorBanner(),
           Expanded(
@@ -229,13 +229,13 @@ class _WatchScreenState extends State<WatchScreen> {
 
   Widget _topBar(int total) {
     return Container(
-      color: Ink.bg,
+      color: CandleTone.bg,
       padding: const EdgeInsets.fromLTRB(4, 4, 4, 4),
       child: Row(
         children: <Widget>[
           IconButton(
             onPressed: () => Navigator.of(context).maybePop(),
-            icon: const Icon(Icons.keyboard_arrow_down_rounded, color: Ink.text, size: 26),
+            icon: const Icon(Icons.keyboard_arrow_down_rounded, color: CandleTone.text, size: 26),
             tooltip: 'Close',
           ),
           Expanded(
@@ -250,13 +250,13 @@ class _WatchScreenState extends State<WatchScreen> {
                     widget.anime.title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(color: Ink.text, fontSize: 13, fontWeight: FontWeight.w700),
+                    style: const TextStyle(color: CandleTone.text, fontSize: 13, fontWeight: FontWeight.w700),
                   ),
                   Text(
                     total > 1
                         ? 'Episode ${_episode.toString().padLeft(2, '0')} of $total - tap to change'
                         : 'Movie',
-                    style: const TextStyle(color: Ink.textDim, fontSize: 10.5),
+                    style: const TextStyle(color: CandleTone.textDim, fontSize: 10.5),
                   ),
                 ],
               ),
@@ -269,8 +269,8 @@ class _WatchScreenState extends State<WatchScreen> {
             ),
           PopupMenuButton<String>(
             tooltip: 'More',
-            color: Ink.surface,
-            icon: const Icon(Icons.more_vert_rounded, color: Ink.text),
+            color: CandleTone.surface,
+            icon: const Icon(Icons.more_vert_rounded, color: CandleTone.text),
             onSelected: (String value) {
               switch (value) {
                 case 'reload':
@@ -306,12 +306,12 @@ class _WatchScreenState extends State<WatchScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
       child: Row(
         children: <Widget>[
-          const Icon(Icons.error_outline_rounded, size: 16, color: Ink.danger),
+          const Icon(Icons.error_outline_rounded, size: 16, color: CandleTone.danger),
           const SizedBox(width: 8),
           const Expanded(
             child: Text(
               'The watch page could not load. Check your site is up, or pick another server inside the player.',
-              style: TextStyle(color: Ink.text, fontSize: 11.5, height: 1.35),
+              style: TextStyle(color: CandleTone.text, fontSize: 11.5, height: 1.35),
             ),
           ),
           GestureDetector(
@@ -321,7 +321,7 @@ class _WatchScreenState extends State<WatchScreen> {
               padding: EdgeInsets.only(left: 8),
               child: Text(
                 'Retry',
-                style: TextStyle(color: Ink.accent, fontSize: 12, fontWeight: FontWeight.w800),
+                style: TextStyle(color: CandleTone.accent, fontSize: 12, fontWeight: FontWeight.w800),
               ),
             ),
           ),
@@ -335,13 +335,13 @@ class _WatchScreenState extends State<WatchScreen> {
       return const SizedBox(height: 8);
     }
     return Container(
-      color: Ink.bg,
+      color: CandleTone.bg,
       height: 46,
       child: Row(
         children: <Widget>[
           IconButton(
             onPressed: _episode > 1 ? () => _goto(_episode - 1) : null,
-            icon: const Icon(Icons.skip_previous_rounded, color: Ink.text, size: 22),
+            icon: const Icon(Icons.skip_previous_rounded, color: CandleTone.text, size: 22),
             tooltip: 'Previous episode',
           ),
           Expanded(
@@ -362,14 +362,14 @@ class _WatchScreenState extends State<WatchScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: selected ? Ink.surfaceHigh : Colors.transparent,
+                        color: selected ? CandleTone.surfaceHigh : Colors.transparent,
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: selected ? Ink.accent : Colors.transparent),
+                        border: Border.all(color: selected ? CandleTone.accent : Colors.transparent),
                       ),
                       child: Text(
                         '$number',
                         style: TextStyle(
-                          color: selected ? Ink.text : Ink.textDim,
+                          color: selected ? CandleTone.text : CandleTone.textDim,
                           fontSize: 11.5,
                           fontWeight: selected ? FontWeight.w800 : FontWeight.w500,
                         ),
@@ -382,7 +382,7 @@ class _WatchScreenState extends State<WatchScreen> {
           ),
           IconButton(
             onPressed: _episode < total ? () => _goto(_episode + 1) : null,
-            icon: const Icon(Icons.skip_next_rounded, color: Ink.text, size: 22),
+            icon: const Icon(Icons.skip_next_rounded, color: CandleTone.text, size: 22),
             tooltip: 'Next episode',
           ),
         ],

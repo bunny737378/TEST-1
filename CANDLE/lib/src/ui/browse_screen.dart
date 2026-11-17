@@ -127,12 +127,12 @@ class _BrowseScreenState extends State<BrowseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Ink.bg,
+        backgroundColor: CandleTone.bg,
         elevation: 0,
         centerTitle: false,
         title: const Text(
           'Browse',
-          style: TextStyle(color: Ink.text, fontSize: 18, fontWeight: FontWeight.w800),
+          style: TextStyle(color: CandleTone.text, fontSize: 18, fontWeight: FontWeight.w800),
         ),
       ),
       body: Column(
@@ -141,7 +141,7 @@ class _BrowseScreenState extends State<BrowseScreen> {
             padding: const EdgeInsets.fromLTRB(16, 4, 16, 0),
             child: TextField(
               controller: _field,
-              style: const TextStyle(color: Ink.text, fontSize: 14),
+              style: const TextStyle(color: CandleTone.text, fontSize: 14),
               textInputAction: TextInputAction.search,
               onSubmitted: (String value) {
                 _debounce?.cancel();
@@ -153,12 +153,12 @@ class _BrowseScreenState extends State<BrowseScreen> {
               },
               decoration: InputDecoration(
                 hintText: 'Search anime (Naruto, Frieren, 2026...)',
-                hintStyle: const TextStyle(color: Ink.textDim, fontSize: 13),
+                hintStyle: const TextStyle(color: CandleTone.textDim, fontSize: 13),
                 filled: true,
-                fillColor: Ink.surface,
+                fillColor: CandleTone.surface,
                 isDense: true,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                prefixIcon: const Icon(Icons.search_rounded, size: 18, color: Ink.textDim),
+                prefixIcon: const Icon(Icons.search_rounded, size: 18, color: CandleTone.textDim),
                 prefixIconConstraints: const BoxConstraints(minWidth: 38),
                 suffixIcon: _field.text.isEmpty
                     ? null
@@ -167,19 +167,19 @@ class _BrowseScreenState extends State<BrowseScreen> {
                           _field.clear();
                           _run(reset: true);
                         },
-                        icon: const Icon(Icons.close_rounded, size: 16, color: Ink.textDim),
+                        icon: const Icon(Icons.close_rounded, size: 16, color: CandleTone.textDim),
                       ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: Ink.stroke),
+                  borderSide: const BorderSide(color: CandleTone.stroke),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: Ink.stroke),
+                  borderSide: const BorderSide(color: CandleTone.stroke),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: Ink.accent),
+                  borderSide: const BorderSide(color: CandleTone.accent),
                 ),
               ),
             ),
@@ -240,7 +240,7 @@ class _BrowseScreenState extends State<BrowseScreen> {
     }
     if (_loading && _items.isEmpty) {
       return const Center(
-        child: CircularProgressIndicator(strokeWidth: 2.5, color: Ink.accent),
+        child: CircularProgressIndicator(strokeWidth: 2.5, color: CandleTone.accent),
       );
     }
     if (_items.isEmpty) {
@@ -268,7 +268,7 @@ class _BrowseScreenState extends State<BrowseScreen> {
                 child: SizedBox(
                   height: 20,
                   width: 20,
-                  child: CircularProgressIndicator(strokeWidth: 2, color: Ink.textDim),
+                  child: CircularProgressIndicator(strokeWidth: 2, color: CandleTone.textDim),
                 ),
               ),
             ),
@@ -278,7 +278,7 @@ class _BrowseScreenState extends State<BrowseScreen> {
               child: Center(
                 child: Text(
                   'That is everything - tap a title and playback starts on candlestream.xyz',
-                  style: TextStyle(color: Ink.textDim, fontSize: 11),
+                  style: TextStyle(color: CandleTone.textDim, fontSize: 11),
                   textAlign: TextAlign.center,
                 ),
               ),

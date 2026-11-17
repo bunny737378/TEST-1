@@ -78,14 +78,14 @@ class _DetailScreenState extends State<DetailScreen> {
         slivers: <Widget>[
           SliverAppBar(
             pinned: true,
-            backgroundColor: Ink.bg,
-            surfaceTintColor: Ink.bg,
+            backgroundColor: CandleTone.bg,
+            surfaceTintColor: CandleTone.bg,
             elevation: 0,
             expandedHeight: 236,
             leading: IconButton(
               tooltip: 'Back',
               onPressed: () => Navigator.of(context).maybePop(),
-              icon: const Icon(Icons.arrow_back_rounded, color: Ink.text),
+              icon: const Icon(Icons.arrow_back_rounded, color: CandleTone.text),
             ),
             actions: <Widget>[
               IconButton(
@@ -101,7 +101,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 },
                 icon: Icon(
                   app.library.isSaved(anime.id) ? Icons.bookmark_added_rounded : Icons.bookmark_add_outlined,
-                  color: Ink.text,
+                  color: CandleTone.text,
                 ),
               ),
               IconButton(
@@ -116,7 +116,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     SnackBar(content: Text('Copied ${uri.path}')),
                   );
                 },
-                icon: const Icon(Icons.link_rounded, color: Ink.text),
+                icon: const Icon(Icons.link_rounded, color: CandleTone.text),
               ),
             ],
             flexibleSpace: FlexibleSpaceBar(
@@ -135,7 +135,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       Text(
                         anime.title,
                         style: const TextStyle(
-                          color: Ink.text,
+                          color: CandleTone.text,
                           fontSize: 21,
                           fontWeight: FontWeight.w800,
                           height: 1.2,
@@ -145,7 +145,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         const SizedBox(height: 6),
                         Text(
                           anime.metaLine,
-                          style: const TextStyle(color: Ink.textDim, fontSize: 12),
+                          style: const TextStyle(color: CandleTone.textDim, fontSize: 12),
                         ),
                       ],
                       const SizedBox(height: 10),
@@ -186,7 +186,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       child: SizedBox(
                         height: 22,
                         width: 22,
-                        child: CircularProgressIndicator(strokeWidth: 2.2, color: Ink.accent),
+                        child: CircularProgressIndicator(strokeWidth: 2.2, color: CandleTone.accent),
                       ),
                     ),
                   )
@@ -199,7 +199,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         children: <Widget>[
                           Text(
                             _expanded ? anime.synopsis! : _clamp(anime.synopsis!),
-                            style: const TextStyle(color: Ink.textDim, fontSize: 12.5, height: 1.55),
+                            style: const TextStyle(color: CandleTone.textDim, fontSize: 12.5, height: 1.55),
                           ),
                           if (anime.synopsis!.length > 300)
                             GestureDetector(
@@ -210,7 +210,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                 child: Text(
                                   _expanded ? 'Show less' : 'Read more',
                                   style: const TextStyle(
-                                    color: Ink.accent,
+                                    color: CandleTone.accent,
                                     fontSize: 12,
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -231,13 +231,13 @@ class _DetailScreenState extends State<DetailScreen> {
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                               decoration: BoxDecoration(
-                                color: Ink.surface,
+                                color: CandleTone.surface,
                                 borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: Ink.stroke),
+                                border: Border.all(color: CandleTone.stroke),
                               ),
                               child: Text(
                                 tag,
-                                style: const TextStyle(color: Ink.textDim, fontSize: 10.5),
+                                style: const TextStyle(color: CandleTone.textDim, fontSize: 10.5),
                               ),
                             ),
                         ],
@@ -295,14 +295,14 @@ class _DetailScreenState extends State<DetailScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: selected ? Ink.accent : Ink.surface,
+                      color: selected ? CandleTone.accent : CandleTone.surface,
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: selected ? Ink.accent : Ink.stroke),
+                      border: Border.all(color: selected ? CandleTone.accent : CandleTone.stroke),
                     ),
                     child: Text(
                       number.toString(),
                       style: TextStyle(
-                        color: selected ? Ink.text : Ink.textDim,
+                        color: selected ? CandleTone.text : CandleTone.textDim,
                         fontSize: 12,
                         fontWeight: FontWeight.w700,
                       ),
@@ -349,7 +349,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        color: Ink.text,
+                        color: CandleTone.text,
                         fontSize: 10,
                         height: 1.25,
                         fontWeight: FontWeight.w600,
@@ -360,7 +360,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         credit.actor!,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(color: Ink.textDim, fontSize: 9),
+                        style: const TextStyle(color: CandleTone.textDim, fontSize: 9),
                       ),
                   ],
                 ),
@@ -389,13 +389,13 @@ class _DetailScreenState extends State<DetailScreen> {
               item.anime.title,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(color: Ink.text, fontSize: 13, fontWeight: FontWeight.w600),
+              style: const TextStyle(color: CandleTone.text, fontSize: 13, fontWeight: FontWeight.w600),
             ),
             subtitle: Text(
               item.relation,
-              style: const TextStyle(color: Ink.textDim, fontSize: 11),
+              style: const TextStyle(color: CandleTone.textDim, fontSize: 11),
             ),
-            trailing: const Icon(Icons.chevron_right_rounded, color: Ink.textDim, size: 20),
+            trailing: const Icon(Icons.chevron_right_rounded, color: CandleTone.textDim, size: 20),
             onTap: () => openDetails(context, item.anime),
           ),
       ],
@@ -408,20 +408,20 @@ class _DetailScreenState extends State<DetailScreen> {
       margin: const EdgeInsets.fromLTRB(16, 18, 16, 0),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Ink.surface,
+        color: CandleTone.surface,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Ink.stroke),
+        border: Border.all(color: CandleTone.stroke),
       ),
       child: Row(
         children: <Widget>[
-          const Icon(Icons.link_rounded, size: 16, color: Ink.textDim),
+          const Icon(Icons.link_rounded, size: 16, color: CandleTone.textDim),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
               uri.toString(),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(color: Ink.textDim, fontSize: 10.5, height: 1.35),
+              style: const TextStyle(color: CandleTone.textDim, fontSize: 10.5, height: 1.35),
             ),
           ),
         ],
@@ -478,7 +478,7 @@ class _Hero extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                        color: Ink.text,
+                        color: CandleTone.text,
                         fontSize: 15,
                         fontWeight: FontWeight.w800,
                         height: 1.25,
@@ -487,16 +487,16 @@ class _Hero extends StatelessWidget {
                     const SizedBox(height: 6),
                     Row(
                       children: <Widget>[
-                        const Icon(Icons.star_rounded, size: 13, color: Ink.gold),
+                        const Icon(Icons.star_rounded, size: 13, color: CandleTone.gold),
                         const SizedBox(width: 3),
                         Text(
                           anime.ratingLabel,
-                          style: const TextStyle(color: Ink.text, fontSize: 11, fontWeight: FontWeight.w700),
+                          style: const TextStyle(color: CandleTone.text, fontSize: 11, fontWeight: FontWeight.w700),
                         ),
                         const SizedBox(width: 10),
                         Text(
                           'Ep $episode',
-                          style: const TextStyle(color: Ink.textDim, fontSize: 11),
+                          style: const TextStyle(color: CandleTone.textDim, fontSize: 11),
                         ),
                       ],
                     ),

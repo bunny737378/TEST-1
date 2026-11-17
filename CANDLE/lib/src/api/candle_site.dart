@@ -65,7 +65,7 @@ class CandleSiteClient {
       final bool parentIsPageRoot =
           parent == null || identical(parent, root) || (parent.localName ?? '').toLowerCase() == 'body';
       if (!parentIsPageRoot) {
-        items.addAll(_animeIn(parent!, siteBase, seenInRails));
+        items.addAll(_animeIn(parent, siteBase, seenInRails));
       }
       // Case 2: the grid is a following sibling of the heading.
       if (items.isEmpty) {

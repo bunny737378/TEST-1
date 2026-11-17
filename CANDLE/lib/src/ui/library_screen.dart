@@ -25,18 +25,18 @@ class _LibraryScreenState extends State<LibraryScreen> {
       initialIndex: widget.initialTab == 1 ? 1 : 0,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Ink.bg,
+          backgroundColor: CandleTone.bg,
           elevation: 0,
           title: const Text(
             'My list',
-            style: TextStyle(color: Ink.text, fontSize: 18, fontWeight: FontWeight.w800),
+            style: TextStyle(color: CandleTone.text, fontSize: 18, fontWeight: FontWeight.w800),
           ),
           bottom: const TabBar(
-            labelColor: Ink.text,
-            unselectedLabelColor: Ink.textDim,
-            indicatorColor: Ink.accent,
+            labelColor: CandleTone.text,
+            unselectedLabelColor: CandleTone.textDim,
+            indicatorColor: CandleTone.accent,
             indicatorSize: TabBarIndicatorSize.tab,
-            dividerColor: Ink.stroke,
+            dividerColor: CandleTone.stroke,
             tabs: <Widget>[
               Tab(text: 'Watchlist'),
               Tab(text: 'History'),
@@ -83,7 +83,7 @@ class _Watchlist extends StatelessWidget {
               Expanded(
                 child: Text(
                   '${items.length} saved',
-                  style: const TextStyle(color: Ink.textDim, fontSize: 12),
+                  style: const TextStyle(color: CandleTone.textDim, fontSize: 12),
                 ),
               ),
               TextButton(
@@ -92,7 +92,7 @@ class _Watchlist extends StatelessWidget {
                     await app.library.toggleSaved(anime);
                   }
                 },
-                child: const Text('Clear', style: TextStyle(color: Ink.danger, fontSize: 12)),
+                child: const Text('Clear', style: TextStyle(color: CandleTone.danger, fontSize: 12)),
               ),
             ],
           ),
@@ -120,7 +120,7 @@ class _History extends StatelessWidget {
     return ListView.separated(
       padding: const EdgeInsets.symmetric(vertical: 8),
       itemCount: items.length,
-      separatorBuilder: (BuildContext context, int index) => const Divider(height: 1, color: Ink.stroke),
+      separatorBuilder: (BuildContext context, int index) => const Divider(height: 1, color: CandleTone.stroke),
       itemBuilder: (BuildContext context, int index) {
         final WatchProgress entry = items[index];
         final Anime anime = Anime.site(id: entry.animeId, title: entry.title, cover: entry.cover);
@@ -135,13 +135,13 @@ class _History extends StatelessWidget {
             entry.title,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(color: Ink.text, fontSize: 13.5, fontWeight: FontWeight.w700),
+            style: const TextStyle(color: CandleTone.text, fontSize: 13.5, fontWeight: FontWeight.w700),
           ),
           subtitle: Padding(
             padding: const EdgeInsets.only(top: 3),
             child: Text(
               '${entry.label} - ${_ago(entry.updatedAt)}',
-              style: const TextStyle(color: Ink.textDim, fontSize: 11),
+              style: const TextStyle(color: CandleTone.textDim, fontSize: 11),
             ),
           ),
           trailing: Row(
@@ -150,7 +150,7 @@ class _History extends StatelessWidget {
               IconButton(
                 tooltip: 'Resume',
                 onPressed: () => openWatch(context, anime, episode: entry.episode, lang: entry.audio),
-                icon: const Icon(Icons.play_circle_fill_rounded, color: Ink.accent, size: 28),
+                icon: const Icon(Icons.play_circle_fill_rounded, color: CandleTone.accent, size: 28),
               ),
             ],
           ),

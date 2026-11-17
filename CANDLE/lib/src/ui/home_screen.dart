@@ -107,8 +107,8 @@ class _HomeScreenState extends State<HomeScreen> {
         bottom: false,
         child: RefreshIndicator(
           onRefresh: _load,
-          color: Ink.accent,
-          backgroundColor: Ink.surface,
+          color: CandleTone.accent,
+          backgroundColor: CandleTone.surface,
           child: ListView(
             physics: const AlwaysScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
@@ -151,13 +151,13 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 30,
             decoration: BoxDecoration(
               gradient: const LinearGradient(
-                colors: <Color>[Ink.accent, Color(0xFF3AA0FF)],
+                colors: <Color>[CandleTone.accent, Color(0xFF3AA0FF)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
               borderRadius: BorderRadius.circular(9),
             ),
-            child: const Icon(Icons.local_fire_department_rounded, size: 18, color: Ink.text),
+            child: const Icon(Icons.local_fire_department_rounded, size: 18, color: CandleTone.text),
           ),
           const SizedBox(width: 9),
           const Expanded(
@@ -166,11 +166,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: <InlineSpan>[
                   TextSpan(
                     text: 'Candle',
-                    style: TextStyle(color: Ink.text, fontSize: 19, fontWeight: FontWeight.w800),
+                    style: TextStyle(color: CandleTone.text, fontSize: 19, fontWeight: FontWeight.w800),
                   ),
                   TextSpan(
                     text: 'Stream',
-                    style: TextStyle(color: Ink.accent, fontSize: 19, fontWeight: FontWeight.w800),
+                    style: TextStyle(color: CandleTone.accent, fontSize: 19, fontWeight: FontWeight.w800),
                   ),
                 ],
               ),
@@ -184,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 openBrowse(context);
               }
             },
-            icon: const Icon(Icons.search_rounded, color: Ink.text),
+            icon: const Icon(Icons.search_rounded, color: CandleTone.text),
             tooltip: 'Search',
           ),
         ],
@@ -251,12 +251,12 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: Row(
         children: <Widget>[
-          const Icon(Icons.info_outline_rounded, size: 16, color: Ink.danger),
+          const Icon(Icons.info_outline_rounded, size: 16, color: CandleTone.danger),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
               message,
-              style: const TextStyle(color: Ink.text, fontSize: 11.5, height: 1.35),
+              style: const TextStyle(color: CandleTone.text, fontSize: 11.5, height: 1.35),
             ),
           ),
         ],
@@ -278,7 +278,7 @@ class _LoadingRail extends StatelessWidget {
           Container(
             height: 14,
             width: 120,
-            decoration: BoxDecoration(color: Ink.surfaceHigh, borderRadius: BorderRadius.circular(6)),
+            decoration: BoxDecoration(color: CandleTone.surfaceHigh, borderRadius: BorderRadius.circular(6)),
           ),
           const SizedBox(height: 14),
           const Row(
@@ -308,7 +308,7 @@ class _Box extends StatelessWidget {
     return Container(
       height: height,
       decoration: BoxDecoration(
-        color: Ink.surfaceHigh,
+        color: CandleTone.surfaceHigh,
         borderRadius: BorderRadius.circular(14),
       ),
     );

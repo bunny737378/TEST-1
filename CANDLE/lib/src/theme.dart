@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 /// Dark, violet-accented catalogue look: full-bleed posters, rating badge in
 /// the corner, horizontal rails, no chrome fighting the artwork.
-class Ink {
-  const Ink._();
+class CandleTone {
+  const CandleTone._();
 
   static const Color bg = Color(0xFF0A0B0F);
   static const Color surface = Color(0xFF13151C);
@@ -20,20 +20,20 @@ class Ink {
 
 ThemeData buildTheme() {
   final scheme = ColorScheme.fromSeed(
-    seedColor: Ink.accent,
+    seedColor: CandleTone.accent,
     brightness: Brightness.dark,
   );
   return ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
     colorScheme: scheme.copyWith(
-      surface: Ink.surface,
-      primary: Ink.accent,
-      onPrimary: Ink.text,
-      secondary: Ink.gold,
+      surface: CandleTone.surface,
+      primary: CandleTone.accent,
+      onPrimary: CandleTone.text,
+      secondary: CandleTone.gold,
     ),
-    scaffoldBackgroundColor: Ink.bg,
-    canvasColor: Ink.bg,
+    scaffoldBackgroundColor: CandleTone.bg,
+    canvasColor: CandleTone.bg,
     splashFactory: InkRipple.splashFactory,
   );
 }
@@ -59,8 +59,8 @@ class PosterFrame extends StatelessWidget {
       borderRadius: BorderRadius.circular(radius),
       child: Container(
         decoration: const BoxDecoration(
-          color: Ink.surfaceHigh,
-          border: Border.fromBorderSide(BorderSide(color: Ink.stroke)),
+          color: CandleTone.surfaceHigh,
+          border: Border.fromBorderSide(BorderSide(color: CandleTone.stroke)),
         ),
         child: Stack(
           fit: StackFit.expand,
@@ -72,7 +72,7 @@ class PosterFrame extends StatelessWidget {
                 top: 6,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: Ink.scrim,
+                    color: CandleTone.scrim,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Padding(
@@ -136,12 +136,12 @@ class CoverImage extends StatelessWidget {
           return child;
         }
         return Container(
-          color: Ink.surfaceHigh,
+          color: CandleTone.surfaceHigh,
           alignment: Alignment.center,
           child: const SizedBox(
             height: 18,
             width: 18,
-            child: CircularProgressIndicator(strokeWidth: 2, color: Ink.textDim),
+            child: CircularProgressIndicator(strokeWidth: 2, color: CandleTone.textDim),
           ),
         );
       },
@@ -150,9 +150,9 @@ class CoverImage extends StatelessWidget {
 
   static Widget _placeholder(double iconSize) {
     return Container(
-      color: Ink.surfaceHigh,
+      color: CandleTone.surfaceHigh,
       alignment: Alignment.center,
-      child: Icon(Icons.movie_outlined, color: Ink.stroke, size: iconSize),
+      child: Icon(Icons.movie_outlined, color: CandleTone.stroke, size: iconSize),
     );
   }
 }
@@ -174,7 +174,7 @@ class SectionTitle extends StatelessWidget {
             height: 16,
             width: 4,
             decoration: BoxDecoration(
-              color: Ink.accent,
+              color: CandleTone.accent,
               borderRadius: BorderRadius.circular(2),
             ),
           ),
@@ -183,7 +183,7 @@ class SectionTitle extends StatelessWidget {
             child: Text(
               text,
               style: const TextStyle(
-                color: Ink.text,
+                color: CandleTone.text,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.2,
@@ -198,7 +198,7 @@ class SectionTitle extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
                 child: Text(
                   trailing!,
-                  style: const TextStyle(color: Ink.textDim, fontSize: 12, fontWeight: FontWeight.w600),
+                  style: const TextStyle(color: CandleTone.textDim, fontSize: 12, fontWeight: FontWeight.w600),
                 ),
               ),
             ),
@@ -231,15 +231,15 @@ class Pill extends StatelessWidget {
         duration: const Duration(milliseconds: 140),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
         decoration: BoxDecoration(
-          color: selected ? Ink.accent : Ink.surface,
+          color: selected ? CandleTone.accent : CandleTone.surface,
           borderRadius: BorderRadius.circular(999),
-          border: Border.all(color: selected ? Ink.accent : Ink.stroke),
+          border: Border.all(color: selected ? CandleTone.accent : CandleTone.stroke),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             if (icon != null) ...<Widget>[
-              Icon(icon, size: 14, color: selected ? Ink.text : Ink.textDim),
+              Icon(icon, size: 14, color: selected ? CandleTone.text : CandleTone.textDim),
               const SizedBox(width: 5),
             ],
             Text(
@@ -247,7 +247,7 @@ class Pill extends StatelessWidget {
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
-                color: selected ? Ink.text : Ink.textDim,
+                color: selected ? CandleTone.text : CandleTone.textDim,
               ),
             ),
           ],
@@ -270,27 +270,27 @@ class MessageCard extends StatelessWidget {
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Ink.surface,
+        color: CandleTone.surface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Ink.stroke),
+        border: Border.all(color: CandleTone.stroke),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Icon(icon, color: Ink.danger, size: 26),
+          Icon(icon, color: CandleTone.danger, size: 26),
           const SizedBox(height: 10),
           Text(
             message,
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Ink.textDim, fontSize: 13, height: 1.4),
+            style: const TextStyle(color: CandleTone.textDim, fontSize: 13, height: 1.4),
           ),
           if (onRetry != null) ...<Widget>[
             const SizedBox(height: 14),
             OutlinedButton(
               onPressed: onRetry,
               style: OutlinedButton.styleFrom(
-                foregroundColor: Ink.text,
-                side: const BorderSide(color: Ink.stroke),
+                foregroundColor: CandleTone.text,
+                side: const BorderSide(color: CandleTone.stroke),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               ),
               child: const Text('Retry'),
@@ -314,13 +314,13 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final button = ElevatedButton.icon(
       onPressed: onPressed,
-      icon: Icon(icon ?? Icons.play_arrow_rounded, size: 20, color: Ink.text),
+      icon: Icon(icon ?? Icons.play_arrow_rounded, size: 20, color: CandleTone.text),
       label: Text(
         label,
-        style: const TextStyle(color: Ink.text, fontWeight: FontWeight.w700),
+        style: const TextStyle(color: CandleTone.text, fontWeight: FontWeight.w700),
       ),
       style: ElevatedButton.styleFrom(
-        backgroundColor: Ink.accent,
+        backgroundColor: CandleTone.accent,
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
@@ -341,15 +341,15 @@ class GhostButton extends StatelessWidget {
     return Expanded(
       child: OutlinedButton.icon(
         onPressed: onPressed,
-        icon: Icon(icon, size: 18, color: Ink.textDim),
+        icon: Icon(icon, size: 18, color: CandleTone.textDim),
         label: Text(
           label,
           overflow: TextOverflow.ellipsis,
-          style: const TextStyle(color: Ink.text, fontWeight: FontWeight.w600, fontSize: 13),
+          style: const TextStyle(color: CandleTone.text, fontWeight: FontWeight.w600, fontSize: 13),
         ),
         style: OutlinedButton.styleFrom(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-          side: const BorderSide(color: Ink.stroke),
+          side: const BorderSide(color: CandleTone.stroke),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
       ),

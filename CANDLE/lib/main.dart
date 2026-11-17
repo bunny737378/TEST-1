@@ -64,7 +64,7 @@ class _ShellState extends State<_Shell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Ink.bg,
+      backgroundColor: CandleTone.bg,
       body: IndexedStack(
         index: _index,
         children: <Widget>[
@@ -77,8 +77,8 @@ class _ShellState extends State<_Shell> {
       ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
-          color: Ink.bg,
-          border: Border(top: BorderSide(color: Ink.stroke)),
+          color: CandleTone.bg,
+          border: Border(top: BorderSide(color: CandleTone.stroke)),
         ),
         child: NavigationBar(
           selectedIndex: _index,
@@ -87,35 +87,32 @@ class _ShellState extends State<_Shell> {
           shadowColor: Colors.transparent,
           elevation: 0,
           height: 64,
-          indicatorColor: Ink.accentSoft,
+          indicatorColor: CandleTone.accentSoft,
           labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-          labelStyle: const TextStyle(fontSize: 10.5, fontWeight: FontWeight.w600, color: Ink.textDim),
-          selectedLabelStyle: const TextStyle(fontSize: 10.5, fontWeight: FontWeight.w800, color: Ink.text),
-          unselectedLabelStyle: const TextStyle(fontSize: 10.5, fontWeight: FontWeight.w600, color: Ink.textDim),
           destinations: const <NavigationDestination>[
             NavigationDestination(
-              icon: Icon(Icons.home_outlined, color: Ink.textDim),
-              selectedIcon: Icon(Icons.home_rounded, color: Ink.text),
+              icon: Icon(Icons.home_outlined, color: CandleTone.textDim),
+              selectedIcon: Icon(Icons.home_rounded, color: CandleTone.text),
               label: 'Home',
             ),
             NavigationDestination(
-              icon: Icon(Icons.explore_outlined, color: Ink.textDim),
-              selectedIcon: Icon(Icons.explore_rounded, color: Ink.text),
+              icon: Icon(Icons.explore_outlined, color: CandleTone.textDim),
+              selectedIcon: Icon(Icons.explore_rounded, color: CandleTone.text),
               label: 'Browse',
             ),
             NavigationDestination(
-              icon: Icon(Icons.bookmark_add_outlined, color: Ink.textDim),
-              selectedIcon: Icon(Icons.bookmark_added_rounded, color: Ink.text),
+              icon: Icon(Icons.bookmark_add_outlined, color: CandleTone.textDim),
+              selectedIcon: Icon(Icons.bookmark_added_rounded, color: CandleTone.text),
               label: 'Saved',
             ),
             NavigationDestination(
-              icon: Icon(Icons.history_rounded, color: Ink.textDim),
-              selectedIcon: Icon(Icons.history_toggle_off_rounded, color: Ink.text),
+              icon: Icon(Icons.history_rounded, color: CandleTone.textDim),
+              selectedIcon: Icon(Icons.history_toggle_off_rounded, color: CandleTone.text),
               label: 'History',
             ),
             NavigationDestination(
-              icon: Icon(Icons.tune_rounded, color: Ink.textDim),
-              selectedIcon: Icon(Icons.settings_rounded, color: Ink.text),
+              icon: Icon(Icons.tune_rounded, color: CandleTone.textDim),
+              selectedIcon: Icon(Icons.settings_rounded, color: CandleTone.text),
               label: 'Settings',
             ),
           ],

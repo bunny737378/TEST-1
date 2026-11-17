@@ -51,11 +51,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final AppConfig config = app.config;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Ink.bg,
+        backgroundColor: CandleTone.bg,
         elevation: 0,
         title: const Text(
           'Settings',
-          style: TextStyle(color: Ink.text, fontSize: 18, fontWeight: FontWeight.w800),
+          style: TextStyle(color: CandleTone.text, fontSize: 18, fontWeight: FontWeight.w800),
         ),
       ),
       body: ListView(
@@ -69,21 +69,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: <Widget>[
                   const Text(
                     'Everything the player opens comes from this address. Keep it on your own domain.',
-                    style: TextStyle(color: Ink.textDim, fontSize: 11.5, height: 1.4),
+                    style: TextStyle(color: CandleTone.textDim, fontSize: 11.5, height: 1.4),
                   ),
                   const SizedBox(height: 10),
                   TextField(
                     controller: _siteField,
-                    style: const TextStyle(color: Ink.text, fontSize: 13),
+                    style: const TextStyle(color: CandleTone.text, fontSize: 13),
                     keyboardType: TextInputType.url,
                     decoration: InputDecoration(
                       isDense: true,
                       filled: true,
-                      fillColor: Ink.bg,
+                      fillColor: CandleTone.bg,
                       contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Ink.stroke),
+                        borderSide: const BorderSide(color: CandleTone.stroke),
                       ),
                       errorText: _siteError,
                     ),
@@ -95,7 +95,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         'Live: ${config.siteBase}/anime',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(color: Ink.textDim, fontSize: 11),
+                        style: const TextStyle(color: CandleTone.textDim, fontSize: 11),
                       ),
                       const Spacer(),
                       PrimaryButton(
@@ -112,10 +112,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ]),
           _group('Playback', children: <Widget>[
             ListTile(
-              title: const Text('Default audio', style: TextStyle(color: Ink.text, fontSize: 13.5)),
+              title: const Text('Default audio', style: TextStyle(color: CandleTone.text, fontSize: 13.5)),
               subtitle: const Text(
                 'Sent to the site as the last part of the watch link (sub or dub).',
-                style: TextStyle(color: Ink.textDim, fontSize: 11),
+                style: TextStyle(color: CandleTone.textDim, fontSize: 11),
               ),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -137,20 +137,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onChanged: (bool value) => config.setAutoNext(value),
               title: const Text(
                 'Offer the next episode while playing',
-                style: TextStyle(color: Ink.text, fontSize: 13.5),
+                style: TextStyle(color: CandleTone.text, fontSize: 13.5),
               ),
               subtitle: const Text(
                 'Shows a skip-forward button next to the player once the page is ready.',
-                style: TextStyle(color: Ink.textDim, fontSize: 11),
+                style: TextStyle(color: CandleTone.textDim, fontSize: 11),
               ),
             ),
           ]),
           _group('On this device', children: <Widget>[
             ListTile(
-              title: const Text('Watchlist and history', style: TextStyle(color: Ink.text, fontSize: 13.5)),
+              title: const Text('Watchlist and history', style: TextStyle(color: CandleTone.text, fontSize: 13.5)),
               subtitle: Text(
                 '${app.library.watchlist.length} saved - ${app.library.history.length} resume points. Nothing is uploaded anywhere.',
-                style: const TextStyle(color: Ink.textDim, fontSize: 11),
+                style: const TextStyle(color: CandleTone.textDim, fontSize: 11),
               ),
               trailing: TextButton(
                 onPressed: () async {
@@ -162,7 +162,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     const SnackBar(content: Text('List and history cleared.')),
                   );
                 },
-                child: const Text('Clear', style: TextStyle(color: Ink.danger, fontSize: 12)),
+                child: const Text('Clear', style: TextStyle(color: CandleTone.danger, fontSize: 12)),
               ),
             ),
           ]),
@@ -181,7 +181,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     'The site does not expose a JSON API yet, so the app reads the listing HTML it already '
                     'serves. Add GET /api/v1/feed and GET /api/v1/episode on your host and only '
                     'CandleSiteClient has to change.',
-                    style: TextStyle(color: Ink.textDim, fontSize: 11, height: 1.45),
+                    style: TextStyle(color: CandleTone.textDim, fontSize: 11, height: 1.45),
                   ),
                 ],
               ),
@@ -193,7 +193,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               'CandleStream 1.0.0 - layout in the style of a dark anime catalogue app, own branding, '
               'no third-party player code.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Ink.stroke, fontSize: 10.5, height: 1.4),
+              style: TextStyle(color: CandleTone.stroke, fontSize: 10.5, height: 1.4),
             ),
           ),
         ],
@@ -211,13 +211,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
             width: 128,
             child: Text(
               label,
-              style: const TextStyle(color: Ink.text, fontSize: 11.5, fontWeight: FontWeight.w700),
+              style: const TextStyle(color: CandleTone.text, fontSize: 11.5, fontWeight: FontWeight.w700),
             ),
           ),
           Expanded(
             child: Text(
               value,
-              style: const TextStyle(color: Ink.textDim, fontSize: 11.5),
+              style: const TextStyle(color: CandleTone.textDim, fontSize: 11.5),
             ),
           ),
         ],
@@ -235,7 +235,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16),
             child: Container(
-              color: Ink.surface,
+              color: CandleTone.surface,
               child: Column(children: children),
             ),
           ),

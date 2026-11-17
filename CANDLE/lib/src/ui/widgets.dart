@@ -51,8 +51,8 @@ class PosterCard extends StatelessWidget {
                         child: LinearProgressIndicator(
                           value: progress,
                           minHeight: 3,
-                          backgroundColor: Ink.scrim,
-                          valueColor: const AlwaysStoppedAnimation<Color>(Ink.accent),
+                          backgroundColor: CandleTone.scrim,
+                          valueColor: const AlwaysStoppedAnimation<Color>(CandleTone.accent),
                         ),
                       ),
                     if ((cornerText ?? '').isNotEmpty)
@@ -61,7 +61,7 @@ class PosterCard extends StatelessWidget {
                         top: 6,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
-                            color: Ink.accent,
+                            color: CandleTone.accent,
                             borderRadius: BorderRadius.circular(6),
                           ),
                           child: Padding(
@@ -69,7 +69,7 @@ class PosterCard extends StatelessWidget {
                             child: Text(
                               cornerText!,
                               style: const TextStyle(
-                                color: Ink.text,
+                                color: CandleTone.text,
                                 fontSize: 9,
                                 fontWeight: FontWeight.w800,
                               ),
@@ -87,7 +87,7 @@ class PosterCard extends StatelessWidget {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
-                color: Ink.text,
+                color: CandleTone.text,
                 fontSize: 12,
                 height: 1.25,
                 fontWeight: FontWeight.w600,
@@ -99,7 +99,7 @@ class PosterCard extends StatelessWidget {
                 anime.metaLine,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(color: Ink.textDim, fontSize: 10),
+                style: const TextStyle(color: CandleTone.textDim, fontSize: 10),
               ),
             ],
           ],
@@ -119,12 +119,12 @@ class _RatingBadge extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        const Icon(Icons.star_rounded, size: 11, color: Ink.gold),
+        const Icon(Icons.star_rounded, size: 11, color: CandleTone.gold),
         const SizedBox(width: 3),
         Text(
           rating,
           style: const TextStyle(
-            color: Ink.text,
+            color: CandleTone.text,
             fontSize: 10,
             fontWeight: FontWeight.w800,
           ),
@@ -279,7 +279,7 @@ class FeaturedBanner extends StatelessWidget {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
-                              color: Ink.text,
+                              color: CandleTone.text,
                               fontSize: 20,
                               fontWeight: FontWeight.w800,
                               height: 1.2,
@@ -295,7 +295,7 @@ class FeaturedBanner extends StatelessWidget {
                                   anime.metaLine,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(color: Ink.textDim, fontSize: 11),
+                                  style: const TextStyle(color: CandleTone.textDim, fontSize: 11),
                                 ),
                               ),
                             ],
@@ -315,7 +315,7 @@ class FeaturedBanner extends StatelessWidget {
                                     anime.genreSummary.join(' - '),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(color: Ink.textDim, fontSize: 11),
+                                    style: const TextStyle(color: CandleTone.textDim, fontSize: 11),
                                   ),
                                 ),
                             ],
