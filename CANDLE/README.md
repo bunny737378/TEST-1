@@ -86,8 +86,8 @@ flutter build apk --release        # installable with the debug key by default
 
 Status of the pipeline: it is green end to end. A run produced
 `candlestream-release.apk` at 54,128,862 bytes - analyze clean, 5/5 parser tests
-passing, zip verified, signed with the repository keystore, uploaded as the
-`CandleStream-APK` artifact.
+passing, zip verified, signed with the repository keystore, downloadable from
+that run's artifact list as `candlestream-release.apk`.
 
 `android/` is git-ignored on purpose: the workflow generates it from the Flutter
 template the runner's SDK provides, so no half-configured Gradle project can
