@@ -1,0 +1,142 @@
+
+name: Video Downloader & Smart Compressor
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: "Direct video download URL"
+        required: true
+        type: string
+
+      resolution:
+        description: "Select output resolution"
+        required: true
+        type: choice
+        default: same
+        options:
+          - same
+          - 240p
+          - 360p
+          - 480p
+          - 720p
+          - 1080p
+          - 1440p
+          - 2160p
+
+      crf:
+        description: "Compression quality (lower = better quality)"
+        required: true
+        type: choice
+        default: "25"
+        options:
+          - "22"
+          - "23"
+          - "24"
+          - "25"
+          - "26"
+          - "27"
+          - "28"
+
+jobs:
+  process-video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Download Video
+        env:
+          VIDEO_URL: ${{ inputs.video_url }}
+        run: |
+          if [[ ! "$VIDEO_URL" =~ ^https?:// ]]; then
+            echo "Invalid video URL"
+            exit 1
+          fi
+
+          curl -fL \
+            --proto '=https,http' \
+            --proto-redir '=https,http' \
+            --retry 3 \
+            --max-time 3600 \
+            "$VIDEO_URL" \
+            -o input_video.mp4
+
+          test -s input_video.mp4
+
+      - name: Compress Video
+        env:
+          RESOLUTION: ${{ inputs.resolution }}
+          CRF: ${{ inputs.crf }}
+        run: |
+          HEIGHT=""
+
+          case "$RESOLUTION" in
+            same) HEIGHT="" ;;
+            240p) HEIGHT=240 ;;
+            360p) HEIGHT=360 ;;
+            480p) HEIGHT=480 ;;
+            720p) HEIGHT=720 ;;
+            1080p) HEIGHT=1080 ;;
+            1440p) HEIGHT=1440 ;;
+            2160p) HEIGHT=2160 ;;
+            *) echo "Invalid resolution"; exit 1 ;;
+          esac
+
+          # Verify that the downloaded file is a valid video.
+          ffprobe -v error -select_streams v:0 \
+            -show_entries stream=width,height \
+            -of csv=p=0 input_video.mp4
+
+          # High-efficiency HEVC compression.
+          if [[ -n "$HEIGHT" ]]; then
+            ffmpeg -y -i input_video.mp4 \
+              -map 0:v:0 -map '0:a?' \
+              -vf "scale=-2:min(ih\\,${HEIGHT})" \
+              -c:v libx265 \
+              -preset slow \
+              -crf "$CRF" \
+              -pix_fmt yuv420p \
+              -tag:v hvc1 \
+              -c:a aac \
+              -b:a 128k \
+              -movflags +faststart \
+              output_video.mp4
+          else
+            ffmpeg -y -i input_video.mp4 \
+              -map 0:v:0 -map '0:a?' \
+              -c:v libx265 \
+              -preset slow \
+              -crf "$CRF" \
+              -pix_fmt yuv420p \
+              -tag:v hvc1 \
+              -c:a aac \
+              -b:a 128k \
+              -movflags +faststart \
+              output_video.mp4
+          fi
+
+      - name: Show Compression Results
+        run: |
+          echo "Original video:"
+          du -h input_video.mp4
+
+          echo "Compressed video:"
+          du -h output_video.mp4
+
+          echo "Output resolution:"
+          ffprobe -v error -select_streams v:0 \
+            -show_entries stream=width,height \
+            -of csv=p=0 output_video.mp4
+
+      - name: Upload Compressed Video
+        uses: actions/upload-artifact@v4
+        with:
+          name: compressed-video
+          path: output_video.mp4
+          if-no-files-found: error
+          retention-days: 7
