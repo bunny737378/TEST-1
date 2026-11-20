@@ -1,12 +1,17 @@
-
 name: Video Downloader & Smart Compressor
 
 on:
   workflow_dispatch:
     inputs:
       video_url:
-        description: "Direct video download URL"
+        description: "Direct video URL (MP4, MKV, M3U8, etc.)"
         required: true
+        type: string
+
+      referer:
+        description: "Optional Referer URL (paste the website URL if you get 403 error)"
+        required: false
+        default: ""
         type: string
 
       resolution:
@@ -44,29 +49,51 @@ jobs:
     timeout-minutes: 360
 
     steps:
-      - name: Install FFmpeg
+      - name: Install FFmpeg & yt-dlp
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
+          sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+          sudo chmod a+rx /usr/local/bin/yt-dlp
 
       - name: Download Video
         env:
           VIDEO_URL: ${{ inputs.video_url }}
+          REFERER: ${{ inputs.referer }}
         run: |
           if [[ ! "$VIDEO_URL" =~ ^https?:// ]]; then
             echo "Invalid video URL"
             exit 1
           fi
 
-          curl -fL \
-            --proto '=https,http' \
-            --proto-redir '=https,http' \
-            --retry 3 \
-            --max-time 3600 \
-            "$VIDEO_URL" \
-            -o input_video.mp4
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 
-          test -s input_video.mp4
+          EXTRA_ARGS=()
+          if [[ -n "$REFERER" ]]; then
+            EXTRA_ARGS+=(--referer "$REFERER")
+          fi
+
+          # Downloads MP4, MKV, M3U8, etc. and remuxes into a single MKV safely
+          yt-dlp \
+            --no-playlist \
+            --concurrent-fragments 8 \
+            --retries 10 \
+            --fragment-retries 10 \
+            --user-agent "$UA" \
+            "${EXTRA_ARGS[@]}" \
+            --remux-video mkv \
+            -o "input_video.%(ext)s" \
+            "$VIDEO_URL"
+
+          # Normalize filename to input_video.mkv
+          INPUT_FILE=$(ls input_video.* | head -n 1)
+          if [[ -z "$INPUT_FILE" || ! -s "$INPUT_FILE" ]]; then
+            echo "Download failed or file is empty"
+            exit 1
+          fi
+          if [[ "$INPUT_FILE" != "input_video.mkv" ]]; then
+            mv "$INPUT_FILE" input_video.mkv
+          fi
 
       - name: Compress Video
         env:
@@ -87,16 +114,16 @@ jobs:
             *) echo "Invalid resolution"; exit 1 ;;
           esac
 
-          # Verify that the downloaded file is a valid video.
+          # Verify that the downloaded file is a valid video
           ffprobe -v error -select_streams v:0 \
             -show_entries stream=width,height \
-            -of csv=p=0 input_video.mp4
+            -of csv=p=0 input_video.mkv
 
-          # High-efficiency HEVC compression.
+          # High-efficiency HEVC compression
           if [[ -n "$HEIGHT" ]]; then
-            ffmpeg -y -i input_video.mp4 \
+            ffmpeg -y -i input_video.mkv \
               -map 0:v:0 -map '0:a?' \
-              -vf "scale=-2:min(ih\\,${HEIGHT})" \
+              -vf "scale=-2:min(ih\,${HEIGHT})" \
               -c:v libx265 \
               -preset slow \
               -crf "$CRF" \
@@ -107,7 +134,7 @@ jobs:
               -movflags +faststart \
               output_video.mp4
           else
-            ffmpeg -y -i input_video.mp4 \
+            ffmpeg -y -i input_video.mkv \
               -map 0:v:0 -map '0:a?' \
               -c:v libx265 \
               -preset slow \
@@ -123,7 +150,7 @@ jobs:
       - name: Show Compression Results
         run: |
           echo "Original video:"
-          du -h input_video.mp4
+          du -h input_video.mkv
 
           echo "Compressed video:"
           du -h output_video.mp4
