@@ -1,0 +1,9 @@
+// lib: , url: sqk
+
+// class id: 1049799, size: 0x8
+class :: {
+}
+
+// class id: 720, size: 0x18, field offset: 0x8
+class Bdb extends Object {
+}

@@ -1,0 +1,10 @@
+// lib: , url: wXj
+
+// class id: 1048902, size: 0x8
+class :: {
+}
+
+// class id: 4401, size: 0x80, field offset: 0x8
+//   const constructor, 
+class vN extends Object {
+}
