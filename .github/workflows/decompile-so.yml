@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: blutter-${{ github.ref }}-${{ inputs.app_folder }}
+  cancel-in-progress: false
+
 jobs:
   decompile-so:
     runs-on: ubuntu-latest
@@ -19,64 +23,87 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref }}
 
       - name: Verify target folder and SO files
         id: check_files
         env:
-          APP_FOLDER: ${{ inputs.app_folder }}
+          RAW_APP_FOLDER: ${{ inputs.app_folder }}
         run: |
           set -euo pipefail
+
+          APP_FOLDER="${RAW_APP_FOLDER#"${RAW_APP_FOLDER%%[![:space:]]*}"}"
+          APP_FOLDER="${APP_FOLDER%"${APP_FOLDER##*[![:space:]]}"}"
+          APP_FOLDER="${APP_FOLDER#./}"
+          APP_FOLDER="${APP_FOLDER%/}"
+
+          if [[ -z "$APP_FOLDER" || "$APP_FOLDER" == /* || "$APP_FOLDER" == *".."* ]]; then
+            echo "::error::Invalid app_folder path: '$RAW_APP_FOLDER'"
+            exit 1
+          fi
+
           LIB_DIR="$APP_FOLDER/lib/arm64-v8a"
-          
+          OUT_DIR="$APP_FOLDER/blutter_output"
+
           if [[ ! -d "$LIB_DIR" ]]; then
             echo "::error::Directory '$LIB_DIR' nahi mila! Check karein ki folder name sahi hai aur APK mein arm64-v8a libraries hain."
+            if [[ -d "$APP_FOLDER/lib" ]]; then
+              ls -la "$APP_FOLDER/lib"
+            fi
             exit 1
           fi
 
           if [[ ! -f "$LIB_DIR/libapp.so" || ! -f "$LIB_DIR/libflutter.so" ]]; then
-            echo "::error::'$LIB_DIR' ke andar libapp.so ya libflutter.so missing hai. Yeh shayad Flutter app nahi hai."
+            echo "::error::'$LIB_DIR' ke andar libapp.so ya libflutter.so missing hai."
+            ls -la "$LIB_DIR"
             exit 1
           fi
 
-          echo "lib_dir=$LIB_DIR" >> "$GITHUB_OUTPUT"
+          {
+            echo "app_folder=$APP_FOLDER"
+            echo "lib_dir=$LIB_DIR"
+            echo "out_dir=$OUT_DIR"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Install dependencies for Blutter
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y python3-pyelftools python3-requests git cmake ninja-build \
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            python3-pyelftools python3-requests git cmake ninja-build \
             build-essential pkg-config libicu-dev libcapstone-dev
 
       - name: Clone Blutter
         run: |
           set -euo pipefail
-          git clone --depth 1 https://github.com "$RUNNER_TEMP/blutter"
+          rm -rf "$RUNNER_TEMP/blutter"
+          git clone --depth 1 https://github.com/worawit/blutter.git "$RUNNER_TEMP/blutter"
 
       - name: Run Blutter on libapp.so
         env:
           LIB_DIR: ${{ steps.check_files.outputs.lib_dir }}
-          APP_FOLDER: ${{ inputs.app_folder }}
+          OUT_DIR: ${{ steps.check_files.outputs.out_dir }}
         run: |
           set -euo pipefail
-          OUT_DIR="$APP_FOLDER/blutter_output"
+          rm -rf "$OUT_DIR"
           mkdir -p "$OUT_DIR"
-          
+
           python3 "$RUNNER_TEMP/blutter/blutter.py" "$LIB_DIR" "$OUT_DIR"
 
       - name: Commit and push decompiled Dart dump
         env:
-          APP_FOLDER: ${{ inputs.app_folder }}
+          APP_FOLDER: ${{ steps.check_files.outputs.app_folder }}
+          OUT_DIR: ${{ steps.check_files.outputs.out_dir }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@://github.com"
-          
-          git add "$APP_FOLDER/blutter_output"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A "$OUT_DIR"
           if git diff --staged --quiet; then
             echo "Koi naya change commit karne ke liye nahi hai."
-          else
-            git commit -m "Decompile Flutter SO files for $APP_FOLDER"
-            git push
+            exit 0
           fi
+
+          git commit -m "Decompile Flutter SO files for $APP_FOLDER"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
