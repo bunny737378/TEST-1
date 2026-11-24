@@ -1,0 +1,110 @@
+.class final synthetic Lcom/ironsource/Y7$c;
+.super Lp23;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+# interfaces
+.implements Lm13;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ironsource/Y7;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1000
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lp23;",
+        "Lm13;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/Object;)V
+    .locals 7
+
+    .line 1
+    const-string v5, "shouldRunOnBackgroundThreadSharedSignals()Z"
+
+    .line 2
+    .line 3
+    const/4 v6, 0x0
+
+    .line 4
+    const/4 v1, 0x0
+
+    .line 5
+    const-class v3, Lcom/ironsource/G7;
+
+    .line 6
+    .line 7
+    const-string v4, "shouldRunOnBackgroundThreadSharedSignals"
+
+    .line 8
+    .line 9
+    move-object v0, p0
+
+    .line 10
+    move-object v2, p1
+
+    .line 11
+    invoke-direct/range {v0 .. v6}, Lo23;-><init>(ILjava/lang/Object;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
+
+    .line 12
+    .line 13
+    .line 14
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a()Ljava/lang/Boolean;
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Lhq0;->receiver:Ljava/lang/Object;
+
+    .line 2
+    .line 3
+    check-cast p0, Lcom/ironsource/G7;
+
+    .line 4
+    .line 5
+    invoke-interface {p0}, Lcom/ironsource/x5;->t()Z
+
+    .line 6
+    .line 7
+    .line 8
+    move-result p0
+
+    .line 9
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    .line 10
+    .line 11
+    .line 12
+    move-result-object p0
+
+    .line 13
+    return-object p0
+.end method
+
+.method public bridge synthetic invoke()Ljava/lang/Object;
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0}, Lcom/ironsource/Y7$c;->a()Ljava/lang/Boolean;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object p0
+
+    .line 5
+    return-object p0
+.end method

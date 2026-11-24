@@ -1,0 +1,47 @@
+.class public interface abstract Lcom/smaato/sdk/ng/vpaid/protocol/BridgeEventHandler;
+.super Ljava/lang/Object;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+
+# virtual methods
+.method public abstract callJsMethod(Ljava/lang/String;)V
+.end method
+
+.method public abstract onAdImpression()V
+.end method
+
+.method public abstract onAdLinearChange()V
+.end method
+
+.method public abstract onAdSkipped()V
+.end method
+
+.method public abstract onAdStopped()V
+.end method
+
+.method public abstract onAdVolumeChange()V
+.end method
+
+.method public abstract onDurationChanged()V
+.end method
+
+.method public abstract onPrepared()V
+.end method
+
+.method public abstract openUrl(Ljava/lang/String;)V
+.end method
+
+.method public abstract postEvent(Ljava/lang/String;IZ)V
+.end method
+
+.method public abstract postEvent(Ljava/lang/String;Z)V
+.end method
+
+.method public abstract runOnUiThread(Ljava/lang/Runnable;)V
+.end method
+
+.method public abstract setSkippableState(Z)V
+.end method
+
+.method public abstract trackError(Ljava/lang/String;)V
+.end method

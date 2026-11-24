@@ -1,0 +1,581 @@
+.class public Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;
+.super Ljava/lang/Object;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+# interfaces
+.implements Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;",
+        "Lcom/mbridge/msdk/foundation/download/core/RequestBuilder<",
+        "TT;>;"
+    }
+.end annotation
+
+
+# instance fields
+.field connectTimeout:J
+
+.field directoryPathExternal:Ljava/lang/String;
+
+.field directoryPathInternal:Ljava/lang/String;
+
+.field downloadMessage:Lcom/mbridge/msdk/foundation/download/DownloadMessage;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/mbridge/msdk/foundation/download/DownloadMessage<",
+            "TT;>;"
+        }
+    .end annotation
+.end field
+
+.field downloadPriority:Lcom/mbridge/msdk/foundation/download/DownloadPriority;
+
+.field downloadStateListener:Lcom/mbridge/msdk/foundation/download/OnDownloadStateListener;
+
+.field extraMap:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field headerMap:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap<",
+            "Ljava/lang/String;",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field progressStateListener:Lcom/mbridge/msdk/foundation/download/OnProgressStateListener;
+
+.field readTimeout:J
+
+.field retry:I
+
+.field timeout:J
+
+.field userAgent:Ljava/lang/String;
+
+.field writeTimeout:J
+
+
+# direct methods
+.method public constructor <init>(Lcom/mbridge/msdk/foundation/download/DownloadMessage;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/mbridge/msdk/foundation/download/DownloadMessage<",
+            "TT;>;)V"
+        }
+    .end annotation
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    sget-object v0, Lcom/mbridge/msdk/foundation/download/DownloadPriority;->MEDIUM:Lcom/mbridge/msdk/foundation/download/DownloadPriority;
+
+    .line 5
+    .line 6
+    iput-object v0, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->downloadPriority:Lcom/mbridge/msdk/foundation/download/DownloadPriority;
+
+    .line 7
+    .line 8
+    iput-object p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->downloadMessage:Lcom/mbridge/msdk/foundation/download/DownloadMessage;
+
+    .line 9
+    .line 10
+    return-void
+.end method
+
+
+# virtual methods
+.method public build()Lcom/mbridge/msdk/foundation/download/core/DownloadRequest;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/mbridge/msdk/foundation/download/core/DownloadRequest<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-static {p0}, Lcom/mbridge/msdk/foundation/download/core/DownloadRequest;->create(Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;)Lcom/mbridge/msdk/foundation/download/core/DownloadRequest;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object p0
+
+    .line 5
+    return-object p0
+.end method
+
+.method public with(Ljava/lang/String;Ljava/lang/String;)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ")",
+            "Lcom/mbridge/msdk/foundation/download/core/RequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 1
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    .line 2
+    .line 3
+    .line 4
+    move-result v0
+
+    .line 5
+    if-nez v0, :cond_1
+
+    .line 6
+    .line 7
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    .line 8
+    .line 9
+    .line 10
+    move-result v0
+
+    .line 11
+    if-nez v0, :cond_1
+
+    .line 12
+    .line 13
+    iget-object v0, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->extraMap:Ljava/util/Map;
+
+    .line 14
+    .line 15
+    invoke-static {v0}, Lcom/mbridge/msdk/foundation/download/utils/Objects;->isNull(Ljava/lang/Object;)Z
+
+    .line 16
+    .line 17
+    .line 18
+    move-result v0
+
+    .line 19
+    if-eqz v0, :cond_0
+
+    .line 20
+    .line 21
+    new-instance v0, Ljava/util/HashMap;
+
+    .line 22
+    .line 23
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    .line 24
+    .line 25
+    .line 26
+    iput-object v0, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->extraMap:Ljava/util/Map;
+
+    .line 27
+    .line 28
+    :cond_0
+    iget-object v0, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->extraMap:Ljava/util/Map;
+
+    .line 29
+    .line 30
+    invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 31
+    .line 32
+    .line 33
+    :cond_1
+    return-object p0
+.end method
+
+.method public withConnectTimeout(J)Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(J)",
+            "Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 6
+    iput-wide p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->connectTimeout:J
+
+    return-object p0
+.end method
+
+.method public bridge synthetic withConnectTimeout(J)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1, p2}, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->withConnectTimeout(J)Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object p0
+
+    .line 5
+    return-object p0
+.end method
+
+.method public withDirectoryPathExternal(Ljava/lang/String;)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Lcom/mbridge/msdk/foundation/download/core/RequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->directoryPathExternal:Ljava/lang/String;
+
+    .line 2
+    .line 3
+    return-object p0
+.end method
+
+.method public withDirectoryPathInternal(Ljava/lang/String;)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Lcom/mbridge/msdk/foundation/download/core/RequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->directoryPathInternal:Ljava/lang/String;
+
+    .line 2
+    .line 3
+    return-object p0
+.end method
+
+.method public withDownloadPriority(Lcom/mbridge/msdk/foundation/download/DownloadPriority;)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/mbridge/msdk/foundation/download/DownloadPriority;",
+            ")",
+            "Lcom/mbridge/msdk/foundation/download/core/RequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->downloadPriority:Lcom/mbridge/msdk/foundation/download/DownloadPriority;
+
+    .line 2
+    .line 3
+    return-object p0
+.end method
+
+.method public withDownloadStateListener(Lcom/mbridge/msdk/foundation/download/OnDownloadStateListener;)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/mbridge/msdk/foundation/download/OnDownloadStateListener;",
+            ")",
+            "Lcom/mbridge/msdk/foundation/download/core/RequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->downloadStateListener:Lcom/mbridge/msdk/foundation/download/OnDownloadStateListener;
+
+    .line 2
+    .line 3
+    return-object p0
+.end method
+
+.method public withHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ")",
+            "Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->headerMap:Ljava/util/HashMap;
+
+    .line 2
+    .line 3
+    if-nez v0, :cond_0
+
+    .line 4
+    .line 5
+    new-instance v0, Ljava/util/HashMap;
+
+    .line 6
+    .line 7
+    const/4 v1, 0x4
+
+    .line 8
+    invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
+
+    .line 9
+    .line 10
+    .line 11
+    iput-object v0, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->headerMap:Ljava/util/HashMap;
+
+    .line 12
+    .line 13
+    :cond_0
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 14
+    .line 15
+    .line 16
+    move-result-object v0
+
+    .line 17
+    check-cast v0, Ljava/util/List;
+
+    .line 18
+    .line 19
+    if-nez v0, :cond_1
+
+    .line 20
+    .line 21
+    new-instance v0, Ljava/util/ArrayList;
+
+    .line 22
+    .line 23
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .line 24
+    .line 25
+    .line 26
+    iget-object v1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->headerMap:Ljava/util/HashMap;
+
+    .line 27
+    .line 28
+    invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 29
+    .line 30
+    .line 31
+    :cond_1
+    invoke-interface {v0, p2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    .line 32
+    .line 33
+    .line 34
+    move-result p1
+
+    .line 35
+    if-nez p1, :cond_2
+
+    .line 36
+    .line 37
+    invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 38
+    .line 39
+    .line 40
+    :cond_2
+    return-object p0
+.end method
+
+.method public bridge synthetic withHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+
+    .line 41
+    invoke-virtual {p0, p1, p2}, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->withHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public withHttpRetryCounter(I)Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 6
+    iput p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->retry:I
+
+    return-object p0
+.end method
+
+.method public bridge synthetic withHttpRetryCounter(I)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1}, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->withHttpRetryCounter(I)Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object p0
+
+    .line 5
+    return-object p0
+.end method
+
+.method public withProgressStateListener(Lcom/mbridge/msdk/foundation/download/OnProgressStateListener;)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/mbridge/msdk/foundation/download/OnProgressStateListener;",
+            ")",
+            "Lcom/mbridge/msdk/foundation/download/core/RequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->progressStateListener:Lcom/mbridge/msdk/foundation/download/OnProgressStateListener;
+
+    .line 2
+    .line 3
+    return-object p0
+.end method
+
+.method public withReadTimeout(J)Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(J)",
+            "Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 6
+    iput-wide p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->readTimeout:J
+
+    return-object p0
+.end method
+
+.method public bridge synthetic withReadTimeout(J)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1, p2}, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->withReadTimeout(J)Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object p0
+
+    .line 5
+    return-object p0
+.end method
+
+.method public withTimeout(J)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(J)",
+            "Lcom/mbridge/msdk/foundation/download/core/RequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 1
+    iput-wide p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->timeout:J
+
+    .line 2
+    .line 3
+    return-object p0
+.end method
+
+.method public withUserAgent(Ljava/lang/String;)Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 6
+    iput-object p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->userAgent:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public bridge synthetic withUserAgent(Ljava/lang/String;)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1}, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->withUserAgent(Ljava/lang/String;)Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object p0
+
+    .line 5
+    return-object p0
+.end method
+
+.method public withWriteTimeout(J)Lcom/mbridge/msdk/foundation/download/core/RequestBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(J)",
+            "Lcom/mbridge/msdk/foundation/download/core/RequestBuilder<",
+            "TT;>;"
+        }
+    .end annotation
+
+    .line 1
+    iput-wide p1, p0, Lcom/mbridge/msdk/foundation/download/core/DownloadRequestBuilder;->writeTimeout:J
+
+    .line 2
+    .line 3
+    return-object p0
+.end method

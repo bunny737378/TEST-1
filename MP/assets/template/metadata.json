@@ -1,0 +1,26 @@
+{
+  "https://local.com/sct/and/17.1.8/a260818_video904.zip": {
+    "name": "Root",
+    "path": "video904"
+  },
+  "https://local.com/sct/and/17.1.8/a260904_video202.zip": {
+    "name": "Root",
+    "path": "video202"
+  },
+  "https://local.com/sct/and/17.1.8/a260904_ec404.zip": {
+    "name": "Root",
+    "path": "ec404"
+  },
+  "https://local.com/sct/and/17.1.8/a260904_ecPlayable.zip": {
+    "name": "Root",
+    "path": "ecPlayable"
+  },
+  "https://local.com/sct/and/17.0.5/a260430_customWebview.zip": {
+    "name": "Root",
+    "path": "customWebview"
+  },
+  "https://local.com/sct/and/17.1.1/260511/big201.zip": {
+    "name": "Root",
+    "path": "big201"
+  }
+}

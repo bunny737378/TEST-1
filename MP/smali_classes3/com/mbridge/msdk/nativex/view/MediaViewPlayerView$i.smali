@@ -1,0 +1,491 @@
+.class Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;
+.super Ljava/lang/Object;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+# interfaces
+.implements Landroid/view/TextureView$SurfaceTextureListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "i"
+.end annotation
+
+
+# instance fields
+.field final synthetic a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+
+# direct methods
+.method private constructor <init>(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 2
+    .line 3
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method
+
+.method public synthetic constructor <init>(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$a;)V
+    .locals 0
+
+    .line 7
+    invoke-direct {p0, p1}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;-><init>(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
+    .locals 0
+
+    .line 1
+    :try_start_0
+    iget-object p2, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 2
+    .line 3
+    new-instance p3, Landroid/view/Surface;
+
+    .line 4
+    .line 5
+    invoke-direct {p3, p1}, Landroid/view/Surface;-><init>(Landroid/graphics/SurfaceTexture;)V
+
+    .line 6
+    .line 7
+    .line 8
+    invoke-static {p2, p3}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->a(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;Landroid/view/Surface;)Landroid/view/Surface;
+
+    .line 9
+    .line 10
+    .line 11
+    iget-object p1, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 12
+    .line 13
+    const/4 p2, 0x1
+
+    .line 14
+    invoke-static {p1, p2}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->a(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;Z)Z
+
+    .line 15
+    .line 16
+    .line 17
+    iget-object p1, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 18
+    .line 19
+    invoke-static {p1, p2}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->b(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;Z)Z
+
+    .line 20
+    .line 21
+    .line 22
+    iget-object p1, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 23
+    .line 24
+    invoke-static {p1}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->e(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;)Z
+
+    .line 25
+    .line 26
+    .line 27
+    move-result p1
+
+    .line 28
+    iget-object p2, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 29
+    .line 30
+    if-eqz p1, :cond_2
+
+    .line 31
+    .line 32
+    invoke-static {p2}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->f(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;)Z
+
+    .line 33
+    .line 34
+    .line 35
+    move-result p1
+
+    .line 36
+    if-eqz p1, :cond_0
+
+    .line 37
+    .line 38
+    iget-object p1, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 39
+    .line 40
+    const/4 p2, 0x0
+
+    .line 41
+    invoke-static {p1, p2}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->d(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;Z)Z
+
+    .line 42
+    .line 43
+    .line 44
+    iget-object p1, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 45
+    .line 46
+    invoke-static {p1, p2}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->c(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;Z)Z
+
+    .line 47
+    .line 48
+    .line 49
+    :cond_0
+    iget-object p1, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 50
+    .line 51
+    invoke-virtual {p1}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->isComplete()Z
+
+    .line 52
+    .line 53
+    .line 54
+    move-result p1
+
+    .line 55
+    if-nez p1, :cond_1
+
+    .line 56
+    .line 57
+    iget-object p1, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 58
+    .line 59
+    invoke-static {p1}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->m(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;)Z
+
+    .line 60
+    .line 61
+    .line 62
+    move-result p1
+
+    .line 63
+    if-nez p1, :cond_1
+
+    .line 64
+    .line 65
+    iget-object p0, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 66
+    .line 67
+    invoke-virtual {p0}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->startOrPlayVideo()V
+
+    .line 68
+    .line 69
+    .line 70
+    return-void
+
+    .line 71
+    :cond_1
+    iget-object p0, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 72
+    .line 73
+    invoke-static {p0}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->d(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;)V
+
+    .line 74
+    .line 75
+    .line 76
+    return-void
+
+    .line 77
+    :cond_2
+    invoke-static {p2}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->g(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;)Z
+
+    .line 78
+    .line 79
+    .line 80
+    move-result p1
+
+    .line 81
+    iget-object p2, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 82
+    .line 83
+    if-eqz p1, :cond_4
+
+    .line 84
+    .line 85
+    invoke-virtual {p2}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->hasPrepare()Z
+
+    .line 86
+    .line 87
+    .line 88
+    move-result p1
+
+    .line 89
+    if-eqz p1, :cond_3
+
+    .line 90
+    .line 91
+    iget-object p1, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 92
+    .line 93
+    invoke-virtual {p1}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->isComplete()Z
+
+    .line 94
+    .line 95
+    .line 96
+    move-result p1
+
+    .line 97
+    if-eqz p1, :cond_3
+
+    .line 98
+    .line 99
+    iget-object p0, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 100
+    .line 101
+    invoke-static {p0}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->d(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;)V
+
+    .line 102
+    .line 103
+    .line 104
+    return-void
+
+    .line 105
+    :cond_3
+    iget-object p0, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 106
+    .line 107
+    invoke-virtual {p0}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->startOrPlayVideo()V
+
+    .line 108
+    .line 109
+    .line 110
+    return-void
+
+    .line 111
+    :cond_4
+    invoke-virtual {p2}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->hasPrepare()Z
+
+    .line 112
+    .line 113
+    .line 114
+    move-result p1
+
+    .line 115
+    if-eqz p1, :cond_5
+
+    .line 116
+    .line 117
+    iget-object p1, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 118
+    .line 119
+    invoke-virtual {p1}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->isComplete()Z
+
+    .line 120
+    .line 121
+    .line 122
+    move-result p1
+
+    .line 123
+    if-nez p1, :cond_5
+
+    .line 124
+    .line 125
+    iget-object p0, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 126
+    .line 127
+    invoke-virtual {p0}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->startOrPlayVideo()V
+
+    .line 128
+    .line 129
+    .line 130
+    return-void
+
+    .line 131
+    :cond_5
+    iget-object p0, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 132
+    .line 133
+    invoke-static {p0}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->d(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 134
+    .line 135
+    .line 136
+    return-void
+
+    .line 137
+    :catch_0
+    move-exception p0
+
+    .line 138
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    .line 139
+    .line 140
+    .line 141
+    move-result-object p0
+
+    .line 142
+    const-string p1, "MediaViewPlayerView"
+
+    .line 143
+    .line 144
+    invoke-static {p1, p0}, Lcom/mbridge/msdk/foundation/tools/q0;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 145
+    .line 146
+    .line 147
+    return-void
+.end method
+
+.method public onSurfaceTextureDestroyed(Landroid/graphics/SurfaceTexture;)Z
+    .locals 1
+
+    .line 1
+    const/4 p1, 0x1
+
+    .line 2
+    :try_start_0
+    iget-object v0, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 3
+    .line 4
+    invoke-static {v0}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->i(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;)Lcom/mbridge/msdk/playercommon/VideoNativePlayer;
+
+    .line 5
+    .line 6
+    .line 7
+    move-result-object v0
+
+    .line 8
+    if-eqz v0, :cond_0
+
+    .line 9
+    .line 10
+    iget-object v0, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 11
+    .line 12
+    invoke-static {v0}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->i(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;)Lcom/mbridge/msdk/playercommon/VideoNativePlayer;
+
+    .line 13
+    .line 14
+    .line 15
+    move-result-object v0
+
+    .line 16
+    invoke-virtual {v0}, Lcom/mbridge/msdk/playercommon/VideoNativePlayer;->isPlayIng()Z
+
+    .line 17
+    .line 18
+    .line 19
+    move-result v0
+
+    .line 20
+    if-eqz v0, :cond_0
+
+    .line 21
+    .line 22
+    iget-object v0, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 23
+    .line 24
+    invoke-virtual {v0}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->pause()V
+
+    .line 25
+    .line 26
+    .line 27
+    :cond_0
+    iget-object v0, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 28
+    .line 29
+    invoke-static {v0, p1}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->d(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;Z)Z
+
+    .line 30
+    .line 31
+    .line 32
+    iget-object p0, p0, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView$i;->a:Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;
+
+    .line 33
+    .line 34
+    const/4 v0, 0x0
+
+    .line 35
+    invoke-static {p0, v0}, Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;->a(Lcom/mbridge/msdk/nativex/view/MediaViewPlayerView;Z)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 36
+    .line 37
+    .line 38
+    goto :goto_0
+
+    .line 39
+    :catchall_0
+    move-exception p0
+
+    .line 40
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    .line 41
+    .line 42
+    .line 43
+    move-result-object p0
+
+    .line 44
+    const-string v0, "MediaViewPlayerView"
+
+    .line 45
+    .line 46
+    invoke-static {v0, p0}, Lcom/mbridge/msdk/foundation/tools/q0;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 47
+    .line 48
+    .line 49
+    :goto_0
+    return p1
+.end method
+
+.method public onSurfaceTextureSizeChanged(Landroid/graphics/SurfaceTexture;II)V
+    .locals 0
+
+    .line 1
+    const-string p0, "MediaViewPlayerView"
+
+    .line 2
+    .line 3
+    const-string p1, "onSurfaceTextureSizeChanged "
+
+    .line 4
+    .line 5
+    invoke-static {p0, p1}, Lcom/mbridge/msdk/foundation/tools/q0;->c(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 6
+    .line 7
+    .line 8
+    return-void
+.end method
+
+.method public onSurfaceTextureUpdated(Landroid/graphics/SurfaceTexture;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method

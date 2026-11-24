@@ -1,0 +1,88 @@
+.class public Lcom/ironsource/sg;
+.super Lcom/ironsource/f;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ironsource/sg$a;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/ironsource/f<",
+        "Lcom/ironsource/sg$a;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(J)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0, p1, p2}, Lcom/ironsource/f;-><init>(J)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(Lcom/ironsource/sg$a;)V
+    .locals 0
+    .param p1    # Lcom/ironsource/sg$a;
+        .annotation build Lorg/jetbrains/annotations/Nullable;
+        .end annotation
+    .end param
+
+    .line 1
+    invoke-virtual {p0, p1}, Lcom/ironsource/f;->a(Ljava/lang/Object;)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+.method public b()V
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Lcom/ironsource/f;->d:Ljava/lang/Object;
+
+    .line 2
+    .line 3
+    check-cast p0, Lcom/ironsource/sg$a;
+
+    .line 4
+    .line 5
+    if-eqz p0, :cond_0
+
+    .line 6
+    .line 7
+    invoke-interface {p0}, Lcom/ironsource/sg$a;->a()V
+
+    .line 8
+    .line 9
+    .line 10
+    :cond_0
+    return-void
+.end method
+
+.method public final e()V
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0}, Lcom/ironsource/f;->c()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method

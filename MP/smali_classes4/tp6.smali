@@ -1,0 +1,14 @@
+.class public interface abstract Ltp6;
+.super Ljava/lang/Object;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+
+# virtual methods
+.method public abstract a(Ljava/lang/Object;)Ljava/lang/Object;
+.end method
+
+.method public abstract b(Lge1;Ljava/lang/Object;)Ljava/lang/Object;
+.end method
+
+.method public abstract c(Ljava/lang/Throwable;)Z
+.end method

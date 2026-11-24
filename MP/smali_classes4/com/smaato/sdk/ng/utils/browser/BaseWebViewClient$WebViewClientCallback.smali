@@ -1,0 +1,40 @@
+.class public interface abstract Lcom/smaato/sdk/ng/utils/browser/BaseWebViewClient$WebViewClientCallback;
+.super Ljava/lang/Object;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/smaato/sdk/ng/utils/browser/BaseWebViewClient;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "WebViewClientCallback"
+.end annotation
+
+
+# virtual methods
+.method public abstract onGeneralError(ILjava/lang/String;Ljava/lang/String;)V
+.end method
+
+.method public abstract onHttpError(Landroid/webkit/WebResourceRequest;Landroid/webkit/WebResourceResponse;)V
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x17
+    .end annotation
+.end method
+
+.method public abstract onPageFinishedLoading(Ljava/lang/String;)V
+.end method
+
+.method public abstract onPageStartedLoading(Ljava/lang/String;)V
+.end method
+
+.method public abstract onRenderProcessGone()V
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x1a
+    .end annotation
+.end method
+
+.method public abstract shouldOverrideUrlLoading(Ljava/lang/String;)Z
+.end method

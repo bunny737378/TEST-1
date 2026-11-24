@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="applovin_privacy_policy_text">Privacy Policy</string>
+    <string name="applovin_terms_of_service_text">Terms &amp; Conditions</string>
+    <string name="custom_cta_button">Install</string>
+</resources>

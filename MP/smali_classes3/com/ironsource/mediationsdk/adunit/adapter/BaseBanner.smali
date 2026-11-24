@@ -1,0 +1,41 @@
+.class public abstract Lcom/ironsource/mediationsdk/adunit/adapter/BaseBanner;
+.super Lcom/ironsource/mediationsdk/adunit/adapter/internal/BaseAdAdapter;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+# interfaces
+.implements Lcom/ironsource/mediationsdk/adunit/adapter/internal/AdapterBannerInterface;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<NetworkAdapter:",
+        "Lcom/ironsource/mediationsdk/adunit/adapter/BaseAdapter;",
+        ">",
+        "Lcom/ironsource/mediationsdk/adunit/adapter/internal/BaseAdAdapter<",
+        "TNetworkAdapter;",
+        "Lcom/ironsource/mediationsdk/adunit/adapter/listener/BannerAdListener;",
+        ">;",
+        "Lcom/ironsource/mediationsdk/adunit/adapter/internal/AdapterBannerInterface<",
+        "Lcom/ironsource/mediationsdk/adunit/adapter/listener/BannerAdListener;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Lcom/ironsource/mediationsdk/model/NetworkSettings;)V
+    .locals 1
+
+    .line 1
+    sget-object v0, Lcom/unity3d/mediation/LevelPlay$AdFormat;->BANNER:Lcom/unity3d/mediation/LevelPlay$AdFormat;
+
+    .line 2
+    .line 3
+    invoke-direct {p0, v0, p1}, Lcom/ironsource/mediationsdk/adunit/adapter/internal/BaseAdAdapter;-><init>(Lcom/unity3d/mediation/LevelPlay$AdFormat;Lcom/ironsource/mediationsdk/model/NetworkSettings;)V
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method

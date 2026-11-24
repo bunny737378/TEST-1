@@ -1,0 +1,900 @@
+.class public final Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+.super Ljava/lang/Object;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "AdGroup"
+.end annotation
+
+
+# instance fields
+.field public final count:I
+
+.field public final durationsUs:[J
+
+.field public final states:[I
+
+.field public final uris:[Landroid/net/Uri;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 4
+
+    const/4 v0, 0x0
+
+    .line 23
+    new-array v1, v0, [I
+
+    new-array v2, v0, [Landroid/net/Uri;
+
+    new-array v0, v0, [J
+
+    const/4 v3, -0x1
+
+    invoke-direct {p0, v3, v1, v2, v0}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;-><init>(I[I[Landroid/net/Uri;[J)V
+
+    return-void
+.end method
+
+.method private constructor <init>(I[I[Landroid/net/Uri;[J)V
+    .locals 2
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    array-length v0, p2
+
+    .line 5
+    array-length v1, p3
+
+    .line 6
+    if-ne v0, v1, :cond_0
+
+    .line 7
+    .line 8
+    const/4 v0, 0x1
+
+    .line 9
+    goto :goto_0
+
+    .line 10
+    :cond_0
+    const/4 v0, 0x0
+
+    .line 11
+    :goto_0
+    invoke-static {v0}, Lcom/mbridge/msdk/playercommon/exoplayer2/util/Assertions;->checkArgument(Z)V
+
+    .line 12
+    .line 13
+    .line 14
+    iput p1, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->count:I
+
+    .line 15
+    .line 16
+    iput-object p2, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->states:[I
+
+    .line 17
+    .line 18
+    iput-object p3, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->uris:[Landroid/net/Uri;
+
+    .line 19
+    .line 20
+    iput-object p4, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->durationsUs:[J
+
+    .line 21
+    .line 22
+    return-void
+.end method
+
+.method private static copyDurationsUsWithSpaceForAdCount([JI)[J
+    .locals 3
+    .annotation build Landroidx/annotation/CheckResult;
+    .end annotation
+
+    .line 1
+    array-length v0, p0
+
+    .line 2
+    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
+
+    .line 3
+    .line 4
+    .line 5
+    move-result p1
+
+    .line 6
+    invoke-static {p0, p1}, Ljava/util/Arrays;->copyOf([JI)[J
+
+    .line 7
+    .line 8
+    .line 9
+    move-result-object p0
+
+    .line 10
+    const-wide v1, -0x7fffffffffffffffL    # -4.9E-324
+
+    .line 11
+    .line 12
+    .line 13
+    .line 14
+    .line 15
+    invoke-static {p0, v0, p1, v1, v2}, Ljava/util/Arrays;->fill([JIIJ)V
+
+    .line 16
+    .line 17
+    .line 18
+    return-object p0
+.end method
+
+.method private static copyStatesWithSpaceForAdCount([II)[I
+    .locals 2
+    .annotation build Landroidx/annotation/CheckResult;
+    .end annotation
+
+    .line 1
+    array-length v0, p0
+
+    .line 2
+    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
+
+    .line 3
+    .line 4
+    .line 5
+    move-result p1
+
+    .line 6
+    invoke-static {p0, p1}, Ljava/util/Arrays;->copyOf([II)[I
+
+    .line 7
+    .line 8
+    .line 9
+    move-result-object p0
+
+    .line 10
+    const/4 v1, 0x0
+
+    .line 11
+    invoke-static {p0, v0, p1, v1}, Ljava/util/Arrays;->fill([IIII)V
+
+    .line 12
+    .line 13
+    .line 14
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public getFirstAdIndexToPlay()I
+    .locals 1
+
+    .line 1
+    const/4 v0, -0x1
+
+    .line 2
+    invoke-virtual {p0, v0}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->getNextAdIndexToPlay(I)I
+
+    .line 3
+    .line 4
+    .line 5
+    move-result p0
+
+    .line 6
+    return p0
+.end method
+
+.method public getNextAdIndexToPlay(I)I
+    .locals 3
+
+    .line 1
+    const/4 v0, 0x1
+
+    .line 2
+    add-int/2addr p1, v0
+
+    .line 3
+    :goto_0
+    iget-object v1, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->states:[I
+
+    .line 4
+    .line 5
+    array-length v2, v1
+
+    .line 6
+    if-ge p1, v2, :cond_0
+
+    .line 7
+    .line 8
+    aget v1, v1, p1
+
+    .line 9
+    .line 10
+    if-eqz v1, :cond_0
+
+    .line 11
+    .line 12
+    if-eq v1, v0, :cond_0
+
+    .line 13
+    .line 14
+    add-int/lit8 p1, p1, 0x1
+
+    .line 15
+    .line 16
+    goto :goto_0
+
+    .line 17
+    :cond_0
+    return p1
+.end method
+
+.method public hasUnplayedAds()Z
+    .locals 2
+
+    .line 1
+    iget v0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->count:I
+
+    .line 2
+    .line 3
+    const/4 v1, -0x1
+
+    .line 4
+    if-eq v0, v1, :cond_0
+
+    .line 5
+    .line 6
+    invoke-virtual {p0}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->getFirstAdIndexToPlay()I
+
+    .line 7
+    .line 8
+    .line 9
+    move-result v0
+
+    .line 10
+    iget p0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->count:I
+
+    .line 11
+    .line 12
+    if-lt v0, p0, :cond_0
+
+    .line 13
+    .line 14
+    const/4 p0, 0x0
+
+    .line 15
+    return p0
+
+    .line 16
+    :cond_0
+    const/4 p0, 0x1
+
+    .line 17
+    return p0
+.end method
+
+.method public withAdCount(I)Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+    .locals 3
+    .annotation build Landroidx/annotation/CheckResult;
+    .end annotation
+
+    .line 1
+    iget v0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->count:I
+
+    .line 2
+    .line 3
+    const/4 v1, -0x1
+
+    .line 4
+    if-ne v0, v1, :cond_0
+
+    .line 5
+    .line 6
+    iget-object v0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->states:[I
+
+    .line 7
+    .line 8
+    array-length v0, v0
+
+    .line 9
+    if-gt v0, p1, :cond_0
+
+    .line 10
+    .line 11
+    const/4 v0, 0x1
+
+    .line 12
+    goto :goto_0
+
+    .line 13
+    :cond_0
+    const/4 v0, 0x0
+
+    .line 14
+    :goto_0
+    invoke-static {v0}, Lcom/mbridge/msdk/playercommon/exoplayer2/util/Assertions;->checkArgument(Z)V
+
+    .line 15
+    .line 16
+    .line 17
+    iget-object v0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->states:[I
+
+    .line 18
+    .line 19
+    invoke-static {v0, p1}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->copyStatesWithSpaceForAdCount([II)[I
+
+    .line 20
+    .line 21
+    .line 22
+    move-result-object v0
+
+    .line 23
+    iget-object v1, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->durationsUs:[J
+
+    .line 24
+    .line 25
+    invoke-static {v1, p1}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->copyDurationsUsWithSpaceForAdCount([JI)[J
+
+    .line 26
+    .line 27
+    .line 28
+    move-result-object v1
+
+    .line 29
+    iget-object p0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->uris:[Landroid/net/Uri;
+
+    .line 30
+    .line 31
+    invoke-static {p0, p1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+
+    .line 32
+    .line 33
+    .line 34
+    move-result-object p0
+
+    .line 35
+    check-cast p0, [Landroid/net/Uri;
+
+    .line 36
+    .line 37
+    new-instance v2, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+
+    .line 38
+    .line 39
+    invoke-direct {v2, p1, v0, p0, v1}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;-><init>(I[I[Landroid/net/Uri;[J)V
+
+    .line 40
+    .line 41
+    .line 42
+    return-object v2
+.end method
+
+.method public withAdDurationsUs([J)Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+    .locals 3
+    .annotation build Landroidx/annotation/CheckResult;
+    .end annotation
+
+    .line 1
+    iget v0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->count:I
+
+    .line 2
+    .line 3
+    const/4 v1, -0x1
+
+    .line 4
+    if-eq v0, v1, :cond_0
+
+    .line 5
+    .line 6
+    array-length v0, p1
+
+    .line 7
+    iget-object v1, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->uris:[Landroid/net/Uri;
+
+    .line 8
+    .line 9
+    array-length v1, v1
+
+    .line 10
+    if-le v0, v1, :cond_0
+
+    .line 11
+    .line 12
+    const/4 v0, 0x0
+
+    .line 13
+    goto :goto_0
+
+    .line 14
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 15
+    :goto_0
+    invoke-static {v0}, Lcom/mbridge/msdk/playercommon/exoplayer2/util/Assertions;->checkArgument(Z)V
+
+    .line 16
+    .line 17
+    .line 18
+    array-length v0, p1
+
+    .line 19
+    iget-object v1, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->uris:[Landroid/net/Uri;
+
+    .line 20
+    .line 21
+    array-length v2, v1
+
+    .line 22
+    if-ge v0, v2, :cond_1
+
+    .line 23
+    .line 24
+    array-length v0, v1
+
+    .line 25
+    invoke-static {p1, v0}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->copyDurationsUsWithSpaceForAdCount([JI)[J
+
+    .line 26
+    .line 27
+    .line 28
+    move-result-object p1
+
+    .line 29
+    :cond_1
+    new-instance v0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+
+    .line 30
+    .line 31
+    iget v1, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->count:I
+
+    .line 32
+    .line 33
+    iget-object v2, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->states:[I
+
+    .line 34
+    .line 35
+    iget-object p0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->uris:[Landroid/net/Uri;
+
+    .line 36
+    .line 37
+    invoke-direct {v0, v1, v2, p0, p1}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;-><init>(I[I[Landroid/net/Uri;[J)V
+
+    .line 38
+    .line 39
+    .line 40
+    return-object v0
+.end method
+
+.method public withAdState(II)Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+    .locals 5
+    .annotation build Landroidx/annotation/CheckResult;
+    .end annotation
+
+    .line 1
+    iget v0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->count:I
+
+    .line 2
+    .line 3
+    const/4 v1, -0x1
+
+    .line 4
+    const/4 v2, 0x0
+
+    .line 5
+    const/4 v3, 0x1
+
+    .line 6
+    if-eq v0, v1, :cond_0
+
+    .line 7
+    .line 8
+    if-lt p2, v0, :cond_0
+
+    .line 9
+    .line 10
+    move v0, v2
+
+    .line 11
+    goto :goto_0
+
+    .line 12
+    :cond_0
+    move v0, v3
+
+    .line 13
+    :goto_0
+    invoke-static {v0}, Lcom/mbridge/msdk/playercommon/exoplayer2/util/Assertions;->checkArgument(Z)V
+
+    .line 14
+    .line 15
+    .line 16
+    iget-object v0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->states:[I
+
+    .line 17
+    .line 18
+    add-int/lit8 v1, p2, 0x1
+
+    .line 19
+    .line 20
+    invoke-static {v0, v1}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->copyStatesWithSpaceForAdCount([II)[I
+
+    .line 21
+    .line 22
+    .line 23
+    move-result-object v0
+
+    .line 24
+    aget v1, v0, p2
+
+    .line 25
+    .line 26
+    if-eqz v1, :cond_1
+
+    .line 27
+    .line 28
+    if-eq v1, v3, :cond_1
+
+    .line 29
+    .line 30
+    if-ne v1, p1, :cond_2
+
+    .line 31
+    .line 32
+    :cond_1
+    move v2, v3
+
+    .line 33
+    :cond_2
+    invoke-static {v2}, Lcom/mbridge/msdk/playercommon/exoplayer2/util/Assertions;->checkArgument(Z)V
+
+    .line 34
+    .line 35
+    .line 36
+    iget-object v1, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->durationsUs:[J
+
+    .line 37
+    .line 38
+    array-length v2, v1
+
+    .line 39
+    array-length v3, v0
+
+    .line 40
+    if-eq v2, v3, :cond_3
+
+    .line 41
+    .line 42
+    array-length v2, v0
+
+    .line 43
+    invoke-static {v1, v2}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->copyDurationsUsWithSpaceForAdCount([JI)[J
+
+    .line 44
+    .line 45
+    .line 46
+    move-result-object v1
+
+    .line 47
+    :cond_3
+    iget-object v2, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->uris:[Landroid/net/Uri;
+
+    .line 48
+    .line 49
+    array-length v3, v2
+
+    .line 50
+    array-length v4, v0
+
+    .line 51
+    if-eq v3, v4, :cond_4
+
+    .line 52
+    .line 53
+    array-length v3, v0
+
+    .line 54
+    invoke-static {v2, v3}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+
+    .line 55
+    .line 56
+    .line 57
+    move-result-object v2
+
+    .line 58
+    check-cast v2, [Landroid/net/Uri;
+
+    .line 59
+    .line 60
+    :cond_4
+    aput p1, v0, p2
+
+    .line 61
+    .line 62
+    new-instance p1, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+
+    .line 63
+    .line 64
+    iget p0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->count:I
+
+    .line 65
+    .line 66
+    invoke-direct {p1, p0, v0, v2, v1}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;-><init>(I[I[Landroid/net/Uri;[J)V
+
+    .line 67
+    .line 68
+    .line 69
+    return-object p1
+.end method
+
+.method public withAdUri(Landroid/net/Uri;I)Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+    .locals 5
+    .annotation build Landroidx/annotation/CheckResult;
+    .end annotation
+
+    .line 1
+    iget v0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->count:I
+
+    .line 2
+    .line 3
+    const/4 v1, -0x1
+
+    .line 4
+    const/4 v2, 0x0
+
+    .line 5
+    const/4 v3, 0x1
+
+    .line 6
+    if-eq v0, v1, :cond_0
+
+    .line 7
+    .line 8
+    if-lt p2, v0, :cond_0
+
+    .line 9
+    .line 10
+    move v0, v2
+
+    .line 11
+    goto :goto_0
+
+    .line 12
+    :cond_0
+    move v0, v3
+
+    .line 13
+    :goto_0
+    invoke-static {v0}, Lcom/mbridge/msdk/playercommon/exoplayer2/util/Assertions;->checkArgument(Z)V
+
+    .line 14
+    .line 15
+    .line 16
+    iget-object v0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->states:[I
+
+    .line 17
+    .line 18
+    add-int/lit8 v1, p2, 0x1
+
+    .line 19
+    .line 20
+    invoke-static {v0, v1}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->copyStatesWithSpaceForAdCount([II)[I
+
+    .line 21
+    .line 22
+    .line 23
+    move-result-object v0
+
+    .line 24
+    aget v1, v0, p2
+
+    .line 25
+    .line 26
+    if-nez v1, :cond_1
+
+    .line 27
+    .line 28
+    move v2, v3
+
+    .line 29
+    :cond_1
+    invoke-static {v2}, Lcom/mbridge/msdk/playercommon/exoplayer2/util/Assertions;->checkArgument(Z)V
+
+    .line 30
+    .line 31
+    .line 32
+    iget-object v1, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->durationsUs:[J
+
+    .line 33
+    .line 34
+    array-length v2, v1
+
+    .line 35
+    array-length v4, v0
+
+    .line 36
+    if-eq v2, v4, :cond_2
+
+    .line 37
+    .line 38
+    array-length v2, v0
+
+    .line 39
+    invoke-static {v1, v2}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->copyDurationsUsWithSpaceForAdCount([JI)[J
+
+    .line 40
+    .line 41
+    .line 42
+    move-result-object v1
+
+    .line 43
+    :cond_2
+    iget-object v2, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->uris:[Landroid/net/Uri;
+
+    .line 44
+    .line 45
+    array-length v4, v0
+
+    .line 46
+    invoke-static {v2, v4}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+
+    .line 47
+    .line 48
+    .line 49
+    move-result-object v2
+
+    .line 50
+    check-cast v2, [Landroid/net/Uri;
+
+    .line 51
+    .line 52
+    aput-object p1, v2, p2
+
+    .line 53
+    .line 54
+    aput v3, v0, p2
+
+    .line 55
+    .line 56
+    new-instance p1, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+
+    .line 57
+    .line 58
+    iget p0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->count:I
+
+    .line 59
+    .line 60
+    invoke-direct {p1, p0, v0, v2, v1}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;-><init>(I[I[Landroid/net/Uri;[J)V
+
+    .line 61
+    .line 62
+    .line 63
+    return-object p1
+.end method
+
+.method public withAllAdsSkipped()Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+    .locals 5
+    .annotation build Landroidx/annotation/CheckResult;
+    .end annotation
+
+    .line 1
+    iget v0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->count:I
+
+    .line 2
+    .line 3
+    const/4 v1, -0x1
+
+    .line 4
+    const/4 v2, 0x0
+
+    .line 5
+    if-ne v0, v1, :cond_0
+
+    .line 6
+    .line 7
+    new-instance p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+
+    .line 8
+    .line 9
+    new-array v0, v2, [I
+
+    .line 10
+    .line 11
+    new-array v1, v2, [Landroid/net/Uri;
+
+    .line 12
+    .line 13
+    new-array v3, v2, [J
+
+    .line 14
+    .line 15
+    invoke-direct {p0, v2, v0, v1, v3}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;-><init>(I[I[Landroid/net/Uri;[J)V
+
+    .line 16
+    .line 17
+    .line 18
+    return-object p0
+
+    .line 19
+    :cond_0
+    iget-object v0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->states:[I
+
+    .line 20
+    .line 21
+    array-length v1, v0
+
+    .line 22
+    invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([II)[I
+
+    .line 23
+    .line 24
+    .line 25
+    move-result-object v0
+
+    .line 26
+    :goto_0
+    if-ge v2, v1, :cond_3
+
+    .line 27
+    .line 28
+    aget v3, v0, v2
+
+    .line 29
+    .line 30
+    const/4 v4, 0x1
+
+    .line 31
+    if-eq v3, v4, :cond_1
+
+    .line 32
+    .line 33
+    if-nez v3, :cond_2
+
+    .line 34
+    .line 35
+    :cond_1
+    const/4 v3, 0x2
+
+    .line 36
+    aput v3, v0, v2
+
+    .line 37
+    .line 38
+    :cond_2
+    add-int/lit8 v2, v2, 0x1
+
+    .line 39
+    .line 40
+    goto :goto_0
+
+    .line 41
+    :cond_3
+    new-instance v2, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;
+
+    .line 42
+    .line 43
+    iget-object v3, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->uris:[Landroid/net/Uri;
+
+    .line 44
+    .line 45
+    iget-object p0, p0, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;->durationsUs:[J
+
+    .line 46
+    .line 47
+    invoke-direct {v2, v1, v0, v3, p0}, Lcom/mbridge/msdk/playercommon/exoplayer2/source/ads/AdPlaybackState$AdGroup;-><init>(I[I[Landroid/net/Uri;[J)V
+
+    .line 48
+    .line 49
+    .line 50
+    return-object v2
+.end method

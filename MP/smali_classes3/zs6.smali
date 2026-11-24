@@ -1,0 +1,17 @@
+.class public interface abstract Lzs6;
+.super Ljava/lang/Object;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+
+# virtual methods
+.method public abstract a(Lge1;)Ljava/lang/Object;
+.end method
+
+.method public abstract b()Ljava/lang/Boolean;
+.end method
+
+.method public abstract c()Lxa2;
+.end method
+
+.method public abstract d()Ljava/lang/Double;
+.end method

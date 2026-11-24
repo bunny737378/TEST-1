@@ -1,0 +1,35 @@
+.class Lcom/ironsource/d2;
+.super Ljava/lang/Object;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+
+# static fields
+.field static final a:Ljava/lang/String; = "response"
+
+.field static final b:Ljava/lang/String; = "ct"
+
+.field static final c:Ljava/lang/String; = "{\"request\" : \"%1$s\"}"
+
+.field static final d:Ljava/lang/String; = "{\"sk\" : \"%1$s\", \"ct\" : \"%2$s\"}"
+
+.field static final e:Ljava/lang/String; = "Auction parsing error"
+
+.field static final f:Ljava/lang/String; = "Auction decryption error"
+
+.field static final g:Ljava/lang/String; = "Auction decompression error"
+
+.field static final h:Ljava/lang/String; = "Connection timed out"
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method

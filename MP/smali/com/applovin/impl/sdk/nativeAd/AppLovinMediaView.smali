@@ -1,0 +1,270 @@
+.class public Lcom/applovin/impl/sdk/nativeAd/AppLovinMediaView;
+.super Landroid/widget/FrameLayout;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+
+# annotations
+.annotation build Landroid/annotation/SuppressLint;
+    value = {
+        "ViewConstructor"
+    }
+.end annotation
+
+
+# instance fields
+.field protected final imageView:Landroid/widget/ImageView;
+
+.field protected final logger:Lcom/applovin/impl/sdk/p;
+
+.field protected final nativeAd:Lcom/applovin/impl/sdk/nativeAd/AppLovinNativeAdImpl;
+
+.field protected final sdk:Lcom/applovin/impl/sdk/l;
+
+
+# direct methods
+.method public constructor <init>(Lcom/applovin/impl/sdk/nativeAd/AppLovinNativeAdImpl;Lcom/applovin/impl/sdk/l;Landroid/content/Context;)V
+    .locals 4
+
+    .line 1
+    invoke-direct {p0, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+
+    .line 2
+    .line 3
+    .line 4
+    const/high16 v0, -0x1000000
+
+    .line 5
+    .line 6
+    invoke-virtual {p0, v0}, Landroid/view/View;->setBackgroundColor(I)V
+
+    .line 7
+    .line 8
+    .line 9
+    iput-object p1, p0, Lcom/applovin/impl/sdk/nativeAd/AppLovinMediaView;->nativeAd:Lcom/applovin/impl/sdk/nativeAd/AppLovinNativeAdImpl;
+
+    .line 10
+    .line 11
+    iput-object p2, p0, Lcom/applovin/impl/sdk/nativeAd/AppLovinMediaView;->sdk:Lcom/applovin/impl/sdk/l;
+
+    .line 12
+    .line 13
+    invoke-virtual {p2}, Lcom/applovin/impl/sdk/l;->Q()Lcom/applovin/impl/sdk/p;
+
+    .line 14
+    .line 15
+    .line 16
+    move-result-object v0
+
+    .line 17
+    iput-object v0, p0, Lcom/applovin/impl/sdk/nativeAd/AppLovinMediaView;->logger:Lcom/applovin/impl/sdk/p;
+
+    .line 18
+    .line 19
+    invoke-static {p3}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    .line 20
+    .line 21
+    .line 22
+    move-result-object v0
+
+    .line 23
+    sget v1, Lcom/applovin/sdk/R$layout;->applovin_native_ad_media_view:I
+
+    .line 24
+    .line 25
+    const/4 v2, 0x1
+
+    .line 26
+    invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    .line 27
+    .line 28
+    .line 29
+    invoke-virtual {p1}, Lcom/applovin/impl/sdk/nativeAd/AppLovinNativeAdImpl;->getMainImageUri()Landroid/net/Uri;
+
+    .line 30
+    .line 31
+    .line 32
+    move-result-object v0
+
+    .line 33
+    invoke-virtual {p1}, Lcom/applovin/impl/sdk/nativeAd/AppLovinNativeAdImpl;->getVastAd()Lcom/applovin/impl/w7;
+
+    .line 34
+    .line 35
+    .line 36
+    move-result-object v1
+
+    .line 37
+    const/4 v2, 0x0
+
+    .line 38
+    if-eqz v1, :cond_0
+
+    .line 39
+    .line 40
+    invoke-virtual {v1}, Lcom/applovin/impl/w7;->o0()Landroid/net/Uri;
+
+    .line 41
+    .line 42
+    .line 43
+    move-result-object v1
+
+    .line 44
+    goto :goto_0
+
+    .line 45
+    :cond_0
+    move-object v1, v2
+
+    .line 46
+    :goto_0
+    if-nez v0, :cond_1
+
+    .line 47
+    .line 48
+    if-nez v1, :cond_1
+
+    .line 49
+    .line 50
+    const-string p0, "AppLovin native ad missing image AND video resources"
+
+    .line 51
+    .line 52
+    invoke-static {p0}, Ll3d;->b(Ljava/lang/String;)V
+
+    .line 53
+    .line 54
+    .line 55
+    throw v2
+
+    .line 56
+    :cond_1
+    invoke-static {}, Landroid/os/StrictMode;->allowThreadDiskReads()Landroid/os/StrictMode$ThreadPolicy;
+
+    .line 57
+    .line 58
+    .line 59
+    move-result-object v1
+
+    .line 60
+    sget-object v2, Lcom/applovin/impl/c5;->P2:Lcom/applovin/impl/c5;
+
+    .line 61
+    .line 62
+    invoke-virtual {p2, v2}, Lcom/applovin/impl/sdk/l;->a(Lcom/applovin/impl/c5;)Ljava/lang/Object;
+
+    .line 63
+    .line 64
+    .line 65
+    move-result-object v2
+
+    .line 66
+    check-cast v2, Ljava/lang/Boolean;
+
+    .line 67
+    .line 68
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    .line 69
+    .line 70
+    .line 71
+    move-result v2
+
+    .line 72
+    if-eqz v2, :cond_2
+
+    .line 73
+    .line 74
+    new-instance v2, Lcom/applovin/impl/adview/AppLovinTouchToClickListener;
+
+    .line 75
+    .line 76
+    sget-object v3, Lcom/applovin/impl/c5;->h0:Lcom/applovin/impl/c5;
+
+    .line 77
+    .line 78
+    invoke-direct {v2, p2, v3, p3, p1}, Lcom/applovin/impl/adview/AppLovinTouchToClickListener;-><init>(Lcom/applovin/impl/sdk/l;Lcom/applovin/impl/c5;Landroid/content/Context;Lcom/applovin/impl/adview/AppLovinTouchToClickListener$OnClickListener;)V
+
+    .line 79
+    .line 80
+    .line 81
+    invoke-virtual {p0, v2}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    .line 82
+    .line 83
+    .line 84
+    goto :goto_1
+
+    .line 85
+    :cond_2
+    invoke-virtual {p0, p1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 86
+    .line 87
+    .line 88
+    :goto_1
+    sget p1, Lcom/applovin/sdk/R$id;->image_view:I
+
+    .line 89
+    .line 90
+    invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    .line 91
+    .line 92
+    .line 93
+    move-result-object p1
+
+    .line 94
+    check-cast p1, Landroid/widget/ImageView;
+
+    .line 95
+    .line 96
+    iput-object p1, p0, Lcom/applovin/impl/sdk/nativeAd/AppLovinMediaView;->imageView:Landroid/widget/ImageView;
+
+    .line 97
+    .line 98
+    if-eqz v0, :cond_3
+
+    .line 99
+    .line 100
+    invoke-static {p1, v0}, Lcom/applovin/impl/sdk/utils/ImageViewUtils;->setAndDownscaleImageUri(Landroid/widget/ImageView;Landroid/net/Uri;)V
+
+    .line 101
+    .line 102
+    .line 103
+    :cond_3
+    invoke-static {v1}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
+
+    .line 104
+    .line 105
+    .line 106
+    return-void
+.end method
+
+
+# virtual methods
+.method public destroy()V
+    .locals 1
+
+    .line 1
+    const/4 v0, 0x0
+
+    .line 2
+    invoke-virtual {p0, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 3
+    .line 4
+    .line 5
+    invoke-virtual {p0, v0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    .line 6
+    .line 7
+    .line 8
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->removeAllViews()V
+
+    .line 9
+    .line 10
+    .line 11
+    return-void
+.end method

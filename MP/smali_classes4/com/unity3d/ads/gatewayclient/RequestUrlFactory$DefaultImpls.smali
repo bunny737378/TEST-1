@@ -1,0 +1,73 @@
+.class public final Lcom/unity3d/ads/gatewayclient/RequestUrlFactory$DefaultImpls;
+.super Ljava/lang/Object;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/unity3d/ads/gatewayclient/RequestUrlFactory;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "DefaultImpls"
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    k = 0x3
+    mv = {
+        0x2,
+        0x1,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# direct methods
+.method public static synthetic getRequestUrl$default(Lcom/unity3d/ads/gatewayclient/RequestUrlFactory;Lcom/unity3d/ads/core/data/model/OperationType;Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
+    .locals 0
+
+    .line 1
+    if-nez p4, :cond_1
+
+    .line 2
+    .line 3
+    and-int/lit8 p3, p3, 0x2
+
+    .line 4
+    .line 5
+    if-eqz p3, :cond_0
+
+    .line 6
+    .line 7
+    const/4 p2, 0x0
+
+    .line 8
+    :cond_0
+    invoke-interface {p0, p1, p2}, Lcom/unity3d/ads/gatewayclient/RequestUrlFactory;->getRequestUrl(Lcom/unity3d/ads/core/data/model/OperationType;Ljava/lang/String;)Ljava/lang/String;
+
+    .line 9
+    .line 10
+    .line 11
+    move-result-object p0
+
+    .line 12
+    return-object p0
+
+    .line 13
+    :cond_1
+    const-string p0, "Super calls with default arguments not supported in this target, function: getRequestUrl"
+
+    .line 14
+    .line 15
+    invoke-static {p0}, Lhp0;->e(Ljava/lang/String;)V
+
+    .line 16
+    .line 17
+    .line 18
+    const/4 p0, 0x0
+
+    .line 19
+    return-object p0
+.end method

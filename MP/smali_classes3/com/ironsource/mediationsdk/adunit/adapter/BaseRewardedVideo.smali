@@ -1,0 +1,39 @@
+.class public abstract Lcom/ironsource/mediationsdk/adunit/adapter/BaseRewardedVideo;
+.super Lcom/ironsource/mediationsdk/adunit/adapter/internal/BaseAdInteractionAdapter;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<NetworkAdapter:",
+        "Lcom/ironsource/mediationsdk/adunit/adapter/BaseAdapter;",
+        ">",
+        "Lcom/ironsource/mediationsdk/adunit/adapter/internal/BaseAdInteractionAdapter<",
+        "TNetworkAdapter;",
+        "Lcom/ironsource/mediationsdk/adunit/adapter/listener/RewardedVideoAdListener;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Lcom/ironsource/mediationsdk/model/NetworkSettings;)V
+    .locals 1
+    .param p1    # Lcom/ironsource/mediationsdk/model/NetworkSettings;
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+
+    .line 1
+    sget-object v0, Lcom/unity3d/mediation/LevelPlay$AdFormat;->REWARDED:Lcom/unity3d/mediation/LevelPlay$AdFormat;
+
+    .line 2
+    .line 3
+    invoke-direct {p0, v0, p1}, Lcom/ironsource/mediationsdk/adunit/adapter/internal/BaseAdInteractionAdapter;-><init>(Lcom/unity3d/mediation/LevelPlay$AdFormat;Lcom/ironsource/mediationsdk/model/NetworkSettings;)V
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method

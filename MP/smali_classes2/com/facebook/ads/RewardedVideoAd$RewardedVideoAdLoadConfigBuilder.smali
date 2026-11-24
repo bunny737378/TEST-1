@@ -1,0 +1,102 @@
+.class public interface abstract Lcom/facebook/ads/RewardedVideoAd$RewardedVideoAdLoadConfigBuilder;
+.super Ljava/lang/Object;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+# interfaces
+.implements Lcom/facebook/ads/Ad$LoadConfigBuilder;
+
+
+# annotations
+.annotation build Landroidx/annotation/Keep;
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/facebook/ads/RewardedVideoAd;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "RewardedVideoAdLoadConfigBuilder"
+.end annotation
+
+
+# virtual methods
+.method public bridge synthetic build()Lcom/facebook/ads/Ad$LoadAdConfig;
+    .locals 0
+    .annotation build Lcom/facebook/ads/internal/bench/Benchmark;
+        failAtMillis = 0x5
+        warnAtMillis = 0x1
+    .end annotation
+
+    .line 1
+    invoke-interface {p0}, Lcom/facebook/ads/RewardedVideoAd$RewardedVideoAdLoadConfigBuilder;->build()Lcom/facebook/ads/RewardedVideoAd$RewardedVideoLoadAdConfig;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object p0
+
+    .line 5
+    return-object p0
+.end method
+
+.method public abstract build()Lcom/facebook/ads/RewardedVideoAd$RewardedVideoLoadAdConfig;
+    .annotation build Lcom/facebook/ads/internal/bench/Benchmark;
+        failAtMillis = 0x5
+        warnAtMillis = 0x1
+    .end annotation
+.end method
+
+.method public abstract withAdExperience(Lcom/facebook/ads/AdExperienceType;)Lcom/facebook/ads/RewardedVideoAd$RewardedVideoAdLoadConfigBuilder;
+    .annotation build Lcom/facebook/ads/internal/bench/Benchmark;
+        failAtMillis = 0x5
+        warnAtMillis = 0x1
+    .end annotation
+.end method
+
+.method public abstract withAdListener(Lcom/facebook/ads/RewardedVideoAdListener;)Lcom/facebook/ads/RewardedVideoAd$RewardedVideoAdLoadConfigBuilder;
+    .annotation build Lcom/facebook/ads/internal/bench/Benchmark;
+        failAtMillis = 0x5
+        warnAtMillis = 0x1
+    .end annotation
+.end method
+
+.method public bridge synthetic withBid(Ljava/lang/String;)Lcom/facebook/ads/Ad$LoadConfigBuilder;
+    .locals 0
+    .annotation build Lcom/facebook/ads/internal/bench/Benchmark;
+        failAtMillis = 0x5
+        warnAtMillis = 0x1
+    .end annotation
+
+    .line 1
+    invoke-interface {p0, p1}, Lcom/facebook/ads/RewardedVideoAd$RewardedVideoAdLoadConfigBuilder;->withBid(Ljava/lang/String;)Lcom/facebook/ads/RewardedVideoAd$RewardedVideoAdLoadConfigBuilder;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object p0
+
+    .line 5
+    return-object p0
+.end method
+
+.method public abstract withBid(Ljava/lang/String;)Lcom/facebook/ads/RewardedVideoAd$RewardedVideoAdLoadConfigBuilder;
+    .annotation build Lcom/facebook/ads/internal/bench/Benchmark;
+        failAtMillis = 0x5
+        warnAtMillis = 0x1
+    .end annotation
+.end method
+
+.method public abstract withFailOnCacheFailureEnabled(Z)Lcom/facebook/ads/RewardedVideoAd$RewardedVideoAdLoadConfigBuilder;
+    .annotation build Lcom/facebook/ads/internal/bench/Benchmark;
+        failAtMillis = 0x5
+        warnAtMillis = 0x1
+    .end annotation
+.end method
+
+.method public abstract withRewardData(Lcom/facebook/ads/RewardData;)Lcom/facebook/ads/RewardedVideoAd$RewardedVideoAdLoadConfigBuilder;
+    .annotation build Lcom/facebook/ads/internal/bench/Benchmark;
+        failAtMillis = 0x5
+        warnAtMillis = 0x1
+    .end annotation
+.end method

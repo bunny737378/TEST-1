@@ -1,0 +1,83 @@
+.class public final Lcom/unity3d/services/SDKErrorHandler$special$$inlined$CoroutineExceptionHandler$1;
+.super Lt0;
+.source "r8-map-id-3110aa20c830f812e174ee6f5f6df78aa204de218096f97402eecbd9b4ebf407"
+
+# interfaces
+.implements Lof1;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/unity3d/services/SDKErrorHandler;-><init>(Lmf1;Lcom/unity3d/ads/core/domain/SendDiagnosticEvent;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000!\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0003\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003*\u0001\u0000\u0008\n\u0018\u00002\u00020\u00012\u00020\u0002J\u001f\u0010\u0008\u001a\u00020\u00072\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0006\u001a\u00020\u0005H\u0016\u00a2\u0006\u0004\u0008\u0008\u0010\t\u00a8\u0006\n"
+    }
+    d2 = {
+        "com/unity3d/services/SDKErrorHandler$special$$inlined$CoroutineExceptionHandler$1",
+        "Lt0;",
+        "Lof1;",
+        "Lkf1;",
+        "context",
+        "",
+        "exception",
+        "Lj38;",
+        "handleException",
+        "(Lkf1;Ljava/lang/Throwable;)V",
+        "kotlinx-coroutines-core"
+    }
+    k = 0x1
+    mv = {
+        0x2,
+        0x1,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(Lnf1;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0, p1}, Lt0;-><init>(Ljf1;)V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public handleException(Lkf1;Ljava/lang/Throwable;)V
+    .locals 0
+
+    .line 1
+    const-string p0, "SDKErrorHandler encountered an exception: %s"
+
+    .line 2
+    .line 3
+    filled-new-array {p2}, [Ljava/lang/Object;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p1
+
+    .line 7
+    invoke-static {p0, p1}, Lcom/unity3d/services/core/log/DeviceLog;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 8
+    .line 9
+    .line 10
+    return-void
+.end method
